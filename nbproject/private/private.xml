@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp/www/gereciargov/protected/models/Gg_atendimentos.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/views/gg_solicitantes/_form.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/controllers/Gg_atendimentosController.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/views/gg_atendimentos/_form.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/controllers/Gg_usuariosController.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/models/Gg_solicitantes.php</file>
+            <file>file:/C:/wamp/www/gereciargov/assets/js/gerenciargov.js</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/views/gg_usuarios/_search.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/views/gg_usuarios/admin.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/views/gg_atendimentos/admin.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/views/gg_atendimentos/create.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/views/gg_atendimentos/_search.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/controllers/Gg_solicitantesController.php</file>
+            <file>file:/C:/wamp/www/gereciargov/protected/components/Functions.php</file>
+        </group>
+    </open-files>
+</project-private>
