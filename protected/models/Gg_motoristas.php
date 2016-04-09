@@ -29,7 +29,7 @@ class Gg_motoristas extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('motorista_nome, motorista_cpf, motorista_categoria', 'required'),
-			array('motorista_telefone', 'numerical', 'integerOnly'=>true),
+			array('motorista_telefone', 'length', 'max'=>15),
 			array('motorista_nome', 'length', 'max'=>80),
 			array('motorista_cpf', 'length', 'max'=>16),
 			array('motorista_categoria', 'length', 'max'=>2),
@@ -56,11 +56,11 @@ class Gg_motoristas extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'motoristas_id' => 'Motoristas',
-			'motorista_nome' => 'Motorista Nome',
-			'motorista_cpf' => 'Motorista Cpf',
-			'motorista_categoria' => 'Motorista Categoria',
-			'motorista_telefone' => 'Motorista Telefone',
+			'motoristas_id' => 'Código',
+			'motorista_nome' => 'Nome',
+			'motorista_cpf' => 'CPF',
+			'motorista_categoria' => 'Categoria da CNH',
+			'motorista_telefone' => 'Telefone',
 		);
 	}
 

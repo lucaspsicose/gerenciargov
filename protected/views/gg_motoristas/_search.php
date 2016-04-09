@@ -5,34 +5,23 @@
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'motoristas_id'); ?>
-		<?php echo $form->textField($model,'motoristas_id'); ?>
-	</div>
-
-	<div class="row">
+	<div class="form-group">
 		<?php echo $form->label($model,'motorista_nome'); ?>
-		<?php echo $form->textField($model,'motorista_nome',array('size'=>60,'maxlength'=>80)); ?>
+		<?php echo $form->textField($model,'motorista_nome',array('class'=>'form-control','size'=>60,'maxlength'=>80)); ?>
 	</div>
 
-	<div class="row">
+	<div class="form-group">
 		<?php echo $form->label($model,'motorista_cpf'); ?>
-		<?php echo $form->textField($model,'motorista_cpf',array('size'=>16,'maxlength'=>16)); ?>
+		<?php echo $form->textField($model,'motorista_cpf',array('class'=>'form-control cpf','size'=>16,'maxlength'=>16)); ?>
 	</div>
 
-	<div class="row">
+	<div class="form-group">
 		<?php echo $form->label($model,'motorista_categoria'); ?>
-		<?php echo $form->textField($model,'motorista_categoria',array('size'=>2,'maxlength'=>2)); ?>
+		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control','size'=>2,'maxlength'=>2)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'motorista_telefone'); ?>
-		<?php echo $form->textField($model,'motorista_telefone'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
-	</div>
+	<?php echo CHtml::submitButton('Pesquisar', array('class'=>'btn btn-default')); ?>
+	
 
 <?php $this->endWidget(); ?>
 

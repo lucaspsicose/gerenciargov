@@ -5,8 +5,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_motoristas', 'url'=>array('index')),
-	array('label'=>'Create Gg_motoristas', 'url'=>array('create')),
+        array('label'=>'Cadastrar Novo Motorista', 'url'=>array('create')),
+        array('label'=>'Lista de Motoristas', 'url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -21,16 +21,13 @@ $('.search-form form').submit(function(){
 	return false;
 });
 ");
+
+$this->setPageTitle('Motoristas');
 ?>
 
-<h1>Manage Gg Motoristases</h1>
+<h1>Consulta de Motoristas</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Pesquisa Avançada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -40,7 +37,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'gg-motoristas-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
 	'columns'=>array(
 		'motoristas_id',
 		'motorista_nome',
@@ -51,4 +47,5 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'class'=>'CButtonColumn',
 		),
 	),
+        'itemsCssClass' => 'table table-responsive',
 )); ?>

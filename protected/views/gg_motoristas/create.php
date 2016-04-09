@@ -1,15 +1,19 @@
 <?php
 $this->breadcrumbs=array(
-	'Gg Motoristases'=>array('index'),
-	'Create',
+	'Cadastro de Motoristas'=>array('index'),
+	'Cadastro',
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_motoristas', 'url'=>array('index')),
-	array('label'=>'Manage Gg_motoristas', 'url'=>array('admin')),
+	array('label'=>'Cadastrar Novo Motorista', 'url'=>array('create')),
+	array('label'=>'Lista de Motoristas', 'url'=>array('admin')),
 );
+
+$this->setPageTitle('Cadastro de Motorista');
 ?>
 
-<h1>Create Gg_motoristas</h1>
+<div class="bs-docs-section mar-b-30">
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+    <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+
+</div>
