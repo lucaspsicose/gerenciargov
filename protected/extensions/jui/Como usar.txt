@@ -1,0 +1,9 @@
+<?php $this->widget('ext.jui.EJuiDateTimePicker',array(
+                                        'model'=>$model,                     // Model object
+                                        'attribute'=>'atendimento_inclusao', // Attribute name
+                                        'mode'=>'date',                      // Use "time","date" or "datetime" (default)
+                                        'options'=>array('dateFormat' => 'dd/mm/yy',
+                                                        //'timeFormat' => '',//'hh:mm tt' default), // jquery plugin options
+                                            ),
+                                        'htmlOptions'=>array('readonly'=>TRUE, 'class'=>'form-control',) // HTML options
+                                )); ?>

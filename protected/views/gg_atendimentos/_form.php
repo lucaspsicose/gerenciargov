@@ -25,16 +25,7 @@
             <div class="form-group col-md-3">
                     <?php echo $form->labelEx($model,'atendimento_inclusao'); ?>
                     <?php if (!$model->isNewRecord) : ?>
-                    <?php //echo $form->textField($model,'atendimento_inclusao', array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
-                    <?php $this->widget('ext.jui.EJuiDateTimePicker',array(
-                                        'model'=>$model,                     // Model object
-                                        'attribute'=>'atendimento_inclusao', // Attribute name
-                                        'mode'=>'date',                      // Use "time","date" or "datetime" (default)
-                                        'options'=>array('dateFormat' => 'dd/mm/yy',
-                                                        //'timeFormat' => '',//'hh:mm tt' default), // jquery plugin options
-                                            ),
-                                        'htmlOptions'=>array('readonly'=>TRUE, 'class'=>'form-control',) // HTML options
-                                )); ?>
+                    <?php echo $form->textField($model,'atendimento_inclusao', array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
                     <?php echo $form->error($model,'atendimento_inclusao'); ?>
                     <?php else : ?> 
                     <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>

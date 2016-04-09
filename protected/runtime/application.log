@@ -21605,3 +21605,12 @@ Stack trace:
 REQUEST_URI=/gerenciargov/gg_usuarios/admin
 HTTP_REFERER=http://localhost/gerenciargov/gg_usuarios
 ---
+2016/04/09 18:51:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/css/images/ui-icons_555555_256x240.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/css/imag...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/css/images/ui-icons_555555_256x240.png
+HTTP_REFERER=http://localhost/gerenciargov/assets/css/jquery-ui-custom.css
+---
