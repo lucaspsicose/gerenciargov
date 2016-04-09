@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Lista de Atendimentos', 'url'=>array('index')),
+	array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
 	array('label'=>'Novo Atendimento', 'url'=>array('create')),
 );
 
@@ -38,14 +38,13 @@ $('.search-form form').submit(function(){
 	//'filter'=>$model,
 	'columns'=>array(
 		'atendimentos_id',
-		'usuarios_id',
-		'secretarias_id',
+		'solicitantes.solicitante_nome',
+		'secretarias.secretaria_nome',
 		'atendimento_protocolo',
-		'status_id',
-		'atendimento_descricao',
-		/*
+		'status.status_nome',
 		'atendimento_inclusao',
-		'atendimento_alteracao',
+                'sec_origem.secretaria_nome',
+		/*'atendimento_alteracao',
 		'solicitantes_id',
 		'atendimento_descricao_status',
 		'atendimento_endereco',
@@ -57,4 +56,9 @@ $('.search-form form').submit(function(){
 		),
 	),
         'itemsCssClass' => 'table table-responsive',
+        'pagerCssClass' => 'text-center',
+        'pager' => array(
+            'htmlOptions'=> array('class'=>'pagination'),
+            'header'=>'',
+            ),
 )); ?>

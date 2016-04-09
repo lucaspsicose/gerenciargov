@@ -2001,7 +2001,7 @@ ul#filters > .active > span {
     background-color: #f1f2f7;
 }
 .modal-content {
-	width:70%;
+	width:100%;
 	padding:5% 10% 5% 10%;
 	border-top: 30px;
     border-radius: 1px;
@@ -2980,4 +2980,12 @@ div.header h3{
 	background-repeat:no-repeat;
 	background-position:center;
 	width:35px;
+}
+
+.form-group-12 {
+  position: relative;
+  min-height: 1px;
+  /*padding-right: 15px !important;
+  padding-left: 15px !important;*/
+  padding: 0 15px 0 15px;
 }

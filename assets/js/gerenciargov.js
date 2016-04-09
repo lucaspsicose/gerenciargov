@@ -17,7 +17,19 @@ $(document).ready(function() {
           }
         });
       });
- jQuery( function($){
+ 
+
+$('#cpf_cnpj_1').click(function() {
+    $("#cpf-cnpj").removeClass("form-control cpf");
+    $("#cpf-cnpj").addClass("form-control cnpj");
+});
+
+$('#cpf_cnpj_0').click(function() {
+    $("#cpf-cnpj").removeClass("form-control cnpj");
+    $("#cpf-cnpj").addClass("form-control cpf");
+});
+
+jQuery( function($){
 
     $(".data").mask("99/99/9999");
     $(".tel").mask("(99) 9999-9999");
@@ -27,16 +39,6 @@ $(document).ready(function() {
     $(".cep").mask("99999-999");
 
 });
-
-    $('#cpf_cnpj_1').click(function() {
-        $('#Gg_solicitantes_solicitante_cpf_cnpj').removeClass('cpf');
-        $('#Gg_solicitantes_solicitante_cpf_cnpj').addClass('cnpj');
-    });
-    
-    $('#cpf_cnpj_0').click(function() {
-        $('#Gg_solicitantes_solicitante_cpf_cnpj').removeClass('cnpj');
-        $('#Gg_solicitantes_solicitante_cpf_cnpj').addClass('cpf');
-    });
 	  
 $(document).ready(function($) {
 		

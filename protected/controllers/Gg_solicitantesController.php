@@ -73,8 +73,13 @@ class Gg_solicitantesController extends Controller
 		if(isset($_POST['Gg_solicitantes']))
 		{
 			$model->attributes=$_POST['Gg_solicitantes'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->solicitantes_id));
+			if($model->save()) {
+				if (isset($_POST['atendimentos'])) {
+                                    $this->redirect(array($_POST['lightbox'])); 
+                                } else {
+                                    $this->redirect(array('admin'));
+                                };
+                        }
 		}
 
 		$this->render('create',array(

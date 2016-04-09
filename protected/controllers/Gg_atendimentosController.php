@@ -74,8 +74,9 @@ class Gg_atendimentosController extends Controller
 		if(isset($_POST['Gg_atendimentos']))
 		{
 			$model->attributes=$_POST['Gg_atendimentos'];
-			if($model->save())
+			if($model->save()) {
 				$this->redirect(array('view','id'=>$model->atendimentos_id));
+                        }
 		}
 
 		$this->render('create',array(
@@ -97,8 +98,9 @@ class Gg_atendimentosController extends Controller
 		if(isset($_POST['Gg_atendimentos']))
 		{
 			$model->attributes=$_POST['Gg_atendimentos'];
-			if($model->save())
+			if($this->saveAtendimentos($_POST)) {
 				$this->redirect(array('view','id'=>$model->atendimentos_id));
+                        }
 		}
 
 		$this->render('update',array(
@@ -112,7 +114,7 @@ class Gg_atendimentosController extends Controller
 	 */
 	public function actionDelete()
 	{
-		if(Yii::app()->request->isPostRequest)
+		if(!Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
 			$this->loadModel()->delete();
@@ -185,4 +187,10 @@ class Gg_atendimentosController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        /*private function saveAtendimentos($array = array()) {
+            $db = new DbExt();
+            
+            $protocolo = $array[''];
+        } */
 }

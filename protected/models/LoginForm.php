@@ -71,13 +71,13 @@ class LoginForm extends CFormModel
         public function login()
 		{			
 			$DbExt=new DbExt;
-			$stmt="SELECT * FROM
-			       Gg_usuarios
-			       WHERE
-			       usuario_login=".Yii::app()->db->quoteValue($this->data['username'])."
-			       AND
-			       usuario_senha=".Yii::app()->db->quoteValue(md5($this->data['password']))."
-			       LIMIT 0,1
+			$stmt=" SELECT *
+                                  FROM Gg_usuarios
+                                WHERE
+                                usuario_login=".Yii::app()->db->quoteValue($this->data['username'])."
+                                AND
+                                usuario_senha=".Yii::app()->db->quoteValue(md5($this->data['password']))."
+                                LIMIT 0,1
 			";
                         $session = Yii::app()->session;
 			if ( $res=$DbExt->rst($stmt)){
@@ -87,6 +87,7 @@ class LoginForm extends CFormModel
                                 $session['perfil']              = $key['perfis_id'];
                                 $session['usuario_email']       =$key['usuario_email'];
                                 $session['usuario_secretarias'] = Yii::app()->functions->getSecretariasByUsuario($key['usuarios_id']);
+                                $session['active_prefeituras_id'] = $key['prefeituras_id'];
                             }
 				
                                 $function = new Functions();

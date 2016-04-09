@@ -9,6 +9,7 @@
  * @property string $secretaria_secretario
  * @property string $secretaria_telefone
  * @property string $secretaria_email
+ * @property integer $prefeituras_id
  */
 class Gg_secretarias extends CActiveRecord
 {
@@ -34,7 +35,7 @@ class Gg_secretarias extends CActiveRecord
 			array('secretaria_telefone', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('secretarias_id, secretaria_nome, secretaria_secretario, secretaria_telefone, secretaria_email', 'safe', 'on'=>'search'),
+			array('secretarias_id, secretaria_nome, secretaria_secretario, secretaria_telefone, secretaria_email, prefeituras_id, prefeituras.prefeitura_nome', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,6 +47,7 @@ class Gg_secretarias extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
 		);
 	}
 
@@ -60,6 +62,8 @@ class Gg_secretarias extends CActiveRecord
 			'secretaria_secretario' => 'Secretário',
 			'secretaria_telefone' => 'Telefone',
 			'secretaria_email' => 'Email',
+                        'prefeituras_id' => 'Código da Prefeitura',
+                        'prefeituras.prefeitura_nome' => 'Prefeitura',
 		);
 	}
 
@@ -90,6 +94,12 @@ class Gg_secretarias extends CActiveRecord
 		$criteria->compare('secretaria_telefone',$this->secretaria_telefone,true);
 
 		$criteria->compare('secretaria_email',$this->secretaria_email,true);
+                
+                $criteria->compare('prefeituras_id', $this->prefeituras_id, true);
+                
+                $criteria->compare('prefeituras.prefeitura_nome', $this->prefeituras_id, TRUE);
+                
+                $criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
 
 		return new CActiveDataProvider('Gg_secretarias', array(
 			'criteria'=>$criteria,

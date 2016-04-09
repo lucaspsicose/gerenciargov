@@ -5,11 +5,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_solicitantes', 'url'=>array('index')),
-	array('label'=>'Manage Gg_solicitantes', 'url'=>array('admin')),
+	array('label'=>'Lista de Solicitantes', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Gg_solicitantes</h1>
+<h1>Cadastro de Solicitantes</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -35,7 +35,7 @@ class Gg_solicitantes extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('solicitante_nome, solicitante_telefone, solicitante_celular, solicitante_cpf_cnpj, solicitante_endereco, solicitante_numero, solicitante_bairro, solicitante_email, solicitante_data_nascimento, solicitante_rg, solicitante_titulo_eleitor', 'required'),
+			array('solicitante_nome, solicitante_telefone, solicitante_celular, solicitante_cpf_cnpj, solicitante_endereco, solicitante_numero, solicitante_bairro, solicitante_data_nascimento, solicitante_rg, solicitante_titulo_eleitor', 'required'),
 			array('solicitante_nome, solicitante_endereco, solicitante_email', 'length', 'max'=>80),
 			array('solicitante_telefone, solicitante_celular, solicitante_numero', 'length', 'max'=>15),
 			array('solicitante_cpf_cnpj', 'length', 'max'=>16),

@@ -21073,3 +21073,1116 @@ in C:\wamp\www\gerenciargov\index.php (13)
 2016/04/05 22:53:57 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
 in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
 in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/05 23:04:40 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 01:18:55 [error] [exception.CException] exception 'CException' with message 'A propriedade "CRequiredValidator.class" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\validators\CValidator.php(177): CComponent->__set('class', 'has-error')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CModel.php(287): CValidator::createValidator('required', Object(Gg_solicitantes), 'solicitante_nom...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\base\CModel.php(260): CModel->createValidators()
+#3 C:\wamp\www\gerenciargov\yii\framework\base\CModel.php(547): CModel->getValidators()
+#4 C:\wamp\www\gerenciargov\yii\framework\base\CModel.php(468): CModel->getSafeAttributeNames()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php(152): CModel->setAttributes(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('attributes', Array)
+#7 C:\wamp\www\gerenciargov\protected\controllers\Gg_solicitantesController.php(75): CActiveRecord->__set('attributes', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_solicitantesController->actionCreate()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_solicitantes...')
+#19 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/gerenciargov/gg_solicitantes/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_solicitantes/create
+---
+2016/04/06 01:42:18 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_atendimentos.solicitante_nome" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('solicitante_nom...')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('solicitante_nom...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(Gg_atendimentos), 'solicitante_nom...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(168): CActiveForm->textField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/Admin/?s=3
+---
+2016/04/06 01:43:56 [error] [exception.CException] exception 'CException' with message 'Gg_solicitantes and its behaviors do not have a method or closure named "labelEx".' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('labelEx', Array)
+#1 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(167): CActiveRecord->__call('labelEx', Array)
+#2 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(167): Gg_solicitantes->labelEx(Object(Gg_atendimentos), 'solicitante_nom...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#11 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#23 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/Admin/?s=3
+---
+2016/04/06 01:46:06 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_atendimentos.solicitante_nome" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('solicitante_nom...')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('solicitante_nom...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(Gg_atendimentos), 'solicitante_nom...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(168): CActiveForm->textField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/Admin/?s=3
+---
+2016/04/06 01:47:24 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_atendimentos.solicitante_nome" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('solicitante_nom...')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('solicitante_nom...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(Gg_atendimentos), 'solicitante_nom...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(168): CActiveForm->textField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/Admin/?s=3
+---
+2016/04/06 01:48:02 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_atendimentos.solicitante_nome" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('solicitante_nom...')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('solicitante_nom...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(Gg_atendimentos), 'solicitante_nom...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(168): CActiveForm->textField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+---
+2016/04/06 01:48:05 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_atendimentos.solicitante_nome" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('solicitante_nom...')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('solicitante_nom...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(Gg_atendimentos), 'solicitante_nom...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(168): CActiveForm->textField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+---
+2016/04/06 01:48:28 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_atendimentos.solicitante_nome" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('solicitante_nom...')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('solicitante_nom...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(Gg_atendimentos), 'solicitante_nom...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(168): CActiveForm->textField(Object(Gg_atendimentos), 'solicitante_nom...', Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+---
+2016/04/06 01:57:00 [error] [exception.CException] exception 'CException' with message 'A propriedade "CActiveForm.ajax" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('ajax', Array)
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'CActiveForm', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(197): CBaseController->createWidget('CActiveForm', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(155): CBaseController->beginWidget('CActiveForm', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(83): CController->render('create', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+---
+2016/04/06 02:09:11 [error] [php] Undefined index: lightbox (C:\wamp\www\gerenciargov\protected\controllers\Gg_solicitantesController.php:78)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_solicitantesController->runAction()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_solicitantesController->filterAccessControl()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_solicitantesController->runActionWithFilters()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_solicitantesController->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_solicitantes/create
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_solicitantesController.php (78)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:10:41 [error] [php] Undefined index: lightbox (C:\wamp\www\gerenciargov\protected\controllers\Gg_solicitantesController.php:78)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_solicitantesController->runAction()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_solicitantesController->filterAccessControl()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_solicitantesController->runActionWithFilters()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_solicitantesController->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_solicitantes/create
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_solicitantesController.php (78)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:14:24 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:14:24 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gerenciargov`.`gg_atendimentos`, CONSTRAINT `Gg_atendimentos_ibfk_4` FOREIGN KEY (`servicos_id`) REFERENCES `gg_servicos` (`servicos_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). A declaração SQL executada foi: INSERT INTO `Gg_atendimentos` (`atendimento_alteracao`, `usuarios_id`, `secretarias_id`, `atendimento_protocolo`, `status_id`, `atendimento_inclusao`, `solicitantes_id`, `atendimento_endereco`, `atendimento_numero`, `atendimento_bairro`, `servicos_id`, `atendimento_descricao_status`, `atendimento_descricao`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (77)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:14:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gerenciargov`.`gg_atendimentos`, CONSTRAINT `Gg_atendimentos_ibfk_4` FOREIGN KEY (`servicos_id`) REFERENCES `gg_servicos` (`servicos_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Gg_atendimentos` (`atendimento_alteracao`, `usuarios_id`, `secretarias_id`, `atendimento_protocolo`, `status_id`, `atendimento_inclusao`, `solicitantes_id`, `atendimento_endereco`, `atendimento_numero`, `atendimento_bairro`, `servicos_id`, `atendimento_descricao_status`, `atendimento_descricao`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): CActiveRecord->save()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#14 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/create
+---
+2016/04/06 02:16:10 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:16:11 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gerenciargov`.`gg_atendimentos`, CONSTRAINT `Gg_atendimentos_ibfk_4` FOREIGN KEY (`servicos_id`) REFERENCES `gg_servicos` (`servicos_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). A declaração SQL executada foi: INSERT INTO `Gg_atendimentos` (`atendimento_alteracao`, `usuarios_id`, `secretarias_id`, `atendimento_protocolo`, `status_id`, `atendimento_inclusao`, `solicitantes_id`, `atendimento_endereco`, `atendimento_numero`, `atendimento_bairro`, `servicos_id`, `atendimento_descricao_status`, `atendimento_descricao`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (77)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:16:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gerenciargov`.`gg_atendimentos`, CONSTRAINT `Gg_atendimentos_ibfk_4` FOREIGN KEY (`servicos_id`) REFERENCES `gg_servicos` (`servicos_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Gg_atendimentos` (`atendimento_alteracao`, `usuarios_id`, `secretarias_id`, `atendimento_protocolo`, `status_id`, `atendimento_inclusao`, `solicitantes_id`, `atendimento_endereco`, `atendimento_numero`, `atendimento_bairro`, `servicos_id`, `atendimento_descricao_status`, `atendimento_descricao`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): CActiveRecord->save()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#14 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/create
+---
+2016/04/06 02:34:32 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:34:33 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::execute(): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gerenciargov`.`gg_atendimentos`, CONSTRAINT `Gg_atendimentos_ibfk_4` FOREIGN KEY (`servicos_id`) REFERENCES `gg_servicos` (`servicos_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). A declaração SQL executada foi: INSERT INTO `Gg_atendimentos` (`atendimento_alteracao`, `usuarios_id`, `secretarias_id`, `atendimento_protocolo`, `status_id`, `atendimento_inclusao`, `solicitantes_id`, `atendimento_endereco`, `atendimento_numero`, `atendimento_bairro`, `servicos_id`, `atendimento_descricao_status`, `atendimento_descricao`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (77)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/06 02:34:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gerenciargov`.`gg_atendimentos`, CONSTRAINT `Gg_atendimentos_ibfk_4` FOREIGN KEY (`servicos_id`) REFERENCES `gg_servicos` (`servicos_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Gg_atendimentos` (`atendimento_alteracao`, `usuarios_id`, `secretarias_id`, `atendimento_protocolo`, `status_id`, `atendimento_inclusao`, `solicitantes_id`, `atendimento_endereco`, `atendimento_numero`, `atendimento_bairro`, `servicos_id`, `atendimento_descricao_status`, `atendimento_descricao`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(1080): CDbCommand->execute()
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(809): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): CActiveRecord->save()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#14 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/create
+---
+2016/04/06 02:35:31 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/07 22:49:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/04/08 01:07:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/04/08 01:43:18 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:43:18 [error] [php] Undefined index:  (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:194)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (194)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (77)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:44:03 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:44:03 [error] [exception.CException] exception 'CException' with message 'Gg_atendimentosController and its behaviors do not have a method or closure named "saveAtendimentos".' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): CComponent->__call('saveAtendimento...', Array)
+#1 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): Gg_atendimentosController->saveAtendimentos(Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#13 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/create
+---
+2016/04/08 01:44:31 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:44:31 [error] [exception.CException] exception 'CException' with message 'Gg_atendimentosController and its behaviors do not have a method or closure named "save".' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): CComponent->__call('save', Array)
+#1 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): Gg_atendimentosController->save()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#13 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/create
+---
+2016/04/08 01:45:04 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:45:55 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:47:01 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:47:52 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:50:48 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:52:07 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:55:37 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:56:10 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:56:22 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 01:59:18 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 02:01:26 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 02:04:24 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchColumn(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1. A declaração SQL executada foi: SELECT COUNT(DISTINCT `t`.`atendimentos_id`) FROM `Gg_atendimentos` `t`  LEFT OUTER JOIN `Gg_secretarias` `secretarias` ON (`t`.`secretarias_id`=`secretarias`.`secretarias_id`) LEFT OUTER JOIN `Gg_status` `status` ON (`t`.`status_id`=`status`.`status_id`) LEFT OUTER JOIN `Gg_servicos` `servicos` ON (`t`.`servicos_id`=`servicos`.`servicos_id`) LEFT OUTER JOIN `Gg_solicitantes` `solicitantes` ON (`t`.`solicitantes_id`=`solicitantes`.`solicitantes_id`) WHERE (secretarias.secretarias_id = ).
+in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\admin.php (60)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (159)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 02:04:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`atendimentos_id`) FROM `Gg_atendimentos` `t`  LEFT OUTER JOIN `Gg_secretarias` `secretarias` ON (`t`.`secretarias_id`=`secretarias`.`secretarias_id`) LEFT OUTER JOIN `Gg_status` `status` ON (`t`.`status_id`=`status`.`status_id`) LEFT OUTER JOIN `Gg_servicos` `servicos` ON (`t`.`servicos_id`=`servicos`.`servicos_id`) LEFT OUTER JOIN `Gg_solicitantes` `solicitantes` ON (`t`.`solicitantes_id`=`solicitantes`.`solicitantes_id`) WHERE (secretarias.secretarias_id = )' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveFinder.php(764): CDbCommand->queryScalar()
+#2 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(1610): CActiveFinder->count(Object(CDbCriteria))
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#8 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(125): CDataProvider->getData()
+#9 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(147): CGridView->init()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#12 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\admin.php(60): CBaseController->widget('zii.widgets.gri...', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#17 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(159): CController->render('admin', Array)
+#18 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionAdmin()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#23 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#28 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#29 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#30 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/admin
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/create
+---
+2016/04/08 02:13:45 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 02:13:45 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_atendimentos.modified" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('modified', Object(CDbExpression))
+#1 C:\wamp\www\gerenciargov\yii\framework\validators\CDefaultValueValidator.php(41): CActiveRecord->__set('modified', Object(CDbExpression))
+#2 C:\wamp\www\gerenciargov\yii\framework\validators\CValidator.php(201): CDefaultValueValidator->validateAttribute(Object(Gg_atendimentos), 'modified')
+#3 C:\wamp\www\gerenciargov\yii\framework\base\CModel.php(159): CValidator->validate(Object(Gg_atendimentos), NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(808): CModel->validate(NULL)
+#5 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(77): CActiveRecord->save()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#17 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/create
+---
+2016/04/08 02:14:07 [warning] [application] Failed to set unsafe attribute "atendimento_alteracao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (76)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/08 02:15:22 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Invalid request. Please do not repeat this request again.' in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:127
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionDelete()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#11 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/delete/1
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/09 13:48:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/index.php
+---
+2016/04/09 13:54:32 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "dropdownlis".' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(33): CComponent->__call('dropdownlis', Array)
+#1 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(33): CActiveForm->dropdownlis(Object(Gg_atendimentos), 'secretarias_id')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): CController->renderPartial('_form', Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#10 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(84): CController->render('create', Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#22 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/Admin/?s=3
+---
+2016/04/09 13:54:46 [error] [php] Missing argument 3 for CActiveForm::dropDownList(), called in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php on line 33 and defined (C:\wamp\www\gerenciargov\yii\framework\web\widgets\CActiveForm.php:912)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_atendimentosController->renderInternal()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_atendimentosController->renderFile()
+#2 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php(14): Gg_atendimentosController->renderPartial()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_atendimentosController->renderInternal()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_atendimentosController->renderFile()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): Gg_atendimentosController->renderPartial()
+#7 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(84): Gg_atendimentosController->render()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionCreate()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/create
+in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php (33)
+in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\create.php (14)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (84)
+2016/04/09 17:12:40 [error] [php] include(pagination.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 C:\wamp\www\gerenciargov\yii\framework\YiiBase.php(303): class_exists()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): import()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CGridView->createWidget()
+#5 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(285): CGridView->widget()
+#6 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(181): CGridView->renderPager()
+#7 unknown(0): CGridView->renderSection()
+#8 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#9 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(149): CGridView->renderContent()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(181): CGridView->run()
+#11 C:\wamp\www\gerenciargov\protected\views\gg_usuarios\admin.php(56): Gg_usuariosController->widget()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_usuariosController->renderInternal()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_usuariosController->renderFile()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): Gg_usuariosController->renderPartial()
+#16 C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php(182): Gg_usuariosController->render()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_usuariosController->actionAdmin()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_usuariosController->runAction()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#22 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_usuariosController->filterAccessControl()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_usuariosController->runActionWithFilters()
+#26 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_usuariosController->run()
+#27 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#28 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#29 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_usuarios/Admin
+in C:\wamp\www\gerenciargov\protected\views\gg_usuarios\admin.php (56)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php (182)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/09 17:17:14 [error] [php] include(pagination.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 C:\wamp\www\gerenciargov\yii\framework\YiiBase.php(303): class_exists()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): import()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CGridView->createWidget()
+#5 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(285): CGridView->widget()
+#6 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(181): CGridView->renderPager()
+#7 unknown(0): CGridView->renderSection()
+#8 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#9 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CBaseListView.php(149): CGridView->renderContent()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(181): CGridView->run()
+#11 C:\wamp\www\gerenciargov\protected\views\gg_usuarios\admin.php(56): Gg_usuariosController->widget()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_usuariosController->renderInternal()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_usuariosController->renderFile()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): Gg_usuariosController->renderPartial()
+#16 C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php(182): Gg_usuariosController->render()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_usuariosController->actionAdmin()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_usuariosController->runAction()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#22 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_usuariosController->filterAccessControl()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_usuariosController->runActionWithFilters()
+#26 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_usuariosController->run()
+#27 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#28 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#29 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_usuarios/Admin
+in C:\wamp\www\gerenciargov\protected\views\gg_usuarios\admin.php (56)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php (182)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/09 17:25:37 [error] [exception.CException] exception 'CException' with message 'A propriedade "CGridView.header" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('header', '')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_usuariosController), 'zii.widgets.gri...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_usuarios\admin.php(59): CBaseController->widget('zii.widgets.gri...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php(182): CController->render('admin', Array)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_usuariosController->actionAdmin()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('Admin')
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_usuarios/Adm...')
+#20 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gerenciargov/gg_usuarios/Admin?Gg_usuarios_page=2&Gg_usuarios_sort=usuarios_id.desc
+HTTP_REFERER=http://localhost/gerenciargov/gg_usuarios/Admin?Gg_usuarios_page=2&Gg_usuarios_sort=usuarios_id
+---
+2016/04/09 17:27:45 [error] [exception.CException] exception 'CException' with message 'A propriedade "CGridView.header" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('header', 'teste')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_usuariosController), 'zii.widgets.gri...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_usuarios\admin.php(59): CBaseController->widget('zii.widgets.gri...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php(182): CController->render('admin', Array)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_usuariosController->actionAdmin()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('Admin')
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_usuarios/Adm...')
+#20 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gerenciargov/gg_usuarios/Admin?Gg_usuarios_page=2&Gg_usuarios_sort=usuarios_id.desc
+HTTP_REFERER=http://localhost/gerenciargov/gg_usuarios/Admin?Gg_usuarios_page=2&Gg_usuarios_sort=usuarios_id
+---
+2016/04/09 18:11:01 [error] [php] include(CJuiDateTimePicker.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 C:\wamp\www\gerenciargov\yii\framework\YiiBase.php(303): class_exists()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): import()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): Gg_atendimentosController->createWidget()
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): Gg_atendimentosController->widget()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_atendimentosController->renderInternal()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_atendimentosController->renderFile()
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): Gg_atendimentosController->renderPartial()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_atendimentosController->renderInternal()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_atendimentosController->renderFile()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): Gg_atendimentosController->renderPartial()
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): Gg_atendimentosController->render()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php (36)
+in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php (18)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (108)
+2016/04/09 18:16:36 [error] [php] include(EJuiDateTimePicker.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 unknown(0): spl_autoload_call()
+#1 C:\wamp\www\gerenciargov\yii\framework\YiiBase.php(303): class_exists()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): import()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): Gg_atendimentosController->createWidget()
+#5 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): Gg_atendimentosController->widget()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_atendimentosController->renderInternal()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_atendimentosController->renderFile()
+#9 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): Gg_atendimentosController->renderPartial()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): Gg_atendimentosController->renderInternal()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): Gg_atendimentosController->renderFile()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): Gg_atendimentosController->renderPartial()
+#14 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): Gg_atendimentosController->render()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#25 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#26 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php (36)
+in C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php (18)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (108)
+2016/04/09 18:18:35 [error] [exception.CException] exception 'CException' with message 'O alias "zii.widgets.CJuiDateTimePicker" é inválido. Assegure-se de que ele aponta para um arquivo PHP existente.' in C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:323
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('zii.widgets.CJu...', true)
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'zii.widgets.CJu...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.CJu...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): CBaseController->widget('zii.widgets.CJu...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): CController->render('update', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/09 18:19:00 [error] [exception.CException] exception 'CException' with message 'O alias "zii.widgets.jui.CJuiDateTimePicker" é inválido. Assegure-se de que ele aponta para um arquivo PHP existente.' in C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:323
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('zii.widgets.jui...', true)
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'zii.widgets.jui...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.jui...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): CBaseController->widget('zii.widgets.jui...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): CController->render('update', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/09 18:19:35 [error] [exception.CException] exception 'CException' with message 'A propriedade "CJuiDatePicker.mode" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('mode', 'datetime')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'zii.widgets.jui...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.jui...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): CBaseController->widget('zii.widgets.jui...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): CController->render('update', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/09 18:21:43 [error] [exception.CException] exception 'CException' with message 'A propriedade "CJuiDatePicker.mode" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('mode', 'datetime')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'zii.widgets.jui...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.jui...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): CBaseController->widget('zii.widgets.jui...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): CController->render('update', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/09 18:22:08 [error] [exception.CException] exception 'CException' with message 'A propriedade "CJuiDatePicker.mode" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('mode', 'datetime')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'zii.widgets.jui...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.jui...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): CBaseController->widget('zii.widgets.jui...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): CController->render('update', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/09 18:25:41 [error] [exception.CException] exception 'CException' with message 'O recurso "C:\wamp\www\gerenciargov\protected\extensions\jui\assets", a ser publicado, não existe.' in C:\wamp\www\gerenciargov\yii\framework\web\CAssetManager.php:257
+Stack trace:
+#0 C:\wamp\www\gerenciargov\protected\extensions\jui\EJuiDateTimePicker.php(68): CAssetManager->publish('C:\wamp\www\ger...')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(147): EJuiDateTimePicker->init()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('ext.jui.EJuiDat...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\_form.php(36): CBaseController->widget('ext.jui.EJuiDat...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\update.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(108): CController->render('update', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionUpdate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/update/2
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/09 18:31:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/css/images/ui-icons_444444_256x240.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/css/imag...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/css/images/ui-icons_444444_256x240.png
+HTTP_REFERER=http://localhost/gerenciargov/assets/css/jquery-ui-custom.css
+---
+2016/04/09 18:31:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/css/images/ui-icons_555555_256x240.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/css/imag...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/css/images/ui-icons_555555_256x240.png
+HTTP_REFERER=http://localhost/gerenciargov/assets/css/jquery-ui-custom.css
+---
+2016/04/09 18:32:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/css/images/ui-icons_444444_256x240.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/css/imag...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/css/images/ui-icons_444444_256x240.png
+HTTP_REFERER=http://localhost/gerenciargov/assets/css/jquery-ui-custom.css
+---
+2016/04/09 18:34:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/css/images/ui-icons_444444_256x240.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/css/imag...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/css/images/ui-icons_444444_256x240.png
+HTTP_REFERER=http://localhost/gerenciargov/assets/css/jquery-ui-custom.css
+---
