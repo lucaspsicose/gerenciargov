@@ -40,7 +40,7 @@ class LoginForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'rememberMe'=>'Remember me next time',
+			'rememberMe'=>'Lembrar-me',
 		);
 	}
         
@@ -71,8 +71,10 @@ class LoginForm extends CFormModel
         public function login()
 		{			
 			$DbExt=new DbExt;
-			$stmt=" SELECT *
-                                  FROM Gg_usuarios
+			$stmt=" SELECT u.*,
+                                       p.perfil_capabilidade 
+                                  FROM Gg_usuarios u
+                                  JOIN Gg_perfil   p on (p.perfis_id = u.perfis_id)
                                 WHERE
                                 usuario_login=".Yii::app()->db->quoteValue($this->data['username'])."
                                 AND
@@ -84,7 +86,7 @@ class LoginForm extends CFormModel
                             foreach ($res as $key) {
                                 $session['user_id']             =$key['usuarios_id'];
 				$session['usuario']             =$key['usuario_nome'];
-                                $session['perfil']              = $key['perfis_id'];
+                                $session['perfil']              = $key['perfil_capabilidade'];
                                 $session['usuario_email']       =$key['usuario_email'];
                                 $session['usuario_secretarias'] = Yii::app()->functions->getSecretariasByUsuario($key['usuarios_id']);
                                 $session['active_prefeituras_id'] = $key['prefeituras_id'];

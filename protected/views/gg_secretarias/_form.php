@@ -8,6 +8,7 @@
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+        <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'secretaria_nome'); ?>
@@ -33,7 +34,7 @@
 		<?php echo $form->error($model,'secretaria_email'); ?>
 	</div>
         
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Gravar' : 'Salvar', array('class'=>'btn btn-default')); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Gravar' : 'Salvar', array('class'=>'btn btn-info')); ?>
 
 <?php $this->endWidget(); ?>
 

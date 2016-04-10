@@ -44,6 +44,10 @@ class Gg_atendimentosController extends Controller
 				'actions'=>array('admin','delete'),
 				'users'=>array('@'),
 			),
+                        array('allow',
+                                'actions'=>array('imprimir'),
+                                'users'=>array('*'),
+                         ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -188,9 +192,10 @@ class Gg_atendimentosController extends Controller
 		}
 	}
         
-        /*private function saveAtendimentos($array = array()) {
-            $db = new DbExt();
-            
-            $protocolo = $array[''];
-        } */
+        public function actionImprimir() {
+            $atendimentos_id = Gg_atendimentos::model()->atendimentos_id;
+            $html2pdf = Yii::app()->ePdf->HTML2PDF();
+            $html2pdf->WriteHTML($this->renderPartial('admin', array(), true));
+            $html2pdf->Output();
+        } 
 }

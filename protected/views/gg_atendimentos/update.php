@@ -6,13 +6,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_atendimentos', 'url'=>array('index')),
-	array('label'=>'Create Gg_atendimentos', 'url'=>array('create')),
-	array('label'=>'View Gg_atendimentos', 'url'=>array('view', 'id'=>$model->atendimentos_id)),
-	array('label'=>'Manage Gg_atendimentos', 'url'=>array('admin')),
+	array('label'=>'Listar Atendimentos', 'url'=>array('admin')),
+	array('label'=>'Novo Atendimento', 'url'=>array('create')),
+	array('label'=>'Ver Atendimento', 'url'=>array('view', 'id'=>$model->atendimentos_id)),
 );
 ?>
 
-<h1>Update Gg_atendimentos <?php echo $model->atendimentos_id; ?></h1>
+<h1>Editar Atendimento <?php echo $model->atendimento_protocolo; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

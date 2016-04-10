@@ -47,13 +47,16 @@ class Gg_atendimentos extends CActiveRecord
                         array('atendimento_alteracao','default',
                               'value'=>new CDbExpression('NOW()'),
                               'setOnEmpty'=>false,'on'=>'update'),
+                        array('atendimento_alteracao','default',
+                              'value'=>new CDbExpression('NOW()'),
+                              'setOnEmpty'=>false,'on'=>'insert'),      
                         array('atendimento_inclusao','default',
                               'value'=>new CDbExpression('NOW()'),
                               'setOnEmpty'=>false,'on'=>'insert'),
 			//array('atendimento_alteracao', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('atendimentos_id, usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, atendimento_inclusao, atendimento_alteracao, solicitantes_id, solicitantes.solicitante_nome, atendimento_descricao_status, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, sec_origem.secretaria_nome', 'safe', 'on'=>'search'),
+			array('atendimentos_id, usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, atendimento_inclusao, atendimento_alteracao, solicitantes_id, solicitantes.solicitante_nome, atendimento_descricao_status, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, sec_origem.secretaria_nome, usuarios.usuario_nome', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,6 +73,7 @@ class Gg_atendimentos extends CActiveRecord
                     'servicos'=>array(self::BELONGS_TO, 'Gg_servicos', 'servicos_id'),
                     'solicitantes'=>array(self::BELONGS_TO, 'Gg_solicitantes', 'solicitantes_id'),
                     'sec_origem'=>array(self::BELONGS_TO, 'Gg_secretarias', 'secretarias_origem_id'),
+                    'usuarios'=>array(self::BELONGS_TO, 'Gg_usuarios', 'usuarios_id'),
 		);
 	}
 
@@ -80,8 +84,9 @@ class Gg_atendimentos extends CActiveRecord
 	{
 		return array(
 			'atendimentos_id' => 'Código',
-			'usuarios_id' => 'Usuários',
-			'secretarias_id' => 'Secretarias',
+			'usuarios_id' => 'Usuário',
+                        'usuarios.usuario_nome'=> 'Servidor',
+			'secretarias_id' => 'Secretaria',
 			'atendimento_protocolo' => 'Protocolo',
 			'status_id' => 'Status',
 			'atendimento_descricao' => 'Descrição',
@@ -154,6 +159,8 @@ class Gg_atendimentos extends CActiveRecord
                 
                 $criteria->compare('sec_origem', $this->secretarias_origem_id, true);
                 
+                $criteria->compare('usuarios.usuario_nome', $this->usuarios_id, true);
+                
                 $criteria->condition = 'secretarias.secretarias_id = '.Yii::app()->session['active_secretarias_id'];
 
 		return new CActiveDataProvider('Gg_atendimentos', array(
@@ -175,6 +182,9 @@ class Gg_atendimentos extends CActiveRecord
                 // convert to display format
             $this->atendimento_inclusao = strtotime ($this->atendimento_inclusao);
             $this->atendimento_inclusao = date ('d/m/Y', $this->atendimento_inclusao);
+            
+            $this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
+            $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);
 
             parent::afterFind ();
         }
@@ -184,6 +194,9 @@ class Gg_atendimentos extends CActiveRecord
                 // convert to storage format
             $this->atendimento_inclusao = strtotime ($this->atendimento_inclusao);
             $this->atendimento_inclusao = date ('Y-m-d', $this->atendimento_inclusao);
+            
+            $this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
+            $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);
 
             return parent::beforeValidate ();
         }

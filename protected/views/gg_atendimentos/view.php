@@ -5,31 +5,44 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_atendimentos', 'url'=>array('index')),
-	array('label'=>'Create Gg_atendimentos', 'url'=>array('create')),
-	array('label'=>'Update Gg_atendimentos', 'url'=>array('update', 'id'=>$model->atendimentos_id)),
-	array('label'=>'Delete Gg_atendimentos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->atendimentos_id),'confirm'=>Yii::t('zii','Are you sure you want to delete this item?'))),
-	array('label'=>'Manage Gg_atendimentos', 'url'=>array('admin')),
+	array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
+	array('label'=>'Novo Atendimento', 'url'=>array('create')),
+	array('label'=>'Editar Atendimento', 'url'=>array('update', 'id'=>$model->atendimentos_id)),
+	array('label'=>'Deletar Atendimento', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->atendimentos_id),'confirm'=>Yii::t('zii','Confirma deletar este atendimento?'))),
 );
 ?>
 
-<h1>View Gg_atendimentos #<?php echo $model->atendimentos_id; ?></h1>
+<h1>Atendimento #<?php echo $model->atendimento_protocolo; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'atendimentos_id',
-		'usuarios_id',
-		'secretarias_id',
 		'atendimento_protocolo',
-		'status_id',
-		'atendimento_descricao',
+		'usuarios.usuario_nome',
+		'secretarias.secretaria_nome',
+		'status.status_nome',
+		'atendimento_descricao_status',
 		'atendimento_inclusao',
 		'atendimento_alteracao',
-		'solicitantes_id',
-		'atendimento_descricao_status',
+		'solicitantes.solicitante_nome',
 		'atendimento_endereco',
 		'atendimento_numero',
 		'atendimento_bairro',
+		'atendimento_descricao',
 	),
+        'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>
+
+<div class="form-group">
+    <?php $this->widget('ext.bootstrap.widgets.TbButton', array(
+                        'label' => 'Imprimir',
+                        'size' =>'default',
+                        'type' => 'info',
+                        'buttonType' => 'ajaxButton',
+                        'url' => $this->createUrl('imprimir'),
+                        'htmlOptions'=>array('id'=>'btn_imprimir', 'title'=>'Imprimir',),
+                        'ajaxOptions'=>array('type'=>'POST'),
+                        
+                )); ?>
+</div>
+

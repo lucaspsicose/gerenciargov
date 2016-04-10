@@ -10,79 +10,86 @@
         <?php echo $form->hiddenField($model,'usuarios_id', array('value' => Yii::app()->session['user_id'])); ?>
         <?php echo $form->hiddenField($model,'secretarias_origem_id', array('value' => Yii::app()->session['active_secretarias_id'])); ?>
 
-            <div class="form-group col-md-3">
+            <div class="form-group">
+                <div class="col-md-3">
                     <?php echo $form->labelEx($model,'atendimento_protocolo'); ?>
                     <?php echo $form->textField($model,'atendimento_protocolo', array('class'=>'form-control', 'readOnly'=>'readOnly', 'value'=>  Yii::app()->functions->generateProtocolo()), array('size'=>50,'maxlength'=>50)); ?>
                     <?php echo $form->error($model,'atendimento_protocolo'); ?>
+                </div>
+
+                <div class="col-md-3">
+                        <?php echo $form->labelEx($model,'status_id'); ?>
+                        <?php echo $form->dropDownList($model,'status_id', Yii::app()->functions->getComboStatus(), array('class'=>'form-control')); ?>
+                        <?php echo $form->error($model,'status_id'); ?>
+                </div>
+
+                <div class="col-md-3">
+                        <?php echo $form->labelEx($model,'atendimento_inclusao'); ?>
+                        <?php if (!$model->isNewRecord) : ?>
+                        <?php echo $form->textField($model,'atendimento_inclusao', array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
+                        <?php echo $form->error($model,'atendimento_inclusao'); ?>
+                        <?php else : ?> 
+                        <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
+                        <?php endif; ?>
+
+                </div>
+
+                <div class="col-md-3">
+                        <?php echo $form->labelEx($model,'secretarias_id'); ?>
+                        <?php echo $form->dropdownlist($model, 'secretarias_id', CHtml::listData(Gg_secretarias::model()->findAll(array('order'=>'secretaria_nome', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'secretarias_id', 'secretaria_nome'), array('class'=>'form-control', 
+                                                                                                                                                                                                                                                                                                 'empty'=>'Selecione a Secretaria')); ?>
+                        <?php echo $form->error($model,'secretarias_id'); ?>
+                </div>
             </div>
 
-            <div class="form-group col-md-3">
-                    <?php echo $form->labelEx($model,'status_id'); ?>
-                    <?php echo $form->dropDownList($model,'status_id', Yii::app()->functions->getComboStatus(), array('class'=>'form-control')); ?>
-                    <?php echo $form->error($model,'status_id'); ?>
-            </div>
-
-            <div class="form-group col-md-3">
-                    <?php echo $form->labelEx($model,'atendimento_inclusao'); ?>
-                    <?php if (!$model->isNewRecord) : ?>
-                    <?php echo $form->textField($model,'atendimento_inclusao', array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
-                    <?php echo $form->error($model,'atendimento_inclusao'); ?>
-                    <?php else : ?> 
-                    <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
-                    <?php endif; ?>
-                    
-            </div>
-
-            <div class="form-group col-md-3">
-                    <?php echo $form->labelEx($model,'secretarias_id'); ?>
-                    <?php echo $form->dropdownlist($model, 'secretarias_id', CHtml::listData(Gg_secretarias::model()->findAll(array('order'=>'secretaria_nome', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'secretarias_id', 'secretaria_nome'), array('class'=>'form-control', 'empty'=>'Selecione a Secretaria')); ?>
-                    <?php echo $form->error($model,'secretarias_id'); ?>
-            </div>
-
-            <div class="form-group col-md-11">
+            <div class="form-group">
+                <div class="col-md-9">
                     <?php echo $form->labelEx($model,'solicitantes_id'); ?>
                     <?php echo $form->hiddenfield($model,'solicitantes_id'); ?>
                     <?php echo CHtml::textField('solicitante_nome', '', array('class'=>'form-control')); ?>
                     <?php echo $form->error($model,'solicitantes_id'); ?>
-            </div>
-        
-            <div class="form-group col-md-1">
-                    <?php echo CHtml::label('Cad.', '') ?>
-                    <?php echo CHtml::link('', '#test-form', array('class'=>'popup-with-form btn btn-circle form-control mais')); ?>
-            </div>  
+                </div>
 
-            <div class="form-group col-md-10">
-                    <?php echo $form->labelEx($model,'atendimento_endereco'); ?>
-                    <?php echo $form->textField($model,'atendimento_endereco', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
-                    <?php echo $form->error($model,'atendimento_endereco'); ?>
+                <div class="form-group col-md-3">
+                        <?php echo CHtml::label('Novo Solicitante', '') ?>
+                        <?php echo CHtml::link('Cadastrar Solicitante', '#test-form', array('class'=>'popup-with-form btn btn-info form-control')); ?>
+                </div>
             </div>
 
-            <div class="form-group col-md-2">
-                    <?php echo $form->labelEx($model,'atendimento_numero'); ?>
-                    <?php echo $form->textField($model,'atendimento_numero', array('class'=>'form-control'), array('size'=>10,'maxlength'=>10)); ?>
-                    <?php echo $form->error($model,'atendimento_numero'); ?>
+            <div class="form-group">
+                <div class="col-md-10">
+                        <?php echo $form->labelEx($model,'atendimento_endereco'); ?>
+                        <?php echo $form->textField($model,'atendimento_endereco', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
+                        <?php echo $form->error($model,'atendimento_endereco'); ?>
+                </div>
+
+                <div class="form-group col-md-2">
+                        <?php echo $form->labelEx($model,'atendimento_numero'); ?>
+                        <?php echo $form->textField($model,'atendimento_numero', array('class'=>'form-control'), array('size'=>10,'maxlength'=>10)); ?>
+                        <?php echo $form->error($model,'atendimento_numero'); ?>
+                </div>
             </div>
 
-            <div class="form-group col-md-6">
-                    <?php echo $form->labelEx($model,'atendimento_bairro'); ?>
-                    <?php echo $form->textField($model,'atendimento_bairro', array('class'=>'form-control'), array('size'=>60,'maxlength'=>60)); ?>
-                    <?php echo $form->error($model,'atendimento_bairro'); ?>
-            </div>
+            <div class="form-group">
+                <div class="col-md-6">
+                        <?php echo $form->labelEx($model,'atendimento_bairro'); ?>
+                        <?php echo $form->textField($model,'atendimento_bairro', array('class'=>'form-control'), array('size'=>60,'maxlength'=>60)); ?>
+                        <?php echo $form->error($model,'atendimento_bairro'); ?>
+                </div>
 
-            <div class="form-group col-md-6">
-                    <?php echo $form->labelEx($model,'servicos_id'); ?>
-                    <?php echo $form->textField($model,'servicos_id', array('class'=>'form-control')); ?>
-                    <?php echo $form->error($model,'servicos_id'); ?>
+                <div class="form-group col-md-6">
+                        <?php echo $form->labelEx($model,'servicos_id'); ?>
+                        <?php echo $form->textField($model,'servicos_id', array('class'=>'form-control')); ?>
+                        <?php echo $form->error($model,'servicos_id'); ?>
+                </div>
             </div>
             
             <?php if (!$model->isNewRecord) : ?>
-            <div class="">
                 <div class="form-group">
                         <?php echo $form->labelEx($model,'atendimento_descricao_status'); ?>
                         <?php echo $form->textArea($model,'atendimento_descricao_status', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
                         <?php echo $form->error($model,'atendimento_descricao_status'); ?>
                 </div>
-            </div>
             
             <?php endif; ?>
             
