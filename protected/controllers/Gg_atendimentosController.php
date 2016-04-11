@@ -44,6 +44,10 @@ class Gg_atendimentosController extends Controller
 				'actions'=>array('admin','delete'),
 				'users'=>array('@'),
 			),
+                        array('allow',
+                                'actions'=>array('imprimir'),
+                                'users'=>array('*'),
+                         ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -74,8 +78,9 @@ class Gg_atendimentosController extends Controller
 		if(isset($_POST['Gg_atendimentos']))
 		{
 			$model->attributes=$_POST['Gg_atendimentos'];
-			if($model->save())
+			if($model->save()) {
 				$this->redirect(array('view','id'=>$model->atendimentos_id));
+                        }
 		}
 
 		$this->render('create',array(
@@ -97,8 +102,9 @@ class Gg_atendimentosController extends Controller
 		if(isset($_POST['Gg_atendimentos']))
 		{
 			$model->attributes=$_POST['Gg_atendimentos'];
-			if($model->save())
+			if($this->saveAtendimentos($_POST)) {
 				$this->redirect(array('view','id'=>$model->atendimentos_id));
+                        }
 		}
 
 		$this->render('update',array(
@@ -112,7 +118,7 @@ class Gg_atendimentosController extends Controller
 	 */
 	public function actionDelete()
 	{
-		if(Yii::app()->request->isPostRequest)
+		if(!Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
 			$this->loadModel()->delete();
@@ -185,4 +191,11 @@ class Gg_atendimentosController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionImprimir() {
+            $atendimentos_id = Gg_atendimentos::model()->atendimentos_id;
+            $html2pdf = Yii::app()->ePdf->HTML2PDF();
+            $html2pdf->WriteHTML($this->renderPartial('admin', array(), true));
+            $html2pdf->Output();
+        } 
 }

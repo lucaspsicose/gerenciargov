@@ -10,6 +10,7 @@
  * @property string $usuario_senha
  * @property integer $perfis_id
  * @property string $usuario_email
+ * @property integer $prefeituras_id 
  */
 class Gg_usuarios extends CActiveRecord
 {
@@ -29,14 +30,14 @@ class Gg_usuarios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('usuario_nome, usuario_login, usuario_senha, perfis_id, usuario_email', 'required'),
-			array('perfis_id', 'numerical', 'integerOnly'=>true),
+			array('usuario_nome, usuario_login, usuario_senha, perfis_id, usuario_email, prefeituras_id', 'required'),
+			array('perfis_id, prefeituras_id', 'numerical', 'integerOnly'=>true),
 			array('usuario_nome, usuario_login', 'length', 'max'=>80),
 			array('usuario_senha', 'length', 'max'=>128),
 			array('usuario_email', 'length', 'max'=>60),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('usuarios_id, usuario_nome, usuario_login, usuario_senha, perfil.perfil_nome, secretarias.secretarias_id, usuario_email', 'safe', 'on'=>'search'),
+			array('usuarios_id, usuario_nome, usuario_login, usuario_senha, perfil.perfil_nome, secretarias.secretarias_id, usuario_email, prefeituras_id, prefeituras.prefeitura_nome', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,6 +51,7 @@ class Gg_usuarios extends CActiveRecord
 		return array(
                     'perfil'=>array(self::BELONGS_TO, 'Gg_perfil', 'perfis_id'),
                     'secretarias'=>array(self::MANY_MANY, 'Gg_usuarios_secretarias', 'Gg_usuarios_secretarias(usuarios_id, secretarias_id)'),
+                    'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
 		);
 	}
 
@@ -67,6 +69,8 @@ class Gg_usuarios extends CActiveRecord
                         'perfil.perfil_nome' => 'Perfil',
                         'secretarias.secretarias_id' => 'secretarias_id',
 			'usuario_email' => 'Email',
+                        'prefeituras_id' => 'Código da Prefeitura',
+                        'prefeituras.prefeitura_nome' => 'Prefeitura',
 		);
 	}
 
@@ -103,9 +107,11 @@ class Gg_usuarios extends CActiveRecord
 
 		$criteria->compare('usuario_email',$this->usuario_email,true);
                 
-                $criteria->condition = 't.usuarios_id in (SELECT u.usuarios_id
-                                                                        FROM Gg_usuarios_secretarias u
-                                                                        WHERE u.secretarias_id = '.Yii::app()->session['active_secretarias_id'].')';
+                $criteria->compare('prefeituras_id', $this->prefeituras_id, true);
+                
+                $criteria->compare('prefeituras.prefeitura_nome', $this->prefeituras_id, TRUE);
+                
+                $criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
                 
 
 		return new CActiveDataProvider('Gg_usuarios', array(

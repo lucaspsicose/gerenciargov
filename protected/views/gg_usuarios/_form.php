@@ -10,6 +10,7 @@
 	<?php echo $form->errorSummary($model); ?>
         
         <?php echo $form->hiddenfield($model, 'usuarios_id'); ?>
+        <?php echo $form->hiddenfield($model, 'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])) ?>
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'usuario_nome'); ?>
@@ -64,7 +65,7 @@
         
         
         <div class="form-group">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Gravar' : 'Salvar', array('class'=>'btn btn-default')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Gravar' : 'Salvar', array('class'=>'btn btn-info')); ?>
         </div>	
         
 

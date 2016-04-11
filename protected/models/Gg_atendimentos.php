@@ -17,6 +17,7 @@
  * @property string $atendimento_endereco
  * @property string $atendimento_numero
  * @property string $atendimento_bairro
+ * @property integer $secretarias_origem_id
  */
 class Gg_atendimentos extends CActiveRecord
 {
@@ -37,16 +38,25 @@ class Gg_atendimentos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, atendimento_inclusao, solicitantes_id, atendimento_descricao_status, atendimento_endereco, atendimento_numero, atendimento_bairro, servicos_id', 'required'),
-			array('usuarios_id, secretarias_id, status_id, solicitantes_id, servicos_id', 'numerical', 'integerOnly'=>true),
+			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id', 'required'),
+			array('usuarios_id, secretarias_id, status_id, solicitantes_id, servicos_id, secretarias_origem_id', 'numerical', 'integerOnly'=>true),
 			array('atendimento_protocolo', 'length', 'max'=>50),
 			array('atendimento_descricao, atendimento_descricao_status, atendimento_endereco', 'length', 'max'=>2000),
 			array('atendimento_numero', 'length', 'max'=>10),
 			array('atendimento_bairro', 'length', 'max'=>60),
+                        array('atendimento_alteracao','default',
+                              'value'=>new CDbExpression('NOW()'),
+                              'setOnEmpty'=>false,'on'=>'update'),
+                        array('atendimento_alteracao','default',
+                              'value'=>new CDbExpression('NOW()'),
+                              'setOnEmpty'=>false,'on'=>'insert'),      
+                        array('atendimento_inclusao','default',
+                              'value'=>new CDbExpression('NOW()'),
+                              'setOnEmpty'=>false,'on'=>'insert'),
 			//array('atendimento_alteracao', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('atendimentos_id, usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, atendimento_inclusao, atendimento_alteracao, solicitantes_id, solicitantes.solicitante_nome, atendimento_descricao_status, atendimento_endereco, atendimento_numero, atendimento_bairro', 'safe', 'on'=>'search'),
+			array('atendimentos_id, usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, atendimento_inclusao, atendimento_alteracao, solicitantes_id, solicitantes.solicitante_nome, atendimento_descricao_status, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, sec_origem.secretaria_nome, usuarios.usuario_nome', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,6 +72,8 @@ class Gg_atendimentos extends CActiveRecord
                     'status'=>array(self::BELONGS_TO, 'Gg_status', 'status_id'),
                     'servicos'=>array(self::BELONGS_TO, 'Gg_servicos', 'servicos_id'),
                     'solicitantes'=>array(self::BELONGS_TO, 'Gg_solicitantes', 'solicitantes_id'),
+                    'sec_origem'=>array(self::BELONGS_TO, 'Gg_secretarias', 'secretarias_origem_id'),
+                    'usuarios'=>array(self::BELONGS_TO, 'Gg_usuarios', 'usuarios_id'),
 		);
 	}
 
@@ -72,8 +84,9 @@ class Gg_atendimentos extends CActiveRecord
 	{
 		return array(
 			'atendimentos_id' => 'Código',
-			'usuarios_id' => 'Usuários',
-			'secretarias_id' => 'Secretarias',
+			'usuarios_id' => 'Usuário',
+                        'usuarios.usuario_nome'=> 'Servidor',
+			'secretarias_id' => 'Secretaria',
 			'atendimento_protocolo' => 'Protocolo',
 			'status_id' => 'Status',
 			'atendimento_descricao' => 'Descrição',
@@ -87,7 +100,10 @@ class Gg_atendimentos extends CActiveRecord
                         'status.status_nome' => 'Status',
                         'servicos.servico_nome' => 'Serviço',
                         'servicos_id' => 'Serviço', 
-                        'solicitantes.solicitante_nome'=>'Solicitante', 
+                        'solicitantes.solicitante_nome'=>'Solicitante',
+                        'secretarias_origem_id'=>'Secretaria de Origem',
+                        'sec_origem.secretaria_nome'=>'Secretaria de Origem',
+                        'secretarias.secretaria_nome'=>'Secretaria',
 		);
 	}
 
@@ -139,6 +155,12 @@ class Gg_atendimentos extends CActiveRecord
                 
                 $criteria->compare('solicitantes.solicitante_nome', $this->solicitantes_id, true);
                 
+                $criteria->compare('secretarias_origem_id', $this->secretarias_origem_id, true);
+                
+                $criteria->compare('sec_origem', $this->secretarias_origem_id, true);
+                
+                $criteria->compare('usuarios.usuario_nome', $this->usuarios_id, true);
+                
                 $criteria->condition = 'secretarias.secretarias_id = '.Yii::app()->session['active_secretarias_id'];
 
 		return new CActiveDataProvider('Gg_atendimentos', array(
@@ -154,4 +176,28 @@ class Gg_atendimentos extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        protected function afterFind ()
+        {
+                // convert to display format
+            $this->atendimento_inclusao = strtotime ($this->atendimento_inclusao);
+            $this->atendimento_inclusao = date ('d/m/Y', $this->atendimento_inclusao);
+            
+            $this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
+            $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);
+
+            parent::afterFind ();
+        }
+
+        protected function beforeValidate ()
+        {
+                // convert to storage format
+            $this->atendimento_inclusao = strtotime ($this->atendimento_inclusao);
+            $this->atendimento_inclusao = date ('Y-m-d', $this->atendimento_inclusao);
+            
+            $this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
+            $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);
+
+            return parent::beforeValidate ();
+        }
 }

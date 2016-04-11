@@ -16,6 +16,7 @@
  * @property string $solicitante_data_nascimento
  * @property string $solicitante_rg
  * @property string $solicitante_titulo_eleitor
+ * @property integer $prefeituras_id
  */
 class Gg_solicitantes extends CActiveRecord
 {
@@ -35,7 +36,7 @@ class Gg_solicitantes extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('solicitante_nome, solicitante_telefone, solicitante_celular, solicitante_cpf_cnpj, solicitante_endereco, solicitante_numero, solicitante_bairro, solicitante_email, solicitante_data_nascimento, solicitante_rg, solicitante_titulo_eleitor', 'required'),
+			array('solicitante_nome, solicitante_telefone, solicitante_celular, solicitante_cpf_cnpj, solicitante_endereco, solicitante_numero, solicitante_bairro, solicitante_data_nascimento, solicitante_rg, solicitante_titulo_eleitor, prefeituras_id', 'required'),
 			array('solicitante_nome, solicitante_endereco, solicitante_email', 'length', 'max'=>80),
 			array('solicitante_telefone, solicitante_celular, solicitante_numero', 'length', 'max'=>15),
 			array('solicitante_cpf_cnpj', 'length', 'max'=>16),
@@ -55,6 +56,7 @@ class Gg_solicitantes extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
 		);
 	}
 
@@ -120,6 +122,8 @@ class Gg_solicitantes extends CActiveRecord
 		$criteria->compare('solicitante_rg',$this->solicitante_rg,true);
 
 		$criteria->compare('solicitante_titulo_eleitor',$this->solicitante_titulo_eleitor,true);
+                
+                $criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
 
 		return new CActiveDataProvider('Gg_solicitantes', array(
 			'criteria'=>$criteria,

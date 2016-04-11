@@ -55,7 +55,7 @@
                                             'class' => 'dropdown-toggle'
                                              ),),
                                 array('label'=>'Atendimentos', 'url'=>array('/gg_atendimentos/Admin'), 'visible'=>(isset($session['active_secretarias_id']) && in_array($session['perfil'], array(1, 2, 3)))),             
-                                array('label'=>'Usuários', 'url'=>array('/gg_usuarios/Admin'), 'visible'=>(isset($session['active_secretarias_id']) &&  in_array($session['perfil'], array(1, 2)))),             
+                                array('label'=>'Usuários', 'url'=>array('/gg_usuarios/Admin'), 'visible'=>(in_array($session['perfil'], array(1, 2)))),             
                                 array('label'=>'Secretarias', 'url'=>array('/gg_secretarias/Admin'), 'visible'=>in_array($session['perfil'], array(1))),
 				array('label'=>'Entrar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Sair', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

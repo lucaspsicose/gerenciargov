@@ -40,7 +40,7 @@ class LoginForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'rememberMe'=>'Remember me next time',
+			'rememberMe'=>'Lembrar-me',
 		);
 	}
         
@@ -71,22 +71,25 @@ class LoginForm extends CFormModel
         public function login()
 		{			
 			$DbExt=new DbExt;
-			$stmt="SELECT * FROM
-			       Gg_usuarios
-			       WHERE
-			       usuario_login=".Yii::app()->db->quoteValue($this->data['username'])."
-			       AND
-			       usuario_senha=".Yii::app()->db->quoteValue(md5($this->data['password']))."
-			       LIMIT 0,1
+			$stmt=" SELECT u.*,
+                                       p.perfil_capabilidade 
+                                  FROM Gg_usuarios u
+                                  JOIN Gg_perfil   p on (p.perfis_id = u.perfis_id)
+                                WHERE
+                                usuario_login=".Yii::app()->db->quoteValue($this->data['username'])."
+                                AND
+                                usuario_senha=".Yii::app()->db->quoteValue(md5($this->data['password']))."
+                                LIMIT 0,1
 			";
                         $session = Yii::app()->session;
 			if ( $res=$DbExt->rst($stmt)){
                             foreach ($res as $key) {
                                 $session['user_id']             =$key['usuarios_id'];
 				$session['usuario']             =$key['usuario_nome'];
-                                $session['perfil']              = $key['perfis_id'];
+                                $session['perfil']              = $key['perfil_capabilidade'];
                                 $session['usuario_email']       =$key['usuario_email'];
                                 $session['usuario_secretarias'] = Yii::app()->functions->getSecretariasByUsuario($key['usuarios_id']);
+                                $session['active_prefeituras_id'] = $key['prefeituras_id'];
                             }
 				
                                 $function = new Functions();

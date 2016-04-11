@@ -32,8 +32,8 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'password'); ?>
 
                 <label class="checkbox">
+                <?php echo $form->label($model, 'rememberMe'); ?>
 		<?php echo $form->checkBox($model,'rememberMe'); ?>
-                <?php echo Yii::t('default', 'Lembrar-me'); ?>
 		<?php echo $form->error($model,'rememberMe'); ?>
                 </label>  
                 <div style="color: #c7254e; display: <?php echo isset($model->msg); ?>">
