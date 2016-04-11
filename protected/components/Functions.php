@@ -188,6 +188,33 @@ class Functions extends CApplicationComponent
             return $combo;
         }
         
+        public function getComboSecretarias() {
+            $db = new DbExt();
+            
+            $stmt = 'SELECT 0 AS secretarias_id, \'\' AS secretaria_nome FROM gg_secretarias LIMIT 1 '
+                    . 'union all '
+                    . 'select secretarias_id, secretaria_nome from Gg_secretarias';
+            
+            $combo = array();
+            $chave = array();
+            $label = array();
+            
+            if ($res = $db->rst($stmt)) {
+                foreach ($res as $key) {
+                    array_push($chave, $key['secretarias_id']);
+                }
+                
+                foreach ($res as $key) {
+                    array_push($label, $key['secretaria_nome']);
+                }
+                
+                $combo = array_combine($chave, $label);                        
+                
+            } 
+            
+            return $combo;
+        }
+        
         public function  getSecretarias($user_id = '') 
         {
             $db = new DbExt();

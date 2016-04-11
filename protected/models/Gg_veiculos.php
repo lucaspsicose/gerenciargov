@@ -61,14 +61,14 @@ class Gg_veiculos extends CActiveRecord
 	{
 		return array(
 			'veiculos_id' => 'Veiculos',
-			'secretarias_id' => 'Secretarias',
-			'veiculo_descricao' => 'Veiculo Descricao',
-			'veiculo_placa' => 'Veiculo Placa',
-			'veiculo_chassi' => 'Veiculo Chassi',
-			'veiculo_tipo' => 'Veiculo Tipo',
-			'veiculo_quilometragem' => 'Veiculo Quilometragem',
-			'veiculo_fabricante' => 'Veiculo Fabricante',
-			'veiculo_modelo' => 'Veiculo Modelo',
+			'secretarias_id' => 'Secretaria',
+			'veiculo_descricao' => 'Descrição do Veículo',
+			'veiculo_placa' => 'Placa',
+			'veiculo_chassi' => 'Chassi',
+			'veiculo_tipo' => 'Tipo',
+			'veiculo_quilometragem' => 'Quilometragem',
+			'veiculo_fabricante' => 'Fabricante',
+			'veiculo_modelo' => 'Modelo',
 		);
 	}
 
@@ -121,4 +121,6 @@ class Gg_veiculos extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        
 }
