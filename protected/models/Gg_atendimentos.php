@@ -46,10 +46,7 @@ class Gg_atendimentos extends CActiveRecord
 			array('atendimento_bairro', 'length', 'max'=>60),
                         array('atendimento_alteracao','default',
                               'value'=>new CDbExpression('NOW()'),
-                              'setOnEmpty'=>false,'on'=>'update'),
-                        array('atendimento_alteracao','default',
-                              'value'=>new CDbExpression('NOW()'),
-                              'setOnEmpty'=>false,'on'=>'insert'),      
+                              'setOnEmpty'=>false,'on'=>array('insert', 'update')),      
                         array('atendimento_inclusao','default',
                               'value'=>new CDbExpression('NOW()'),
                               'setOnEmpty'=>false,'on'=>'insert'),
@@ -157,11 +154,11 @@ class Gg_atendimentos extends CActiveRecord
                 
                 $criteria->compare('secretarias_origem_id', $this->secretarias_origem_id, true);
                 
-                $criteria->compare('sec_origem', $this->secretarias_origem_id, true);
+                $criteria->compare('sec_origem.secretaria_nome', $this->secretarias_origem_id, true);
                 
                 $criteria->compare('usuarios.usuario_nome', $this->usuarios_id, true);
                 
-                $criteria->condition = 'secretarias.secretarias_id = '.Yii::app()->session['active_secretarias_id'];
+                $criteria->condition = 'secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'];
 
 		return new CActiveDataProvider('Gg_atendimentos', array(
 			'criteria'=>$criteria,

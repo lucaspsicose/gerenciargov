@@ -102,7 +102,7 @@ class Gg_atendimentosController extends Controller
 		if(isset($_POST['Gg_atendimentos']))
 		{
 			$model->attributes=$_POST['Gg_atendimentos'];
-			if($this->saveAtendimentos($_POST)) {
+			if($model->update()) {
 				$this->redirect(array('view','id'=>$model->atendimentos_id));
                         }
 		}
