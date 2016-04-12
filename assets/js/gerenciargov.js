@@ -37,6 +37,8 @@ jQuery( function($){
     $(".cpf").mask("999.999.999-99");
     $(".cnpj").mask("99.999.999/9999-99");
     $(".cep").mask("99999-999");
+    $(".placa").mask("aaa-9999");
+    $(".categoria").mask("aa"); //Mascara para categoria da CHN
 
 });
 	  

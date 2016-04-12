@@ -12,6 +12,6 @@ $this->menu=array(
 $this->setPageTitle('Editar Cadastro');
 ?>
 
-<h1>Editar <?php echo $model->veiculo_nome; ?></h1>
+<h1>Editar <?php echo $model->veiculo_placa; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

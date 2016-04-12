@@ -34,6 +34,7 @@ class Gg_veiculos extends CActiveRecord
 		return array(
 			array('veiculo_descricao, veiculo_placa, veiculo_tipo', 'required'),
 			array('secretarias_id, veiculo_tipo, veiculo_quilometragem', 'numerical', 'integerOnly'=>true),
+                        array('veiculo_quilometragem', 'length', 'max'=>6),
 			array('veiculo_descricao, veiculo_fabricante, veiculo_modelo', 'length', 'max'=>80),
 			array('veiculo_placa', 'length', 'max'=>8),
 			array('veiculo_chassi', 'length', 'max'=>17),
@@ -51,6 +52,7 @@ class Gg_veiculos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'secretarias'=>array(self::BELONGS_TO, 'Gg_secretarias', 'secretarias_id'),
 		);
 	}
 

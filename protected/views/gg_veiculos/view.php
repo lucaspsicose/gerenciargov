@@ -11,10 +11,9 @@ $this->menu=array(
 	array('label'=>'Lista de Veículos', 'url'=>array('admin')),
 );
 $this->setPageTitle('Veículos');
-);
 ?>
 
-<h1>View Gg_veiculos #<?php echo $model->veiculos_id; ?></h1>
+<h1>Cadastro <?php echo $model->veiculo_placa; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

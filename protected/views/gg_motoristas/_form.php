@@ -23,7 +23,7 @@
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'motorista_categoria'); ?>
-		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control','size'=>2,'maxlength'=>2)); ?>
+		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control categoria','style' => 'text-transform: uppercase', 'size'=>2,'maxlength'=>2)); ?>
 		<?php echo $form->error($model,'motorista_categoria'); ?>
 	</div>
 

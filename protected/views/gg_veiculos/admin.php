@@ -38,7 +38,7 @@ $this->setPageTitle('Veículos');
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
 		'veiculos_id',
-		'secretarias_id',
+		'secretarias.secretaria_nome',
 		'veiculo_descricao',
 		'veiculo_placa',
 		'veiculo_chassi',
