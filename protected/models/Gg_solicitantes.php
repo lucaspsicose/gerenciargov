@@ -44,7 +44,7 @@ class Gg_solicitantes extends CActiveRecord
 			array('solicitante_rg, solicitante_titulo_eleitor', 'length', 'max'=>30),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('solicitantes_id, solicitante_nome, solicitante_telefone, solicitante_celular, solicitante_cpf_cnpj, solicitante_endereco, solicitante_numero, solicitante_bairro, solicitante_email, solicitante_data_nascimento, solicitante_rg, solicitante_titulo_eleitor', 'safe', 'on'=>'search'),
+			array('solicitantes_id, solicitante_nome, solicitante_telefone, solicitante_celular, solicitante_cpf_cnpj, solicitante_endereco, solicitante_numero, solicitante_bairro, solicitante_email, solicitante_data_nascimento, solicitante_rg, solicitante_titulo_eleitor, prefeituras_id, prefeituras.prefeitura_nome', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -123,7 +123,11 @@ class Gg_solicitantes extends CActiveRecord
 
 		$criteria->compare('solicitante_titulo_eleitor',$this->solicitante_titulo_eleitor,true);
                 
-                $criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
+                $criteria->compare('prefeituras_id', Yii::app()->session['active_prefeituras_id'], true);
+                
+                $criteria->compare('prefeituras.prefeitura_nome', $this->prefeituras_id, true);
+                
+                //$criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
 
 		return new CActiveDataProvider('Gg_solicitantes', array(
 			'criteria'=>$criteria,

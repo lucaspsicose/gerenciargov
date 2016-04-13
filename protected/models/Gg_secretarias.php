@@ -95,11 +95,11 @@ class Gg_secretarias extends CActiveRecord
 
 		$criteria->compare('secretaria_email',$this->secretaria_email,true);
                 
-                $criteria->compare('prefeituras_id', $this->prefeituras_id, true);
+                $criteria->compare('prefeituras_id', Yii::app()->session['active_prefeituras_id'], true);
                 
                 $criteria->compare('prefeituras.prefeitura_nome', $this->prefeituras_id, TRUE);
                 
-                $criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
+                //$criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
 
 		return new CActiveDataProvider('Gg_secretarias', array(
 			'criteria'=>$criteria,

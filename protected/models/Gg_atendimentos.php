@@ -46,7 +46,7 @@ class Gg_atendimentos extends CActiveRecord
 			array('atendimento_bairro', 'length', 'max'=>60),
                         array('atendimento_alteracao','default',
                               'value'=>new CDbExpression('NOW()'),
-                              'setOnEmpty'=>false,'on'=>array('insert', 'update')),      
+                              'setOnEmpty'=>false,'on'=>'insert'),      
                         array('atendimento_inclusao','default',
                               'value'=>new CDbExpression('NOW()'),
                               'setOnEmpty'=>false,'on'=>'insert'),
@@ -152,13 +152,13 @@ class Gg_atendimentos extends CActiveRecord
                 
                 $criteria->compare('solicitantes.solicitante_nome', $this->solicitantes_id, true);
                 
-                $criteria->compare('secretarias_origem_id', $this->secretarias_origem_id, true);
+                $criteria->compare('secretarias_origem_id', Yii::app()->session['active_secretarias_id'], true);
                 
                 $criteria->compare('sec_origem.secretaria_nome', $this->secretarias_origem_id, true);
                 
                 $criteria->compare('usuarios.usuario_nome', $this->usuarios_id, true);
                 
-                $criteria->condition = 'secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'];
+                //$criteria->condition = 'secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'];
 
 		return new CActiveDataProvider('Gg_atendimentos', array(
 			'criteria'=>$criteria,
@@ -185,16 +185,15 @@ class Gg_atendimentos extends CActiveRecord
 
             parent::afterFind ();
         }
-
-        protected function beforeValidate ()
-        {
-                // convert to storage format
-            $this->atendimento_inclusao = strtotime ($this->atendimento_inclusao);
-            $this->atendimento_inclusao = date ('Y-m-d', $this->atendimento_inclusao);
-            
-            $this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
-            $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);
-
-            return parent::beforeValidate ();
+        
+        protected function beforeSave() {
+            if (!$this->isNewRecord) {
+                $this->atendimento_alteracao = date ('Y-m-d H:m', time());
+                
+                $this->atendimento_inclusao = strtotime($this->atendimento_inclusao);
+                
+                $time = $this->atendimento_inclusao;
+            }
+            return parent::beforeSave();
         }
 }

@@ -10,5 +10,11 @@ return array(
 	'username' => 'geren759_lucas',
 	'password' => 'admin123@',
 	'charset' => 'utf8',
+    
+        /*'connectionString' => 'mysql:host=localhost;dbname=gerenciargov',
+	'emulatePrepare' => true,
+	'username' => 'root',
+	'password' => '',
+	'charset' => 'utf8',*/
 	
 );
