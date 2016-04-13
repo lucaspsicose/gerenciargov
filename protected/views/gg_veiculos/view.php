@@ -19,11 +19,11 @@ $this->setPageTitle('Veículos');
 	'data'=>$model,
 	'attributes'=>array(
 		'veiculos_id',
-		'secretarias_id',
+		'secretarias.secretaria_nome',
 		'veiculo_descricao',
 		'veiculo_placa',
 		'veiculo_chassi',
-		'veiculo_tipo',
+		'tipos.tipo_nome',
 		'veiculo_quilometragem',
 		'veiculo_fabricante',
 		'veiculo_modelo',

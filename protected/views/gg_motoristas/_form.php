@@ -8,7 +8,8 @@
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+        <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
+        
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'motorista_nome'); ?>
 		<?php echo $form->textField($model,'motorista_nome',array('class'=>'form-control','size'=>60,'maxlength'=>80)); ?>
@@ -23,7 +24,7 @@
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'motorista_categoria'); ?>
-		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control categoria','style' => 'text-transform: uppercase', 'size'=>2,'maxlength'=>2)); ?>
+		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control','onkeyup'=>'this.value=this.value.toUpperCase();', 'size'=>2,'maxlength'=>2)); ?>
 		<?php echo $form->error($model,'motorista_categoria'); ?>
 	</div>
 

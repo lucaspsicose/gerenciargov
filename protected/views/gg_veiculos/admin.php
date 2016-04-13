@@ -42,7 +42,7 @@ $this->setPageTitle('Veículos');
 		'veiculo_descricao',
 		'veiculo_placa',
 		'veiculo_chassi',
-		'veiculo_tipo',
+		'tipos.tipo_nome',
 		/*
 		'veiculo_quilometragem',
 		'veiculo_fabricante',

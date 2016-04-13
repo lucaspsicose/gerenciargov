@@ -9,7 +9,7 @@
 		<?php echo $form->label($model,'secretarias_id'); ?>
                 <?php echo $form->dropdownlist($model, 'secretarias_id', CHtml::listData(Gg_secretarias::model()->findAll(array('order'=>'secretaria_nome', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'secretarias_id', 'secretaria_nome'), array('class'=>'form-control', 
                                                                                                                                                                                                                                                                                                  'empty'=>'')); ?>
-		<!--<? php echo $form->textField($model,'secretarias_id'); ?>-->
+		
 	</div>
 
 	<div class="form-group">
@@ -29,7 +29,7 @@
 
 	<div class="form-group">
 		<?php echo $form->label($model,'veiculo_tipo'); ?>
-                <?php echo $form->textField($model,'veiculo_tipo',array('class'=>'form-control')); ?>
+                <?php echo $form->dropdownlist($model, 'veiculo_tipo', CHtml::listData(Gg_tipo_veiculos::model()->findAll(array('order'=>'tipo_nome')), 'tipos_id', 'tipo_nome'), array('class'=>'form-control', 'empty'=>'')); ?>
 	</div>
 
 	<div class="form-group">
