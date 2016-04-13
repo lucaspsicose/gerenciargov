@@ -331,5 +331,23 @@ class Functions extends CApplicationComponent
             
             return $array;
         }
+        
+        public function getSolicitanteNomeById($id) 
+        {
+            if (!$id == '') {    
+                $db = new DbExt();
+                $sql = 'select solicitante_nome from Gg_solicitantes where solicitantes_id = '.$id;
+
+                if ($res = $db->rst($sql)) {
+                    foreach ($res as $value) {
+                        $result = $value['solicitante_nome'];
+                    }
+
+                    return $result;
+                } 
+            } else {
+                return $id;
+            }
+        }
 	
 	}

@@ -9,6 +9,7 @@
 	
         <?php echo $form->hiddenField($model,'usuarios_id', array('value' => Yii::app()->session['user_id'])); ?>
         <?php echo $form->hiddenField($model,'secretarias_origem_id', array('value' => Yii::app()->session['active_secretarias_id'])); ?>
+        <?php echo $form->error($model,'secretarias_origem_id'); ?>
 
             <div class="form-group">
                 <div class="col-md-3">
@@ -46,7 +47,7 @@
                 <div class="col-md-9">
                     <?php echo $form->labelEx($model,'solicitantes_id'); ?>
                     <?php echo $form->hiddenfield($model,'solicitantes_id'); ?>
-                    <?php echo CHtml::textField('solicitante_nome', '', array('class'=>'form-control')); ?>
+                    <?php echo CHtml::textField('solicitante_nome', Yii::app()->functions->getSolicitanteNomeById($model->solicitantes_id), array('class'=>'form-control')); ?>
                     <?php echo $form->error($model,'solicitantes_id'); ?>
                 </div>
 
