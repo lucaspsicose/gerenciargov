@@ -13,6 +13,7 @@
  * @property integer $veiculo_quilometragem
  * @property string $veiculo_fabricante
  * @property string $veiculo_modelo
+ * @property integer $prefeituras_id
  */
 class Gg_veiculos extends CActiveRecord
 {
@@ -32,8 +33,9 @@ class Gg_veiculos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('veiculo_descricao, veiculo_placa, veiculo_tipo', 'required'),
+			array('veiculo_descricao, veiculo_placa, veiculo_tipo, prefeituras_id', 'required'),
 			array('secretarias_id, veiculo_tipo, veiculo_quilometragem', 'numerical', 'integerOnly'=>true),
+                        array('veiculo_quilometragem', 'length', 'max'=>6),
 			array('veiculo_descricao, veiculo_fabricante, veiculo_modelo', 'length', 'max'=>80),
 			array('veiculo_placa', 'length', 'max'=>8),
 			array('veiculo_chassi', 'length', 'max'=>17),
@@ -51,6 +53,9 @@ class Gg_veiculos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'secretarias'=>array(self::BELONGS_TO, 'Gg_secretarias', 'secretarias_id'),
+                    'tipos'=>array(self::BELONGS_TO, 'Gg_tipo_veiculos', 'veiculo_tipo'),
+                    'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
 		);
 	}
 
@@ -62,10 +67,12 @@ class Gg_veiculos extends CActiveRecord
 		return array(
 			'veiculos_id' => 'Veiculos',
 			'secretarias_id' => 'Secretaria',
+                        'secretarias.secretaria_nome' => 'Secretaria',
 			'veiculo_descricao' => 'Descrição do Veículo',
 			'veiculo_placa' => 'Placa',
 			'veiculo_chassi' => 'Chassi',
 			'veiculo_tipo' => 'Tipo',
+                        'tipos.tipo_nome' => 'Tipo',
 			'veiculo_quilometragem' => 'Quilometragem',
 			'veiculo_fabricante' => 'Fabricante',
 			'veiculo_modelo' => 'Modelo',
@@ -107,6 +114,8 @@ class Gg_veiculos extends CActiveRecord
 		$criteria->compare('veiculo_fabricante',$this->veiculo_fabricante,true);
 
 		$criteria->compare('veiculo_modelo',$this->veiculo_modelo,true);
+                
+                $criteria->compare('prefeituras_id',Yii::app()->session['active_prefeituras_id'],true);
 
 		return new CActiveDataProvider('Gg_veiculos', array(
 			'criteria'=>$criteria,

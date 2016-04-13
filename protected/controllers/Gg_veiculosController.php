@@ -179,7 +179,5 @@ class Gg_veiculosController extends Controller
 		}
 	}
         
-        public function getTipoVeiculo(){
-            return array('1' => 'Hatch', '2' => 'Sedan', '3' => 'Picape', '4' => 'Van', '5' => 'Ônibus', '6' => 'Ambulância', '7' => 'Furgão', '8' => 'Máquina', '9' => 'Moto');
-        }
+        
 }
