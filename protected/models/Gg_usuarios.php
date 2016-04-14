@@ -107,11 +107,11 @@ class Gg_usuarios extends CActiveRecord
 
 		$criteria->compare('usuario_email',$this->usuario_email,true);
                 
-                $criteria->compare('prefeituras_id', $this->prefeituras_id, true);
+                $criteria->compare('prefeituras_id', Yii::app()->session['active_prefeituras_id'], true);
                 
                 $criteria->compare('prefeituras.prefeitura_nome', $this->prefeituras_id, TRUE);
                 
-                $criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
+                //$criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
                 
 
 		return new CActiveDataProvider('Gg_usuarios', array(

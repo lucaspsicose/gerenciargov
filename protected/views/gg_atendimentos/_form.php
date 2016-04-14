@@ -3,9 +3,18 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'gg-atendimentos-form',
 	'enableAjaxValidation'=>false,
-)); ?>
+)); 
+    if ($model->isNewRecord) {
+        $protocolo = Yii::app()->functions->generateProtocolo();
+    } else {
+        $protocolo = Gg_atendimentos::model()->atendimento_protocolo;
+    }
+
+?>
 
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
+        
+        <?php echo $form->errorSummary($model); ?>
 	
         <?php echo $form->hiddenField($model,'usuarios_id', array('value' => Yii::app()->session['user_id'])); ?>
         <?php echo $form->hiddenField($model,'secretarias_origem_id', array('value' => Yii::app()->session['active_secretarias_id'])); ?>
@@ -14,7 +23,7 @@
             <div class="form-group">
                 <div class="col-md-3">
                     <?php echo $form->labelEx($model,'atendimento_protocolo'); ?>
-                    <?php echo $form->textField($model,'atendimento_protocolo', array('class'=>'form-control', 'readOnly'=>'readOnly', 'value'=>  Yii::app()->functions->generateProtocolo()), array('size'=>50,'maxlength'=>50)); ?>
+                    <?php echo $form->textField($model,'atendimento_protocolo', array('class'=>'form-control', 'readOnly'=>'readOnly', 'value'=> $protocolo), array('size'=>50,'maxlength'=>50)); ?>
                     <?php echo $form->error($model,'atendimento_protocolo'); ?>
                 </div>
 
