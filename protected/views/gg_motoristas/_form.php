@@ -24,13 +24,13 @@
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'motorista_categoria'); ?>
-		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control','onkeyup'=>'this.value=this.value.toUpperCase();', 'size'=>2,'maxlength'=>2)); ?>
+		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control','onkeyup'=>'this.value=this.value.toUpperCase();','onkeypress'=>'return Onlychars(event)', 'size'=>2,'maxlength'=>2)); ?>
 		<?php echo $form->error($model,'motorista_categoria'); ?>
 	</div>
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'motorista_telefone'); ?>
-		<?php echo $form->textField($model,'motorista_telefone',array('class'=>'form-control cel', 'size'=>15,'maxlength'=>15)); ?>
+		<?php echo $form->textField($model,'motorista_telefone',array('class'=>'form-control fixo_cel','size'=>15,'maxlength'=>15)); ?>
 		<?php echo $form->error($model,'motorista_telefone'); ?>
 	</div>
 
@@ -39,5 +39,26 @@
 	</div>
 
 <?php $this->endWidget(); ?>
+        
+<script>
+//funçao para aceitar somente letras
+    function Onlychars(e)
+    {
+            var tecla=new Number();
+            if(window.event) {
+                    tecla = e.keyCode;
+            }
+            else if(e.which) {
+                    tecla = e.which;
+            }
+            else {
+                    return true;
+            }
+            if((tecla >= "48") && (tecla <= "57")){
+                    return false;
+            }
+    }
+
+</script>
 
 </div><!-- form -->
