@@ -53,7 +53,7 @@ class Gg_atendimentos extends CActiveRecord
 			//array('atendimento_alteracao', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('atendimentos_id, usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, atendimento_inclusao, atendimento_alteracao, solicitantes_id, solicitantes.solicitante_nome, atendimento_descricao_status, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, sec_origem.secretaria_nome, usuarios.usuario_nome', 'safe', 'on'=>'search'),
+			array('atendimentos_id, usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, atendimento_inclusao, atendimento_alteracao, solicitantes_id, solicitantes.solicitante_nome, atendimento_descricao_status, atendimento_endereco, atendimento_numero, atendimento_bairro, usuarios.usuario_nome', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -128,7 +128,7 @@ class Gg_atendimentos extends CActiveRecord
 
 		$criteria->compare('usuarios_id',$this->usuarios_id);
 
-		$criteria->compare('secretarias_id',$this->secretarias_id);
+		$criteria->compare('secretarias_id', $this->secretarias_id);
 
 		$criteria->compare('atendimento_protocolo',$this->atendimento_protocolo,true);
 
@@ -150,15 +150,11 @@ class Gg_atendimentos extends CActiveRecord
 
 		$criteria->compare('atendimento_bairro',$this->atendimento_bairro,true);
                 
-                $criteria->compare('solicitantes.solicitante_nome', $this->solicitantes_id, true);
-                
-                $criteria->compare('secretarias_origem_id', Yii::app()->session['active_secretarias_id'], true);
-                
-                $criteria->compare('sec_origem.secretaria_nome', $this->secretarias_origem_id, true);
+                $criteria->compare('secretarias_origem_id', $this->secretarias_origem_id);
                 
                 $criteria->compare('usuarios.usuario_nome', $this->usuarios_id, true);
                 
-                //$criteria->condition = 'secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'];
+                $criteria->condition = 'secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'].' or secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'];
 
 		return new CActiveDataProvider('Gg_atendimentos', array(
 			'criteria'=>$criteria,

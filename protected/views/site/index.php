@@ -1,4 +1,3 @@
-    <?php unset(Yii::app()->session['active_secretarias_id']); ?>
     <!--container start-->
     <div class="white-bg">
 
