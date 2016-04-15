@@ -68,10 +68,11 @@ class Gg_solicitantesController extends Controller
 		$model=new Gg_solicitantes;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+                $this->performAjaxValidation($model);
 
 		if(isset($_POST['Gg_solicitantes']))
 		{
+                        $dados = $_POST['Gg_solicitantes'];
 			$model->attributes=$_POST['Gg_solicitantes'];
 			if($model->save()) {
 				if (isset($_POST['atendimentos'])) {
@@ -96,7 +97,7 @@ class Gg_solicitantesController extends Controller
 		$model=$this->loadModel();
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Gg_solicitantes']))
 		{
@@ -166,7 +167,7 @@ class Gg_solicitantesController extends Controller
 			if(isset($_GET['id']))
 				$this->_model=Gg_solicitantes::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
+				throw new CHttpException(404,'A página que você procura não existe!.');
 		}
 		return $this->_model;
 	}

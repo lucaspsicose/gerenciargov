@@ -88,12 +88,18 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                        <?php echo $form->labelEx($model,'servicos_id'); ?>
-                        <?php echo $form->textField($model,'servicos_id', array('class'=>'form-control')); ?>
-                        <?php echo $form->error($model,'servicos_id'); ?>
+                        <?php echo $form->labelEx($model,'descricao_servico'); ?>
+                        <?php echo $form->textField($model,'descricao_servico', array('class'=>'form-control')); ?>
+                        <?php echo $form->error($model,'descricao_servico'); ?>
                 </div>
             </div>
             
+            <div class="form-group">
+                    <?php echo $form->labelEx($model,'atendimento_descricao'); ?>
+                    <?php echo $form->textArea($model,'atendimento_descricao', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
+                    <?php echo $form->error($model,'atendimento_descricao'); ?>
+            </div>
+        
             <?php if (!$model->isNewRecord) : ?>
                 <div class="form-group">
                         <?php echo $form->labelEx($model,'atendimento_descricao_status'); ?>
@@ -102,12 +108,6 @@
                 </div>
             
             <?php endif; ?>
-            
-            <div class="form-group">
-                    <?php echo $form->labelEx($model,'atendimento_descricao'); ?>
-                    <?php echo $form->textArea($model,'atendimento_descricao', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
-                    <?php echo $form->error($model,'atendimento_descricao'); ?>
-            </div>
 
             <div class="form-group">
                     <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>
@@ -179,7 +179,7 @@ $new_user=$this->beginWidget('CActiveForm', array(
 <h2>Cadastro de Solicitantes</h2>
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
         
-	<?php //echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model); ?>
         <div class="col-md-12">
             <div class="form-group">
                 <?php echo CHtml::label('Física/Jurídica', 'cpf_cnpj'); ?>
@@ -190,6 +190,7 @@ $new_user=$this->beginWidget('CActiveForm', array(
         </div>
         
         <?php echo CHtml::hiddenField('atendimentos', Yii::app()->request->pathInfo) ?>
+        <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
         
         <div class="form-group col-md-12">
                 <?php echo $new_user->labelEx($solicitante,'solicitante_nome'); ?>

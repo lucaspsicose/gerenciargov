@@ -18,6 +18,7 @@
  * @property string $atendimento_numero
  * @property string $atendimento_bairro
  * @property integer $secretarias_origem_id
+ * @property string $descricao_servico 
  */
 class Gg_atendimentos extends CActiveRecord
 {
@@ -39,8 +40,9 @@ class Gg_atendimentos extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id', 'required'),
-			array('usuarios_id, secretarias_id, status_id, solicitantes_id, servicos_id, secretarias_origem_id', 'numerical', 'integerOnly'=>true),
+			array('usuarios_id, secretarias_id, status_id, solicitantes_id, secretarias_origem_id', 'numerical', 'integerOnly'=>true),
 			array('atendimento_protocolo', 'length', 'max'=>50),
+                        array('descricao_servico', 'length', 'max'=>150),
 			array('atendimento_descricao, atendimento_descricao_status, atendimento_endereco', 'length', 'max'=>2000),
 			array('atendimento_numero', 'length', 'max'=>10),
 			array('atendimento_bairro', 'length', 'max'=>60),
@@ -67,7 +69,6 @@ class Gg_atendimentos extends CActiveRecord
 		return array(
                     'secretarias'=>array(self::BELONGS_TO, 'Gg_secretarias', 'secretarias_id'),
                     'status'=>array(self::BELONGS_TO, 'Gg_status', 'status_id'),
-                    'servicos'=>array(self::BELONGS_TO, 'Gg_servicos', 'servicos_id'),
                     'solicitantes'=>array(self::BELONGS_TO, 'Gg_solicitantes', 'solicitantes_id'),
                     'sec_origem'=>array(self::BELONGS_TO, 'Gg_secretarias', 'secretarias_origem_id'),
                     'usuarios'=>array(self::BELONGS_TO, 'Gg_usuarios', 'usuarios_id'),
@@ -95,8 +96,7 @@ class Gg_atendimentos extends CActiveRecord
 			'atendimento_numero' => 'Número',
 			'atendimento_bairro' => 'Bairro para Atendimento',
                         'status.status_nome' => 'Status',
-                        'servicos.servico_nome' => 'Serviço',
-                        'servicos_id' => 'Serviço', 
+                        'descricao_servico' => 'Serviço', 
                         'solicitantes.solicitante_nome'=>'Solicitante',
                         'secretarias_origem_id'=>'Secretaria de Origem',
                         'sec_origem.secretaria_nome'=>'Secretaria de Origem',
@@ -122,7 +122,7 @@ class Gg_atendimentos extends CActiveRecord
 
 		$criteria=new CDbCriteria;
                 
-                $criteria->with=array('secretarias', 'status', 'servicos', 'solicitantes');
+                $criteria->with=array('secretarias', 'status', 'solicitantes');
 
 		$criteria->compare('atendimentos_id',$this->atendimentos_id);
 
@@ -153,6 +153,8 @@ class Gg_atendimentos extends CActiveRecord
                 $criteria->compare('secretarias_origem_id', $this->secretarias_origem_id);
                 
                 $criteria->compare('usuarios.usuario_nome', $this->usuarios_id, true);
+                
+                $criteria->compare('descricao_servico', $this->descricao_servico, true);
                 
                 $criteria->condition = 'secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'].' or secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'];
 

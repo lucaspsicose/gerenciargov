@@ -31,7 +31,7 @@
 
                                     </em>
                                     <h4>
-                                      <b>'.$array['secretaria_nome'].'</b>
+                                      <b>'.substr($array['secretaria_nome'], 0, 31).'</b>
                                     </h4>
                                   </div>
                                   <p class="text-center">'.

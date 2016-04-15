@@ -1,3 +1,4 @@
+
 /*
 Template Name: Acme Business Template with Bootstrap 3
 Template Version: 1.0
@@ -2988,4 +2989,10 @@ div.header h3{
   /*padding-right: 15px !important;
   padding-left: 15px !important;*/
   padding: 0 15px 0 15px;
+}
+
+.view-button:hover {
+    filter:alpha(opacity=30);
+    -moz-opacity: 0.30;
+    opacity: 0.30;
 }

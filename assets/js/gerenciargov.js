@@ -18,16 +18,19 @@ $(document).ready(function() {
         });
       });
  
-
+//Altera mascara de CPF ou CNPJ de acordo com o tipo selecionado na tela
 $('#cpf_cnpj_1').click(function() {
-    $("#cpf-cnpj").removeClass("form-control cpf");
-    $("#cpf-cnpj").addClass("form-control cnpj");
+    var $elem = $("#cpf-cnpj");
+    $elem.unmask();
+    $elem.mask("99.999.999/9999-99");
 });
 
 $('#cpf_cnpj_0').click(function() {
-    $("#cpf-cnpj").removeClass("form-control cnpj");
-    $("#cpf-cnpj").addClass("form-control cpf");
+    var $elem = $("#cpf-cnpj");
+    $elem.unmask();
+    $elem.mask("999.999.999-99");
 });
+//fim altera mascara
 
 jQuery( function($){
 
@@ -59,6 +62,7 @@ jQuery( function($){
             }, 1);
         });
 	//Fim Mascara Telefone
+        
 
 });
 	  

@@ -6,6 +6,7 @@
 )); ?>
 
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
+        <?php echo $form->errorSummary($model); ?>
 
 	<?php echo $form->errorSummary($model); ?>
         <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
