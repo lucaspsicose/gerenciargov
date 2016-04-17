@@ -4,16 +4,23 @@ $this->breadcrumbs=array(
 	$model->solicitantes_id,
 );
 
-$this->menu=array(
-	array('label'=>'List Gg_solicitantes', 'url'=>array('index')),
-	array('label'=>'Create Gg_solicitantes', 'url'=>array('create')),
-	array('label'=>'Update Gg_solicitantes', 'url'=>array('update', 'id'=>$model->solicitantes_id)),
-	array('label'=>'Delete Gg_solicitantes', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->solicitantes_id),'confirm'=>Yii::t('zii','Are you sure you want to delete this item?'))),
-	array('label'=>'Manage Gg_solicitantes', 'url'=>array('admin')),
-);
+if (in_array(Yii::app()->session['perfil'], array(1, 2)) ) {
+    $this->menu=array(
+            array('label'=>'Lista de Solicitantes', 'url'=>array('admin')),
+            array('label'=>'Novo Cadastro', 'url'=>array('create')),
+            array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->solicitantes_id)),
+            array('label'=>'Deletar Cadastro', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->solicitantes_id),'confirm'=>Yii::t('zii','Confirma deletar este cadastro?'))),
+
+    );
+} else {
+    $this->menu=array(
+            array('label'=>'Lista de Solicitantes', 'url'=>array('admin')),
+            array('label'=>'Novo Cadastro', 'url'=>array('create')),
+    );
+}
 ?>
 
-<h1>View Gg_solicitantes #<?php echo $model->solicitantes_id; ?></h1>
+<h1>Munícipe #<?php echo $model->solicitante_nome; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -31,4 +38,5 @@ $this->menu=array(
 		'solicitante_rg',
 		'solicitante_titulo_eleitor',
 	),
+        'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>

@@ -144,22 +144,11 @@ class Gg_solicitantes extends CActiveRecord
 	}
         
         protected function beforeSave() {
-                $this->solicitante_data_nascimento = date ('Y-m-d', time());
                 
                 $this->solicitante_data_nascimento = strtotime($this->solicitante_data_nascimento);
                 
+                $this->solicitante_data_nascimento = date ('Y-m-d', $this->solicitante_data_nascimento);                
                 
             return parent::beforeSave();
-        }
-        
-        protected function afterFind ()
-        {
-                // convert to display format
-            $this->solicitante_data_nascimento = strtotime ($this->solicitante_data_nascimento);
-            $this->solicitante_data_nascimento = date ('d/m/Y', $this->solicitante_data_nascimento);
-            
-            
-
-            parent::afterFind ();
         }
 }

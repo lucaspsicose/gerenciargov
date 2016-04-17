@@ -309,10 +309,10 @@ class Functions extends CApplicationComponent
             return $protocolo;
         }
         
-        public function getSolicitantes()
+        public function getSolicitantes($prefeituras_id = '')
         {
             $db = new DbExt();
-            $sql = 'select solicitantes_id, solicitante_nome from Gg_solicitantes';
+            $sql = 'select solicitantes_id, solicitante_nome from Gg_solicitantes where prefeituras_id = '.$prefeituras_id;
             
             $cod   = array();
             $nome  = array();

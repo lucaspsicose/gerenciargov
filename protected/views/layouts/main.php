@@ -41,7 +41,7 @@
           <div class="navbar-header">
               <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
               type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                  <span class="icon-bar"></span></button> <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/assets/img/2.png" height="100px"/>Gerenciar <span>Gov</span></a>
+                  <span class="icon-bar"></span></button> <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/assets/img/D-large1.png" height="100px"/></a>
           </div>
 
           <div class="navbar-collapse collapse">

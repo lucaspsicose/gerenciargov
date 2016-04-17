@@ -27,7 +27,7 @@
                                 <div class="col-md-3 col-sm-3 text-center wow fadeInUp">
                                   <div class="feature-box-heading">
                                     <em>
-                                    <a href="gg_atendimentos/Admin/?s='.$array['secretarias_id'].'"><img src="'.Yii::app()->request->baseUrl.'/assets/img/gestao_publica.png" alt="" width="100" height="100"></a>
+                                    <a href="'.$this->createUrl('site/menu', array('s'=>$array['secretarias_id'])).'"><img src="'.Yii::app()->request->baseUrl.'/assets/img/gestao_publica.png" alt="" width="100" height="100"></a>
 
                                     </em>
                                     <h4>

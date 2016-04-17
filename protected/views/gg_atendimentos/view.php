@@ -4,12 +4,19 @@ $this->breadcrumbs=array(
 	$model->atendimentos_id,
 );
 
-$this->menu=array(
-	array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
-	array('label'=>'Novo Atendimento', 'url'=>array('create')),
-	array('label'=>'Editar Atendimento', 'url'=>array('update', 'id'=>$model->atendimentos_id)),
-	array('label'=>'Deletar Atendimento', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->atendimentos_id),'confirm'=>Yii::t('zii','Confirma deletar este atendimento?'))),
-);
+if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
+    $this->menu=array(
+            array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
+            array('label'=>'Novo Atendimento', 'url'=>array('create')),
+            array('label'=>'Editar Atendimento', 'url'=>array('update', 'id'=>$model->atendimentos_id)),
+            array('label'=>'Deletar Atendimento', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->atendimentos_id),'confirm'=>Yii::t('zii','Confirma deletar este atendimento?'))),
+    );
+} else {
+    $this->menu=array(
+            array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
+            array('label'=>'Novo Atendimento', 'url'=>array('create')),
+    );
+}
 ?>
 
 <h1>Atendimento #<?php echo $model->atendimento_protocolo; ?></h1>

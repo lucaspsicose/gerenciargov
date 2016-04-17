@@ -41,7 +41,6 @@
                         <?php else : ?> 
                         <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
                         <?php endif; ?>
-
                 </div>
 
                 <div class="col-md-3">
@@ -116,7 +115,7 @@
             
         <?php 
         $solicitante = new Gg_solicitantes;
-        $solic=  Yii::app()->functions->getSolicitantes();
+        $solic=  Yii::app()->functions->getSolicitantes(Yii::app()->session['active_prefeituras_id']);
         $array_solic = implode("|", $solic);
         ?>
         <script>

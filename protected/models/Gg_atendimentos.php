@@ -123,24 +123,22 @@ class Gg_atendimentos extends CActiveRecord
 		$criteria=new CDbCriteria;
                 
                 $criteria->with=array('secretarias', 'status', 'solicitantes');
+                
+                $criteria->condition = 't.secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'].' or t.secretarias_id = '.Yii::app()->session['active_secretarias_id'];
 
 		$criteria->compare('atendimentos_id',$this->atendimentos_id);
 
 		$criteria->compare('usuarios_id',$this->usuarios_id);
 
-		$criteria->compare('secretarias_id', $this->secretarias_id);
-
 		$criteria->compare('atendimento_protocolo',$this->atendimento_protocolo,true);
 
-		$criteria->compare('status_id',$this->status_id);
+		$criteria->compare('t.status_id',$this->status_id);
 
 		$criteria->compare('atendimento_descricao',$this->atendimento_descricao,true);
 
 		$criteria->compare('atendimento_inclusao',$this->atendimento_inclusao,true);
 
 		$criteria->compare('atendimento_alteracao',$this->atendimento_alteracao,true);
-
-		$criteria->compare('solicitantes_id',$this->solicitantes_id);
 
 		$criteria->compare('atendimento_descricao_status',$this->atendimento_descricao_status,true);
 
@@ -150,13 +148,7 @@ class Gg_atendimentos extends CActiveRecord
 
 		$criteria->compare('atendimento_bairro',$this->atendimento_bairro,true);
                 
-                $criteria->compare('secretarias_origem_id', $this->secretarias_origem_id);
-                
-                $criteria->compare('usuarios.usuario_nome', $this->usuarios_id, true);
-                
                 $criteria->compare('descricao_servico', $this->descricao_servico, true);
-                
-                $criteria->condition = 'secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'].' or secretarias_origem_id = '.Yii::app()->session['active_secretarias_id'];
 
 		return new CActiveDataProvider('Gg_atendimentos', array(
 			'criteria'=>$criteria,
@@ -188,7 +180,7 @@ class Gg_atendimentos extends CActiveRecord
             if (!$this->isNewRecord) {
                 $this->atendimento_alteracao = date ('Y-m-d H:m', time());
                 
-                $this->atendimento_inclusao = strtotime($this->atendimento_inclusao);
+                $this->atendimento_inclusao = date ('Y-m-d H:m', $this->atendimento_inclusao);
                 
                 $time = $this->atendimento_inclusao;
             }

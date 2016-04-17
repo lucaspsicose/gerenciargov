@@ -46,7 +46,11 @@ class Gg_atendimentosController extends Controller
 			),
                         array('allow',
                                 'actions'=>array('imprimir'),
-                                'users'=>array('*'),
+                                'users'=>array('@'),
+                         ),
+                         array('allow',
+                                'actions'=>array('busca'),
+                                'users'=>array('@'),
                          ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -152,11 +156,6 @@ class Gg_atendimentosController extends Controller
 		if(isset($_GET['Gg_atendimentos'])) {
 			$model->attributes=$_GET['Gg_atendimentos'];
                         }
-                if ( isset($_GET['s'])) {
-                            Yii::app()->session['active_secretarias_id'] = $_GET['s'];
-                            $data = Yii::app()->functions->getDadosSecretarias(Yii::app()->session['active_secretarias_id']);
-                            Yii::app()->session['active_secretaria_nome'] = $data['secretaria_nome'];
-                }
                             
 		$this->render('admin',array(
 			'model'=>$model,

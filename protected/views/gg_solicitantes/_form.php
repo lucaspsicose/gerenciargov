@@ -67,7 +67,7 @@
 
             <div class="form-group col-md-3">
                     <?php echo $form->labelEx($model,'solicitante_data_nascimento'); ?>
-                    <?php echo $form->textField($model,'solicitante_data_nascimento',array('class'=>'form-control data')); ?>
+                    <?php echo $form->dateField($model, 'solicitante_data_nascimento', array('class'=>'form-control')); ?>
                     <?php echo $form->error($model,'solicitante_data_nascimento'); ?>
             </div>
 

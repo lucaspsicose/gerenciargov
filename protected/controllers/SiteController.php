@@ -34,8 +34,19 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
+        
+        public function  actionMenu()
+        {   
+            if ( isset($_GET['s'])) {
+                            Yii::app()->session['active_secretarias_id'] = $_GET['s'];
+                            $data = Yii::app()->functions->getDadosSecretarias(Yii::app()->session['active_secretarias_id']);
+                            Yii::app()->session['active_secretaria_nome'] = $data['secretaria_nome'];
+                }
+                
+            $this->render('menu');
+        }
 
-	/**
+        /**
 	 * This is the action to handle external exceptions.
 	 */
 	public function actionError()
@@ -111,4 +122,40 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+        
+        public function getQuantidadeAtendimentos($secretarias_id = '')
+        {
+            $db = new DbExt();
+            
+            $result = '';
+            
+            $sql = 'SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = '.$secretarias_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $count) {
+                    $result = $count;
+                }
+                return $result['quant'];
+            }
+            
+            return 0;
+        }
+        
+        public function getQuantidadeUsuarios($prefeituras_id = '')
+        {
+            $db = new DbExt();
+            
+            $result = '';
+            
+            $sql = 'SELECT COUNT(usuarios_id) as quant FROM Gg_usuarios WHERE prefeituras_id = '.$prefeituras_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $count) {
+                    $result = $count;
+                }
+                return $result['quant'];
+            }
+            
+            return 0;
+        }
 }
