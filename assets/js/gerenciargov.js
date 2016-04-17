@@ -41,6 +41,7 @@ jQuery( function($){
     $(".cnpj").mask("99.999.999/9999-99");
     $(".cep").mask("99999-999");
     $(".placa").mask("aaa-9999");
+	$(".hora").mask("99:99")
 	
 	//Inicio Mascara Telefone para aceitar telefones fixos e celulares com 8 e 9 digitos
 	$('.fixo_cel')  
@@ -61,10 +62,10 @@ jQuery( function($){
                 }
             }, 1);
         });
-	//Fim Mascara Telefone
-        
+	//Fim Mascara Telefone		        
 
 });
+ 
 	  
 $(document).ready(function($) {
 		

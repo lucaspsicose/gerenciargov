@@ -27,6 +27,7 @@ $this->setPageTitle('Veículos');
 		'veiculo_quilometragem',
 		'veiculo_fabricante',
 		'veiculo_modelo',
+                'status.status_nome',
 	),
         'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>

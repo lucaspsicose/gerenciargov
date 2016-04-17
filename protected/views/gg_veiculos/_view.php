@@ -27,6 +27,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('veiculo_quilometragem')); ?>:</b>
 	<?php echo CHtml::encode($data->veiculo_quilometragem); ?>
 	<br />
+        
+        <b><?php echo CHtml::encode($data->getAttributeLabel('status_veiculos_id')); ?>:</b>
+	<?php echo CHtml::encode($data->status_veiculos_id); ?>
+	<br />
 
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('veiculo_fabricante')); ?>:</b>
