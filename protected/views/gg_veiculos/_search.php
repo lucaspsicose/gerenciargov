@@ -11,6 +11,11 @@
                                                                                                                                                                                                                                                                                                  'empty'=>'')); ?>
 		
 	</div>
+    
+        <div class="form-group">
+		<?php echo $form->label($model,'status_veiculos_id'); ?>
+                <?php echo $form->dropdownlist($model, 'status_veiculos_id', CHtml::listData(Gg_status_veiculos::model()->findAll(array('order'=>'status_veiculos_id')), 'status_veiculos_id', 'status_nome'), array('class'=>'form-control', 'empty'=>'')); ?>
+	</div>
 
 	<div class="form-group">
 		<?php echo $form->label($model,'veiculo_descricao'); ?>

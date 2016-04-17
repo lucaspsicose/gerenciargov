@@ -14,6 +14,7 @@
  * @property string $veiculo_fabricante
  * @property string $veiculo_modelo
  * @property integer $prefeituras_id
+ * @property integer $status_veiculos_id
  */
 class Gg_veiculos extends CActiveRecord
 {
@@ -34,14 +35,14 @@ class Gg_veiculos extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('veiculo_descricao, veiculo_placa, veiculo_tipo, prefeituras_id', 'required'),
-			array('secretarias_id, veiculo_tipo, veiculo_quilometragem', 'numerical', 'integerOnly'=>true),
+			array('secretarias_id, status_veiculos_id, veiculo_tipo, veiculo_quilometragem', 'numerical', 'integerOnly'=>true),
                         array('veiculo_quilometragem', 'length', 'max'=>6),
 			array('veiculo_descricao, veiculo_fabricante, veiculo_modelo', 'length', 'max'=>80),
 			array('veiculo_placa', 'length', 'max'=>8),
 			array('veiculo_chassi', 'length', 'max'=>17),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('veiculos_id, secretarias_id, veiculo_descricao, veiculo_placa, veiculo_chassi, veiculo_tipo, veiculo_quilometragem, veiculo_fabricante, veiculo_modelo', 'safe', 'on'=>'search'),
+			array('veiculos_id, secretarias_id, starus_veiculos_id veiculo_descricao, veiculo_placa, veiculo_chassi, veiculo_tipo, veiculo_quilometragem, veiculo_fabricante, veiculo_modelo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,6 +57,7 @@ class Gg_veiculos extends CActiveRecord
                     'secretarias'=>array(self::BELONGS_TO, 'Gg_secretarias', 'secretarias_id'),
                     'tipos'=>array(self::BELONGS_TO, 'Gg_tipo_veiculos', 'veiculo_tipo'),
                     'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
+                    'status'=>array(self::BELONGS_TO, 'Gg_status_veiculos', 'status_veiculos_id'),
 		);
 	}
 
@@ -76,6 +78,8 @@ class Gg_veiculos extends CActiveRecord
 			'veiculo_quilometragem' => 'Quilometragem',
 			'veiculo_fabricante' => 'Fabricante',
 			'veiculo_modelo' => 'Modelo',
+                        'status_veiculos_id' => 'Status',
+                        'status_nome.status_nome' => 'Secretaria',
 		);
 	}
 
@@ -100,6 +104,8 @@ class Gg_veiculos extends CActiveRecord
 		$criteria->compare('veiculos_id',$this->veiculos_id);
 
 		$criteria->compare('secretarias_id',$this->secretarias_id);
+                
+                $criteria->compare('status_veiculos_id',$this->status_veiculos_id);
 
 		$criteria->compare('veiculo_descricao',$this->veiculo_descricao,true);
 
