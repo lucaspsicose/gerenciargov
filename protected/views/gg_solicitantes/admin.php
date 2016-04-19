@@ -45,14 +45,6 @@ $this->setPageTitle('Solicitantes');
 		'solicitante_celular',
 		'solicitante_cpf_cnpj',
 		'solicitante_endereco',
-		/*
-		'solicitante_numero',
-		'solicitante_bairro',
-		'solicitante_email',
-		'solicitante_data_nascimento',
-		'solicitante_rg',
-		'solicitante_titulo_eleitor',
-		*/
 		array(
 			'class'=>'CButtonColumn',
                         'template'=>'{view}',

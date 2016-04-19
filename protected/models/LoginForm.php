@@ -72,9 +72,11 @@ class LoginForm extends CFormModel
 		{			
 			$DbExt=new DbExt;
 			$stmt=" SELECT u.*,
-                                       p.perfil_capabilidade 
-                                  FROM Gg_usuarios u
-                                  JOIN Gg_perfil   p on (p.perfis_id = u.perfis_id)
+                                       p.perfil_capabilidade,
+                                       pf.prefeitura_nome
+                                  FROM Gg_usuarios     u
+                                  JOIN Gg_perfil       p on (p.perfis_id      = u.perfis_id)
+                             LEFT JOIN Gg_prefeituras pf on (u.prefeituras_id = pf.prefeituras_id)
                                 WHERE
                                 usuario_login=".Yii::app()->db->quoteValue($this->data['username'])."
                                 AND
@@ -90,6 +92,7 @@ class LoginForm extends CFormModel
                                 $session['usuario_email']       =$key['usuario_email'];
                                 $session['usuario_secretarias'] = Yii::app()->functions->getSecretariasByUsuario($key['usuarios_id']);
                                 $session['active_prefeituras_id'] = $key['prefeituras_id'];
+                                $session['active_prefeitura_nome'] = $key['prefeitura_nome'];
                             }
 				
                                 $function = new Functions();

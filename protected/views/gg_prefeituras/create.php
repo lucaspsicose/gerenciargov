@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_prefeituras', 'url'=>array('index')),
-	array('label'=>'Manage Gg_prefeituras', 'url'=>array('admin')),
+	array('label'=>'Lista de Prefeituras', 'url'=>array('admin')),
 );
+$this->setPageTitle('Prefeituras');
 ?>
 
-<h1>Create Gg_prefeituras</h1>
+<h1>Nova Prefeitura</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

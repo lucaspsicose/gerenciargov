@@ -6,13 +6,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_prefeituras', 'url'=>array('index')),
-	array('label'=>'Create Gg_prefeituras', 'url'=>array('create')),
-	array('label'=>'View Gg_prefeituras', 'url'=>array('view', 'id'=>$model->prefeituras_id)),
-	array('label'=>'Manage Gg_prefeituras', 'url'=>array('admin')),
+	array('label'=>'Lista de Prefeituras', 'url'=>array('admin')),
+	array('label'=>'Nova Prefeitura', 'url'=>array('create')),
+	array('label'=>'Ver Cadastro', 'url'=>array('view', 'id'=>$model->prefeituras_id)),
 );
 ?>
 
-<h1>Update Gg_prefeituras <?php echo $model->prefeituras_id; ?></h1>
+<h1>Editar Prefeitura #<?php echo $model->prefeitura_nome; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

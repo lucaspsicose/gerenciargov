@@ -34,7 +34,7 @@ class Gg_prefeituras extends CActiveRecord
 			array('estados_id', 'numerical', 'integerOnly'=>true),
 			array('prefeitura_nome, prefeitura_municipio, prefeitura_endereco', 'length', 'max'=>80),
 			array('prefeitura_numero', 'length', 'max'=>5),
-			array('prefeitura_telefone', 'length', 'max'=>12),
+			array('prefeitura_telefone', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('prefeituras_id, prefeitura_nome, prefeitura_municipio, estados_id, prefeitura_endereco, prefeitura_numero, prefeitura_telefone', 'safe', 'on'=>'search'),

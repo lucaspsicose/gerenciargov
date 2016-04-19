@@ -5,7 +5,7 @@
     <?php if (Yii::app()->user->isGuest) : ?>
     <?php SiteController::redirect(Yii::app()->request->baseUrl.'/site/login'); ?>
        </div>
-    <?php else : ?>
+    <?php elseif (Yii::app()->session['perfil'] !== '0') : ?>
         <div class="container career-inner">
         <div class="row">
             <div class="col-md-12 career-head">
@@ -47,10 +47,11 @@
                
             </div>
         </div>
-        <hr>
-    <?php endif; ?>
-        
+        <hr>        
     </div>
+    <?php else : ?>
+    <?php SiteController::redirect(Yii::app()->request->baseUrl.'/gg_prefeituras/admin'); ?>
+    <?php endif; ?>
     <!--container end-->
 
      

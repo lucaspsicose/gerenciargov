@@ -111,7 +111,8 @@ class Functions extends CApplicationComponent
             
             $stmt = 'select perfis_id, '
                     . 'perfil_nome '
-                    . 'from Gg_perfil';
+                    . 'from Gg_perfil '
+                    . 'where perfil_capabilidade <> 0';
             
             $combo = array();
             $chave = array();

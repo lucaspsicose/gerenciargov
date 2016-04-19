@@ -27656,3 +27656,411 @@ Stack trace:
 REQUEST_URI=/gerenciargov/site/menu?s=4
 HTTP_REFERER=http://localhost/gerenciargov/index.php?XDEBUG_SESSION_START=netbeans-xdebug
 ---
+2016/04/17 18:13:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/17 18:57:25 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php:108)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\helpers\CHtml.php(181): renderAttributes()
+#1 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CMenu.php(229): openTag()
+#2 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CMenu.php(182): CMenu->renderMenuRecursive()
+#3 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CMenu.php(169): CMenu->renderMenu()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(181): CMenu->run()
+#5 C:\wamp\www\gerenciargov\protected\views\layouts\main.php(73): SiteController->widget()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(214): CContentDecorator->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(308): SiteController->endWidget()
+#13 C:\wamp\www\gerenciargov\protected\views\layouts\column1.php(6): SiteController->endContent()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(784): SiteController->renderFile()
+#17 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): SiteController->render()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): SiteController->runAction()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/site/menu
+in C:\wamp\www\gerenciargov\protected\views\layouts\main.php (73)
+in C:\wamp\www\gerenciargov\protected\views\layouts\column1.php (6)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (46)
+2016/04/17 19:01:36 [error] [php] Invalid argument supplied for foreach() (C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CMenu.php:265)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\CMenu.php(161): CMenu->normalizeItems()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(147): CMenu->init()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): SiteController->createWidget()
+#3 C:\wamp\www\gerenciargov\protected\views\layouts\main.php(71): SiteController->widget()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(214): CContentDecorator->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(308): SiteController->endWidget()
+#11 C:\wamp\www\gerenciargov\protected\views\layouts\column1.php(6): SiteController->endContent()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(784): SiteController->renderFile()
+#15 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): SiteController->render()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): SiteController->runAction()
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/site/menu
+in C:\wamp\www\gerenciargov\protected\views\layouts\main.php (71)
+in C:\wamp\www\gerenciargov\protected\views\layouts\column1.php (6)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (46)
+2016/04/18 20:28:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/18 20:33:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "gg_veiculo_viagens/index".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_veiculo_viag...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/gg_veiculo_viagens
+---
+2016/04/18 22:17:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/18 23:33:39 [warning] [application] Failed to set unsafe attribute "usuarios_id" of "Gg_usuarios".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php (81)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/18 23:51:45 [warning] [application] Failed to set unsafe attribute "usuarios_id" of "Gg_usuarios".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php (81)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/18 23:51:55 [error] [exception.CException] exception 'CException' with message '"name" ou "value" deve ser especificado para CDataColumn.' in C:\wamp\www\gerenciargov\yii\framework\zii\widgets\grid\CDataColumn.php:84
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\grid\CGridView.php(401): CDataColumn->init()
+#1 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\grid\CGridView.php(359): CGridView->initColumns()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(147): CGridView->init()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#4 C:\wamp\www\gerenciargov\protected\views\gg_prefeituras\admin.php(58): CBaseController->widget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\controllers\Gg_prefeiturasController.php(150): CController->render('admin', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_prefeiturasController->actionAdmin()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_prefeituras/...')
+#21 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#22 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/gerenciargov/gg_prefeituras/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/18 23:53:08 [error] [exception.CException] exception 'CException' with message '"name" ou "value" deve ser especificado para CDataColumn.' in C:\wamp\www\gerenciargov\yii\framework\zii\widgets\grid\CDataColumn.php:84
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\grid\CGridView.php(401): CDataColumn->init()
+#1 C:\wamp\www\gerenciargov\yii\framework\zii\widgets\grid\CGridView.php(359): CGridView->initColumns()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(147): CGridView->init()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('zii.widgets.gri...', Array)
+#4 C:\wamp\www\gerenciargov\protected\views\gg_prefeituras\admin.php(58): CBaseController->widget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#9 C:\wamp\www\gerenciargov\protected\controllers\Gg_prefeiturasController.php(150): CController->render('admin', Array)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_prefeiturasController->actionAdmin()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_prefeituras/...')
+#21 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#22 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/gerenciargov/gg_prefeituras/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/19 00:09:40 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<> 0' at line 1. A declaração SQL executada foi: select perfis_id, perfil_nome from Gg_perfilwhere perfil_capabilidade <> 0.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\components\Functions.php (121)
+in C:\wamp\www\gerenciargov\protected\views\gg_usuarios\_form.php (38)
+2016/04/19 00:09:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<> 0' at line 1. The SQL statement executed was: select perfis_id, perfil_nome from Gg_perfilwhere perfil_capabilidade <> 0' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\components\Functions.php(121): DbExt->rst('select perfis_i...')
+#3 C:\wamp\www\gerenciargov\protected\views\gg_usuarios\_form.php(38): Functions->getComboPerfil()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\protected\views\gg_usuarios\create.php(19): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php(100): CController->render('create', Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_usuariosController->actionCreate()
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_usuarios/cre...')
+#24 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gerenciargov/gg_usuarios/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_usuarios/admin
+---
+2016/04/19 00:24:11 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (134)
+in C:\wamp\www\gerenciargov\protected\views\site\menu.php (33)
+2016/04/19 00:24:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(134): DbExt->rst('SELECT COUNT(at...')
+#3 C:\wamp\www\gerenciargov\protected\views\site\menu.php(33): SiteController->getQuantidadeAtendimentos(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', NULL, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', NULL, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('menu', NULL, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): CController->render('menu')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('menu')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/menu')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/site/menu
+HTTP_REFERER=http://localhost/gerenciargov/gg_prefeituras/admin
+---
+2016/04/19 00:32:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "site" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(270): CController->missingAction('site')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('site')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_prefeituras/...')
+#3 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gerenciargov/gg_prefeituras/site
+HTTP_REFERER=http://localhost/gerenciargov/gg_prefeituras/admin
+---
+2016/04/19 00:33:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "site" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(270): CController->missingAction('site')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('site')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_prefeituras/...')
+#3 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gerenciargov/gg_prefeituras/site
+HTTP_REFERER=http://localhost/gerenciargov/gg_prefeituras/admin
+---
+2016/04/19 00:38:11 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (134)
+in C:\wamp\www\gerenciargov\protected\views\site\menu.php (33)
+2016/04/19 00:38:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(134): DbExt->rst('SELECT COUNT(at...')
+#3 C:\wamp\www\gerenciargov\protected\views\site\menu.php(33): SiteController->getQuantidadeAtendimentos(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', NULL, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', NULL, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('menu', NULL, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): CController->render('menu')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('menu')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/menu')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/site/menu
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/04/19 00:39:03 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (134)
+in C:\wamp\www\gerenciargov\protected\views\site\menu.php (33)
+2016/04/19 00:39:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(134): DbExt->rst('SELECT COUNT(at...')
+#3 C:\wamp\www\gerenciargov\protected\views\site\menu.php(33): SiteController->getQuantidadeAtendimentos(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', NULL, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', NULL, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('menu', NULL, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): CController->render('menu')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('menu')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/menu')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/site/menu
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/04/19 00:39:04 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (134)
+in C:\wamp\www\gerenciargov\protected\views\site\menu.php (33)
+2016/04/19 00:39:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(134): DbExt->rst('SELECT COUNT(at...')
+#3 C:\wamp\www\gerenciargov\protected\views\site\menu.php(33): SiteController->getQuantidadeAtendimentos(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', NULL, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', NULL, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('menu', NULL, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): CController->render('menu')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('menu')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/menu')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/site/menu
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/04/19 00:39:11 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (134)
+in C:\wamp\www\gerenciargov\protected\views\site\menu.php (33)
+2016/04/19 00:39:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(134): DbExt->rst('SELECT COUNT(at...')
+#3 C:\wamp\www\gerenciargov\protected\views\site\menu.php(33): SiteController->getQuantidadeAtendimentos(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', NULL, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', NULL, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('menu', NULL, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): CController->render('menu')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('menu')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/menu')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/site/menu
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/04/19 00:39:50 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (134)
+in C:\wamp\www\gerenciargov\protected\views\site\menu.php (33)
+2016/04/19 00:39:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(134): DbExt->rst('SELECT COUNT(at...')
+#3 C:\wamp\www\gerenciargov\protected\views\site\menu.php(33): SiteController->getQuantidadeAtendimentos(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', NULL, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', NULL, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('menu', NULL, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): CController->render('menu')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('menu')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/menu')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/site/menu
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/04/19 00:40:03 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\SiteController.php (134)
+in C:\wamp\www\gerenciargov\protected\views\site\menu.php (33)
+2016/04/19 00:40:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(134): DbExt->rst('SELECT COUNT(at...')
+#3 C:\wamp\www\gerenciargov\protected\views\site\menu.php(33): SiteController->getQuantidadeAtendimentos(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', NULL, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', NULL, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('menu', NULL, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\SiteController.php(46): CController->render('menu')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionMenu()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('menu')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/menu')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/site/menu
+HTTP_REFERER=http://localhost/gerenciargov/
+---

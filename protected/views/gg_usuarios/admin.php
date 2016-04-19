@@ -5,10 +5,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-        array('label'=>'Novo Atendimento', 'url'=>array('/gg_atendimentos/create')),
-	array('label'=>'Atendimentos', 'url'=>array('/gg_atendimentos/admin')),
-	array('label'=>'Cadastrar Novo Usuário', 'url'=>array('create'), 'visible'=>in_array(Yii::app()->session['perfil'], array(1, 2))),
 	array('label'=>'Lista de Usuários', 'url'=>array('admin'), 'visible'=>in_array(Yii::app()->session['perfil'], array(1, 2))),
+	array('label'=>'Cadastrar Novo Usuário', 'url'=>array('create'), 'visible'=>in_array(Yii::app()->session['perfil'], array(1, 2))),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -48,7 +46,10 @@ $this->setPageTitle('Usuários');
 		'usuario_email',
 		array(
 			'class'=>'CButtonColumn',
-		),
+                        'template'=>'{view}',
+                        'viewButtonImageUrl'=>  Yii::app()->request->baseUrl.'/assets/img/view.png',
+                        'viewButtonOptions'=>array('class'=>'view-button'),
+		),  
 	),
         'itemsCssClass' => 'table table-responsive',
         'pagerCssClass' => 'text-center',

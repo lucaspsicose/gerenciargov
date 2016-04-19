@@ -5,15 +5,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Gg_prefeituras', 'url'=>array('index')),
-	array('label'=>'Create Gg_prefeituras', 'url'=>array('create')),
-	array('label'=>'Update Gg_prefeituras', 'url'=>array('update', 'id'=>$model->prefeituras_id)),
-	array('label'=>'Delete Gg_prefeituras', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->prefeituras_id),'confirm'=>Yii::t('zii','Are you sure you want to delete this item?'))),
-	array('label'=>'Manage Gg_prefeituras', 'url'=>array('admin')),
+	array('label'=>'Lista de Prefeituras', 'url'=>array('admin')),
+	array('label'=>'Nova Prefeitura', 'url'=>array('create')),
+	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->prefeituras_id)),
+	array('label'=>'Deletar Cadastro', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->prefeituras_id),'confirm'=>Yii::t('zii','Confirma deletar este cadastro?'))),
 );
 ?>
 
-<h1>View Gg_prefeituras #<?php echo $model->prefeituras_id; ?></h1>
+<h1> #<?php echo $model->prefeitura_nome; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -26,4 +25,5 @@ $this->menu=array(
 		'prefeitura_numero',
 		'prefeitura_telefone',
 	),
+        'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>

@@ -44,7 +44,10 @@ $this->setPageTitle('Secretarias');
 		'secretaria_email',
 		array(
 			'class'=>'CButtonColumn',
-		),
+                        'template'=>'{view}',
+                        'viewButtonImageUrl'=>  Yii::app()->request->baseUrl.'/assets/img/view.png',
+                        'viewButtonOptions'=>array('class'=>'view-button'),
+		), 
 	),
         'itemsCssClass' => 'table table-responsive',
         'pager' => array(

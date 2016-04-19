@@ -44,13 +44,6 @@ $('.search-form form').submit(function(){
 		'status.status_nome',
 		'atendimento_inclusao',
                 'sec_origem.secretaria_nome',
-		/*'atendimento_alteracao',
-		'solicitantes_id',
-		'atendimento_descricao_status',
-		'atendimento_endereco',
-		'atendimento_numero',
-		'atendimento_bairro',
-		*/
 		array(
 			'class'=>'CButtonColumn',
                         'template'=>'{view}',

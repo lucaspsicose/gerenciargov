@@ -41,7 +41,7 @@
           <div class="navbar-header">
               <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
               type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                  <span class="icon-bar"></span></button> <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/assets/img/D-large1.png" height="100px"/></a>
+                  <span class="icon-bar"></span></button> <a class="navbar-brand" href="<?php echo $this->createUrl('/site/menu'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/assets/img/D-large1.png" height="100px"/></a>
           </div>
 
           <div class="navbar-collapse collapse">
@@ -51,17 +51,25 @@
                                    'class'=>'nav navbar-nav',
                                    ),
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index'), 'itemCssClass'=>'dropdown', 'linkOptions'=> array(
+				array('label'=>'Início', 
+                                      'url'=>array('/site/menu'),
+                                      'visible'=>  Yii::app()->session['perfil'] !== 0,
+                                      'itemCssClass'=>'dropdown-menu', 
+                                      'linkOptions'=> array(
                                             'class' => 'dropdown-toggle'
-                                             ),),
-                                array('label'=>'Atendimentos', 'url'=>array('/gg_atendimentos/Admin'), 'visible'=>(isset($session['active_secretarias_id']) && in_array($session['perfil'], array(1, 2, 3)))),             
-                                array('label'=>'Usuários', 'url'=>array('/gg_usuarios/Admin'), 'visible'=>(in_array($session['perfil'], array(1, 2)))),             
-                                array('label'=>'Secretarias', 'url'=>array('/gg_secretarias/Admin'), 'visible'=>in_array($session['perfil'], array(1))),
+                                             ),), 
+                                array('label'=>'Início', 
+                                      'url'=>array('/site'),
+                                      'visible'=>  Yii::app()->session['perfil'] == 0,
+                                      'itemCssClass'=>'dropdown-menu', 
+                                      'linkOptions'=> array(
+                                            'class' => 'dropdown-toggle'
+                                             ),),             
+                                array('label'=>'Secretarias', 'url'=>array('/site'), 'visible'=>in_array($session['perfil'], array(1))),
 				array('label'=>'Entrar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Sair', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
-		)); ?>
-                  
+		)); ?>      
           </div>
       </div>
     </header>
@@ -75,12 +83,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-sm-4">
-                    <h1><?php if (!isset($session['active_secretarias_id'])) { echo $this->pageTitle;} else { echo $session['active_secretaria_nome']; } ?></h1>
+                    <?php if (Yii::app()->session['perfil'] == 0) : ?>
+                        <h1>Administração</h1>
+                    <?php else : ?>
+                        <h1><?php echo Yii::app()->session['active_prefeitura_nome']; ?></h1>
+                    <?php endif; ?>
                 </div>
                 <div class="col-lg-8 col-sm-8">
                     <div class="pull-right">
+                        <h1><?php if (isset($session['active_secretarias_id'])) { echo $session['active_secretaria_nome']; } ?></h1>
                     	<?php if (Yii::app()->user->isGuest == '') : ?>
-                            Você está Logado como <?php $session = Yii::app()->session; echo $session['usuario']; //Yii::app()->user->name; ?>
+                            Você está Logado como <?php $session = Yii::app()->session; echo $session['usuario']; ?>
                         <?php endif; ?>
                     </div>
                 </div>
