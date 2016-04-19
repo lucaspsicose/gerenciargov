@@ -37,6 +37,7 @@ class Gg_veiculo_viagens extends CActiveRecord
 			array('veiculos_id, motoristas_id, data_saida, quilometragem_saida, hora_saida, destino, prefeituras_id', 'required'),
 			array('veiculos_id, motoristas_id, quilometragem_saida, quilometragem_chegada', 'numerical', 'integerOnly'=>true),
 			array('destino', 'length', 'max'=>2000),
+                        //array('data_saida', 'type', 'type' => 'date', 'message' => '{attribute}: não é uma data!','dateFormat'=>'DD-MM-YYYY'),
 			array('data_chegada, hora_chegada', 'safe'),
                         /*array('data_saida','default',
                               'value'=>new CDbExpression(''),
@@ -138,23 +139,31 @@ class Gg_veiculo_viagens extends CActiveRecord
         
         protected function beforeSave() {
             if ($this->isNewRecord) {
-                $this->data_saida = date ('Y-m-d',strtotime($this->data_saida));// Por algum motivo para passar a data no formato Y-m-d estou tendo que passar o formato Y-d-m para a função
+                $this->data_saida = date ('Y-m-d',strtotime($this->data_saida));
                 $sql = 'update Gg_veiculos set status_veiculos_id = 2 where veiculos_id = '. $this->veiculos_id; 
                 Yii::app()->db->createCommand($sql)->query();
             }else
             if (!$this->isNewRecord) {
-                $this->data_saida = date ('Y-m-d',strtotime($this->data_saida));// Por algum motivo para passar a data no formato Y-m-d estou tendo que passar o formato Y-d-m para a função
-                //$sql = 'update Gg_veiculos set status_veiculos_id = 2 where veiculos_id = '. $this->veiculos_id; 
-                //Yii::app()->db->createCommand($sql)->query();
+                $this->data_saida = date ('Y-m-d',strtotime($this->data_saida));
+                if($this->data_chegada != '' and $this->quilometragem_chegada != '' and $this->hora_chegada != ''){
+                    $sql = 'update Gg_veiculos set status_veiculos_id = 1, veiculo_quilometragem = '. $this->quilometragem_chegada.' where veiculos_id = '. $this->veiculos_id; 
+                    Yii::app()->db->createCommand($sql)->query();
+                }
             }
             return parent::beforeSave();
+        }
+        
+        protected function afterDelete() {
+                $sql = 'update Gg_veiculos set status_veiculos_id = 1 where veiculos_id = '. $this->veiculos_id; 
+                Yii::app()->db->createCommand($sql)->query();
+            return parent::afterDelete();
         }
         
         protected function afterFind ()
         {
                 // convert to display format
-            $this->data_saida = strtotime ($this->data_saida);
-            $this->data_saida = date ('d/m/Y', $this->data_saida);
+            //$this->data_saida = strtotime ($this->data_saida);
+            //$this->data_saida = date ('d/m/Y', $this->data_saida);
             
             /*$this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
             $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);*/

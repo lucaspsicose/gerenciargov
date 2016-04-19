@@ -6,8 +6,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Cadastrar Novo Veículo', 'url'=>array('create')),
-	array('label'=>'Lista de Veículos', 'url'=>array('admin')),
+	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create')),
+	array('label'=>'Lista de Viagens', 'url'=>array('admin')),
 );
 $this->setPageTitle('Editar Cadastro');
 ?>

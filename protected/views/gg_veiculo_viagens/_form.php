@@ -40,7 +40,7 @@
 	<div class="form-group">
             <div class="col-md-4">
 		<?php echo $form->labelEx($model,'data_saida'); ?>
-		<?php echo $form->dateField($model,'data_saida',array('class'=>'form-control data')); ?>
+		<?php echo $form->dateField($model,'data_saida',array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'data_saida'); ?>
             </div>
             
@@ -58,16 +58,16 @@
 	</div>	
 
 	<div class="form-group">
-		<?php echo $form->labelEx($model,'destino'); ?>
-		<?php echo $form->textArea($model,'destino',array('class'=>'form-control','size'=>60,'maxlength'=>2000)); ?>
-		<?php echo $form->error($model,'destino'); ?>
-	</div>
+            <?php echo $form->labelEx($model,'destino'); ?>
+            <?php echo $form->textArea($model,'destino',array('class'=>'form-control','size'=>60,'maxlength'=>2000)); ?>
+            <?php echo $form->error($model,'destino'); ?>
+        </div>
         
          <?php if (!$model->isNewRecord) : ?>
             <div class="form-group">
                 <div class="col-md-4">
                     <?php echo $form->labelEx($model,'data_chegada'); ?>
-                    <?php echo $form->dateField($model,'data_chegada',array('class'=>'form-control data')); ?>
+                    <?php echo $form->dateField($model,'data_chegada',array('class'=>'form-control')); ?>
                     <?php echo $form->error($model,'data_chegada'); ?>
                 </div>
 
