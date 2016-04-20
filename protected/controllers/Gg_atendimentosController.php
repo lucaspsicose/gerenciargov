@@ -192,9 +192,134 @@ class Gg_atendimentosController extends Controller
 	}
         
         public function actionImprimir() {
-            $atendimentos_id = Gg_atendimentos::model()->atendimentos_id;
-            $html2pdf = Yii::app()->ePdf->HTML2PDF();
-            $html2pdf->WriteHTML($this->renderPartial('admin', array(), true));
-            $html2pdf->Output();
+            if (isset($_GET['id'])) {
+                $model = Gg_atendimentos::model()->findByPk($_GET['id']);
+                $txt = $this->renderPartial('view', array('model' => $model), true);
+                $atendimentos_id = $_GET['id'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->geraHMTLAtendimento($atendimentos_id);
+                $html2pdf->WriteHTML($txt);
+                $html2pdf->Output();
+            }
         } 
+        
+        public function  geraHMTLAtendimento($atendimentos_id = '') 
+        {   
+            $db = new DbExt();
+            
+            $htm = '';
+            
+            $sql = 'SELECT a.atendimento_protocolo,'
+                    . '    a.atendimento_endereco,'
+                    . '    a.atendimento_numero,'
+                    . '    a.atendimento_bairro,'
+                    . '    a.descricao_servico,'
+                    . '    a.atendimento_descricao,'
+                    . '    a.atendimento_inclusao,'
+                    . '    p.prefeitura_nome,'
+                    . '    s.solicitante_nome,'
+                    . '    u.usuario_nome,'
+                    . '    sc.secretaria_nome,'
+                    . '    s.solicitante_cpf_cnpj,'
+                    . '    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefone'
+                    . ' FROM Gg_atendimentos a'
+                    . ' JOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)'
+                    . ' JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )'
+                    . ' JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)'
+                    . ' JOIN Gg_prefeituras  p ON (s.prefeituras_id  = p.prefeituras_id )'
+                    . ' WHERE a.atendimentos_id = '.$atendimentos_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $stmt) {
+                    $protocolo = $stmt['atendimento_protocolo'];
+                    $municipe  = $stmt['solicitante_nome'];
+                    $data      = $stmt['atendimento_inclusao'];
+                    $secretaria= $stmt['secretaria_nome'];
+                    $servidor  = $stmt['usuario_nome'];
+                    $cpf       = $stmt['solicitante_cpf_cnpj'];
+                    $tel       = $stmt['telefone'];
+                    $endereco  = $stmt['atendimento_endereco'];
+                    $numero    = $stmt['atendimento_numero'];
+                    $bairo     = $stmt['atendimento_bairro'];
+                    $servico   = $stmt['descricao_servico'];
+                    $descricao = $stmt['atendimento_descricao'];
+                    $prefeitura= $stmt['prefeitura_nome'];
+                }
+            
+                $htm = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                        <html xmlns="http://www.w3.org/1999/xhtml">
+                        <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <title>relatório de Atendimento</title>
+                        <style>
+                                table {
+                                        font-size: 16px;
+                                        line-height: 30px;
+                                }
+                        </style>
+                        </head>
+
+                        <body>
+                        <table align="center" width="980px">
+                            <thead align="center">
+                                <tr text-align="center">
+                                        <td colspan="3"><h1 align="center">'.$prefeitura.'</h1></td>
+                                </tr>
+                                <tr text-align="center">
+                                    <td colspan="3"><h1 align="center">Protocolo #'.$protocolo.'</h1></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                        <td><strong>Servidor</strong></td> 
+                                    <td><strong>Data do Atendimento</strong></td>
+                                    <td><strong>Secretaria</strong></td>
+                                </tr>
+                                <tr>
+                                        <td>'.$servidor.'</td> 
+                                    <td>'.$data.'</td>
+                                    <td>'.$secretaria.'</td>
+                                </tr>
+                                <tr>
+                                        <td colspan="3"><strong>Munícipe</strong></td>
+                                </tr>
+                                <tr>
+                                        <td colspan="3">'.$municipe.'</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><strong>CPF/CNPJ</strong></td>
+                                    <td colspan="1"><strong>Telefone</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">'.$cpf.'</td>
+                                    <td colspan="1">'.$tel.'</td>
+                                </tr>
+                                <tr>
+                                        <td colspan="2"><strong>Endereço para Atendimento</strong></td>
+                                    <td colspan="1"><strong>Bairro</strong></td>
+                                </tr>
+                                <tr>
+                                        <td colspan="2">'.$endereco.' nº '.$numero.'</td>
+                                    <td colspan="1">'.$bairo.'</td>
+                                </tr>
+                                <tr>
+                                        <td colspan="3"><strong>Serviço</strong></td>
+                                </tr>
+                                <tr>
+                                        <td colspan="3">'.$servico.'</td>
+                                </tr>
+                                <tr>
+                                        <td colspan="3"><strong>Descrição da Solicitação</strong></td>
+                                </tr>
+                                <tr>
+                                        <td colspan="3">'.$descricao.'</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </body>
+                        </html>';
+            } 
+            
+            return $htm;
+        }
 }

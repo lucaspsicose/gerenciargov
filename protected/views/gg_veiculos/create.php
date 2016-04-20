@@ -13,6 +13,7 @@ $this->setPageTitle('Cadastro de Veículos');
 ?>
 
 <div class="bs-docs-section mar-b-30">
+    <h1>Veículos</h1>
 
     <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 

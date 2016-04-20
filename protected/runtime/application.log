@@ -28064,3 +28064,686 @@ Stack trace:
 REQUEST_URI=/gerenciargov/site/menu
 HTTP_REFERER=http://localhost/gerenciargov/
 ---
+2016/04/19 22:09:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/19 22:13:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "gg_viagens/admin".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_viagens/admi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/gg_viagens/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/menu?s=2
+---
+2016/04/19 22:13:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "gg_viagens/admin".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_viagens/admi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/gg_viagens/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/menu?s=2
+---
+2016/04/19 22:14:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "gg_veiculos_viagens/admin".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_veiculos_via...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/gg_veiculos_viagens/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/menu?s=2
+---
+2016/04/19 22:42:40 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gerenciargov.gg_status_veiculos' doesn't exist. A declaração SQL executada foi: SHOW FULL COLUMNS FROM `Gg_status_veiculos`.
+in C:\wamp\www\gerenciargov\protected\views\gg_veiculos\_search.php (17)
+in C:\wamp\www\gerenciargov\protected\views\gg_veiculos\admin.php (33)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculosController.php (150)
+2016/04/19 22:42:40 [error] [exception.CDbException] exception 'CDbException' with message 'A tabela "Gg_status_veiculos" da classe de active record "Gg_status_veiculos", não pôde ser encontrada no banco de dados.' in C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php:2387
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Gg_status_veiculos))
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(661): CActiveRecord->getMetaData()
+#2 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(1355): CActiveRecord->getTableSchema()
+#3 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#4 C:\wamp\www\gerenciargov\protected\views\gg_veiculos\_search.php(17): CActiveRecord->findAll(Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#8 C:\wamp\www\gerenciargov\protected\views\gg_veiculos\admin.php(33): CController->renderPartial('_search', Array)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#13 C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculosController.php(150): CController->render('admin', Array)
+#14 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_veiculosController->actionAdmin()
+#15 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#24 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_veiculos/adm...')
+#25 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#26 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/gerenciargov/gg_veiculos/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/menu?s=2
+---
+2016/04/19 22:46:38 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gerenciargov.gg_veiculo_viagens' doesn't exist. A declaração SQL executada foi: SHOW FULL COLUMNS FROM `Gg_veiculo_viagens`.
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculo_viagensController.php (143)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/19 22:46:38 [error] [exception.CDbException] exception 'CDbException' with message 'A tabela "Gg_veiculo_viagens" da classe de active record "Gg_veiculo_viagens", não pôde ser encontrada no banco de dados.' in C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php:2387
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Gg_veiculo_viagens))
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculo_viagensController.php(143): CActiveRecord->__construct('search')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_veiculo_viagensController->actionAdmin()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_veiculo_viag...')
+#14 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gerenciargov/gg_veiculo_viagens/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/menu
+---
+2016/04/19 23:02:21 [warning] [application] Failed to set unsafe attribute "usuarios_id" of "Gg_usuarios".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_usuariosController.php (81)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/20 00:14:50 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:14:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:14:54 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:14:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:14:57 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:14:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:15:01 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:15:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:15:58 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:15:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:16:02 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:16:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:16:34 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:16:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:17:32 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (224)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:17:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(224): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:18:48 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (226)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:18:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(226): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:20:01 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (226)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (197)
+2016/04/20 00:20:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(226): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(197): Gg_atendimentosController->geraHMTLAtendimento(NULL)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:34:35 [error] [exception.CException] exception 'CException' with message 'A propriedade "TbButton.data" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('data', '4')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'ext.bootstrap.w...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('ext.bootstrap.w...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\view.php(54): CBaseController->widget('ext.bootstrap.w...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(68): CController->render('view', Array)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionView()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#20 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/4
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/20 00:40:29 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = 4.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (228)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+2016/04/20 00:40:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = 4' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(228): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(198): Gg_atendimentosController->geraHMTLAtendimento('4')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:42:01 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = 4.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (228)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+2016/04/20 00:42:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_i' at line 1. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefoneFROM Gg_atendimentos aJOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)WHERE a.atendimentos_id = 4' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(228): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(198): Gg_atendimentosController->geraHMTLAtendimento('4')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:42:17 [error] [php] A non well formed numeric value encountered (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:247)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (247)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/20 00:42:50 [error] [php] A non well formed numeric value encountered (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:247)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (247)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/20 00:43:37 [error] [php] A non well formed numeric value encountered (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:247)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (247)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/20 00:54:18 [error] [php] A non well formed numeric value encountered (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:247)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (247)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/20 00:54:27 [error] [php] A non well formed numeric value encountered (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:234)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (234)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/20 00:55:00 [error] [php] Undefined index: solicitante_cpf_cnoj (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:237)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (237)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (198)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/20 00:55:46 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERRO n°4</span><br>Arquivo : C:\wamp\www\gerenciargov\protected\vendors\html2pdf\_class\parsingHtml.class.php<br>Linha : 119<br><br>Código HTML não válido, as tags não estão fechadas na ordem correta.<br>Estado : <pre>Array
+(
+    [0] => table
+    [1] => thead
+)
+</pre><br><br>HTML : ...ody&gt;
+                        &lt;/table&gt;...
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 00:57:48 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERRO n°4</span><br>Arquivo : C:\wamp\www\gerenciargov\protected\vendors\html2pdf\_class\parsingHtml.class.php<br>Linha : 119<br><br>Código HTML não válido, as tags não estão fechadas na ordem correta.<br>Estado : <pre>Array
+(
+    [0] => table
+    [1] => thead
+)
+</pre><br><br>HTML : ...ody&gt;
+                        &lt;/table&gt;...
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 01:01:52 [error] [exception.CException] exception 'CException' with message 'Gg_atendimentosController não pôde encontrar a visualização "" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('', NULL, true)
+#1 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(200): CController->render('')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#13 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 01:02:16 [error] [exception.CException] exception 'CException' with message 'Gg_atendimentosController não pôde encontrar a visualização "" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('', NULL, true)
+#1 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(200): CController->render('')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#13 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/4
+---
+2016/04/20 01:10:23 [error] [exception.CException] exception 'CException' with message 'O alias "ext.widgets.amenu.XActionMenu" é inválido. Assegure-se de que ele aponta para um arquivo PHP existente.' in C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:323
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.widgets.ame...', true)
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'ext.widgets.ame...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('ext.widgets.ame...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\view.php(64): CBaseController->widget('ext.widgets.ame...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(68): CController->render('view', Array)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionView()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#20 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/4
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/admin
+---
+2016/04/20 01:10:26 [error] [exception.CException] exception 'CException' with message 'O alias "ext.widgets.amenu.XActionMenu" é inválido. Assegure-se de que ele aponta para um arquivo PHP existente.' in C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:323
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.widgets.ame...', true)
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(Gg_atendimentosController), 'ext.widgets.ame...', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(180): CBaseController->createWidget('ext.widgets.ame...', Array)
+#3 C:\wamp\www\gerenciargov\protected\views\gg_atendimentos\view.php(64): CBaseController->widget('ext.widgets.ame...', Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#8 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(68): CController->render('view', Array)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionView()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#20 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/4
+---

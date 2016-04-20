@@ -43,6 +43,9 @@ $('#cadastros').click(function(){
                     <a class="btn btn-app">
                         <i class="fa fa-inbox"></i> Relatórios
                     </a>
+                    <a href="<?php echo $this->createUrl('gg_veiculo_viagens/admin') ?>" class="btn btn-app">
+                        <i class="fa fa-truck"></i> Viagens
+                    </a>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>
@@ -63,7 +66,13 @@ $('#cadastros').click(function(){
                             <i class="fa fa-users"></i> Usuários
                         </a>
                         <a href="<?php echo $this->createUrl('gg_secretarias/admin') ?>" class="btn btn-app">
-                            <i class="fa fa-users"></i> Secretarias
+                            <i class="fa fa-file"></i> Secretarias
+                        </a>
+                        <a href="<?php echo $this->createUrl('gg_veiculos/admin') ?>" class="btn btn-app">
+                            <i class="fa fa-ambulance"></i> Veículos
+                        </a>
+                        <a href="<?php echo $this->createUrl('gg_motoristas/admin') ?>" class="btn btn-app">
+                            <i class="fa fa-male"></i> Motoristas
                         </a>
                     <?php endif; ?>
                 </div><!-- /.box-body -->

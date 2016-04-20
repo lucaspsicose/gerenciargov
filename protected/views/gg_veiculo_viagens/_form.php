@@ -57,7 +57,7 @@
             </div>
 	</div>	
 
-	<div class="form-group">
+	<div class="form-group field-control">
             <?php echo $form->labelEx($model,'destino'); ?>
             <?php echo $form->textArea($model,'destino',array('class'=>'form-control','size'=>60,'maxlength'=>2000)); ?>
             <?php echo $form->error($model,'destino'); ?>

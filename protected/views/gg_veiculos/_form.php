@@ -10,14 +10,14 @@
 	<?php echo $form->errorSummary($model); ?>
         <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
         
-        <div class="form-group">
+        <div class="form-group field-control">
 		<?php echo $form->labelEx($model,'secretarias_id'); ?>
                 <?php echo $form->dropdownlist($model, 'secretarias_id', CHtml::listData(Gg_secretarias::model()->findAll(array('order'=>'secretaria_nome', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'secretarias_id', 'secretaria_nome'), array('class'=>'form-control', 
                                                                                                                                                                                                                                                                                                  'empty'=>'')); ?>
 		<?php echo $form->error($model,'secretarias_id'); ?>
 	</div>
         
-        <div class="form-group">
+        <div class="form-group field-control">
 		<?php echo $form->labelEx($model,'veiculo_descricao'); ?>
 		<?php echo $form->textField($model,'veiculo_descricao',array('class'=>'form-control', 'size'=>60,'maxlength'=>80)); ?>
 		<?php echo $form->error($model,'veiculo_descricao'); ?>	            
@@ -41,7 +41,7 @@
                 <?php echo $form->error($model,'veiculo_tipo'); ?>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group field-control">
 		<?php echo $form->labelEx($model,'veiculo_quilometragem'); ?>
 		<?php echo $form->textField($model,'veiculo_quilometragem',array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'veiculo_quilometragem'); ?>

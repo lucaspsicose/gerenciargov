@@ -93,14 +93,14 @@
                 </div>
             </div>
             
-            <div class="form-group">
+            <div class="form-group field-control">
                     <?php echo $form->labelEx($model,'atendimento_descricao'); ?>
                     <?php echo $form->textArea($model,'atendimento_descricao', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
                     <?php echo $form->error($model,'atendimento_descricao'); ?>
             </div>
         
             <?php if (!$model->isNewRecord) : ?>
-                <div class="form-group">
+                <div class="form-group field-control">
                         <?php echo $form->labelEx($model,'atendimento_descricao_status'); ?>
                         <?php echo $form->textArea($model,'atendimento_descricao_status', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
                         <?php echo $form->error($model,'atendimento_descricao_status'); ?>

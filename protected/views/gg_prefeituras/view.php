@@ -20,7 +20,7 @@ $this->menu=array(
 		'prefeituras_id',
 		'prefeitura_nome',
 		'prefeitura_municipio',
-		'estados_id',
+		'estados.estado_nome',
 		'prefeitura_endereco',
 		'prefeitura_numero',
 		'prefeitura_telefone',
