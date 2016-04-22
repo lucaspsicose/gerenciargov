@@ -59,8 +59,8 @@
 		<?php echo $form->error($model,'veiculo_modelo'); ?>
 	</div>
 
-	<div class="form-group">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Gravar' : 'Salvar', array('class'=>'btn btn-default')); ?>
+	<div class="form-group row buttons">
+            <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>
         </div>
 
 <?php $this->endWidget(); ?>
