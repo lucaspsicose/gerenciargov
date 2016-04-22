@@ -13,8 +13,8 @@
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_prefeituras/admin.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_prefeituras/_form.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/layouts/main.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_prefeituras/view.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_usuarios.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_atendimentosController.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_secretarias/admin.php</file>
         </group>
     </open-files>

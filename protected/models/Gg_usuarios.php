@@ -31,6 +31,7 @@ class Gg_usuarios extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('usuario_nome, usuario_login, usuario_senha, perfis_id, usuario_email, prefeituras_id', 'required'),
+                        array('usuario_login', 'unique'),
 			array('perfis_id, prefeituras_id', 'numerical', 'integerOnly'=>true),
 			array('usuario_nome, usuario_login', 'length', 'max'=>80),
 			array('usuario_senha', 'length', 'max'=>128),
@@ -103,11 +104,11 @@ class Gg_usuarios extends CActiveRecord
 
 		$criteria->compare('usuario_senha',  $this->usuario_senha,true);
 
-		$criteria->compare('perfil.perfil_nome',$this->perfis_id);
-
 		$criteria->compare('usuario_email',$this->usuario_email,true);
                 
-                $criteria->compare('t.prefeituras_id', Yii::app()->session['active_prefeituras_id'], true);
+                $criteria->compare('t.prefeituras_id', Yii::app()->session['active_prefeituras_id']);
+                
+                $criteria->order = 't.usuario_nome ASC';
                 
 
 		return new CActiveDataProvider('Gg_usuarios', array(

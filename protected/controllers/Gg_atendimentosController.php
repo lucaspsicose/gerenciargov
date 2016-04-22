@@ -83,6 +83,15 @@ class Gg_atendimentosController extends Controller
 		{
 			$model->attributes=$_POST['Gg_atendimentos'];
 			if($model->save()) {
+                                $email_municipe = Gg_solicitantes::model()->findByPk($model->solicitantes_id);
+                                $email_secretaria = Gg_secretarias::model()->findByPk($model->secretarias_id);
+                                $txt = $this->geraHMTLAtendimento($model->atendimentos_id);
+                                $email = Yii::app()->email;
+                                $email->to = $email_municipe->solicitante_email . ', ' . $email_secretaria->secretaria_email;
+                                $email->from = 'gerenciargov@gerenciargov.com.br';
+                                $email->subject = 'Atendimento';
+                                $email->message = $txt;
+                                $email->send();
 				$this->redirect(array('view','id'=>$model->atendimentos_id));
                         }
 		}
@@ -198,7 +207,7 @@ class Gg_atendimentosController extends Controller
                 $atendimentos_id = $_GET['id'];
                 $html2pdf = Yii::app()->ePdf->HTML2PDF();
                 $txt      = $this->geraHMTLAtendimento($atendimentos_id);
-                $html2pdf->WriteHTML($txt);
+                $html2pdf->WriteHTML($txt);                
                 $html2pdf->Output();
             }
         } 
@@ -217,6 +226,11 @@ class Gg_atendimentosController extends Controller
                     . '    a.atendimento_descricao,'
                     . '    a.atendimento_inclusao,'
                     . '    p.prefeitura_nome,'
+                    . '    p.prefeitura_endereco,'
+                    . '    p.prefeitura_numero,'
+                    . '    p.prefeitura_telefone,'
+                    . '    p.prefeitura_municipio,'
+                    . '    e.estado_nome,'
                     . '    s.solicitante_nome,'
                     . '    u.usuario_nome,'
                     . '    sc.secretaria_nome,'
@@ -227,6 +241,7 @@ class Gg_atendimentosController extends Controller
                     . ' JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )'
                     . ' JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)'
                     . ' JOIN Gg_prefeituras  p ON (s.prefeituras_id  = p.prefeituras_id )'
+                    . ' JOIN Gg_estados      e ON (e.estados_id      = p.estados_id     )'
                     . ' WHERE a.atendimentos_id = '.$atendimentos_id;
             
             if ($res = $db->rst($sql)) {
@@ -244,10 +259,14 @@ class Gg_atendimentosController extends Controller
                     $servico   = $stmt['descricao_servico'];
                     $descricao = $stmt['atendimento_descricao'];
                     $prefeitura= $stmt['prefeitura_nome'];
+                    $pref_endereco=$stmt['prefeitura_endereco'];
+                    $pref_numero  =$stmt['prefeitura_numero'];
+                    $pref_tel     =$stmt['prefeitura_telefone'];
+                    $cidade       =$stmt['prefeitura_municipio'];
+                    $estado       =$stmt['estado_nome'];
                 }
             
-                $htm = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-                        <html xmlns="http://www.w3.org/1999/xhtml">
+                $htm = '<html>
                         <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         <title>relatório de Atendimento</title>
@@ -260,15 +279,22 @@ class Gg_atendimentosController extends Controller
                         </head>
 
                         <body>
-                        <table align="center" width="980px">
-                            <thead align="center">
-                                <tr text-align="center">
-                                        <td colspan="3"><h1 align="center">'.$prefeitura.'</h1></td>
-                                </tr>
-                                <tr text-align="center">
-                                    <td colspan="3"><h1 align="center">Protocolo #'.$protocolo.'</h1></td>
-                                </tr>
-                            </thead>
+                        <div style="width: 100%;">
+                            <div style="float: left">
+                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                        </div>    
+                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
+                                <h2 align="center">'.$prefeitura.'</h2>
+                                <p>'.$pref_endereco.' nº '.$pref_numero.'</p>
+                                <p>Telefone - '.$pref_tel.'</p>
+                                <p>'.$cidade.' - '.$estado.'</p>
+                            </div>
+                        <div style="float: left; width:100%">
+                                <hr />
+                                <h1 align="center">Atendimento</h1>
+                                <h1 align="center">Protocolo #'.$protocolo.'</h1>
+                                <hr />
+                        <table width="100%" style="font-size:16px; line-height:30px;">
                             <tbody>
                                 <tr>
                                         <td><strong>Servidor</strong></td> 
@@ -316,6 +342,9 @@ class Gg_atendimentosController extends Controller
                                 </tr>
                             </tbody>
                         </table>
+
+                            </div>
+                        </div>  
                         </body>
                         </html>';
             } 

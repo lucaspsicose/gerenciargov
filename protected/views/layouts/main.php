@@ -39,9 +39,10 @@
     <header class="head-section">
       <div class="navbar navbar-default navbar-static-top container">
           <div class="navbar-header">
-              <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
-              type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                  <span class="icon-bar"></span></button> <a class="navbar-brand" href="<?php echo $this->createUrl('/site/menu'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/assets/img/D-large1.png" height="100px"/></a>
+                <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+                   type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
+                  <span class="icon-bar"></span></button> 
+                <a class="navbar-brand" href="<?php echo $this->createUrl('/site/menu'); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/assets/img/D-large1.png" height="100px"/></a>
           </div>
 
           <div class="navbar-collapse collapse">
@@ -53,25 +54,18 @@
 			'items'=>array(
 				array('label'=>'Início', 
                                       'url'=>array('/site/menu'),
-                                      'visible'=>  Yii::app()->session['perfil'] !== 0,
                                       'itemCssClass'=>'dropdown-menu', 
                                       'linkOptions'=> array(
                                             'class' => 'dropdown-toggle'
-                                             ),), 
-                                array('label'=>'Início', 
-                                      'url'=>array('/site'),
-                                      'visible'=>  Yii::app()->session['perfil'] == 0,
-                                      'itemCssClass'=>'dropdown-menu', 
-                                      'linkOptions'=> array(
-                                            'class' => 'dropdown-toggle'
-                                             ),),             
+                                             ),),        
                                 array('label'=>'Secretarias', 'url'=>array('/site'), 'visible'=>in_array($session['perfil'], array(1))),
 				array('label'=>'Entrar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Sair', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
-		)); ?>      
+		)); ?> 
           </div>
       </div>
+         
     </header>
     <!--header end-->
     <script type="text/javascript">
@@ -89,7 +83,14 @@
                         <h1><?php echo Yii::app()->session['active_prefeitura_nome']; ?></h1>
                     <?php endif; ?>
                 </div>
-                <div class="col-lg-8 col-sm-8">
+                <div class="col-lg-4 col-sm-4">
+                    <?php if (Yii::app()->session['perfil'] != 0) : ?>
+                    <?php echo CHtml::beginForm($this->createUrl('gg_atendimentos/admin'), 'get'); ?>
+                    <?php echo CHtml::telField('Gg_atendimentos[atendimento_protocolo]', '', array('class'=>'form-control', 'placeholder'=>'Digite o Protocolo. Ex: GS010120160001BR')); ?>
+                    <?php echo CHtml::endForm(); ?>
+                    <?php endif; ?>
+                </div>
+                <div class="col-lg-4 col-sm-4">
                     <div class="pull-right">
                         <h1><?php if (isset($session['active_secretarias_id'])) { echo $session['active_secretaria_nome']; } ?></h1>
                     	<?php if (Yii::app()->user->isGuest == '') : ?>
@@ -104,7 +105,6 @@
 
     <!--container start-->
     <div class="white-bg">
-
         <!-- career -->
     <!--<div class="container career-inner">-->
         <div class="row">

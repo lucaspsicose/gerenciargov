@@ -28,13 +28,14 @@ class Functions extends CApplicationComponent
 		return false;
 	}
         
-        public function addUsuario($name = '', $login = '', $senha = '', $perfil = '', $email = '', $secretarias) 
+        public function addUsuario($name = '', $login = '', $senha = '', $perfil = '', $email = '', $prefeituras_id = '', $secretarias) 
         {
             $params['usuario_nome']  = $name;
             $params['usuario_senha'] = md5($senha);
             $params['perfis_id']     = $perfil;
             $params['usuario_email'] = $email;
             $params['usuario_login'] = $login;
+            $params['prefeituras_id']= $prefeituras_id;
             
             $insert = new DbExt();
             

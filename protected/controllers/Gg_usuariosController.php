@@ -85,13 +85,19 @@ class Gg_usuariosController extends Controller
                                                               $_POST['Gg_usuarios']['usuario_senha'],
                                                               $_POST['Gg_usuarios']['perfis_id'],
                                                               $_POST['Gg_usuarios']['usuario_email'],
+                                                              $_POST['Gg_usuarios']['prefeituras_id'],
                                                               $secretarias)) {
-                            
-				if (isset($_POST['lightbox'])) {
-                                    $this->redirect(array($_POST['lightbox'])); 
-                                } else {
-                                    $this->redirect(array('admin'));
-                                }
+                                $txt  = '<p>Confirma&ccedil;&atilde;o do Registro do Usu&aacute;rio '.$model->usuario_nome.'</p>';
+                                $txt .= '<p>Login: '.$model->usuario_login.'</p>';
+                                $txt .= '<p>Senha: '.$model->usuario_senha.'</p>';
+                                $txt .= 'Para acessar a plataforma acesse <a href="'.Yii::app()->request->getBaseUrl(TRUE).'">aqui.</a>';
+                                $email = Yii::app()->email;
+                                $email->to = $model->usuario_email;
+                                $email->from = 'gerenciargov@gerenciargov.com.br';
+                                $email->subject = 'Registro de Usu&aacute;rio';
+                                $email->message = $txt;
+                                $email->send();
+                                $this->redirect(array('admin'));
                         }
 		}
 
