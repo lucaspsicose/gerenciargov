@@ -35,9 +35,9 @@
 		<?php echo $form->error($model,'motorista_telefone'); ?>
 	</div>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-default')); ?>
-	</div>
+	<div class="form-group row buttons">
+            <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>
+        </div>
 
 <?php $this->endWidget(); ?>
         

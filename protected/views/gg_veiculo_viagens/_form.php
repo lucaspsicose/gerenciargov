@@ -1,4 +1,4 @@
-<div class="bs-example wow">
+<div class="bs-example">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'gg-veiculo-viagens-form',
@@ -77,18 +77,196 @@
                     <?php echo $form->error($model,'quilometragem_chegada'); ?>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <?php echo $form->labelEx($model,'hora_chegada'); ?>
                     <?php echo $form->textField($model,'hora_chegada',array('class'=>'form-control hora')); ?>
                     <?php echo $form->error($model,'hora_chegada'); ?>
                 </div>
+                
+                <div class="col-md-2">
+                    <?php echo CHtml::label('Registrar Avarias', '') ?>
+                    <?php echo CHtml::link('Avarias', '#test-form', array('class'=>'popup-with-form btn btn-info form-control')); ?>
+                </div>
             </div>
+            
         <?php endif; ?>
-        
-	<div class="form-group">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Gravar' : 'Salvar', array('class'=>'btn btn-default')); ?>
+
+	<div class="form-group row buttons">
+            <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>
         </div>
+        
+        <?php 
+        $checklist = new Gg_check_list;
+        ?>
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<?php 
+    
+$new_form=$this->beginWidget('CActiveForm', array(
+	'id'=>'test-form',
+	'enableAjaxValidation'=>TRUE,
+        'enableClientValidation'=>true,
+        'htmlOptions'=>array(
+        'class'=>'mfp-hide modal-content',    
+        ),
+        'action'=>  Yii::app()->request->baseUrl.'/gg_check_list/update/',
+        
+)); 
+
+?>
+<h2>Checklist</h2>
+<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
+        <?php echo $new_form->hiddenField($checklist,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
+        <?php echo CHtml::hiddenField('viagens', Yii::app()->request->pathInfo) ?>
+
+	<?php echo $new_form->errorSummary($checklist); ?>
+        
+	<div class="form-group field-control">
+            <?php if (!$model->isNewRecord) : ?>
+                <div class="form-group field-control">
+                    <?php echo $new_form->labelEx($model,'veiculos_id'); ?>
+                    <?php echo $new_form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_placa')), 'veiculos_id', 'veiculo_placa'), array('class'=>'form-control', 'Readonly'=>true,'empty'=>'')); ?>
+                    <?php echo $new_form->error($model,'veiculos_id'); ?>
+                </div>
+            <?php endif; ?>
+	</div>
+
+	<div class="form-group">
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'buzina'); ?>
+		<?php echo $new_form->checkBox($checklist,'buzina'); ?>
+		<?php echo $new_form->error($checklist,'buzina'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'cinto'); ?>
+		<?php echo $new_form->checkBox($checklist,'cinto'); ?>
+		<?php echo $new_form->error($checklist,'cinto'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'retrovisor'); ?>
+		<?php echo $new_form->checkBox($checklist,'retrovisor'); ?>
+		<?php echo $new_form->error($checklist,'retrovisor'); ?>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'farois'); ?>
+		<?php echo $new_form->checkBox($checklist,'farois'); ?>
+		<?php echo $new_form->error($checklist,'farois'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'fluido_freio'); ?>
+		<?php echo $new_form->checkBox($checklist,'fluido_freio'); ?>
+		<?php echo $new_form->error($checklist,'fluido_freio'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'freio'); ?>
+		<?php echo $new_form->checkBox($checklist,'freio'); ?>
+		<?php echo $new_form->error($checklist,'freio'); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'freio_mao'); ?>
+		<?php echo $new_form->checkBox($checklist,'freio_mao'); ?>
+		<?php echo $new_form->error($checklist,'freio_mao'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'lataria'); ?>
+		<?php echo $new_form->checkBox($checklist,'lataria'); ?>
+		<?php echo $new_form->error($checklist,'lataria'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'luz_freio'); ?>
+		<?php echo $new_form->checkBox($checklist,'luz_freio'); ?>
+		<?php echo $new_form->error($checklist,'luz_freio'); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <?php echo $new_form->labelEx($checklist,'luz_re'); ?>
+                <?php echo $new_form->checkBox($checklist,'luz_re'); ?>
+                <?php echo $new_form->error($checklist,'luz_re'); ?>
+            </div>
+
+            <div class="col-md-4">
+                <?php echo $new_form->labelEx($checklist,'luz_painel'); ?>
+                <?php echo $new_form->checkBox($checklist,'luz_painel'); ?>
+                <?php echo $new_form->error($checklist,'luz_painel'); ?>
+            </div>
+
+            <div class="col-md-4">
+                <?php echo $new_form->labelEx($checklist,'nivel_agua'); ?>
+                <?php echo $new_form->checkBox($checklist,'nivel_agua'); ?>
+                <?php echo $new_form->error($checklist,'nivel_agua'); ?>
+            </div>    
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'nivel_oleo'); ?>
+		<?php echo $new_form->checkBox($checklist,'nivel_oleo'); ?>
+		<?php echo $new_form->error($checklist,'nivel_oleo'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'pneu'); ?>
+		<?php echo $new_form->checkBox($checklist,'pneu'); ?>
+		<?php echo $new_form->error($checklist,'pneu'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'porta'); ?>
+		<?php echo $new_form->checkBox($checklist,'porta'); ?>
+		<?php echo $new_form->error($checklist,'porta'); ?>
+            </div>    
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'seta_dianteria'); ?>
+		<?php echo $new_form->checkBox($checklist,'seta_dianteria'); ?>
+		<?php echo $new_form->error($checklist,'seta_dianteria'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'seta_trazeira'); ?>
+		<?php echo $new_form->checkBox($checklist,'seta_trazeira'); ?>
+		<?php echo $new_form->error($checklist,'seta_trazeira'); ?>
+            </div>
+
+            <div class="col-md-4">
+		<?php echo $new_form->labelEx($checklist,'vidros'); ?>
+		<?php echo $new_form->checkBox($checklist,'vidros'); ?>
+		<?php echo $new_form->error($checklist,'vidros'); ?>
+            </div>    
+        </div>
+
+	<div class="form-group field-control">
+		<?php echo $new_form->labelEx($checklist,'observacao'); ?>
+		<?php echo $new_form->textArea($checklist,'observacao',array('class'=>'form-control','size'=>60,'maxlength'=>2000)); ?>
+		<?php echo $new_form->error($checklist,'observacao'); ?>
+	</div>
+
+	<div class="form-group field-control">
+                <?php echo $new_form->labelEx($checklist,'data_alteracao'); ?>
+                <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
+	</div>
+
+	<div class="form-group row buttons">
+            <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>
+        </div>
+
+<?php $this->endWidget(); ?>
