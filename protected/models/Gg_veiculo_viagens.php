@@ -83,7 +83,7 @@ class Gg_veiculo_viagens extends CActiveRecord
 			'data_chegada' => 'Data Chegada',
 			'quilometragem_chegada' => 'Quilometragem Chegada',
 			'hora_chegada' => 'Hora Chegada',
-                        'avaria' => 'Avaria?',
+                        'avaria' => 'Avarias?',
 		);
 	}
 
