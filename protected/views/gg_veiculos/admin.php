@@ -51,7 +51,15 @@ $this->setPageTitle('Veículos');
 		*/
 		array(
 			'class'=>'CButtonColumn',
-		),
+                        'template'=>'{view}',
+                        'viewButtonImageUrl'=>  Yii::app()->request->baseUrl.'/assets/img/view.png',
+                        'viewButtonOptions'=>array('class'=>'view-button'),
+		),      
 	),
         'itemsCssClass' => 'table table-responsive',
+        'pagerCssClass' => 'text-center',
+        'pager' => array(
+            'htmlOptions'=> array('class'=>'pagination'),
+            'header'=>'',
+            ),
 )); ?>

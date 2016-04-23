@@ -177,4 +177,23 @@ class Gg_check_list extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        protected function afterFind ()
+        {
+                // convert to display format
+            $this->data_alteracao = strtotime ($this->data_alteracao);
+            $this->data_alteracao = date ('d/m/Y H:m', $this->data_alteracao);
+            
+            /*if($this->buzina == 1){
+                $this->buzina = 'X';
+            }*/
+
+            parent::afterFind ();
+        }
+        protected function beforeSave() {
+            if (!$this->isNewRecord) {
+                $this->data_alteracao = date ('Y-m-d H:m', time());
+            }
+            return parent::beforeSave();
+        }
 }

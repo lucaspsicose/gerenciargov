@@ -19,7 +19,7 @@ $this->setPageTitle('Checklists');
 	'data'=>$model,
 	'attributes'=>array(
 		'check_list_id',
-		'veiculos_id',
+		'veiculos.veiculo_placa',
 		'buzina',
 		'cinto',
 		'retrovisor',

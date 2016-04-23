@@ -88,8 +88,8 @@ class Gg_check_listController extends Controller
 	 */
 	public function actionUpdate()
 	{
-		$model=new Gg_check_list;
-                        //$this->loadModel();
+		//$model=new Gg_check_list;
+                $model=$this->loadModel();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

@@ -61,6 +61,12 @@
 		<?php echo $form->textField($model,'hora_chegada',array('class'=>'form-control hora')); ?>
             </div>
 	</div>
+        
+        <div class="form-group field-control">
+            <?php echo $form->labelEx($model,'avaria'); ?>                
+            <?php echo $form->checkBox($model,'avaria'); ?>
+            <?php echo $form->error($model,'avaria'); ?>
+        </div>
 
 	<?php echo CHtml::submitButton('Pesquisar', array('class'=>'btn btn-default')); ?>
 

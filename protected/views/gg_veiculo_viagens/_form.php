@@ -63,6 +63,12 @@
             <?php echo $form->error($model,'destino'); ?>
         </div>
         
+        <div class="form-group field-control">
+            <?php echo $form->labelEx($model,'finalidade'); ?>
+            <?php echo $form->textArea($model,'finalidade',array('class'=>'form-control','size'=>60,'maxlength'=>2000)); ?>
+            <?php echo $form->error($model,'finalidade'); ?>
+        </div>
+        
          <?php if (!$model->isNewRecord) : ?>
             <div class="form-group">
                 <div class="col-md-4">
@@ -77,18 +83,25 @@
                     <?php echo $form->error($model,'quilometragem_chegada'); ?>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <?php echo $form->labelEx($model,'hora_chegada'); ?>
                     <?php echo $form->textField($model,'hora_chegada',array('class'=>'form-control hora')); ?>
                     <?php echo $form->error($model,'hora_chegada'); ?>
-                </div>
+                </div>          
                 
+                <?php /*
                 <div class="col-md-2">
                     <?php echo CHtml::label('Registrar Avarias', '') ?>
                     <?php echo CHtml::link('Avarias', '#test-form', array('class'=>'popup-with-form btn btn-info form-control')); ?>
-                </div>
+                </div>                 
+                 */?>
+            </div> 
+        
+            <div class="form-group field-control">
+                <?php echo $form->labelEx($model,'avaria'); ?>                
+                <?php echo $form->checkBox($model,'avaria'); ?>
+                <?php echo $form->error($model,'avaria'); ?>
             </div>
-            
         <?php endif; ?>
 
 	<div class="form-group row buttons">
@@ -104,7 +117,8 @@
 </div><!-- form -->
 
 <?php 
-    
+$checklist_id = $checklist->find('veiculos_id=:veiculos_id', array(':veiculos_id'=>$checklist->veiculos_id));
+
 $new_form=$this->beginWidget('CActiveForm', array(
 	'id'=>'test-form',
 	'enableAjaxValidation'=>TRUE,
@@ -112,7 +126,7 @@ $new_form=$this->beginWidget('CActiveForm', array(
         'htmlOptions'=>array(
         'class'=>'mfp-hide modal-content',    
         ),
-        'action'=>  Yii::app()->request->baseUrl.'/gg_check_list/update/',
+        'action'=>  Yii::app()->request->baseUrl.'/gg_check_list/update/1',
         
 )); 
 

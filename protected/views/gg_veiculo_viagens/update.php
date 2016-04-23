@@ -8,6 +8,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create')),
 	array('label'=>'Lista de Viagens', 'url'=>array('admin')),
+        array('label'=>'Checklist', 'url'=>array('Gg_check_list/admin')),
 );
 $this->setPageTitle('Editar Cadastro');
 ?>

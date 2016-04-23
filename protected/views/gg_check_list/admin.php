@@ -38,7 +38,7 @@ $this->setPageTitle('Checklist');
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
 		'check_list_id',
-		'veiculos_id',
+		'veiculos.veiculo_placa',
                 'data_alteracao',
 		/*'buzina',
 		'cinto',

@@ -11,9 +11,11 @@
  * @property integer $quilometragem_saida
  * @property string $hora_saida
  * @property string $destino
+ * @property string $finalidade
  * @property string $data_chegada
  * @property integer $quilometragem_chegada
  * @property string $hora_chegada
+ * @property integer $avaira
  * @property integer $prefeituras_id
  */
 class Gg_veiculo_viagens extends CActiveRecord
@@ -34,9 +36,9 @@ class Gg_veiculo_viagens extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('veiculos_id, motoristas_id, data_saida, quilometragem_saida, hora_saida, destino, prefeituras_id', 'required'),
-			array('veiculos_id, motoristas_id, quilometragem_saida, quilometragem_chegada', 'numerical', 'integerOnly'=>true),
-			array('destino', 'length', 'max'=>2000),
+			array('veiculos_id, motoristas_id, data_saida, quilometragem_saida, hora_saida, destino, finalidade, prefeituras_id', 'required'),
+			array('veiculos_id, motoristas_id, quilometragem_saida, quilometragem_chegada, avaria', 'numerical', 'integerOnly'=>true),
+			array('destino, finalidade', 'length', 'max'=>2000),
                         //array('data_saida', 'type', 'type' => 'date', 'message' => '{attribute}: não é uma data!','dateFormat'=>'DD-MM-YYYY'),
 			array('data_chegada, hora_chegada', 'safe'),
                         /*array('data_saida','default',
@@ -44,7 +46,7 @@ class Gg_veiculo_viagens extends CActiveRecord
                               'setOnEmpty'=>false,'on'=>'insert'),*/
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('viagens_id, veiculos_id, motoristas_id, data_saida, quilometragem_saida, hora_saida, destino, data_chegada, quilometragem_chegada, hora_chegada', 'safe', 'on'=>'search'),
+			array('viagens_id, veiculos_id, motoristas_id, data_saida, quilometragem_saida, hora_saida, destino, finalidade, data_chegada, quilometragem_chegada, hora_chegada', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,9 +79,11 @@ class Gg_veiculo_viagens extends CActiveRecord
 			'quilometragem_saida' => 'Quilometragem Saída',
 			'hora_saida' => 'Hora Saída',
 			'destino' => 'Destino',
+                        'finalidade' => 'Finalidade',
 			'data_chegada' => 'Data Chegada',
 			'quilometragem_chegada' => 'Quilometragem Chegada',
 			'hora_chegada' => 'Hora Chegada',
+                        'avaria' => 'Avaria?',
 		);
 	}
 
@@ -114,12 +118,16 @@ class Gg_veiculo_viagens extends CActiveRecord
 		$criteria->compare('hora_saida',$this->hora_saida,true);
 
 		$criteria->compare('destino',$this->destino,true);
+                
+                $criteria->compare('finalidade',$this->finalidade,true);
 
 		$criteria->compare('data_chegada',$this->data_chegada,true);
 
 		$criteria->compare('quilometragem_chegada',$this->quilometragem_chegada);
 
 		$criteria->compare('hora_chegada',$this->hora_chegada,true);
+                
+                $criteria->compare('avaria',$this->avaria,true);
                 
                 $criteria->compare('prefeituras_id',Yii::app()->session['active_prefeituras_id'],true);
 

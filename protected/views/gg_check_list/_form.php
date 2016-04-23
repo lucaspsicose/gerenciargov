@@ -156,13 +156,18 @@
 	</div>
 
 	<div class="form-group field-control">
-                <?php echo $form->labelEx($model,'data_alteracao'); ?>
+                <?php if ($model->isNewRecord) : ?>
+                <?php echo $form->labelEx($model,'data_alteracao'); ?> 
+                <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
+                <?php endif; ?>
+
+                <?php /* echo $form->labelEx($model,'data_alteracao'); ?>
                 <?php if (!$model->isNewRecord) : ?>
                 <?php echo $form->textField($model,'data_alteracao', array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
                 <?php echo $form->error($model,'data_alteracao'); ?>
                 <?php else : ?> 
                 <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
-                <?php endif; ?>
+                <?php endif; */ ?>
 	</div>
 
 	<div class="form-group row buttons">
