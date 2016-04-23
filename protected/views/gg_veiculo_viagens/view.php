@@ -27,9 +27,11 @@ $this->setPageTitle('Viagens');
 		'quilometragem_saida',
 		'hora_saida',
 		'destino',
+                'finalidade',
 		'data_chegada',
 		'quilometragem_chegada',
 		'hora_chegada',
+                'avaria',
 	),
         'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>
