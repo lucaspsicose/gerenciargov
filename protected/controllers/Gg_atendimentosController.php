@@ -225,6 +225,7 @@ class Gg_atendimentosController extends Controller
                     . '    a.descricao_servico,'
                     . '    a.atendimento_descricao,'
                     . '    a.atendimento_inclusao,'
+                    . '    st.status_nome,'
                     . '    p.prefeitura_nome,'
                     . '    p.prefeitura_endereco,'
                     . '    p.prefeitura_numero,'
@@ -242,6 +243,7 @@ class Gg_atendimentosController extends Controller
                     . ' JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)'
                     . ' JOIN Gg_prefeituras  p ON (s.prefeituras_id  = p.prefeituras_id )'
                     . ' JOIN Gg_estados      e ON (e.estados_id      = p.estados_id     )'
+                    . ' JOIN Gg_status      st ON (a.status_id       = st.status_id     )'
                     . ' WHERE a.atendimentos_id = '.$atendimentos_id;
             
             if ($res = $db->rst($sql)) {
@@ -264,6 +266,7 @@ class Gg_atendimentosController extends Controller
                     $pref_tel     =$stmt['prefeitura_telefone'];
                     $cidade       =$stmt['prefeitura_municipio'];
                     $estado       =$stmt['estado_nome'];
+                    $status       =$stmt['status_nome'];
                 }
             
                 $htm = '<html>
@@ -329,10 +332,12 @@ class Gg_atendimentosController extends Controller
                                     <td colspan="1">'.$bairo.'</td>
                                 </tr>
                                 <tr>
-                                        <td colspan="3"><strong>Serviço</strong></td>
+                                        <td colspan="2"><strong>Serviço</strong></td>
+                                        <td colspan="1"><strong>Status</strong></td>
                                 </tr>
                                 <tr>
-                                        <td colspan="3">'.$servico.'</td>
+                                        <td colspan="2">'.$servico.'</td>
+                                        <td colspan="1">'.$status.'</td>    
                                 </tr>
                                 <tr>
                                         <td colspan="3"><strong>Descrição da Solicitação</strong></td>

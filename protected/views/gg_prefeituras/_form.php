@@ -44,6 +44,38 @@
 		<?php echo $form->textField($model,'prefeitura_telefone',array('class'=>'form-control tel', 'size'=>20,'maxlength'=>20)); ?>
 		<?php echo $form->error($model,'prefeitura_telefone'); ?>
 	</div>
+        
+        <?php if ($model->isNewRecord) : ?>
+        
+            <hr>
+            <h2>Usuário Padrão</h2>
+            <hr>
+
+            <div class="form-group field-control">
+                <?php echo CHtml::label('Nome', 'Gg_usuarios[usuario_nome]', array('required'=>'required')); ?>
+                <?php echo CHtml::textField('Gg_usuarios[usuario_nome]', '', array('class'=>'form-control', 'size'=>60,'maxlength'=>80)); ?>
+                <?php echo CHtml::error(Gg_usuarios::model(), 'usuario_nome'); ?>
+            </div>
+
+            <div class="form-group col-md-6">
+                <?php echo CHtml::label('Login', 'Gg_usuarios[usuario_login]', array('required'=>'required')); ?>
+                <?php echo CHtml::textField('Gg_usuarios[usuario_login]', '', array('class'=>'form-control', 'size'=>60,'maxlength'=>80)); ?>
+                <?php echo CHtml::error(Gg_usuarios::model(), 'usuario_login'); ?>
+            </div>
+
+            <div class="form-group col-md-6">
+                <?php echo CHtml::label('Senha', 'Gg_usuarios[usuario_senha]', array('required'=>'required')); ?>
+                <?php echo CHtml::passwordField('Gg_usuarios[usuario_senha]', '', array('class'=>'form-control', 'size'=>60,'maxlength'=>80)); ?>
+                <?php echo CHtml::error(Gg_usuarios::model(), 'usuario_login'); ?>
+            </div>
+
+            <div class="form-group field-control">
+                <?php echo CHtml::label('Email', 'Gg_usuarios[usuario_email]', array('required'=>'required')); ?>
+                <?php echo CHtml::emailField('Gg_usuarios[usuario_email]', '', array('class'=>'form-control', 'id'=>'exampleInputPassword1', 'size'=>60,'maxlength'=>80)); ?>
+                <?php echo CHtml::error(Gg_usuarios::model(), 'usuario_email'); ?>
+            </div>
+            
+        <?php endif; ?>
 
 	<div class="form-group row buttons field-control">
             <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>

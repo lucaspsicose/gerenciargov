@@ -40,7 +40,7 @@ $('#cadastros').click(function(){
                     <a href="#" id="cadastros" class="btn btn-app">
                         <i class="fa fa-edit"></i> Cadastros
                     </a>                    
-                    <a class="btn btn-app">
+                    <a href="<?php echo $this->createUrl('relatorios/index') ?>" class="btn btn-app">
                         <i class="fa fa-inbox"></i> Relatórios
                     </a>
                     <a href="<?php echo $this->createUrl('gg_veiculo_viagens/admin') ?>" class="btn btn-app">
