@@ -58,7 +58,7 @@
                                       'linkOptions'=> array(
                                             'class' => 'dropdown-toggle'
                                              ),),        
-                                array('label'=>'Secretarias', 'url'=>array('/site'), 'visible'=>in_array($session['perfil'], array(1))),
+                                array('label'=>'Secretarias', 'url'=>array('/gg_secretarias/admin'), 'visible'=>in_array($session['perfil'], array(1))),
 				array('label'=>'Entrar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Sair', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
@@ -84,9 +84,9 @@
                     <?php endif; ?>
                 </div>
                 <div class="col-lg-4 col-sm-4">
-                    <?php if (Yii::app()->session['perfil'] != 0) : ?>
+                    <?php if ((Yii::app()->session['perfil'] != 0) && (isset(Yii::app()->session['active_secretarias_id']))) : ?>
                     <?php echo CHtml::beginForm($this->createUrl('gg_atendimentos/admin'), 'get'); ?>
-                    <?php echo CHtml::telField('Gg_atendimentos[atendimento_protocolo]', '', array('class'=>'form-control', 'placeholder'=>'Digite o Protocolo. Ex: GS010120160001BR')); ?>
+                    <?php echo CHtml::textField('Gg_atendimentos[atendimento_protocolo]', '', array('class'=>'form-control', 'placeholder'=>'Digite o Protocolo. Ex: GS010120160001BR')); ?>
                     <?php echo CHtml::endForm(); ?>
                     <?php endif; ?>
                 </div>

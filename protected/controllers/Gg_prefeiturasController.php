@@ -66,15 +66,27 @@ class Gg_prefeiturasController extends Controller
 	public function actionCreate()
 	{
 		$model=new Gg_prefeituras;
+                $usuario = new Gg_usuarios;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_prefeituras']))
+		if((isset($_POST['Gg_prefeituras'])) && (isset($_POST['Gg_usuarios'])))
 		{
 			$model->attributes=$_POST['Gg_prefeituras'];
+                        $usuario->attributes=$_POST['Gg_usuarios'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->prefeituras_id));
+                        {   
+                            
+                            Yii::app()->functions->addUsuario($usuario->usuario_nome,
+                                                              $usuario->usuario_login,
+                                                              $usuario->usuario_senha,
+                                                              '1',
+                                                              $usuario->usuario_email,
+                                                              $model->getPrimaryKey(),
+                                                              '');
+                            $this->redirect(array('view','id'=>$model->prefeituras_id));
+                        }
 		}
 
 		$this->render('create',array(

@@ -351,5 +351,41 @@ class Functions extends CApplicationComponent
                 return $id;
             }
         }
+        
+        public function getMesesdoAno()
+        {
+            $meses = array();
+            $mes = array();
+            
+            array_push($meses, 'Janeiro');
+            array_push($meses, 'Fevereiro');
+            array_push($meses, 'Março');
+            array_push($meses, 'Abril');
+            array_push($meses, 'Maio');
+            array_push($meses, 'Junho');
+            array_push($meses, 'Julho');
+            array_push($meses, 'Agost');
+            array_push($meses, 'Setembro');
+            array_push($meses, 'Outubro');
+            array_push($meses, 'Novembro');
+            array_push($meses, 'Dezembro');
+            
+            array_push($mes, '1');
+            array_push($mes, '2');
+            array_push($mes, '3');
+            array_push($mes, '4');
+            array_push($mes, '5');
+            array_push($mes, '6');
+            array_push($mes, '7');
+            array_push($mes, '8');
+            array_push($mes, '9');
+            array_push($mes, '10');
+            array_push($mes, '11');
+            array_push($mes, '12');
+            
+            $meses_do_ano = array_combine($mes, $meses);
+            
+            return $meses_do_ano;
+        }
 	
 	}

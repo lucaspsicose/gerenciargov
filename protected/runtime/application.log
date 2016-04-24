@@ -30183,3 +30183,589 @@ REQUEST_URI=/gerenciargov/assets/img/favicon.png
 HTTP_REFERER=http://localhost/gerenciargov/gg_veiculo_viagens/update/2
 >>>>>>> checklist
 ---
+2016/04/23 20:23:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/24 01:15:41 [error] [exception.CException] exception 'CException' with message 'A propriedade "Gg_usuarios.atributes" não está definida.' in C:\wamp\www\gerenciargov\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(161): CComponent->__set('atributes', Array)
+#1 C:\wamp\www\gerenciargov\protected\controllers\Gg_prefeiturasController.php(77): CActiveRecord->__set('atributes', Array)
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_prefeiturasController->actionCreate()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_prefeituras/...')
+#13 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gerenciargov/gg_prefeituras/create
+HTTP_REFERER=http://localhost/gerenciargov/gg_prefeituras/create
+---
+2016/04/24 03:16:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "gg_relatorios/aniversariantesmes".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_relatorios/a...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/gg_relatorios/aniversariantesmes/2
+---
+2016/04/24 03:16:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "gg_relatorios/aniversariantes".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_relatorios/a...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/gg_relatorios/aniversariantes/2
+---
+2016/04/24 03:16:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "relatorios/aniversariantes".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes/2
+---
+2016/04/24 03:17:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "relatorios/aniversariantes".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes/2
+---
+2016/04/24 03:18:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "relatorios/index".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/inde...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/relatorios
+---
+2016/04/24 03:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "relatorios/aniversariantes".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes/2
+---
+2016/04/24 03:30:09 [error] [exception.CException] exception 'CException' with message 'RelatoriosController não pôde encontrar a visualização "relatorios/aniversariantes" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('relatorios/aniv...', NULL, true)
+#1 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(18): CController->render('relatorios/aniv...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionIndex()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/inde...')
+#8 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gerenciargov/relatorios
+---
+2016/04/24 03:30:19 [error] [exception.CException] exception 'CException' with message 'RelatoriosController não pôde encontrar a visualização "relatorios/aniversariantes" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('relatorios/aniv...', NULL, true)
+#1 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(18): CController->render('relatorios/aniv...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionIndex()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/inde...')
+#8 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gerenciargov/relatorios
+---
+2016/04/24 03:31:50 [error] [exception.CException] exception 'CException' with message 'RelatoriosController não pôde encontrar a visualização "/gerenciargov/relatorios/aniversariantes" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('/gerenciargov/r...', NULL, true)
+#1 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(18): CController->render('/gerenciargov/r...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionIndex()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/inde...')
+#8 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gerenciargov/relatorios
+---
+2016/04/24 03:32:40 [error] [exception.CException] exception 'CException' with message 'RelatoriosController não pôde encontrar a visualização "relatorios/aniversariantes" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('relatorios/aniv...', NULL, true)
+#1 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(18): CController->render('relatorios/aniv...')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionIndex()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/inde...')
+#8 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gerenciargov/relatorios
+---
+2016/04/24 04:08:48 [error] [exception.CException] exception 'CException' with message 'RelatoriosController não pôde encontrar a visualização "index" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('index', NULL, true)
+#1 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(26): CController->render('index')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('aniversariantes')
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#8 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#9 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:09:18 [error] [php] Undefined variable: sql (C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php:50)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (50)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:09:39 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE pre' at line 1. A declaração SQL executada foi: SELECT   p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome, FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE prefeituras_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (50)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+2016/04/24 04:09:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE pre' at line 1. The SQL statement executed was: SELECT   p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome, FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE prefeituras_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(50): DbExt->rst('SELECT   p.pref...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(29): RelatoriosController->getAniversariantesMes('2')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('aniversariantes')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:10:05 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. A declaração SQL executada foi: SELECT   p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE prefeituras_id = .
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (50)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+2016/04/24 04:10:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT   p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE prefeituras_id = ' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(50): DbExt->rst('SELECT   p.pref...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(29): RelatoriosController->getAniversariantesMes('2')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('aniversariantes')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:10:45 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.prefeitura_nome' in 'field list'. A declaração SQL executada foi: SELECT   p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE p.prefeituras_id = 1.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (50)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+2016/04/24 04:10:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.prefeitura_nome' in 'field list'. The SQL statement executed was: SELECT   p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome FROM Gg_prefeituras JOIN Gg_estados e ON (e.estados_id = p.estados_id) WHERE p.prefeituras_id = 1' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(50): DbExt->rst('SELECT   p.pref...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(29): RelatoriosController->getAniversariantesMes('2')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('aniversariantes')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:11:53 [error] [php] Undefined index: pefeitura_nome (C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php:52)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (52)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:12:04 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.solicitante_nome' in 'field list'. A declaração SQL executada foi: SELECT s.solicitante_nome,    s.solicitante_endereco,    s.solicitante_numero,    s.solicitante_bairro,    s.solicitante_telefone,    s.solicitnate_celular,    s.solicitante_email,    s.solicitante_data_nascimento FROM Gg_solicitantes WHERE Month(s.solicitante_data_nascimento) = 2.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (107)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+2016/04/24 04:12:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.solicitante_nome' in 'field list'. The SQL statement executed was: SELECT s.solicitante_nome,    s.solicitante_endereco,    s.solicitante_numero,    s.solicitante_bairro,    s.solicitante_telefone,    s.solicitnate_celular,    s.solicitante_email,    s.solicitante_data_nascimento FROM Gg_solicitantes WHERE Month(s.solicitante_data_nascimento) = 2' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(107): DbExt->rst('SELECT s.solici...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(29): RelatoriosController->getAniversariantesMes('2')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('aniversariantes')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:12:20 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.solicitnate_celular' in 'field list'. A declaração SQL executada foi: SELECT s.solicitante_nome,    s.solicitante_endereco,    s.solicitante_numero,    s.solicitante_bairro,    s.solicitante_telefone,    s.solicitnate_celular,    s.solicitante_email,    s.solicitante_data_nascimento FROM Gg_solicitantes s WHERE Month(s.solicitante_data_nascimento) = 2.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (107)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+2016/04/24 04:12:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 's.solicitnate_celular' in 'field list'. The SQL statement executed was: SELECT s.solicitante_nome,    s.solicitante_endereco,    s.solicitante_numero,    s.solicitante_bairro,    s.solicitante_telefone,    s.solicitnate_celular,    s.solicitante_email,    s.solicitante_data_nascimento FROM Gg_solicitantes s WHERE Month(s.solicitante_data_nascimento) = 2' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(107): DbExt->rst('SELECT s.solici...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(29): RelatoriosController->getAniversariantesMes('2')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('aniversariantes')
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/aniv...')
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:12:39 [error] [php] Undefined index: solcitante_endereco (C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php:111)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (111)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (29)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:13:10 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERRO n°4</span><br>Arquivo : C:\wamp\www\gerenciargov\protected\vendors\html2pdf\_class\parsingHtml.class.php<br>Linha : 119<br><br>Código HTML não válido, as tags não estão fechadas na ordem correta.<br>Estado : <pre>Array
+(
+    [0] => page
+    [1] => div
+    [2] => div
+    [3] => table
+    [4] => tbody
+)
+</pre><br><br>HTML : ...&lt;/tr&gt;&lt;/div&gt;
+                &lt;/div&gt;...
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:34:28 [error] [php] include(HTML2PDF.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(28): spl_autoload_call()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (28)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:37:26 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">error: 0</span><br>file: C:\wamp\www\gerenciargov\protected\vendors\html2pdf\_class\locale.class.php<br>line: 60<br><br>language code [1] unknown. You can create the translation file [C:\wamp\www\gerenciargov\protected\vendors\html2pdf/locale/1.csv] and send it to the webmaster of html2pdf in order to integrate it into a future release
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 04:42:16 [error] [php] include(HTML2PDF.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(28): spl_autoload_call()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (28)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:47:26 [error] [php] require(../vendors/html2pdf/html2pdf.class.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php:27)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:48:43 [error] [php] require(/gerenciargov/vendors/html2pdf/html2pdf.class.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php:27)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:49:24 [error] [php] require() [<a href='function.require'>function.require</a>]: http:// wrapper is disabled in the server configuration by allow_url_include=0 (C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php:27)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:49:59 [error] [php] require(../vendors/html2pdf/html2pdf.class.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php:27)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (27)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 04:53:40 [error] [php] include(HTML2PDF.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\gerenciargov\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php(28): spl_autoload_call()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): RelatoriosController->actionAniversariantes()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(286): RelatoriosController->runAction()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): RelatoriosController->runActionWithFilters()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): RelatoriosController->run()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/relatorios/aniversariantes?mes=2&yt0=Gerar+Relat%C3%B3rio
+in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (28)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 17:03:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/04/24 17:04:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "relatorios" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(270): CController->missingAction('relatorios')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('relatorios')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/relatorios')
+#3 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gerenciargov/site/relatorios
+HTTP_REFERER=http://localhost/gerenciargov/site/menu?s=2
+---
+2016/04/24 20:06:05 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gerenciargov.gg_veiculo_viagens' doesn't exist. A declaração SQL executada foi: SHOW FULL COLUMNS FROM `Gg_veiculo_viagens`.
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculo_viagensController.php (147)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 20:06:05 [error] [exception.CDbException] exception 'CDbException' with message 'A tabela "Gg_veiculo_viagens" da classe de active record "Gg_veiculo_viagens", não pôde ser encontrada no banco de dados.' in C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php:2387
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Gg_veiculo_viagens))
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculo_viagensController.php(147): CActiveRecord->__construct('search')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_veiculo_viagensController->actionAdmin()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_veiculo_viag...')
+#14 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gerenciargov/gg_veiculo_viagens/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/menu
+---
+2016/04/24 20:06:19 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gerenciargov.gg_veiculo_viagens' doesn't exist. A declaração SQL executada foi: SHOW FULL COLUMNS FROM `Gg_veiculo_viagens`.
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculo_viagensController.php (147)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/04/24 20:06:19 [error] [exception.CDbException] exception 'CDbException' with message 'A tabela "Gg_veiculo_viagens" da classe de active record "Gg_veiculo_viagens", não pôde ser encontrada no banco de dados.' in C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php:2387
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Gg_veiculo_viagens))
+#1 C:\wamp\www\gerenciargov\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_veiculo_viagensController.php(147): CActiveRecord->__construct('search')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_veiculo_viagensController->actionAdmin()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_veiculo_viag...')
+#14 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gerenciargov/gg_veiculo_viagens/admin
+HTTP_REFERER=http://localhost/gerenciargov/site/menu?s=2
+---
+2016/04/24 20:10:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encontrar a ação "relatorios" solicitada.' in C:\wamp\www\gerenciargov\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(270): CController->missingAction('relatorios')
+#1 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('relatorios')
+#2 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('relatorios/rela...')
+#3 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gerenciargov/relatorios/relatorios
+HTTP_REFERER=http://localhost/gerenciargov/relatorios
+---
+2016/04/24 20:12:02 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'geren759_gerenciargov.gg_check_list' doesn't exist. A declaração SQL executada foi: SELECT 
+                    v.veiculo_placa, 
+                    c.buzina, 
+                    c.cinto, 
+                    c.retrovisor, 
+                    c.farois, 
+                    c.fluido_freio, 
+                    c.freio, 
+                    c.freio_mao, 
+                    c.lataria, 
+                    c.luz_freio, 
+                    c.luz_re, 
+                    c.luz_painel, 
+                    c.nivel_agua, 
+                    c.nivel_oleo, 
+                    c.pneu, 
+                    c.porta, 
+                    c.seta_dianteria, 
+                    c.seta_trazeira, 
+                    c.vidros, 
+                    c.observacao, 
+                    c.data_alteracao,
+                    p.prefeitura_nome, 
+                    p.prefeitura_endereco, 
+                    p.prefeitura_numero, 
+                    p.prefeitura_telefone,
+                    p.prefeitura_municipio,
+                    e.estado_nome
+                    FROM gg_check_list c 
+                    join gg_veiculos v on (v.veiculos_id = c.veiculos_id)
+                    join gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
+                    JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
+                    WHERE c.check_list_id = 1.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_check_listController.php (246)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_check_listController.php (200)
+2016/04/24 20:12:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'geren759_gerenciargov.gg_check_list' doesn't exist. The SQL statement executed was: SELECT 
+                    v.veiculo_placa, 
+                    c.buzina, 
+                    c.cinto, 
+                    c.retrovisor, 
+                    c.farois, 
+                    c.fluido_freio, 
+                    c.freio, 
+                    c.freio_mao, 
+                    c.lataria, 
+                    c.luz_freio, 
+                    c.luz_re, 
+                    c.luz_painel, 
+                    c.nivel_agua, 
+                    c.nivel_oleo, 
+                    c.pneu, 
+                    c.porta, 
+                    c.seta_dianteria, 
+                    c.seta_trazeira, 
+                    c.vidros, 
+                    c.observacao, 
+                    c.data_alteracao,
+                    p.prefeitura_nome, 
+                    p.prefeitura_endereco, 
+                    p.prefeitura_numero, 
+                    p.prefeitura_telefone,
+                    p.prefeitura_municipio,
+                    e.estado_nome
+                    FROM gg_check_list c 
+                    join gg_veiculos v on (v.veiculos_id = c.veiculos_id)
+                    join gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
+                    JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
+                    WHERE c.check_list_id = 1' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_check_listController.php(246): DbExt->rst('SELECT ??      ...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_check_listController.php(200): Gg_check_listController->geraHMTLChecklist('1')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_check_listController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_check_list/i...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_check_list/imprimir/1
+HTTP_REFERER=http://localhost/gerenciargov/gg_check_list/1
+---
