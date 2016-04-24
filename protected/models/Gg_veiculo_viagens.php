@@ -169,13 +169,14 @@ class Gg_veiculo_viagens extends CActiveRecord
         
         protected function afterFind ()
         {
-                // convert to display format
-            //$this->data_saida = strtotime ($this->data_saida);
-            //$this->data_saida = date ('d/m/Y', $this->data_saida);
+            //Está comentado por causa do datefield 
+            // convert to display format
+            /*$this->data_saida = strtotime ($this->data_saida);
+            $this->data_saida = date ('d/m/Y', $this->data_saida);
             
-            /*$this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
-            $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);*/
-
+            $this->data_chegada = strtotime ($this->data_chegada);
+            $this->data_chegada = date ('d/m/Y', $this->data_chegada);*/
+            
             parent::afterFind ();
         }
 }

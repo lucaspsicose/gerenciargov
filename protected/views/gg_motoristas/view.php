@@ -26,3 +26,13 @@ $this->setPageTitle('Motoristas');
 	),
         'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>
+
+<div class="form-group">
+    <?php $this->widget('zii.widgets.CMenu', array(
+        'htmlOptions' => array('class' => 'btn btn-info'),
+        'encodeLabel' => false,
+        'items' => array(
+        array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->motoristas_id), 'linkOptions' => array('target' => '_blank')),
+        ),
+));?>
+</div>

@@ -43,6 +43,10 @@ class Gg_veiculo_viagensController extends Controller
 				'actions'=>array('admin','delete'),
 				'users'=>array('@'),
 			),
+                        array('allow',
+                                'actions'=>array('imprimir'),
+                                'users'=>array('@'),
+                         ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -178,4 +182,159 @@ class Gg_veiculo_viagensController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionImprimir() {
+            if (isset($_GET['id'])) {
+                $model = Gg_veiculo_viagens::model()->findByPk($_GET['id']);
+                $txt = $this->renderPartial('view', array('model' => $model), true);
+                $viagens_id = $_GET['id'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->geraHMTLViagem($viagens_id);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+        }
+        
+        public function  geraHMTLViagem($viagens_id = '') 
+        {   
+            $db = new DbExt();
+            
+            $htm = '';
+            
+            $sql = 'SELECT 
+                    vv.data_saida, 
+                    vv.quilometragem_saida, 
+                    vv.hora_saida, 
+                    vv.destino, 
+                    vv.finalidade, 
+                    vv.data_chegada, 
+                    vv.quilometragem_chegada, 
+                    vv.hora_chegada, 
+                    vv.avaria, 
+                    m.motorista_nome, 
+                    v.veiculo_placa, 
+                    p.prefeitura_nome, 
+                    p.prefeitura_endereco, 
+                    p.prefeitura_numero, 
+                    p.prefeitura_telefone,
+                    p.prefeitura_municipio,
+                    e.estado_nome
+                    FROM gg_veiculo_viagens vv 
+                    join gg_motoristas  m on (m.motoristas_id  = vv.motoristas_id )
+                    join gg_veiculos    v on (v.veiculos_id    = vv.veiculos_id   )
+                    join gg_prefeituras p on (p.prefeituras_id = vv.prefeituras_id)
+                    JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
+                    WHERE vv.viagens_id = '.$viagens_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $stmt) 
+                    $data_saida = $stmt['data_saida'];
+                    $quilometragem_saida  = $stmt['quilometragem_saida'];
+                    $hora_saida      = $stmt['hora_saida'];
+                    $destino= $stmt['destino'];
+                    $finalidade  = $stmt['finalidade'];
+                    $data_chegada       = $stmt['data_chegada'];
+                    $quilometragem_chegada       = $stmt['quilometragem_chegada'];
+                    $hora_chegada  = $stmt['hora_chegada'];
+                    if($stmt['avaria'] == 1){
+                        $avaria    = 'SIM';
+                    }else{
+                        $avaria    = 'NÃO';
+                    }
+                    
+                    $motorista_nome     = $stmt['motorista_nome'];
+                    $veiculo_placa   = $stmt['veiculo_placa'];
+                    $prefeitura_nome = $stmt['prefeitura_nome'];
+                    $prefeitura_endereco= $stmt['prefeitura_endereco'];
+                    $prefeitura_numero=$stmt['prefeitura_numero'];
+                    $prefeitura_telefone  =$stmt['prefeitura_telefone'];
+                    $prefeitura_municipio     =$stmt['prefeitura_municipio'];
+                    $estado_nome       =$stmt['estado_nome'];
+                
+            
+                $htm = '<html>
+                        <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <title>relatório de Viagem</title>
+                        <style>
+                                table {
+                                        font-size: 16px;
+                                        line-height: 30px;
+                                }
+                        </style>
+                        </head>
+
+                        <body>
+                        <div style="width: 100%;">
+                            <div style="float: left">
+                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                        </div>    
+                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
+                                <h2 align="center">'.$prefeitura_nome.'</h2>
+                                <p>'.$prefeitura_endereco.' nº '.$prefeitura_numero.'</p>
+                                <p>Telefone - '.$prefeitura_telefone.'</p>
+                                <p>'.$prefeitura_municipio.' - '.$estado_nome.'</p>
+                            </div>
+                        <div style="float: left; width:100%">
+                                <hr />
+                                    <h1 align="center">Viagem #'.$viagens_id.'</h1>
+				<hr />
+                         
+                            <table width="100%" style="font-size:16px; line-height:30px;">
+                                <tbody>
+                                  <tr>
+                                    <td><strong>Veículo</strong></td>
+                                    <td></td>
+                                    <td><strong>Motorista</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$veiculo_placa.'</td>
+                                    <td></td>
+                                    <td>'.$motorista_nome.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Data Saída</strong></td>
+                                    <td><strong>Quilometragem Saída</strong></td>
+                                    <td><strong>Hora Saída</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$data_saida.'</td>
+                                    <td>'.$quilometragem_saida.'</td>
+                                    <td>'.$hora_saida.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3"><strong>Destino</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">'.$destino.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3"><strong>Finalidade</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">'.$finalidade.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Data Chegada</strong></td>
+                                    <td><strong>Quilometragem Chegada</strong></td>
+                                    <td><strong>Hora Chegada</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$data_chegada.'</td>
+                                    <td>'.$quilometragem_chegada.'</td>
+                                    <td>'.$hora_chegada.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3"><strong>Avarias? </strong>'.$avaria.'</td>
+                                  </tr>
+                                </tbody>  
+                            </table>
+                        </div>
+                        </div>
+                        </body>
+                        </html>';
+            } 
+            
+            return $htm;
+        }
 }
