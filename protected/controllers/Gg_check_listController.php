@@ -237,9 +237,9 @@ class Gg_check_listController extends Controller
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM gg_check_list c 
-                    join gg_veiculos v on (v.veiculos_id = c.veiculos_id)
-                    join gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
+                    FROM Gg_check_list c 
+                    join Gg_veiculos v on (v.veiculos_id = c.veiculos_id)
+                    join Gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
                     WHERE c.check_list_id = '.$check_list_id;
             
@@ -391,7 +391,7 @@ class Gg_check_listController extends Controller
                             </div>
                         <div style="float: left; width:100%">
                                 <hr />
-                                    <h1 align="center">Checklist #'.$check_list_id.'</h1>
+                                    <h1 align="center">Checklist #'.$veiculo_placa.'</h1>
 				<hr />
                          
                             <table width="100%" style="font-size:16px; line-height:30px;">

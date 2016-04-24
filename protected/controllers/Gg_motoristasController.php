@@ -211,8 +211,8 @@ class Gg_motoristasController extends Controller
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM gg_motoristas m
-                    join gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
+                    FROM Gg_motoristas m
+                    join Gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
                     WHERE m.motoristas_id = '.$motoristas_id;
             

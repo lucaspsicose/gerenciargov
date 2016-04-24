@@ -219,10 +219,10 @@ class Gg_veiculo_viagensController extends Controller
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM gg_veiculo_viagens vv 
-                    join gg_motoristas  m on (m.motoristas_id  = vv.motoristas_id )
-                    join gg_veiculos    v on (v.veiculos_id    = vv.veiculos_id   )
-                    join gg_prefeituras p on (p.prefeituras_id = vv.prefeituras_id)
+                    FROM Gg_veiculo_viagens vv 
+                    join Gg_motoristas  m on (m.motoristas_id  = vv.motoristas_id )
+                    join Gg_veiculos    v on (v.veiculos_id    = vv.veiculos_id   )
+                    join Gg_prefeituras p on (p.prefeituras_id = vv.prefeituras_id)
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
                     WHERE vv.viagens_id = '.$viagens_id;
             
