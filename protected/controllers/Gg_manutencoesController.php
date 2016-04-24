@@ -212,9 +212,9 @@ class Gg_manutencoesController extends Controller
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM gg_manutencoes m
-                    join gg_veiculos    v on (v.veiculos_id = m.veiculos_id)
-                    join gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
+                    FROM Gg_manutencoes m
+                    join Gg_veiculos    v on (v.veiculos_id = m.veiculos_id)
+                    join Gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
                     WHERE m.manutencoes_id = '.$manutencoes_id;
             

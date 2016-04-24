@@ -237,9 +237,9 @@ class Gg_check_listController extends Controller
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM gg_check_list c 
-                    join gg_veiculos v on (v.veiculos_id = c.veiculos_id)
-                    join gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
+                    FROM Gg_check_list c 
+                    join Gg_veiculos v on (v.veiculos_id = c.veiculos_id)
+                    join Gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
                     WHERE c.check_list_id = '.$check_list_id;
             

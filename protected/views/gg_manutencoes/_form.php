@@ -1,4 +1,4 @@
-<div class="form">
+<div class="bs-example">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'gg-manutencoes-form',
@@ -6,7 +6,6 @@
 )); ?>
 
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
-        <?php echo $form->errorSummary($model); ?>
 
 	<?php echo $form->errorSummary($model); ?>
         <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
@@ -48,7 +47,7 @@
         </div>
 	
 
-	<div class="form-group row buttons">
+	<div class="form-group">
             <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>
         </div>
 
