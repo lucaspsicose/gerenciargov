@@ -217,11 +217,11 @@ class Gg_veiculosController extends Controller
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM gg_veiculos v 
-                    join gg_tipo_veiculos   t on (v.veiculo_tipo  = t.tipos_id )
-                    join gg_status_veiculos s on (v.status_veiculos_id = s.status_veiculos_id   )
-                    left join gg_secretarias sc on (v.secretarias_id = sc.secretarias_id   )
-                    join gg_prefeituras p on (p.prefeituras_id = v.prefeituras_id)
+                    FROM Gg_veiculos v 
+                    join Gg_tipo_veiculos   t on (v.veiculo_tipo  = t.tipos_id )
+                    join Gg_status_veiculos s on (v.status_veiculos_id = s.status_veiculos_id   )
+                    left join Gg_secretarias sc on (v.secretarias_id = sc.secretarias_id   )
+                    join Gg_prefeituras p on (p.prefeituras_id = v.prefeituras_id)
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
                     WHERE v.veiculos_id = '.$veiculos_id;
             

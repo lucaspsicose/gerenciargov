@@ -391,7 +391,7 @@ class Gg_check_listController extends Controller
                             </div>
                         <div style="float: left; width:100%">
                                 <hr />
-                                    <h1 align="center">Checklist #'.$check_list_id.'</h1>
+                                    <h1 align="center">Checklist #'.$veiculo_placa.'</h1>
 				<hr />
                          
                             <table width="100%" style="font-size:16px; line-height:30px;">

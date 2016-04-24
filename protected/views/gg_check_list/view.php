@@ -13,7 +13,7 @@ $this->menu=array(
 $this->setPageTitle('Checklists');
 ?>
 
-<h1>Checklist #<?php echo $model->check_list_id; ?></h1>
+<h1>Checklist # <?php echo $model->veiculos->veiculo_placa; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
