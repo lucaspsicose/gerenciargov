@@ -7,6 +7,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create')),
         array('label'=>'Lista de Viagens', 'url'=>array('admin')),
+        array('label'=>'Checklist', 'url'=>array('gg_check_list/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

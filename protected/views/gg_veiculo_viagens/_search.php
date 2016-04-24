@@ -13,7 +13,7 @@
 
             <div class="col-md-4">
 		<?php echo $form->label($model,'veiculos_id'); ?>
-		 <?php echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_placa','condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'veiculos_id', 'veiculo_placa'), array('class'=>'form-control', 'empty'=>'')); ?>
+		<?php echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_placa','condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'veiculos_id', 'veiculo_placa'), array('class'=>'form-control', 'empty'=>'')); ?>
             </div>
 
             <div class="col-md-4">
@@ -61,6 +61,12 @@
 		<?php echo $form->textField($model,'hora_chegada',array('class'=>'form-control hora')); ?>
             </div>
 	</div>
+        
+        <div class="form-group field-control">
+            <?php echo $form->labelEx($model,'avaria'); ?>                
+            <?php echo $form->checkBox($model,'avaria'); ?>
+            <?php echo $form->error($model,'avaria'); ?>
+        </div>
 
 	<?php echo CHtml::submitButton('Pesquisar', array('class'=>'btn btn-default')); ?>
 

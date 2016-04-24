@@ -8,9 +8,8 @@ $this->menu=array(
 	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create','fechar'=>false)),
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->viagens_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->viagens_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->viagens_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro desta Viagem?'))),
-        
-
-	array('label'=>'Lista de Viagens', 'url'=>array('admin')),
+        array('label'=>'Lista de Viagens', 'url'=>array('admin')),
+        array('label'=>'Checklist', 'url'=>array('gg_check_list/admin')),
     
 );
 $this->setPageTitle('Viagens');
@@ -28,9 +27,23 @@ $this->setPageTitle('Viagens');
 		'quilometragem_saida',
 		'hora_saida',
 		'destino',
+                'finalidade',
 		'data_chegada',
 		'quilometragem_chegada',
 		'hora_chegada',
+                'avaria',
 	),
         'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>
+
+<div class="form-group">
+    <?php $this->widget('zii.widgets.CMenu', array(
+        'htmlOptions' => array('class' => 'btn btn-info'),
+        'encodeLabel' => false,
+        'items' => array(
+        array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->viagens_id), 'linkOptions' => array('target' => '_blank')),
+        ),
+));?>
+</div>
+
+

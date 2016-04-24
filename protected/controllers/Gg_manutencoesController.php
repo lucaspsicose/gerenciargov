@@ -1,6 +1,6 @@
 <?php
 
-class Gg_veiculo_viagensController extends Controller
+class Gg_manutencoesController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -69,16 +69,16 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Gg_veiculo_viagens;
+		$model=new Gg_manutencoes;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_veiculo_viagens']))
+		if(isset($_POST['Gg_manutencoes']))
 		{
-			$model->attributes=$_POST['Gg_veiculo_viagens'];
+			$model->attributes=$_POST['Gg_manutencoes'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->viagens_id));
+				$this->redirect(array('view','id'=>$model->manutencoes_id));
 		}
 
 		$this->render('create',array(
@@ -97,11 +97,11 @@ class Gg_veiculo_viagensController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_veiculo_viagens']))
+		if(isset($_POST['Gg_manutencoes']))
 		{
-			$model->attributes=$_POST['Gg_veiculo_viagens'];
+			$model->attributes=$_POST['Gg_manutencoes'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->viagens_id));
+				$this->redirect(array('view','id'=>$model->manutencoes_id));
 		}
 
 		$this->render('update',array(
@@ -133,7 +133,7 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Gg_veiculo_viagens');
+		$dataProvider=new CActiveDataProvider('Gg_manutencoes');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -144,10 +144,10 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Gg_veiculo_viagens('search');
+		$model=new Gg_manutencoes('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Gg_veiculo_viagens']))
-			$model->attributes=$_GET['Gg_veiculo_viagens'];
+		if(isset($_GET['Gg_manutencoes']))
+			$model->attributes=$_GET['Gg_manutencoes'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -163,7 +163,7 @@ class Gg_veiculo_viagensController extends Controller
 		if($this->_model===null)
 		{
 			if(isset($_GET['id']))
-				$this->_model=Gg_veiculo_viagens::model()->findbyPk($_GET['id']);
+				$this->_model=Gg_manutencoes::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
@@ -176,7 +176,7 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-veiculo-viagens-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-manutencoes-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
@@ -185,77 +185,58 @@ class Gg_veiculo_viagensController extends Controller
         
         public function actionImprimir() {
             if (isset($_GET['id'])) {
-                $model = Gg_veiculo_viagens::model()->findByPk($_GET['id']);
+                $model = Gg_manutencoes::model()->findByPk($_GET['id']);
                 $txt = $this->renderPartial('view', array('model' => $model), true);
-                $viagens_id = $_GET['id'];
+                $manutencoes_id = $_GET['id'];
                 $html2pdf = Yii::app()->ePdf->HTML2PDF();
-                $txt      = $this->geraHMTLViagem($viagens_id);
+                $txt      = $this->geraHMTLManutencao($manutencoes_id);
                 $html2pdf->WriteHTML($txt);                
                 $html2pdf->Output();
             }
         }
         
-        public function  geraHMTLViagem($viagens_id = '') 
+        public function  geraHMTLManutencao($manutencoes_id = '') 
         {   
             $db = new DbExt();
             
             $htm = '';
             
-            $sql = 'SELECT 
-                    vv.data_saida, 
-                    vv.quilometragem_saida, 
-                    vv.hora_saida, 
-                    vv.destino, 
-                    vv.finalidade, 
-                    vv.data_chegada, 
-                    vv.quilometragem_chegada, 
-                    vv.hora_chegada, 
-                    vv.avaria, 
-                    m.motorista_nome, 
-                    v.veiculo_placa, 
+            $sql = 'SELECT v.veiculo_placa,
+                    m.manutencao_quilometragem, 
+                    m.manutencao_descricao, 
+                    m.manutencao_preco, 
+                    m.manutencao_data, 
                     p.prefeitura_nome, 
                     p.prefeitura_endereco, 
                     p.prefeitura_numero, 
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM gg_veiculo_viagens vv 
-                    join gg_motoristas  m on (m.motoristas_id  = vv.motoristas_id )
-                    join gg_veiculos    v on (v.veiculos_id    = vv.veiculos_id   )
-                    join gg_prefeituras p on (p.prefeituras_id = vv.prefeituras_id)
+                    FROM gg_manutencoes m
+                    join gg_veiculos    v on (v.veiculos_id = m.veiculos_id)
+                    join gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
-                    WHERE vv.viagens_id = '.$viagens_id;
+                    WHERE m.manutencoes_id = '.$manutencoes_id;
             
             if ($res = $db->rst($sql)) {
-                foreach ($res as $stmt) 
-                    $data_saida = $stmt['data_saida'];
-                    $quilometragem_saida  = $stmt['quilometragem_saida'];
-                    $hora_saida      = $stmt['hora_saida'];
-                    $destino= $stmt['destino'];
-                    $finalidade  = $stmt['finalidade'];
-                    $data_chegada       = $stmt['data_chegada'];
-                    $quilometragem_chegada       = $stmt['quilometragem_chegada'];
-                    $hora_chegada  = $stmt['hora_chegada'];
-                    if($stmt['avaria'] == 1){
-                        $avaria    = 'SIM';
-                    }else{
-                        $avaria    = 'NÃO';
-                    }
-                    
-                    $motorista_nome     = $stmt['motorista_nome'];
-                    $veiculo_placa   = $stmt['veiculo_placa'];
-                    $prefeitura_nome = $stmt['prefeitura_nome'];
-                    $prefeitura_endereco= $stmt['prefeitura_endereco'];
-                    $prefeitura_numero=$stmt['prefeitura_numero'];
-                    $prefeitura_telefone  =$stmt['prefeitura_telefone'];
-                    $prefeitura_municipio     =$stmt['prefeitura_municipio'];
-                    $estado_nome       =$stmt['estado_nome'];
-                
+                foreach ($res as $stmt) {
+                    $veiculo_placa             = $stmt['veiculo_placa'];
+                    $manutencao_quilometragem  = $stmt['manutencao_quilometragem'];
+                    $manutencao_descricao      = $stmt['manutencao_descricao'];
+                    $manutencao_preco          = $stmt['manutencao_preco'];
+                    $manutencao_data           = $stmt['manutencao_data'];
+                    $prefeitura_nome           = $stmt['prefeitura_nome'];
+                    $prefeitura_endereco       = $stmt['prefeitura_endereco'];
+                    $prefeitura_numero         = $stmt['prefeitura_numero'];
+                    $prefeitura_telefone       = $stmt['prefeitura_telefone'];
+                    $prefeitura_municipio      = $stmt['prefeitura_municipio'];
+                    $estado_nome               = $stmt['estado_nome'];
+                }
             
                 $htm = '<html>
                         <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <title>relatório de Viagem</title>
+                        <title>relatório de Manutenção</title>
                         <style>
                                 table {
                                         font-size: 16px;
@@ -277,56 +258,33 @@ class Gg_veiculo_viagensController extends Controller
                             </div>
                         <div style="float: left; width:100%">
                                 <hr />
-                                    <h1 align="center">Viagem #'.$viagens_id.'</h1>
+                                    <h1 align="center">Manutenção #'.$manutencoes_id.'</h1>
 				<hr />
                          
                             <table width="100%" style="font-size:16px; line-height:30px;">
                                 <tbody>
                                   <tr>
                                     <td><strong>Veículo</strong></td>
-                                    <td></td>
-                                    <td><strong>Motorista</strong></td>
+                                    <td><strong>Quilometragem</strong></td>
                                   </tr>
                                   <tr>
                                     <td>'.$veiculo_placa.'</td>
-                                    <td></td>
-                                    <td>'.$motorista_nome.'</td>
+                                    <td>'.$manutencao_quilometragem.'</td>
+                                  </tr>      
+                                  <tr>
+                                    <td colspan="2"><strong>Descrição</strong></td>
                                   </tr>
                                   <tr>
-                                    <td><strong>Data Saída</strong></td>
-                                    <td><strong>Quilometragem Saída</strong></td>
-                                    <td><strong>Hora Saída</strong></td>
+                                    <td colspan="2">'.$manutencao_descricao.'</td>
                                   </tr>
                                   <tr>
-                                    <td>'.$data_saida.'</td>
-                                    <td>'.$quilometragem_saida.'</td>
-                                    <td>'.$hora_saida.'</td>
+                                    <td><strong>Preço</strong></td>
+                                    <td><strong>Data</strong></td>
                                   </tr>
                                   <tr>
-                                    <td colspan="3"><strong>Destino</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$destino.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Finalidade</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$finalidade.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Data Chegada</strong></td>
-                                    <td><strong>Quilometragem Chegada</strong></td>
-                                    <td><strong>Hora Chegada</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.$data_chegada.'</td>
-                                    <td>'.$quilometragem_chegada.'</td>
-                                    <td>'.$hora_chegada.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Avarias? </strong>'.$avaria.'</td>
-                                  </tr>
+                                    <td>'.$manutencao_preco.'</td>
+                                    <td>'.$manutencao_data.'</td>
+                                  </tr>   
                                 </tbody>  
                             </table>
                         </div>

@@ -1,12 +1,13 @@
 <?php
 $this->breadcrumbs=array(
-	'Gg Veiculoses'=>array('index'),
+	'Gg Manutencoes'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'Cadastrar Novo Veículo', 'url'=>array('create')),
-        array('label'=>'Lista de Veículos', 'url'=>array('admin')),
+	array('label'=>'Cadastrar Nova Manutenção', 'url'=>array('create')),
+        array('label'=>'Lista de Manutenções', 'url'=>array('admin')),
+        array('label'=>'Checklist', 'url'=>array('gg_check_list/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,16 +16,16 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#gg-veiculos-grid').yiiGridView('update', {
+	$('#gg-manutencoes-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
 });
 ");
-$this->setPageTitle('Veículos');
+$this->setPageTitle('Manutenções');
 ?>
 
-<h1>Consulta de Veículos</h1>
+<h1>Consulta de Manutenções</h1>
 
 <?php echo CHtml::link('Pesquisa Avançada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -34,20 +35,17 @@ $this->setPageTitle('Veículos');
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'gg-veiculos-grid',
+	'id'=>'gg-manutencoes-grid',
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
-		'veiculos_id',
-		'secretarias.secretaria_nome',
-		'veiculo_descricao',
-		'veiculo_placa',
-		'veiculo_chassi',
-		'tipos.tipo_nome',
-                'status.status_nome',
+		'manutencoes_id',
+		'veiculos.veiculo_placa',
+		'manutencao_quilometragem',
+		'manutencao_descricao',
+		'manutencao_preco',
+		'manutencao_data',
 		/*
-		'veiculo_quilometragem',
-		'veiculo_fabricante',
-		'veiculo_modelo',
+		'prefeituras_id',
 		*/
 		array(
 			'class'=>'CButtonColumn',

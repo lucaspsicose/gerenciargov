@@ -1,0 +1,487 @@
+<?php
+
+class Gg_check_listController extends Controller
+{
+	/**
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+	 * using two-column layout. See 'protected/views/layouts/column2.php'.
+	 */
+	public $layout='//layouts/column2';
+
+	/**
+	 * @var CActiveRecord the currently loaded data model instance.
+	 */
+	private $_model;
+
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>array('@'),
+			),
+                        array('allow',
+                                'actions'=>array('imprimir'),
+                                'users'=>array('@'),
+                         ),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
+
+	/**
+	 * Displays a particular model.
+	 */
+	public function actionView()
+	{
+		$this->render('view',array(
+			'model'=>$this->loadModel(),
+		));
+	}
+
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionCreate()
+	{
+		$model=new Gg_check_list;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Gg_check_list']))
+		{
+			$model->attributes=$_POST['Gg_check_list'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->check_list_id));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
+
+	/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionUpdate()
+	{
+		//$model=new Gg_check_list;
+                $model=$this->loadModel();
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Gg_check_list']))
+		{
+			$model->attributes=$_POST['Gg_check_list'];
+                        if($model->save()){
+                            $this->redirect(array('view','id'=>$model->check_list_id));
+                            if (isset($_POST['viagens'])) {
+                                $this->redirect(array($_POST['lightbox']));
+                            } else {
+                                echo 'admin';
+                            };
+                        }
+				
+		}
+
+		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
+
+	/**
+	 * Deletes a particular model.
+	 * If deletion is successful, the browser will be redirected to the 'index' page.
+	 */
+	public function actionDelete()
+	{
+		if(!Yii::app()->request->isPostRequest)
+		{
+			// we only allow deletion via POST request
+			$this->loadModel()->delete();
+
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if(!isset($_GET['ajax']))
+				$this->redirect(array('index'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+	}
+
+	/**
+	 * Lists all models.
+	 */
+	public function actionIndex()
+	{
+		$dataProvider=new CActiveDataProvider('Gg_check_list');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+		$model=new Gg_check_list('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Gg_check_list']))
+			$model->attributes=$_GET['Gg_check_list'];
+
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+
+	/**
+	 * Returns the data model based on the primary key given in the GET variable.
+	 * If the data model is not found, an HTTP exception will be raised.
+	 */
+	public function loadModel()
+	{
+		if($this->_model===null)
+		{
+			if(isset($_GET['id']))
+				$this->_model=Gg_check_list::model()->findbyPk($_GET['id']);
+			if($this->_model===null)
+				throw new CHttpException(404,'A página que você procura não existe!');
+		}
+		return $this->_model;
+	}
+
+	/**
+	 * Performs the AJAX validation.
+	 * @param CModel the model to be validated
+	 */
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-check-list-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
+        
+        public function actionImprimir() {
+            if (isset($_GET['id'])) {
+                $model = Gg_check_list::model()->findByPk($_GET['id']);
+                $txt = $this->renderPartial('view', array('model' => $model), true);
+                $check_list_id = $_GET['id'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->geraHMTLChecklist($check_list_id);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+        }
+        
+        public function  geraHMTLChecklist($check_list_id = '') 
+        {   
+            $db = new DbExt();
+            
+            $htm = '';
+            
+            $sql = 'SELECT 
+                    v.veiculo_placa, 
+                    c.buzina, 
+                    c.cinto, 
+                    c.retrovisor, 
+                    c.farois, 
+                    c.fluido_freio, 
+                    c.freio, 
+                    c.freio_mao, 
+                    c.lataria, 
+                    c.luz_freio, 
+                    c.luz_re, 
+                    c.luz_painel, 
+                    c.nivel_agua, 
+                    c.nivel_oleo, 
+                    c.pneu, 
+                    c.porta, 
+                    c.seta_dianteria, 
+                    c.seta_trazeira, 
+                    c.vidros, 
+                    c.observacao, 
+                    c.data_alteracao,
+                    p.prefeitura_nome, 
+                    p.prefeitura_endereco, 
+                    p.prefeitura_numero, 
+                    p.prefeitura_telefone,
+                    p.prefeitura_municipio,
+                    e.estado_nome
+                    FROM gg_check_list c 
+                    join gg_veiculos v on (v.veiculos_id = c.veiculos_id)
+                    join gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
+                    JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
+                    WHERE c.check_list_id = '.$check_list_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $stmt) 
+                    $veiculo_placa = $stmt['veiculo_placa'];
+                    
+                    if($stmt['buzina'] == 1){
+                        $buzina = 'Defeito';
+                    }else{
+                        $buzina  = 'OK';
+                    }
+                    
+                    if($stmt['cinto'] == 1){
+                        $cinto = 'Defeito';
+                    }else{
+                        $cinto  = 'OK';
+                    }
+                    
+                    if($stmt['retrovisor'] == 1){
+                        $retrovisor = 'Defeito';
+                    }else{
+                        $retrovisor  = 'OK';
+                    }
+                    
+                    if($stmt['farois'] == 1){
+                        $farois = 'Defeito';
+                    }else{
+                        $farois  = 'OK';
+                    }
+                    
+                    if($stmt['fluido_freio'] == 1){
+                        $fluido_freio = 'Defeito';
+                    }else{
+                        $fluido_freio  = 'OK';
+                    }
+                    
+                    if($stmt['freio'] == 1){
+                        $freio = 'Defeito';
+                    }else{
+                        $freio  = 'OK';
+                    }
+                    
+                    if($stmt['freio_mao'] == 1){
+                        $freio_mao = 'Defeito';
+                    }else{
+                        $freio_mao  = 'OK';
+                    }
+                    
+                    if($stmt['lataria'] == 1){
+                        $lataria = 'Defeito';
+                    }else{
+                        $lataria  = 'OK';
+                    }
+                    
+                    if($stmt['luz_freio'] == 1){
+                        $luz_freio = 'Defeito';
+                    }else{
+                        $luz_freio  = 'OK';
+                    }
+                    
+                    if($stmt['luz_re'] == 1){
+                        $luz_re = 'Defeito';
+                    }else{
+                        $luz_re  = 'OK';
+                    }
+                    
+                    if($stmt['luz_painel'] == 1){
+                        $luz_painel = 'Defeito';
+                    }else{
+                        $luz_painel  = 'OK';
+                    }
+                    
+                    if($stmt['nivel_agua'] == 1){
+                        $nivel_agua = 'Defeito';
+                    }else{
+                        $nivel_agua  = 'OK';
+                    }
+                    
+                    if($stmt['nivel_oleo'] == 1){
+                        $nivel_oleo = 'Defeito';
+                    }else{
+                        $nivel_oleo  = 'OK';
+                    }
+                    
+                    if($stmt['pneu'] == 1){
+                        $pneu = 'Defeito';
+                    }else{
+                        $pneu  = 'OK';
+                    }
+                    
+                    if($stmt['porta'] == 1){
+                        $porta = 'Defeito';
+                    }else{
+                        $porta  = 'OK';
+                    }
+                    
+                    if($stmt['seta_dianteria'] == 1){
+                        $seta_dianteria = 'Defeito';
+                    }else{
+                        $seta_dianteria  = 'OK';
+                    }
+                    
+                    if($stmt['seta_trazeira'] == 1){
+                        $seta_trazeira = 'Defeito';
+                    }else{
+                        $seta_trazeira  = 'OK';
+                    }
+                    
+                    if($stmt['vidros'] == 1){
+                        $vidros = 'Defeito';
+                    }else{
+                        $vidros  = 'OK';
+                    }
+                    
+                    $observacao      = $stmt['observacao'];
+                    $data_alteracao  = $stmt['data_alteracao'];
+                    $veiculo_placa   = $stmt['veiculo_placa'];
+                    $prefeitura_nome = $stmt['prefeitura_nome'];
+                    $prefeitura_endereco= $stmt['prefeitura_endereco'];
+                    $prefeitura_numero=$stmt['prefeitura_numero'];
+                    $prefeitura_telefone  =$stmt['prefeitura_telefone'];
+                    $prefeitura_municipio     =$stmt['prefeitura_municipio'];
+                    $estado_nome       =$stmt['estado_nome'];
+                
+            
+                $htm = '<html>
+                        <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <title>relatório de Checklist</title>
+                        <style>
+                                table {
+                                        font-size: 16px;
+                                        line-height: 30px;
+                                }
+                        </style>
+                        </head>
+
+                        <body>
+                        <div style="width: 100%;">
+                            <div style="float: left">
+                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                        </div>    
+                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
+                                <h2 align="center">'.$prefeitura_nome.'</h2>
+                                <p>'.$prefeitura_endereco.' nº '.$prefeitura_numero.'</p>
+                                <p>Telefone - '.$prefeitura_telefone.'</p>
+                                <p>'.$prefeitura_municipio.' - '.$estado_nome.'</p>
+                            </div>
+                        <div style="float: left; width:100%">
+                                <hr />
+                                    <h1 align="center">Checklist #'.$check_list_id.'</h1>
+				<hr />
+                         
+                            <table width="100%" style="font-size:16px; line-height:30px;">
+                                <tbody>
+                                  <tr>
+                                    <td colspan="3"><strong>Veículo</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$veiculo_placa.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Buzina</strong></td>
+                                    <td><strong>Cinto de Segurança</strong></td>
+                                    <td><strong>Retrovisor</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$buzina.'</td>
+                                    <td>'.$cinto.'</td>
+                                    <td>'.$retrovisor.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Farois</strong></td>
+                                    <td><strong>Fluido de Freio</strong></td>
+                                    <td><strong>Freio</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$farois.'</td>
+                                    <td>'.$fluido_freio.'</td>
+                                    <td>'.$freio.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Freio Mao</strong></td>
+                                    <td><strong>Lataria</strong></td>
+                                    <td><strong>Luz de Freio</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$freio_mao.'</td>
+                                    <td>'.$lataria.'</td>
+                                    <td>'.$luz_freio.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Luz de Ré</strong></td>
+                                    <td><strong>Luzes no Painel</strong></td>
+                                    <td><strong>Nível da Água</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$luz_re.'</td>
+                                    <td>'.$luz_painel.'</td>
+                                    <td>'.$nivel_agua.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Nível do Óleo</strong></td>
+                                    <td><strong>Pneus</strong></td>
+                                    <td><strong>Portas</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$nivel_oleo.'</td>
+                                    <td>'.$pneu.'</td>
+                                    <td>'.$porta.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Seta Dianteria</strong></td>
+                                    <td><strong>Seta Trazeira</strong></td>
+                                    <td><strong>Vidros</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$seta_dianteria.'</td>
+                                    <td>'.$seta_trazeira.'</td>
+                                    <td>'.$vidros.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3"><strong>Observação</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">'.$observacao.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3"><strong>Data</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">'.$data_alteracao.'</td>
+                                  </tr>                                  
+                                </tbody>  
+                            </table>
+                        </div>
+                        </div>
+                        </body>
+                        </html>';
+            } 
+            
+            return $htm;
+        }
+}

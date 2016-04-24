@@ -43,6 +43,10 @@ class Gg_motoristasController extends Controller
 				'actions'=>array('admin','delete'),
 				'users'=>array('@'),
 			),
+                        array('allow',
+                                'actions'=>array('imprimir'),
+                                'users'=>array('@'),
+                         ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -178,4 +182,123 @@ class Gg_motoristasController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionImprimir() {
+            if (isset($_GET['id'])) {
+                $model = Gg_motoristas::model()->findByPk($_GET['id']);
+                $txt = $this->renderPartial('view', array('model' => $model), true);
+                $motoristas_id = $_GET['id'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->geraHMTLMotorista($motoristas_id);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+        }
+        
+        public function  geraHMTLMotorista($motoristas_id = '') 
+        {   
+            $db = new DbExt();
+            
+            $htm = '';
+            
+            $sql = 'SELECT m.motorista_nome, 
+                    m.motorista_cpf, 
+                    m.motorista_categoria, 
+                    m.motorista_telefone, 
+                    p.prefeitura_nome, 
+                    p.prefeitura_endereco, 
+                    p.prefeitura_numero, 
+                    p.prefeitura_telefone,
+                    p.prefeitura_municipio,
+                    e.estado_nome
+                    FROM gg_motoristas m
+                    join gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
+                    JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
+                    WHERE m.motoristas_id = '.$motoristas_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $stmt) {
+                    $motorista_nome = $stmt['motorista_nome'];
+                    $motorista_cpf  = $stmt['motorista_cpf'];
+                    $motorista_categoria = $stmt['motorista_categoria'];
+                    $motorista_telefone= $stmt['motorista_telefone'];
+                    $motorista_nome     = $stmt['motorista_nome'];
+                    $prefeitura_nome = $stmt['prefeitura_nome'];
+                    $prefeitura_endereco= $stmt['prefeitura_endereco'];
+                    $prefeitura_numero=$stmt['prefeitura_numero'];
+                    $prefeitura_telefone  =$stmt['prefeitura_telefone'];
+                    $prefeitura_municipio     =$stmt['prefeitura_municipio'];
+                    $estado_nome       =$stmt['estado_nome'];
+                }
+            
+                $htm = '<html>
+                        <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <title>relatório de Motorista</title>
+                        <style>
+                                table {
+                                        font-size: 16px;
+                                        line-height: 30px;
+                                }
+                        </style>
+                        </head>
+
+                        <body>
+                        <div style="width: 100%;">
+                            <div style="float: left">
+                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                        </div>    
+                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
+                                <h2 align="center">'.$prefeitura_nome.'</h2>
+                                <p>'.$prefeitura_endereco.' nº '.$prefeitura_numero.'</p>
+                                <p>Telefone - '.$prefeitura_telefone.'</p>
+                                <p>'.$prefeitura_municipio.' - '.$estado_nome.'</p>
+                            </div>
+                        <div style="float: left; width:100%">
+                                <hr />
+                                    <h1 align="center">Motorista '.$motorista_nome.'</h1>
+				<hr />
+                         
+                            <table width="100%" style="font-size:16px; line-height:30px;">
+                                <tbody>
+                                  <tr>
+                                    <td><strong>Código</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$motoristas_id.'</td>
+                                  </tr>      
+                                  <tr>
+                                    <td><strong>Nome</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$motorista_nome.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>CPF</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$motorista_cpf.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Categoria da CNH </strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$motorista_categoria.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Telefone</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$motorista_telefone.'</td>
+                                  </tr>
+                                </tbody>  
+                            </table>
+                        </div>
+                        </div>
+                        </body>
+                        </html>';
+            } 
+            
+            return $htm;
+        }
 }

@@ -43,6 +43,10 @@ class Gg_veiculosController extends Controller
 				'actions'=>array('admin','delete'),
 				'users'=>array('@'),
 			),
+                        array('allow',
+                                'actions'=>array('imprimir'),
+                                'users'=>array('@'),
+                         ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -179,5 +183,145 @@ class Gg_veiculosController extends Controller
 		}
 	}
         
+        public function actionImprimir() {
+            if (isset($_GET['id'])) {
+                $model = Gg_veiculos::model()->findByPk($_GET['id']);
+                $txt = $this->renderPartial('view', array('model' => $model), true);
+                $veiculos_id = $_GET['id'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->geraHMTLVeiculo($veiculos_id);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+        }
+        
+        public function  geraHMTLVeiculo($veiculos_id = '') 
+        {   
+            $db = new DbExt();
+            
+            $htm = '';
+            
+            $sql = 'SELECT 
+                    v.veiculo_descricao, 
+                    v.veiculo_placa, 
+                    v.veiculo_chassi, 
+                    v.veiculo_quilometragem, 
+                    v.veiculo_fabricante, 
+                    v.veiculo_modelo,
+                    t.tipo_nome,
+                    s.status_nome,
+                    sc.secretaria_nome,
+                    p.prefeitura_nome, 
+                    p.prefeitura_endereco, 
+                    p.prefeitura_numero, 
+                    p.prefeitura_telefone,
+                    p.prefeitura_municipio,
+                    e.estado_nome
+                    FROM gg_veiculos v 
+                    join gg_tipo_veiculos   t on (v.veiculo_tipo  = t.tipos_id )
+                    join gg_status_veiculos s on (v.status_veiculos_id = s.status_veiculos_id   )
+                    left join gg_secretarias sc on (v.secretarias_id = sc.secretarias_id   )
+                    join gg_prefeituras p on (p.prefeituras_id = v.prefeituras_id)
+                    JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
+                    WHERE v.veiculos_id = '.$veiculos_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $stmt) 
+                    $veiculo_descricao = $stmt['veiculo_descricao'];
+                    $veiculo_placa  = $stmt['veiculo_placa'];
+                    $veiculo_chassi      = $stmt['veiculo_chassi'];
+                    $veiculo_quilometragem = $stmt['veiculo_quilometragem'];
+                    $veiculo_fabricante  = $stmt['veiculo_fabricante'];
+                    $veiculo_modelo       = $stmt['veiculo_modelo'];
+                    $tipo_nome       = $stmt['tipo_nome'];
+                    $status_nome  = $stmt['status_nome'];
+                    $secretaria_nome     = $stmt['secretaria_nome'];
+                    
+                    $prefeitura_nome = $stmt['prefeitura_nome'];
+                    $prefeitura_endereco= $stmt['prefeitura_endereco'];
+                    $prefeitura_numero=$stmt['prefeitura_numero'];
+                    $prefeitura_telefone  =$stmt['prefeitura_telefone'];
+                    $prefeitura_municipio     =$stmt['prefeitura_municipio'];
+                    $estado_nome       =$stmt['estado_nome'];
+                
+            
+                $htm = '<html>
+                        <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <title>relatório de Veículo</title>
+                        <style>
+                                table {
+                                        font-size: 16px;
+                                        line-height: 30px;
+                                }
+                        </style>
+                        </head>
+
+                        <body>
+                        <div style="width: 100%;">
+                            <div style="float: left">
+                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                        </div>    
+                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
+                                <h2 align="center">'.$prefeitura_nome.'</h2>
+                                <p>'.$prefeitura_endereco.' nº '.$prefeitura_numero.'</p>
+                                <p>Telefone - '.$prefeitura_telefone.'</p>
+                                <p>'.$prefeitura_municipio.' - '.$estado_nome.'</p>
+                            </div>
+                        <div style="float: left; width:100%">
+                                <hr />
+                                    <h1 align="center">Veículo '.$veiculo_placa.'</h1>
+				<hr />
+                         
+                            <table width="100%" style="font-size:16px; line-height:30px;">
+                                <tbody>
+                                  <tr>
+                                    <td colspan="3"><strong>Secretaria</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">'.$secretaria_nome.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3"><strong>Descrição</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">'.$veiculo_descricao.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Placa</strong></td>
+                                    <td><strong>Chassi</strong></td>
+                                    <td><strong>Tipo</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$veiculo_placa.'</td>
+                                    <td>'.$veiculo_chassi.'</td>
+                                    <td>'.$tipo_nome.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3"><strong>Quilometragem</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">'.$veiculo_quilometragem.'</td>
+                                  </tr>                                  
+                                  <tr>
+                                    <td><strong>Fabricante</strong></td>
+                                    <td><strong>Modelo</strong></td>
+                                    <td><strong>Status</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$veiculo_fabricante.'</td>
+                                    <td>'.$veiculo_modelo.'</td>
+                                    <td>'.$status_nome.'</td>
+                                  </tr>
+                                </tbody>  
+                            </table>
+                        </div>
+                        </div>
+                        </body>
+                        </html>';
+            } 
+            
+            return $htm;
+        }
         
 }

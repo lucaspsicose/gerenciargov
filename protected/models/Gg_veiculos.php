@@ -79,7 +79,7 @@ class Gg_veiculos extends CActiveRecord
 			'veiculo_fabricante' => 'Fabricante',
 			'veiculo_modelo' => 'Modelo',
                         'status_veiculos_id' => 'Status',
-                        'status_nome.status_nome' => 'Secretaria',
+                        'status.status_nome' => 'Status',
 		);
 	}
 
