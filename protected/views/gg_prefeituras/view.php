@@ -8,7 +8,7 @@ $this->menu=array(
 	array('label'=>'Lista de Prefeituras', 'url'=>array('admin')),
 	array('label'=>'Nova Prefeitura', 'url'=>array('create')),
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->prefeituras_id)),
-	array('label'=>'Deletar Cadastro', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->prefeituras_id),'confirm'=>Yii::t('zii','Confirma deletar este cadastro?'))),
+	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->prefeituras_id), 'linkOptions'=>array('submit'=>array('delete','id'=>$model->prefeituras_id),'confirm'=>Yii::t('zii','Confirma deletar este cadastro?'))),
 );
 ?>
 
