@@ -8,7 +8,8 @@
  * @property integer $veiculos_id
  * @property integer $buzina
  * @property integer $cinto
- * @property integer $retrovisor
+ * @property integer $retrovisor_e
+ * @property integer $retrovisor_d
  * @property integer $farois
  * @property integer $fluido_freio
  * @property integer $freio
@@ -21,8 +22,10 @@
  * @property integer $nivel_oleo
  * @property integer $pneu
  * @property integer $porta
- * @property integer $seta_dianteria
- * @property integer $seta_trazeira
+ * @property integer $seta_dianteira_e
+ * @property integer $seta_dianteira_d
+ * @property integer $seta_traseira_e
+ * @property integer $seta_traseira_d
  * @property integer $vidros
  * @property string $observacao
  * @property string $data_alteracao
@@ -47,11 +50,11 @@ class Gg_check_list extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('veiculos_id, prefeituras_id', 'required'),
-			array('veiculos_id, buzina, cinto, retrovisor, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteria, seta_trazeira, vidros', 'numerical', 'integerOnly'=>true),
+			array('veiculos_id, buzina, cinto, retrovisor_e, retrovisor_d, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteira_e, seta_dianteira_d, seta_traseira_e, seta_traseira_d, vidros', 'numerical', 'integerOnly'=>true),
 			array('observacao', 'length', 'max'=>2000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('check_list_id, veiculos_id, buzina, cinto, retrovisor, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteria, seta_trazeira, vidros, observacao, data_alteracao', 'safe', 'on'=>'search'),
+			array('check_list_id, veiculos_id, buzina, cinto, retrovisor_e, retrovisor_d, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteira_e, seta_dianteira_d, seta_traseira_e, seta_traseira_d, vidros, observacao, data_alteracao', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,7 +82,8 @@ class Gg_check_list extends CActiveRecord
                         'veiculos.veiculo_placa' => 'Veículo',
 			'buzina' => 'Buzina',
 			'cinto' => 'Cinto de Segurança',
-			'retrovisor' => 'Retrovisor',
+			'retrovisor_e' => 'Retrovisor Esq.',
+                        'retrovisor_d' => 'Retrovisor Dir.',
 			'farois' => 'Farois',
 			'fluido_freio' => 'Fluido de Freio',
 			'freio' => 'Freio',
@@ -92,8 +96,10 @@ class Gg_check_list extends CActiveRecord
 			'nivel_oleo' => 'Nível do Óleo',
 			'pneu' => 'Pneus',
 			'porta' => 'Portas',
-			'seta_dianteria' => 'Seta Dianteria',
-			'seta_trazeira' => 'Seta Trazeira',
+			'seta_dianteira_e' => 'Seta Dianteira Esq.',
+                        'seta_dianteira_d' => 'Seta Dianteira Dir.',
+			'seta_traseira_e' => 'Seta Traseira Esq.',
+                        'seta_traseira_d' => 'Seta Traseira Dir.',
 			'vidros' => 'Vidros',
 			'observacao' => 'Observação',
 			'data_alteracao' => 'Data',
@@ -126,7 +132,9 @@ class Gg_check_list extends CActiveRecord
 
 		$criteria->compare('cinto',$this->cinto);
 
-		$criteria->compare('retrovisor',$this->retrovisor);
+		$criteria->compare('retrovisor_e',$this->retrovisor_e);
+                
+                $criteria->compare('retrovisor_d',$this->retrovisor_d);
 
 		$criteria->compare('farois',$this->farois);
 
@@ -152,9 +160,13 @@ class Gg_check_list extends CActiveRecord
 
 		$criteria->compare('porta',$this->porta);
 
-		$criteria->compare('seta_dianteria',$this->seta_dianteria);
+		$criteria->compare('seta_dianteira_e',$this->seta_dianteira_e);
+                
+                $criteria->compare('seta_dianteira_d',$this->seta_dianteira_d);
 
-		$criteria->compare('seta_trazeira',$this->seta_trazeira);
+		$criteria->compare('seta_traseira_e',$this->seta_traseira_e);
+
+		$criteria->compare('seta_traseira_d',$this->seta_traseira_d);
 
 		$criteria->compare('vidros',$this->vidros);
 

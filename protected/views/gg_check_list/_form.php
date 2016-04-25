@@ -43,13 +43,19 @@
             </div>
 
             <div class="col-md-4">
-		<?php echo $form->labelEx($model,'retrovisor'); ?>
-		<?php echo $form->checkBox($model,'retrovisor'); ?>
-		<?php echo $form->error($model,'retrovisor'); ?>
+		<?php echo $form->labelEx($model,'retrovisor_e'); ?>
+		<?php echo $form->checkBox($model,'retrovisor_e'); ?>
+		<?php echo $form->error($model,'retrovisor_e'); ?>
             </div>
         </div>
         
         <div class="form-group">
+            <div class="col-md-4">
+		<?php echo $form->labelEx($model,'retrovisor_d'); ?>
+		<?php echo $form->checkBox($model,'retrovisor_d'); ?>
+		<?php echo $form->error($model,'retrovisor_d'); ?>
+            </div>
+            
             <div class="col-md-4">
 		<?php echo $form->labelEx($model,'farois'); ?>
 		<?php echo $form->checkBox($model,'farois'); ?>
@@ -60,16 +66,16 @@
 		<?php echo $form->labelEx($model,'fluido_freio'); ?>
 		<?php echo $form->checkBox($model,'fluido_freio'); ?>
 		<?php echo $form->error($model,'fluido_freio'); ?>
-            </div>
+            </div>            
+        </div>
 
+        <div class="form-group">
             <div class="col-md-4">
 		<?php echo $form->labelEx($model,'freio'); ?>
 		<?php echo $form->checkBox($model,'freio'); ?>
 		<?php echo $form->error($model,'freio'); ?>
             </div>
-        </div>
-
-        <div class="form-group">
+            
             <div class="col-md-4">
 		<?php echo $form->labelEx($model,'freio_mao'); ?>
 		<?php echo $form->checkBox($model,'freio_mao'); ?>
@@ -80,16 +86,16 @@
 		<?php echo $form->labelEx($model,'lataria'); ?>
 		<?php echo $form->checkBox($model,'lataria'); ?>
 		<?php echo $form->error($model,'lataria'); ?>
-            </div>
+            </div>            
+        </div>
 
+        <div class="form-group">
             <div class="col-md-4">
 		<?php echo $form->labelEx($model,'luz_freio'); ?>
 		<?php echo $form->checkBox($model,'luz_freio'); ?>
 		<?php echo $form->error($model,'luz_freio'); ?>
             </div>
-        </div>
-
-        <div class="form-group">
+            
             <div class="col-md-4">
                 <?php echo $form->labelEx($model,'luz_re'); ?>
                 <?php echo $form->checkBox($model,'luz_re'); ?>
@@ -100,16 +106,16 @@
                 <?php echo $form->labelEx($model,'luz_painel'); ?>
                 <?php echo $form->checkBox($model,'luz_painel'); ?>
                 <?php echo $form->error($model,'luz_painel'); ?>
-            </div>
+            </div>               
+        </div>
 
+        <div class="form-group">
             <div class="col-md-4">
                 <?php echo $form->labelEx($model,'nivel_agua'); ?>
                 <?php echo $form->checkBox($model,'nivel_agua'); ?>
                 <?php echo $form->error($model,'nivel_agua'); ?>
-            </div>    
-        </div>
-
-        <div class="form-group">
+            </div> 
+            
             <div class="col-md-4">
 		<?php echo $form->labelEx($model,'nivel_oleo'); ?>
 		<?php echo $form->checkBox($model,'nivel_oleo'); ?>
@@ -120,26 +126,40 @@
 		<?php echo $form->labelEx($model,'pneu'); ?>
 		<?php echo $form->checkBox($model,'pneu'); ?>
 		<?php echo $form->error($model,'pneu'); ?>
-            </div>
-
-            <div class="col-md-4">
-		<?php echo $form->labelEx($model,'porta'); ?>
-		<?php echo $form->checkBox($model,'porta'); ?>
-		<?php echo $form->error($model,'porta'); ?>
-            </div>    
+            </div>              
         </div>
 
         <div class="form-group">
             <div class="col-md-4">
-		<?php echo $form->labelEx($model,'seta_dianteria'); ?>
-		<?php echo $form->checkBox($model,'seta_dianteria'); ?>
-		<?php echo $form->error($model,'seta_dianteria'); ?>
-            </div>
-
+		<?php echo $form->labelEx($model,'porta'); ?>
+		<?php echo $form->checkBox($model,'porta'); ?>
+		<?php echo $form->error($model,'porta'); ?>
+            </div>  
+            
             <div class="col-md-4">
-		<?php echo $form->labelEx($model,'seta_trazeira'); ?>
-		<?php echo $form->checkBox($model,'seta_trazeira'); ?>
-		<?php echo $form->error($model,'seta_trazeira'); ?>
+		<?php echo $form->labelEx($model,'seta_dianteira_e'); ?>
+		<?php echo $form->checkBox($model,'seta_dianteira_e'); ?>
+		<?php echo $form->error($model,'seta_dianteira_e'); ?>
+            </div>
+            
+            <div class="col-md-4">
+		<?php echo $form->labelEx($model,'seta_dianteira_d'); ?>
+		<?php echo $form->checkBox($model,'seta_dianteira_d'); ?>
+		<?php echo $form->error($model,'seta_dianteira_d'); ?>
+            </div>    
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-4">
+		<?php echo $form->labelEx($model,'seta_traseira_e'); ?>
+		<?php echo $form->checkBox($model,'seta_traseira_e'); ?>
+		<?php echo $form->error($model,'seta_traseira_e'); ?>
+            </div>
+            
+            <div class="col-md-4">
+		<?php echo $form->labelEx($model,'seta_traseira_d'); ?>
+		<?php echo $form->checkBox($model,'seta_traseira_d'); ?>
+		<?php echo $form->error($model,'seta_traseira_d'); ?>
             </div>
 
             <div class="col-md-4">

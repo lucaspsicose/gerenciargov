@@ -213,7 +213,8 @@ class Gg_check_listController extends Controller
                     v.veiculo_placa, 
                     c.buzina, 
                     c.cinto, 
-                    c.retrovisor, 
+                    c.retrovisor_e,
+                    c.retrovisor_d,
                     c.farois, 
                     c.fluido_freio, 
                     c.freio, 
@@ -226,8 +227,10 @@ class Gg_check_listController extends Controller
                     c.nivel_oleo, 
                     c.pneu, 
                     c.porta, 
-                    c.seta_dianteria, 
-                    c.seta_trazeira, 
+                    c.seta_dianteira_e,
+                    c.seta_dianteira_d,
+                    c.seta_traseira_e, 
+                    c.seta_traseira_d,
                     c.vidros, 
                     c.observacao, 
                     c.data_alteracao,
@@ -259,10 +262,16 @@ class Gg_check_listController extends Controller
                         $cinto  = 'OK';
                     }
                     
-                    if($stmt['retrovisor'] == 1){
-                        $retrovisor = 'Defeito';
+                    if($stmt['retrovisor_e'] == 1){
+                        $retrovisor_e = 'Defeito';
                     }else{
-                        $retrovisor  = 'OK';
+                        $retrovisor_e  = 'OK';
+                    }
+                    
+                    if($stmt['retrovisor_d'] == 1){
+                        $retrovisor_d = 'Defeito';
+                    }else{
+                        $retrovisor_d  = 'OK';
                     }
                     
                     if($stmt['farois'] == 1){
@@ -337,16 +346,28 @@ class Gg_check_listController extends Controller
                         $porta  = 'OK';
                     }
                     
-                    if($stmt['seta_dianteria'] == 1){
-                        $seta_dianteria = 'Defeito';
+                    if($stmt['seta_dianteira_e'] == 1){
+                        $seta_dianteira_e = 'Defeito';
                     }else{
-                        $seta_dianteria  = 'OK';
+                        $seta_dianteira_e  = 'OK';
                     }
                     
-                    if($stmt['seta_trazeira'] == 1){
-                        $seta_trazeira = 'Defeito';
+                    if($stmt['seta_dianteira_d'] == 1){
+                        $seta_dianteira_d = 'Defeito';
                     }else{
-                        $seta_trazeira  = 'OK';
+                        $seta_dianteira_d  = 'OK';
+                    }
+                    
+                    if($stmt['seta_traseira_e'] == 1){
+                        $seta_traseira_e = 'Defeito';
+                    }else{
+                        $seta_traseira_e  = 'OK';
+                    }
+                    
+                    if($stmt['seta_traseira_d'] == 1){
+                        $seta_traseira_d = 'Defeito';
+                    }else{
+                        $seta_traseira_d  = 'OK';
                     }
                     
                     if($stmt['vidros'] == 1){
@@ -405,63 +426,73 @@ class Gg_check_listController extends Controller
                                   <tr>
                                     <td><strong>Buzina</strong></td>
                                     <td><strong>Cinto de Segurança</strong></td>
-                                    <td><strong>Retrovisor</strong></td>
+                                    <td><strong>Retrovisor Esq.</strong></td>
                                   </tr>
                                   <tr>
                                     <td>'.$buzina.'</td>
                                     <td>'.$cinto.'</td>
-                                    <td>'.$retrovisor.'</td>
+                                    <td>'.$retrovisor_e.'</td>
                                   </tr>
                                   <tr>
+                                    <td><strong>Retrovisor Dir.</strong></td>
                                     <td><strong>Farois</strong></td>
-                                    <td><strong>Fluido de Freio</strong></td>
-                                    <td><strong>Freio</strong></td>
+                                    <td><strong>Fluido de Freio</strong></td>                                    
                                   </tr>
                                   <tr>
+                                    <td>'.$retrovisor_d.'</td>
                                     <td>'.$farois.'</td>
-                                    <td>'.$fluido_freio.'</td>
-                                    <td>'.$freio.'</td>
+                                    <td>'.$fluido_freio.'</td>                                    
                                   </tr>
                                   <tr>
+                                    <td><strong>Freio</strong></td>
                                     <td><strong>Freio Mao</strong></td>
-                                    <td><strong>Lataria</strong></td>
-                                    <td><strong>Luz de Freio</strong></td>
+                                    <td><strong>Lataria</strong></td>                                    
                                   </tr>
                                   <tr>
+                                    <td>'.$freio.'</td>
                                     <td>'.$freio_mao.'</td>
-                                    <td>'.$lataria.'</td>
-                                    <td>'.$luz_freio.'</td>
+                                    <td>'.$lataria.'</td>                                    
                                   </tr>
                                   <tr>
+                                    <td><strong>Luz de Freio</strong></td>
                                     <td><strong>Luz de Ré</strong></td>
-                                    <td><strong>Luzes no Painel</strong></td>
-                                    <td><strong>Nível da Água</strong></td>
+                                    <td><strong>Luzes no Painel</strong></td>                                    
                                   </tr>
                                   <tr>
+                                    <td>'.$luz_freio.'</td>
                                     <td>'.$luz_re.'</td>
-                                    <td>'.$luz_painel.'</td>
-                                    <td>'.$nivel_agua.'</td>
+                                    <td>'.$luz_painel.'</td>                                    
                                   </tr>
                                   <tr>
+                                    <td><strong>Nível da Água</strong></td>
                                     <td><strong>Nível do Óleo</strong></td>
-                                    <td><strong>Pneus</strong></td>
-                                    <td><strong>Portas</strong></td>
+                                    <td><strong>Pneus</strong></td>                                    
                                   </tr>
                                   <tr>
+                                    <td>'.$nivel_agua.'</td>
                                     <td>'.$nivel_oleo.'</td>
-                                    <td>'.$pneu.'</td>
-                                    <td>'.$porta.'</td>
+                                    <td>'.$pneu.'</td>                                    
                                   </tr>
                                   <tr>
-                                    <td><strong>Seta Dianteria</strong></td>
-                                    <td><strong>Seta Trazeira</strong></td>
+                                    <td><strong>Portas</strong></td>
+                                    <td><strong>Seta Dianteira Esq.</strong></td>
+                                    <td><strong>Seta Dianteira Dir.</strong></td>                                    
+                                  </tr>
+                                  <tr>
+                                    <td>'.$porta.'</td>
+                                    <td>'.$seta_dianteira_e.'</td>
+                                    <td>'.$seta_dianteira_d.'</td>                                    
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Seta Traseira Esq.</strong></td>
+                                    <td><strong>Seta Traseira Dir.</strong></td>
                                     <td><strong>Vidros</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$seta_dianteria.'</td>
-                                    <td>'.$seta_trazeira.'</td>
+                                    <td>'.$seta_traseira_e.'</td>
+                                    <td>'.$seta_traseira_d.'</td>
                                     <td>'.$vidros.'</td>
-                                  </tr>
+                                  </tr>}
                                   <tr>
                                     <td colspan="3"><strong>Observação</strong></td>
                                   </tr>
