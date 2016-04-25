@@ -3002,3 +3002,11 @@ div.header h3{
   padding-right: 15px;
   padding-left: 15px;
 }
+
+.link-perfil {
+    color: #fff;
+}
+
+.popover-title {
+    color: #2fa084;
+}

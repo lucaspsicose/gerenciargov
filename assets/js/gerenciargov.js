@@ -65,7 +65,9 @@ jQuery( function($){
 	//Fim Mascara Telefone		        
 
 });
- 
+
+$("[data-toggle=popover]")
+.popover({html:true}); 
 	  
 $(document).ready(function($) {
 		

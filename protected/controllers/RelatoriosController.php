@@ -34,6 +34,17 @@ class RelatoriosController extends Controller
         
     }
     
+    public function actionMunicipes()
+    {
+        if (isset($_GET['nome'])) {
+                $nome_municipe = $_GET['nome'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->getMunicipes($nome_municipe);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+    }
+    
     public function getAniversariantesMes($mes_aniversario = '')
     {
         $db = new DbExt();
@@ -127,6 +138,100 @@ class RelatoriosController extends Controller
         
         return $html;
         
+    }
+    
+    public function getMunicipes($solicitante_nome = '')
+    {
+        $db = new DbExt();
+        
+        $sql_cabecalho = 'SELECT   p.prefeitura_nome,'
+                            . '    p.prefeitura_endereco,'
+                            . '    p.prefeitura_numero,'
+                            . '    p.prefeitura_telefone,'
+                            . '    p.prefeitura_municipio,'
+                            . '    e.estado_nome'
+                            . ' FROM Gg_prefeituras p'
+                            . ' JOIN Gg_estados e ON (e.estados_id = p.estados_id)'
+                            . ' WHERE p.prefeituras_id = '.  Yii::app()->session['active_prefeituras_id'];
+        
+        if ($res = $db->rst($sql_cabecalho)) {
+            foreach ($res as $value) {
+                $prefeitura    = $value['prefeitura_nome'];
+                $pref_endereco = $value['prefeitura_endereco'];
+                $pref_numero   = $value['prefeitura_numero'];
+                $pref_tel      = $value['prefeitura_telefone'];
+                $cidade        = $value['prefeitura_municipio'];
+                $estado        = $value['estado_nome'];
+            }
+        }
+        
+        $html = '<html>
+                        <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <title>relatório de Atendimento</title>
+                        <style>
+                                table {
+                                        font-size: 16px;
+                                        line-height: 30px;
+                                }
+                        </style>
+                        </head>
+
+                        <body>
+                        <div style="width: 100%;">
+                            <div style="float: left">
+                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                        </div>    
+                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
+                                <h2 align="center">'.$prefeitura.'</h2>
+                                <p>'.$pref_endereco.' nº '.$pref_numero.'</p>
+                                <p>Telefone - '.$pref_tel.'</p>
+                                <p>'.$cidade.' - '.$estado.'</p>
+                            </div>
+                        <div style="float: left; width:100%">
+                        <hr>
+                        <table style="border-style:solid; padding-bottom:5px;">
+                            <tbody>
+                            <tr align="center">
+                                    <td><strong>Nome</strong></td>
+                                <td><strong>Endereço</strong></td>
+                                <td><strong>Telefone</strong></td>
+                            </tr>';
+        
+        $sql = 'SELECT s.solicitante_nome,'
+                . '    s.solicitante_endereco,'
+                . '    s.solicitante_numero,'
+                . '    s.solicitante_bairro,'
+                . '    COALESCE(s.solicitante_celular, s.solicitante_telefone) as telefone,'
+                . '    s.solicitante_email'
+                . ' FROM Gg_solicitantes s'
+                . ' WHERE 1 = 1';
+        
+        if ($solicitante_nome != '') {
+            $sql .= ' AND solicitante_nome LIKE "%'.$solicitante_nome.'%"';
+        }
+        
+        $sql .= ' ORDER BY s.solicitante_nome ASC';
+        
+        if ($res = $db->rst($sql)) {
+            foreach ($res as $value) {
+                $html .= '<tr>
+                            <td>'.$value['solicitante_nome'].'</td>
+                            <td>'.$value['solicitante_endereco'].' nº '.$value['solicitante_numero'].' '.$value['solicitante_bairro'].'</td>
+                            <td>'.$value['telefone'].'</td>
+                        </tr>';
+            }
+        }
+        
+        $html .= '</tbody>
+                </table>
+                    </div>
+                </div>  
+            </body>
+        </html>';
+        
+        
+        return $html;
     }
     
 }

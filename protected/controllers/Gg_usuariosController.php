@@ -36,7 +36,7 @@ class Gg_usuariosController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','perfil'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -142,8 +142,31 @@ class Gg_usuariosController extends Controller
 			'model'=>$model,
 		));
 	}
+        
+        public function actionPerfil() 
+        {
+            $model=$this->loadModel();
+            
+            if(isset($_POST['Gg_usuarios'])) 
+            {
+                $model->attributes=$_POST['Gg_usuarios'];
+                
+                if ($this->updatePerfil($model->usuarios_id, 
+                                        $model->usuario_nome,
+                                        $model->usuario_login, 
+                                        $model->usuario_senha, 
+                                        $model->usuario_email)) {
+                    $this->redirect(Yii::app()->request->baseUrl.'/site/menu');
+                }
+                
+            } else {
+                $this->render('perfil',array(
+			'model'=>$model,
+		));
+            }
+        }
 
-	/**
+        /**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'index' page.
 	 */
@@ -216,4 +239,25 @@ class Gg_usuariosController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function updatePerfil($usuarios_id = '', $usuario_nome = '', $usuario_login = '', $usuario_senha = '', $usuario_mail = '') 
+        {
+            $db = new DbExt();
+            
+            $params['usuario_nome']  = $usuario_nome;
+            
+            if ($usuario_senha !== '') {
+                $params['usuario_senha'] = md5($usuario_senha);
+            }
+            
+            $params['usuario_email'] = $usuario_mail;
+            $params['usuario_login'] = $usuario_login;
+            
+            $db->updateData('Gg_usuarios', $params, 'usuarios_id', $usuarios_id);
+            
+            unset($params);
+            
+            return TRUE;
+            
+        }
 }

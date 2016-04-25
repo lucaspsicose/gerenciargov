@@ -94,7 +94,7 @@
                     <div class="pull-right">
                         <h1><?php if (isset($session['active_secretarias_id'])) { echo $session['active_secretaria_nome']; } ?></h1>
                     	<?php if (Yii::app()->user->isGuest == '') : ?>
-                            Você está Logado como <?php $session = Yii::app()->session; echo $session['usuario']; ?>
+                        Você está Logado como <a href="#" class="link-perfil" data-trigger="focus" data-placement="bottom" data-toggle="popover" title="Perfil" data-content="<a href='<?php echo $this->createUrl('gg_usuarios/perfil', array('id'=>  Yii::app()->session['user_id'])) ?>' title=''>Editar seu perfil</a>" data-original-title="Perfil"><?php $session = Yii::app()->session; echo $session['usuario']; ?></a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
     <!--breadcrumbs end-->
 
     <!--container start-->
-    <div class="white-bg">
+    <div class="white-bg" style="min-height: 400px;">
         <!-- career -->
     <!--<div class="container career-inner">-->
         <div class="row">

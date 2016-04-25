@@ -21,6 +21,20 @@ $this->setPageTitle('Relatórios');
         <?php echo CHtml::submitButton('Gerar Relatório', array('class'=>'btn btn-info')); ?>
     </div>
     <?php echo CHtml::endForm(); ?>
+    
+    <h1>Munícipes Cadastrados</h1>
+    
+    <?php echo CHtml::beginForm($this->createUrl('relatorios/municipes'), 'get'); ?>
+    
+    <div class="form-group field-control">
+        <?php echo CHtml::label('Nome do Munícipe', 'nome'); ?>
+        <?php echo CHtml::textField('nome', '', array('class'=>'form-control')); ?>
+    </div>    
+    
+    <div class="form-group">
+        <?php echo CHtml::submitButton('Gerar Relatório', array('class'=>'btn btn-info')); ?>
+    </div>
+    <?php echo CHtml::endForm(); ?>
 
 </div>
 

@@ -17,6 +17,7 @@ class Gg_usuarios extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+         
 	public function tableName()
 	{
 		return 'Gg_usuarios';
