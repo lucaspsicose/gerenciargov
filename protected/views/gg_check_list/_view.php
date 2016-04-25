@@ -70,12 +70,12 @@
 	<?php echo CHtml::encode($data->porta); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('seta_dianteria')); ?>:</b>
-	<?php echo CHtml::encode($data->seta_dianteria); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('seta_dianteira')); ?>:</b>
+	<?php echo CHtml::encode($data->seta_dianteira); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('seta_trazeira')); ?>:</b>
-	<?php echo CHtml::encode($data->seta_trazeira); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('seta_traseira')); ?>:</b>
+	<?php echo CHtml::encode($data->seta_traseira); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('vidros')); ?>:</b>
