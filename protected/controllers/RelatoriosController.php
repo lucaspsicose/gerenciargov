@@ -17,9 +17,10 @@ class RelatoriosController extends Controller
         
     public function actionIndex()
     {
-        $this->render('aniversariantes');
+        $this->render('main');
     }
-        
+
+
     public function actionAniversariantes() 
     {   
         if (isset($_GET['mes'])) {
@@ -49,26 +50,7 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $sql_cabecalho = 'SELECT   p.prefeitura_nome,'
-                            . '    p.prefeitura_endereco,'
-                            . '    p.prefeitura_numero,'
-                            . '    p.prefeitura_telefone,'
-                            . '    p.prefeitura_municipio,'
-                            . '    e.estado_nome'
-                            . ' FROM Gg_prefeituras p'
-                            . ' JOIN Gg_estados e ON (e.estados_id = p.estados_id)'
-                            . ' WHERE p.prefeituras_id = '.  Yii::app()->session['active_prefeituras_id'];
-        
-        if ($res = $db->rst($sql_cabecalho)) {
-            foreach ($res as $value) {
-                $prefeitura    = $value['prefeitura_nome'];
-                $pref_endereco = $value['prefeitura_endereco'];
-                $pref_numero   = $value['prefeitura_numero'];
-                $pref_tel      = $value['prefeitura_telefone'];
-                $cidade        = $value['prefeitura_municipio'];
-                $estado        = $value['estado_nome'];
-            }
-        }
+        $html = Yii::app()->functions->getCabecalhoRelatorios();
         
         $sql = 'SELECT s.solicitante_nome,'
                 . '    s.solicitante_endereco,'
@@ -81,40 +63,17 @@ class RelatoriosController extends Controller
                 . ' FROM Gg_solicitantes s'
                 . ' WHERE Month(s.solicitante_data_nascimento) = '.$mes_aniversario;
         
-        $html = '<html>
-                        <head>
-                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <title>relatório de Atendimento</title>
-                        <style>
-                                table {
-                                        font-size: 16px;
-                                        line-height: 30px;
-                                }
-                        </style>
-                        </head>
-
-                        <body>
-                        <div style="width: 100%;">
-                            <div style="float: left">
-                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
-                        </div>    
-                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
-                                <h2 align="center">'.$prefeitura.'</h2>
-                                <p>'.$pref_endereco.' nº '.$pref_numero.'</p>
-                                <p>Telefone - '.$pref_tel.'</p>
-                                <p>'.$cidade.' - '.$estado.'</p>
-                            </div>
-                        <div style="float: left; width:100%">
-                        <hr>
-                        <table style="border-style:solid; padding-bottom:5px;">
-                            <tbody>
-                            <tr align="center">
-                                    <td><strong>Munícipe</strong></td>
-                                <td><strong>Telefone</strong></td>
-                                <td><strong>Celular</strong></td>
-                                <td><strong>Email</strong></td>
-                                <td><strong>Data Nascimento</strong></td>
-                            </tr>';
+        $html.= '<div style="float: left; width:100%">
+                 <hr>
+                 <table style="border-style:solid; padding-bottom:5px;">
+                     <tbody>
+                     <tr align="center">
+                         <td><strong>Munícipe</strong></td>
+                         <td><strong>Telefone</strong></td>
+                         <td><strong>Celular</strong></td>
+                         <td><strong>Email</strong></td>
+                         <td><strong>Data Nascimento</strong></td>
+                     </tr>';
         
         if ($res = $db->rst($sql)) {
             foreach ($res as $value) {
@@ -144,59 +103,17 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $sql_cabecalho = 'SELECT   p.prefeitura_nome,'
-                            . '    p.prefeitura_endereco,'
-                            . '    p.prefeitura_numero,'
-                            . '    p.prefeitura_telefone,'
-                            . '    p.prefeitura_municipio,'
-                            . '    e.estado_nome'
-                            . ' FROM Gg_prefeituras p'
-                            . ' JOIN Gg_estados e ON (e.estados_id = p.estados_id)'
-                            . ' WHERE p.prefeituras_id = '.  Yii::app()->session['active_prefeituras_id'];
+        $html = Yii::app()->functions->getCabecalhoRelatorios(); 
         
-        if ($res = $db->rst($sql_cabecalho)) {
-            foreach ($res as $value) {
-                $prefeitura    = $value['prefeitura_nome'];
-                $pref_endereco = $value['prefeitura_endereco'];
-                $pref_numero   = $value['prefeitura_numero'];
-                $pref_tel      = $value['prefeitura_telefone'];
-                $cidade        = $value['prefeitura_municipio'];
-                $estado        = $value['estado_nome'];
-            }
-        }
-        
-        $html = '<html>
-                        <head>
-                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <title>relatório de Atendimento</title>
-                        <style>
-                                table {
-                                        font-size: 16px;
-                                        line-height: 30px;
-                                }
-                        </style>
-                        </head>
-
-                        <body>
-                        <div style="width: 100%;">
-                            <div style="float: left">
-                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
-                        </div>    
-                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
-                                <h2 align="center">'.$prefeitura.'</h2>
-                                <p>'.$pref_endereco.' nº '.$pref_numero.'</p>
-                                <p>Telefone - '.$pref_tel.'</p>
-                                <p>'.$cidade.' - '.$estado.'</p>
-                            </div>
-                        <div style="float: left; width:100%">
-                        <hr>
-                        <table style="border-style:solid; padding-bottom:5px;">
-                            <tbody>
-                            <tr align="center">
-                                    <td><strong>Nome</strong></td>
-                                <td><strong>Endereço</strong></td>
-                                <td><strong>Telefone</strong></td>
-                            </tr>';
+        $html .= '<div style="float: left; width:100%">
+                 <hr>
+                 <table style="border-style:solid; padding-bottom:5px;">
+                     <tbody>
+                     <tr align="center">
+                         <td><strong>Nome</strong></td>
+                         <td><strong>Endereço</strong></td>
+                         <td><strong>Telefone</strong></td>
+                     </tr>';
         
         $sql = 'SELECT s.solicitante_nome,'
                 . '    s.solicitante_endereco,'

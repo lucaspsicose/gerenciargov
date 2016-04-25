@@ -66,8 +66,7 @@ jQuery( function($){
 
 });
 
-$("[data-toggle=popover]")
-.popover({html:true}); 
+$("[data-toggle=popover]").popover({html:true});
 	  
 $(document).ready(function($) {
 		
