@@ -1302,7 +1302,7 @@ ul.page-footer-list li {
     line-height: 35px;
     border-bottom: 1px dashed #636F79;
 }
-ul.page-footer-list a { color: #fff }
+ul.page-footer-list a { /*color: #fff*/ }
 ul.page-footer-list li i { padding-right: 10px }
 .footer-small {
     background-color: #2C3E50;

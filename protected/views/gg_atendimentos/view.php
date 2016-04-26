@@ -41,20 +41,7 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
 )); ?>
 
 <div class="form-group">
-    <?php /*$this->widget('ext.bootstrap.widgets.TbButton', array(
-                        'label' => 'Imprimir',
-                        'size' =>'default',
-                        'type' => 'info',
-                        'buttonType' => 'ajaxButton',
-                        'url' => $this->createUrl('gg_atendimentos/imprimir'),
-                        'htmlOptions'=>array('id'=>'btn_imprimir', 'title'=>'Imprimir',),
-                        'ajaxOptions'=>array(
-                            'type'=>'POST',
-                            'url' => $this->createUrl('gg_atendimentos/imprimir'),
-                            'data' => 'id='.$model->atendimentos_id,
-                            'options' => array('target' => '_blank'),
-                        ),
-                )); */
+    <?php 
     $this->widget('zii.widgets.CMenu', array(
         'htmlOptions' => array('class' => 'btn btn-info'),
         'encodeLabel' => false,

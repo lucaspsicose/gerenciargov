@@ -387,5 +387,57 @@ class Functions extends CApplicationComponent
             
             return $meses_do_ano;
         }
+        
+        public function getCabecalhoRelatorios() 
+        {
+            $db = new DbExt();
+            
+            $sql_cabecalho = 'SELECT   p.prefeitura_nome,'
+                                . '    p.prefeitura_endereco,'
+                                . '    p.prefeitura_numero,'
+                                . '    p.prefeitura_telefone,'
+                                . '    p.prefeitura_municipio,'
+                                . '    e.estado_nome'
+                                . ' FROM Gg_prefeituras p'
+                                . ' JOIN Gg_estados e ON (e.estados_id = p.estados_id)'
+                                . ' WHERE p.prefeituras_id = '.  Yii::app()->session['active_prefeituras_id'];
+
+            if ($res = $db->rst($sql_cabecalho)) {
+                foreach ($res as $value) {
+                    $prefeitura    = $value['prefeitura_nome'];
+                    $pref_endereco = $value['prefeitura_endereco'];
+                    $pref_numero   = $value['prefeitura_numero'];
+                    $pref_tel      = $value['prefeitura_telefone'];
+                    $cidade        = $value['prefeitura_municipio'];
+                    $estado        = $value['estado_nome'];
+                }
+            }
+
+            $html = '<html>
+                            <head>
+                            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                            <title>relatório de Atendimento</title>
+                            <style>
+                                    table {
+                                            font-size: 14px;
+                                            line-height: 30px;
+                                    }
+                            </style>
+                            </head>
+
+                            <body>
+                            <div style="width: 100%;">
+                                <div style="float: left">
+                                    <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                                </div>    
+                                <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
+                                    <h2 align="center">'.$prefeitura.'</h2>
+                                    <p>'.$pref_endereco.' nº '.$pref_numero.'</p>
+                                    <p>Telefone - '.$pref_tel.'</p>
+                                    <p>'.$cidade.' - '.$estado.'</p>
+                                </div>';
+            
+            return $html;
+        }
 	
 	}

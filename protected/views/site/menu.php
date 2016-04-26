@@ -31,7 +31,7 @@ $('#cadastros').click(function(){
                 <h1 class="wow fadeIn">Menu Principal</h1>
             </div>
             <hr>
-            <div class="box">
+            <div class="box wow fadeIn">
                 <div class="box-body">
                     <a href="<?php echo $this->createUrl('gg_atendimentos/admin') ?>" class="btn btn-app">
                         <span class="badge bg-yellow"><?php echo SiteController::getQuantidadeAtendimentos(Yii::app()->session['active_secretarias_id']) ?></span>
@@ -55,7 +55,7 @@ $('#cadastros').click(function(){
                 <h1 class="wow fadeIn">Cadastros</h1>
             </div>
             <hr>
-            <div class="box">
+            <div class="box wow fadeIn">
                 <div class="box-body">
                     <a href="<?php echo $this->createUrl('gg_solicitantes/admin') ?>" class="btn btn-app">
                         <i class="fa fa-bullhorn"></i> Munícipes
