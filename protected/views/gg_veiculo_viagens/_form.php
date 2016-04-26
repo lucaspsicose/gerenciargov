@@ -162,9 +162,9 @@ $new_form=$this->beginWidget('CActiveForm', array(
             </div>
 
             <div class="col-md-4">
-		<?php echo $new_form->labelEx($checklist,'retrovisor'); ?>
-		<?php echo $new_form->checkBox($checklist,'retrovisor'); ?>
-		<?php echo $new_form->error($checklist,'retrovisor'); ?>
+		<?php echo $new_form->labelEx($checklist,'retrovisor_e'); ?>
+		<?php echo $new_form->checkBox($checklist,'retrovisor_e'); ?>
+		<?php echo $new_form->error($checklist,'retrovisor_e'); ?>
             </div>
         </div>
         
@@ -250,15 +250,15 @@ $new_form=$this->beginWidget('CActiveForm', array(
 
         <div class="form-group">
             <div class="col-md-4">
-		<?php echo $new_form->labelEx($checklist,'seta_dianteria'); ?>
-		<?php echo $new_form->checkBox($checklist,'seta_dianteria'); ?>
-		<?php echo $new_form->error($checklist,'seta_dianteria'); ?>
+		<?php echo $new_form->labelEx($checklist,'seta_dianteira_e'); ?>
+		<?php echo $new_form->checkBox($checklist,'seta_dianteira_e'); ?>
+		<?php echo $new_form->error($checklist,'seta_dianteira_e'); ?>
             </div>
 
             <div class="col-md-4">
-		<?php echo $new_form->labelEx($checklist,'seta_trazeira'); ?>
-		<?php echo $new_form->checkBox($checklist,'seta_trazeira'); ?>
-		<?php echo $new_form->error($checklist,'seta_trazeira'); ?>
+		<?php echo $new_form->labelEx($checklist,'seta_traseira_e'); ?>
+		<?php echo $new_form->checkBox($checklist,'seta_traseira_e'); ?>
+		<?php echo $new_form->error($checklist,'seta_traseira_e'); ?>
             </div>
 
             <div class="col-md-4">
