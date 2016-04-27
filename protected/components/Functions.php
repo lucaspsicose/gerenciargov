@@ -422,10 +422,13 @@ class Functions extends CApplicationComponent
                                             font-size: 14px;
                                             line-height: 30px;
                                     }
+                                    td {
+                                            padding-right: 9px;
+                                    }
                             </style>
                             </head>
 
-                            <body>
+                            <body style="max-width: 990px">
                             <div style="width: 100%;">
                                 <div style="float: left">
                                     <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
