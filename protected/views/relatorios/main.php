@@ -26,7 +26,7 @@
               </a>
             </li>
             <li>
-              <a data-toggle="tab" href="#relatorio">
+              <a data-toggle="tab" href="#relatorios">
                 Atendimentos
               </a>
             </li>
@@ -61,6 +61,29 @@
                 <?php echo CHtml::endForm(); ?>
             </div>
             <div id="relatorios" class="tab-pane fade">
+                <h3>Atendimentos Por Munícipes</h3>
+                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporsolicitantes'), 'get'); ?>
+    
+                <div class="form-group col-md-6">
+                    <?php echo CHtml::label('Secretaria', 'Filtros[secretarias_id]'); ?>
+                    <?php echo CHtml::dropdownlist('Filtros[secretarias_id]', '', CHtml::listData(Gg_secretarias::model()->findAll(array('order'=>'secretaria_nome', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'secretarias_id', 'secretaria_nome'), array('class'=>'form-control', 
+                                                                                                                                                                                                                                                                                  'empty'=>'')); ?> 
+                </div>  
+                
+                <div class="form-group col-md-6">
+                    <?php echo CHtml::label('Status', 'Filtros[status_id]'); ?>
+                    <?php echo CHtml::dropdownlist('Filtros[status_id]', '', CHtml::listData(Gg_status::model()->findAll(array('order'=>'status_id')), 'status_id', 'status_nome'), array('class'=>'form-control', 'empty'=>'')); ?>
+                </div> 
+                
+                <div class="form-group field-control">
+                    <?php echo CHtml::label('Nome do Munícipe', 'Filtros[solicitante_nome]'); ?>
+                    <?php echo CHtml::textField('Filtros[solicitante_nome]', '', array('class'=>'form-control')); ?>
+                </div>
+
+                <div class="form-group">
+                    <?php echo CHtml::submitButton('Gerar Relatório', array('class'=>'btn btn-info')); ?>
+                </div>
+                <?php echo CHtml::endForm(); ?>
             </div>
           </div>
         </div>
