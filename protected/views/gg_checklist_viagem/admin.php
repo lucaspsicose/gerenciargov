@@ -1,13 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Gg Veiculo Viagens'=>array('index'),
+	'Gg Checklist Viagems'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create')),
-        array('label'=>'Lista de Viagens', 'url'=>array('admin')),
-        array('label'=>'Checklist de Viagem', 'url'=>array('gg_checklist_viagem/admin')),
+	array('label'=>'Cadastrar Novo Checklist', 'url'=>array('create')),
+        array('label'=>'Lista de Checklists', 'url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -16,16 +15,16 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#gg-veiculo-viagens-grid').yiiGridView('update', {
+	$('#gg-checklist-viagem-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
 });
 ");
-$this->setPageTitle('Viagens');
+$this->setPageTitle('Checklist de Viagem');
 ?>
 
-<h1>Consulta de Viagens</h1>
+<h1>Consulta de Checklists de Viagem</h1>
 
 <?php echo CHtml::link('Pesquisa Avançada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -35,20 +34,33 @@ $this->setPageTitle('Viagens');
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'gg-veiculo-viagens-grid',
+	'id'=>'gg-checklist-viagem-grid',
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
+		'checklist_viagens_id',
 		'viagens_id',
-		'veiculos.veiculo_placa',
-		'motorista.motorista_nome',
-		'data_saida',
-		'quilometragem_saida',
-		'hora_saida',
+                'data_alteracao',
+		/*'buzina',
+		'cinto',
+		'retrovisor',
+		'farois',
 		/*
-		'destino',
-		'data_chegada',
-		'quilometragem_chegada',
-		'hora_chegada',
+		'fluido_freio',
+		'freio',
+		'freio_mao',
+		'lataria',
+		'luz_freio',
+		'luz_re',
+		'luz_painel',
+		'nivel_agua',
+		'nivel_oleo',
+		'pneu',
+		'porta',
+		'seta_dianteira',
+		'seta_traseira',
+		'vidros',
+		'observacao',
+		'data_alteracao',
 		*/
 		array(
 			'class'=>'CButtonColumn',

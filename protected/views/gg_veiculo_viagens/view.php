@@ -9,7 +9,7 @@ $this->menu=array(
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->viagens_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->viagens_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->viagens_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro desta Viagem?'))),
         array('label'=>'Lista de Viagens', 'url'=>array('admin')),
-        array('label'=>'Checklist', 'url'=>array('gg_check_list/admin')),
+        array('label'=>'Checklist de Viagem', 'url'=>array('gg_checklist_viagem/admin')),
     
 );
 $this->setPageTitle('Viagens');

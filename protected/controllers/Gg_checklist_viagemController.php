@@ -1,6 +1,6 @@
 <?php
 
-class Gg_veiculo_viagensController extends Controller
+class Gg_checklist_viagemController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -69,16 +69,92 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Gg_veiculo_viagens;
+		$model=new Gg_checklist_viagem;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+                $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_veiculo_viagens']))
+		if(isset($_POST['Gg_checklist_viagem']))
 		{
-			$model->attributes=$_POST['Gg_veiculo_viagens'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->viagens_id));
+			$model->attributes=$_POST['Gg_checklist_viagem'];
+                        if($model->save()) {
+                                $db = new DbExt();
+                                $sql = 'select veiculos_id from Gg_veiculo_viagens where viagens_id = '.$model->viagens_id;
+                                $res = $db->rst($sql);
+                                foreach ($res as $stmt)
+                                
+                                if($model->buzina == 1){
+                                    $params['buzina']  = 1;    
+                                } 
+                                if($model->cinto == 1){
+                                   $params['cinto']  = 1;    
+                                }
+                                if($model->retrovisor_e == 1){
+                                   $params['retrovisor_e']  = 1;    
+                                }
+                                if($model->retrovisor_d == 1){
+                                   $params['retrovisor_d']  = 1;    
+                                }
+                                if($model->farois == 1){
+                                   $params['farois']  = 1;    
+                                }
+                                if($model->fluido_freio == 1){
+                                   $params['fluido_freio']  = 1;    
+                                }
+                                if($model->freio == 1){
+                                   $params['freio']  = 1;    
+                                }
+                                if($model->freio_mao == 1){
+                                   $params['freio_mao']  = 1;    
+                                }
+                                if($model->lataria == 1){
+                                   $params['lataria']  = 1;    
+                                }
+                                if($model->luz_freio == 1){
+                                   $params['luz_freio']  = 1;    
+                                }
+                                if($model->luz_re == 1){
+                                  $params['luz_re']  = 1;    
+                                }
+                                if($model->luz_painel == 1){
+                                   $params['luz_painel']  = 1;    
+                                }
+                                if($model->nivel_agua == 1){
+                                   $params['nivel_agua']  = 1;    
+                                }
+                                if($model->nivel_oleo == 1){
+                                   $params['nivel_oleo']  = 1;    
+                                }
+                                if($model->pneu == 1){
+                                   $params['pneu']  = 1;    
+                                }
+                                if($model->porta == 1){
+                                   $params['porta']  = 1;    
+                                }
+                                if($model->seta_dianteira_e == 1){
+                                   $params['seta_dianteira_e']  = 1;    
+                                }
+                                if($model->seta_dianteira_d == 1){
+                                   $params['seta_dianteira_d']  = 1;    
+                                }
+                                if($model->seta_traseira_e == 1){
+                                   $params['seta_traseira_e']  = 1;    
+                                }
+                                if($model->seta_traseira_d == 1){
+                                   $params['seta_traseira_d']  = 1;    
+                                }
+                                if($model->vidros == 1){
+                                   $params['vidros']  = 1;    
+                                }
+                                
+                                $db->updateData('gg_check_list', $params, 'veiculos_id', $stmt['veiculos_id']);
+                                
+				if (isset($_POST['viagens'])) {
+                                    $this->redirect(array($_POST['viagens'])); 
+                                } else {
+                                    $this->redirect(array('admin'));
+                                };
+                        }
 		}
 
 		$this->render('create',array(
@@ -97,11 +173,11 @@ class Gg_veiculo_viagensController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_veiculo_viagens']))
+		if(isset($_POST['Gg_checklist_viagem']))
 		{
-			$model->attributes=$_POST['Gg_veiculo_viagens'];
+			$model->attributes=$_POST['Gg_checklist_viagem'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->viagens_id));
+				$this->redirect(array('view','id'=>$model->checklist_viagens_id));
 		}
 
 		$this->render('update',array(
@@ -133,7 +209,7 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Gg_veiculo_viagens');
+		$dataProvider=new CActiveDataProvider('Gg_checklist_viagem');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -144,10 +220,10 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Gg_veiculo_viagens('search');
+		$model=new Gg_checklist_viagem('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Gg_veiculo_viagens']))
-			$model->attributes=$_GET['Gg_veiculo_viagens'];
+		if(isset($_GET['Gg_checklist_viagem']))
+			$model->attributes=$_GET['Gg_checklist_viagem'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -163,9 +239,9 @@ class Gg_veiculo_viagensController extends Controller
 		if($this->_model===null)
 		{
 			if(isset($_GET['id']))
-				$this->_model=Gg_veiculo_viagens::model()->findbyPk($_GET['id']);
+				$this->_model=Gg_checklist_viagem::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
+				throw new CHttpException(404,'A página que você procura não existe!');
 		}
 		return $this->_model;
 	}
@@ -176,7 +252,7 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-veiculo-viagens-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-checklist-viagem-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
@@ -185,64 +261,191 @@ class Gg_veiculo_viagensController extends Controller
         
         public function actionImprimir() {
             if (isset($_GET['id'])) {
-                $model = Gg_veiculo_viagens::model()->findByPk($_GET['id']);
+                $model = Gg_checklist_viagem::model()->findByPk($_GET['id']);
                 $txt = $this->renderPartial('view', array('model' => $model), true);
-                $viagens_id = $_GET['id'];
+                $checklist_viagem_id = $_GET['id'];
                 $html2pdf = Yii::app()->ePdf->HTML2PDF();
-                $txt      = $this->geraHMTLViagem($viagens_id);
+                $txt      = $this->geraHMTLChecklist_viagem($checklist_viagem_id);
                 $html2pdf->WriteHTML($txt);                
                 $html2pdf->Output();
             }
         }
         
-        public function  geraHMTLViagem($viagens_id = '') 
+        public function  geraHMTLChecklist_viagem($checklist_viagem_id = '') 
         {   
             $db = new DbExt();
             
             $htm = '';
             
             $sql = 'SELECT 
-                    vv.data_saida, 
-                    vv.quilometragem_saida, 
-                    vv.hora_saida, 
-                    vv.destino, 
-                    vv.finalidade, 
-                    vv.data_chegada, 
-                    vv.quilometragem_chegada, 
-                    vv.hora_chegada, 
-                    vv.avaria, 
-                    m.motorista_nome, 
                     v.veiculo_placa, 
+                    c.buzina, 
+                    c.cinto, 
+                    c.retrovisor_e,
+                    c.retrovisor_d,
+                    c.farois, 
+                    c.fluido_freio, 
+                    c.freio, 
+                    c.freio_mao, 
+                    c.lataria, 
+                    c.luz_freio, 
+                    c.luz_re, 
+                    c.luz_painel, 
+                    c.nivel_agua, 
+                    c.nivel_oleo, 
+                    c.pneu, 
+                    c.porta, 
+                    c.seta_dianteira_e,
+                    c.seta_dianteira_d,
+                    c.seta_traseira_e, 
+                    c.seta_traseira_d,
+                    c.vidros, 
+                    c.observacao, 
+                    c.data_alteracao,
                     p.prefeitura_nome, 
                     p.prefeitura_endereco, 
                     p.prefeitura_numero, 
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM Gg_veiculo_viagens vv 
-                    join Gg_motoristas  m on (m.motoristas_id  = vv.motoristas_id )
-                    join Gg_veiculos    v on (v.veiculos_id    = vv.veiculos_id   )
-                    join Gg_prefeituras p on (p.prefeituras_id = vv.prefeituras_id)
+                    FROM Gg_checklist_viagem c 
+                    join Gg_veiculos v on (v.veiculos_id = c.veiculos_id)
+                    join Gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
-                    WHERE vv.viagens_id = '.$viagens_id;
+                    WHERE c.check_list_id = '.$check_list_id;
             
             if ($res = $db->rst($sql)) {
                 foreach ($res as $stmt) 
-                    $data_saida = $stmt['data_saida'];
-                    $quilometragem_saida  = $stmt['quilometragem_saida'];
-                    $hora_saida      = $stmt['hora_saida'];
-                    $destino= $stmt['destino'];
-                    $finalidade  = $stmt['finalidade'];
-                    $data_chegada       = $stmt['data_chegada'];
-                    $quilometragem_chegada       = $stmt['quilometragem_chegada'];
-                    $hora_chegada  = $stmt['hora_chegada'];
-                    if($stmt['avaria'] == 1){
-                        $avaria    = 'SIM';
+                    $veiculo_placa = $stmt['veiculo_placa'];
+                    
+                    if($stmt['buzina'] == 1){
+                        $buzina = 'Defeito';
                     }else{
-                        $avaria    = 'NÃO';
+                        $buzina  = 'OK';
                     }
                     
-                    $motorista_nome     = $stmt['motorista_nome'];
+                    if($stmt['cinto'] == 1){
+                        $cinto = 'Defeito';
+                    }else{
+                        $cinto  = 'OK';
+                    }
+                    
+                    if($stmt['retrovisor_e'] == 1){
+                        $retrovisor_e = 'Defeito';
+                    }else{
+                        $retrovisor_e  = 'OK';
+                    }
+                    
+                    if($stmt['retrovisor_d'] == 1){
+                        $retrovisor_d = 'Defeito';
+                    }else{
+                        $retrovisor_d  = 'OK';
+                    }
+                    
+                    if($stmt['farois'] == 1){
+                        $farois = 'Defeito';
+                    }else{
+                        $farois  = 'OK';
+                    }
+                    
+                    if($stmt['fluido_freio'] == 1){
+                        $fluido_freio = 'Defeito';
+                    }else{
+                        $fluido_freio  = 'OK';
+                    }
+                    
+                    if($stmt['freio'] == 1){
+                        $freio = 'Defeito';
+                    }else{
+                        $freio  = 'OK';
+                    }
+                    
+                    if($stmt['freio_mao'] == 1){
+                        $freio_mao = 'Defeito';
+                    }else{
+                        $freio_mao  = 'OK';
+                    }
+                    
+                    if($stmt['lataria'] == 1){
+                        $lataria = 'Defeito';
+                    }else{
+                        $lataria  = 'OK';
+                    }
+                    
+                    if($stmt['luz_freio'] == 1){
+                        $luz_freio = 'Defeito';
+                    }else{
+                        $luz_freio  = 'OK';
+                    }
+                    
+                    if($stmt['luz_re'] == 1){
+                        $luz_re = 'Defeito';
+                    }else{
+                        $luz_re  = 'OK';
+                    }
+                    
+                    if($stmt['luz_painel'] == 1){
+                        $luz_painel = 'Defeito';
+                    }else{
+                        $luz_painel  = 'OK';
+                    }
+                    
+                    if($stmt['nivel_agua'] == 1){
+                        $nivel_agua = 'Defeito';
+                    }else{
+                        $nivel_agua  = 'OK';
+                    }
+                    
+                    if($stmt['nivel_oleo'] == 1){
+                        $nivel_oleo = 'Defeito';
+                    }else{
+                        $nivel_oleo  = 'OK';
+                    }
+                    
+                    if($stmt['pneu'] == 1){
+                        $pneu = 'Defeito';
+                    }else{
+                        $pneu  = 'OK';
+                    }
+                    
+                    if($stmt['porta'] == 1){
+                        $porta = 'Defeito';
+                    }else{
+                        $porta  = 'OK';
+                    }
+                    
+                    if($stmt['seta_dianteira_e'] == 1){
+                        $seta_dianteira_e = 'Defeito';
+                    }else{
+                        $seta_dianteira_e  = 'OK';
+                    }
+                    
+                    if($stmt['seta_dianteira_d'] == 1){
+                        $seta_dianteira_d = 'Defeito';
+                    }else{
+                        $seta_dianteira_d  = 'OK';
+                    }
+                    
+                    if($stmt['seta_traseira_e'] == 1){
+                        $seta_traseira_e = 'Defeito';
+                    }else{
+                        $seta_traseira_e  = 'OK';
+                    }
+                    
+                    if($stmt['seta_traseira_d'] == 1){
+                        $seta_traseira_d = 'Defeito';
+                    }else{
+                        $seta_traseira_d  = 'OK';
+                    }
+                    
+                    if($stmt['vidros'] == 1){
+                        $vidros = 'Defeito';
+                    }else{
+                        $vidros  = 'OK';
+                    }
+                    
+                    $observacao      = $stmt['observacao'];
+                    $data_alteracao  = $stmt['data_alteracao'];
                     $veiculo_placa   = $stmt['veiculo_placa'];
                     $prefeitura_nome = $stmt['prefeitura_nome'];
                     $prefeitura_endereco= $stmt['prefeitura_endereco'];
@@ -255,7 +458,7 @@ class Gg_veiculo_viagensController extends Controller
                 $htm = '<html>
                         <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <title>relatório de Viagem</title>
+                        <title>relatório de Checklist</title>
                         <style>
                                 table {
                                         font-size: 16px;
@@ -277,201 +480,18 @@ class Gg_veiculo_viagensController extends Controller
                             </div>
                         <div style="float: left; width:100%">
                                 <hr />
-                                    <h1 align="center">Viagem #'.$viagens_id.'</h1>
+                                    <h1 align="center">Checklist #'.$veiculo_placa.'</h1>
 				<hr />
                          
                             <table width="100%" style="font-size:16px; line-height:30px;">
                                 <tbody>
                                   <tr>
-                                    <td><strong>Veículo</strong></td>
-                                    <td></td>
-                                    <td><strong>Motorista</strong></td>
+                                    <td colspan="3"><strong>Veículo</strong></td>
                                   </tr>
                                   <tr>
                                     <td>'.$veiculo_placa.'</td>
-                                    <td></td>
-                                    <td>'.$motorista_nome.'</td>
                                   </tr>
                                   <tr>
-                                    <td><strong>Data Saída</strong></td>
-                                    <td><strong>Quilometragem Saída</strong></td>
-                                    <td><strong>Hora Saída</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.$data_saida.'</td>
-                                    <td>'.$quilometragem_saida.'</td>
-                                    <td>'.$hora_saida.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Destino</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$destino.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Finalidade</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$finalidade.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Data Chegada</strong></td>
-                                    <td><strong>Quilometragem Chegada</strong></td>
-                                    <td><strong>Hora Chegada</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.$data_chegada.'</td>
-                                    <td>'.$quilometragem_chegada.'</td>
-                                    <td>'.$hora_chegada.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Avarias? </strong>'.$avaria.'</td>
-                                  </tr>';
-                
-                if($stmt['avaria'] == 1){
-                    $sql = 'select c.*, v.veiculo_placa from Gg_checklist_viagem c '
-                            . 'join Gg_veiculo_viagens vv on (c.viagens_id = vv.viagens_id) '
-                            . 'join Gg_veiculos v on (vv.veiculos_id = v.veiculos_id) '
-                            . 'where c.viagens_id = '.$viagens_id;
-                    
-                    if ($res = $db->rst($sql)) {
-                        foreach ($res as $stmt)
-                        
-                        if($stmt['buzina'] == 1){
-                            $buzina = 'Defeito';
-                        }else{
-                            $buzina  = 'OK';
-                        }
-
-                        if($stmt['cinto'] == 1){
-                            $cinto = 'Defeito';
-                        }else{
-                            $cinto  = 'OK';
-                        }
-
-                        if($stmt['retrovisor_e'] == 1){
-                            $retrovisor_e = 'Defeito';
-                        }else{
-                            $retrovisor_e  = 'OK';
-                        }
-
-                        if($stmt['retrovisor_d'] == 1){
-                            $retrovisor_d = 'Defeito';
-                        }else{
-                            $retrovisor_d  = 'OK';
-                        }
-
-                        if($stmt['farois'] == 1){
-                            $farois = 'Defeito';
-                        }else{
-                            $farois  = 'OK';
-                        }
-
-                        if($stmt['fluido_freio'] == 1){
-                            $fluido_freio = 'Defeito';
-                        }else{
-                            $fluido_freio  = 'OK';
-                        }
-
-                        if($stmt['freio'] == 1){
-                            $freio = 'Defeito';
-                        }else{
-                            $freio  = 'OK';
-                        }
-
-                        if($stmt['freio_mao'] == 1){
-                            $freio_mao = 'Defeito';
-                        }else{
-                            $freio_mao  = 'OK';
-                        }
-
-                        if($stmt['lataria'] == 1){
-                            $lataria = 'Defeito';
-                        }else{
-                            $lataria  = 'OK';
-                        }
-
-                        if($stmt['luz_freio'] == 1){
-                            $luz_freio = 'Defeito';
-                        }else{
-                            $luz_freio  = 'OK';
-                        }
-
-                        if($stmt['luz_re'] == 1){
-                            $luz_re = 'Defeito';
-                        }else{
-                            $luz_re  = 'OK';
-                        }
-
-                        if($stmt['luz_painel'] == 1){
-                            $luz_painel = 'Defeito';
-                        }else{
-                            $luz_painel  = 'OK';
-                        }
-
-                        if($stmt['nivel_agua'] == 1){
-                            $nivel_agua = 'Defeito';
-                        }else{
-                            $nivel_agua  = 'OK';
-                        }
-
-                        if($stmt['nivel_oleo'] == 1){
-                            $nivel_oleo = 'Defeito';
-                        }else{
-                            $nivel_oleo  = 'OK';
-                        }
-
-                        if($stmt['pneu'] == 1){
-                            $pneu = 'Defeito';
-                        }else{
-                            $pneu  = 'OK';
-                        }
-
-                        if($stmt['porta'] == 1){
-                            $porta = 'Defeito';
-                        }else{
-                            $porta  = 'OK';
-                        }
-
-                        if($stmt['seta_dianteira_e'] == 1){
-                            $seta_dianteira_e = 'Defeito';
-                        }else{
-                            $seta_dianteira_e  = 'OK';
-                        }
-
-                        if($stmt['seta_dianteira_d'] == 1){
-                            $seta_dianteira_d = 'Defeito';
-                        }else{
-                            $seta_dianteira_d  = 'OK';
-                        }
-
-                        if($stmt['seta_traseira_e'] == 1){
-                            $seta_traseira_e = 'Defeito';
-                        }else{
-                            $seta_traseira_e  = 'OK';
-                        }
-
-                        if($stmt['seta_traseira_d'] == 1){
-                            $seta_traseira_d = 'Defeito';
-                        }else{
-                            $seta_traseira_d  = 'OK';
-                        }
-
-                        if($stmt['vidros'] == 1){
-                            $vidros = 'Defeito';
-                        }else{
-                            $vidros  = 'OK';
-                        }
-
-                        $observacao      = $stmt['observacao'];
-                        $data_alteracao  = $stmt['data_alteracao'];
-                        $data_alteracao = date('d/m/Y H:i:s', strtotime($data_alteracao));
-                        $veiculo_placa   = $stmt['veiculo_placa'];
-                        
-                        $htm .= '<tr>
-                                    <td colspan="3"><h2 align="center">Checklist</h2></td>
-                                </tr>
-                                <tr>
                                     <td><strong>Buzina</strong></td>
                                     <td><strong>Cinto de Segurança</strong></td>
                                     <td><strong>Retrovisor Esq.</strong></td>
@@ -540,7 +560,7 @@ class Gg_veiculo_viagensController extends Controller
                                     <td>'.$seta_traseira_e.'</td>
                                     <td>'.$seta_traseira_d.'</td>
                                     <td>'.$vidros.'</td>
-                                  </tr>
+                                  </tr>}
                                   <tr>
                                     <td colspan="3"><strong>Observação</strong></td>
                                   </tr>
@@ -552,27 +572,8 @@ class Gg_veiculo_viagensController extends Controller
                                   </tr>
                                   <tr>
                                     <td colspan="3">'.$data_alteracao.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3" align="center"><strong>_________________________________________</strong></td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3" align="center">'.$motorista_nome.'</td>    
-                                  </tr>';
-                    }        
-                    
-                }
-                                  
-                $htm .=                '</tbody>  
+                                  </tr>                                  
+                                </tbody>  
                             </table>
                         </div>
                         </div>
@@ -583,3 +584,5 @@ class Gg_veiculo_viagensController extends Controller
             return $htm;
         }
 }
+
+
