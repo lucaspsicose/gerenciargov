@@ -1,25 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "Gg_manutencoes".
+ * This is the model class for table "Gg_abastecimentos".
  *
- * The followings are the available columns in table 'Gg_manutencoes':
- * @property integer $manutencoes_id
+ * The followings are the available columns in table 'Gg_abastecimentos':
+ * @property integer $abastecimentos_id
  * @property integer $veiculos_id
- * @property integer $manutencao_quilometragem
- * @property string $manutencao_descricao
- * @property double $manutencao_preco
- * @property string $manutencao_data
+ * @property integer $abastecimento_quilometragem
+ * @property integer $combustivel_id
+ * @property double $abastecimento_litro
+ * @property double $abastecimento_preco
+ * @property string $abastecimento_data
  * @property integer $prefeituras_id
  */
-class Gg_manutencoes extends CActiveRecord
+class Gg_abastecimentos extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'Gg_manutencoes';
+		return 'Gg_abastecimentos';
 	}
 
 	/**
@@ -30,13 +31,12 @@ class Gg_manutencoes extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('veiculos_id, manutencao_quilometragem, manutencao_descricao, manutencao_data, prefeituras_id', 'required'),
-			array('veiculos_id, manutencao_quilometragem, prefeituras_id', 'numerical', 'integerOnly'=>true),
-			array('manutencao_preco', 'numerical'),
-			array('manutencao_descricao', 'length', 'max'=>2000),
+			array('veiculos_id, abastecimento_quilometragem, combustivel_id, abastecimento_litro, abastecimento_preco, abastecimento_data, prefeituras_id', 'required'),
+			array('veiculos_id, abastecimento_quilometragem, combustivel_id, prefeituras_id', 'numerical', 'integerOnly'=>true),
+			array('abastecimento_litro, abastecimento_preco', 'numerical'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('manutencoes_id, veiculos_id, manutencao_quilometragem, manutencao_descricao, manutencao_preco, manutencao_data, prefeituras_id', 'safe', 'on'=>'search'),
+			array('abastecimentos_id, veiculos_id, abastecimento_quilometragem, combustivel_id, abastecimento_litro, abastecimento_preco, abastecimento_data, prefeituras_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,6 +48,7 @@ class Gg_manutencoes extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'combustivel'=>array(self::BELONGS_TO, 'Gg_tipo_combustivel', 'combustivel_id'),
                     'veiculos'=>array(self::BELONGS_TO, 'Gg_veiculos', 'veiculos_id'),
                     'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
 		);
@@ -59,14 +60,16 @@ class Gg_manutencoes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'manutencoes_id' => 'Manutenção',
+			'abastecimentos_id' => 'Abastecimentos',
 			'veiculos_id' => 'Veículo',
                         'veiculos.veiculo_placa' => 'Veículo',
-			'manutencao_quilometragem' => 'Quilometragem',
-			'manutencao_descricao' => 'Descrição',
-			'manutencao_preco' => 'Preço',
-			'manutencao_data' => 'Data',
-			'prefeituras_id' => 'Prefeitura',
+			'abastecimento_quilometragem' => 'Quilometragem',
+			'combustivel_id' => 'Combustivel',
+                        'combustivel.combustivel_nome' => 'Combustível',
+			'abastecimento_litro' => 'Litros',
+			'abastecimento_preco' => 'Preço',
+			'abastecimento_data' => 'Data',
+			'prefeituras_id' => 'Prefeituras',
 		);
 	}
 
@@ -88,28 +91,30 @@ class Gg_manutencoes extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('manutencoes_id',$this->manutencoes_id);
+		$criteria->compare('abastecimentos_id',$this->abastecimentos_id);
 
 		$criteria->compare('veiculos_id',$this->veiculos_id);
 
-		$criteria->compare('manutencao_quilometragem',$this->manutencao_quilometragem);
+		$criteria->compare('abastecimento_quilometragem',$this->abastecimento_quilometragem);
 
-		$criteria->compare('manutencao_descricao',$this->manutencao_descricao,true);
+		$criteria->compare('combustivel_id',$this->combustivel_id);
 
-		$criteria->compare('manutencao_preco',$this->manutencao_preco);
+		$criteria->compare('abastecimento_litro',$this->abastecimento_litro);
 
-		$criteria->compare('manutencao_data',$this->manutencao_data,true);
+		$criteria->compare('abastecimento_preco',$this->abastecimento_preco);
+
+		$criteria->compare('abastecimento_data',$this->abastecimento_data,true);
 
 		$criteria->compare('prefeituras_id',Yii::app()->session['active_prefeituras_id'],true);
 
-		return new CActiveDataProvider('Gg_manutencoes', array(
+		return new CActiveDataProvider('Gg_abastecimentos', array(
 			'criteria'=>$criteria,
 		));
 	}
 
 	/**
 	 * Returns the static model of the specified AR class.
-	 * @return Gg_manutencoes the static model class
+	 * @return Gg_abastecimentos the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

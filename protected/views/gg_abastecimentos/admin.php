@@ -1,13 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Gg Veiculo Viagens'=>array('index'),
+	'Gg Abastecimentoses'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create')),
-        array('label'=>'Lista de Viagens', 'url'=>array('admin')),
-        array('label'=>'Checklist de Viagem', 'url'=>array('gg_checklist_viagem/admin')),
+	array('label'=>'Cadastrar Novo Abastecimento', 'url'=>array('create')),
+        array('label'=>'Lista de Abastecimentos', 'url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -16,16 +15,16 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#gg-veiculo-viagens-grid').yiiGridView('update', {
+	$('#gg-abastecimentos-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
 });
 ");
-$this->setPageTitle('Viagens');
+$this->setPageTitle('Abastecimentos');
 ?>
 
-<h1>Consulta de Viagens</h1>
+<h1>Consulta de Abastecimentos</h1>
 
 <?php echo CHtml::link('Pesquisa Avançada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -35,20 +34,18 @@ $this->setPageTitle('Viagens');
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'gg-veiculo-viagens-grid',
+	'id'=>'gg-abastecimentos-grid',
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
-		'viagens_id',
+		'abastecimentos_id',
 		'veiculos.veiculo_placa',
-		'motorista.motorista_nome',
-		'data_saida',
-		'quilometragem_saida',
-		'hora_saida',
+		'abastecimento_quilometragem',
+		'combustivel.combustivel_nome',
+		'abastecimento_litro',
+		'abastecimento_preco',
 		/*
-		'destino',
-		'data_chegada',
-		'quilometragem_chegada',
-		'hora_chegada',
+		'abastecimento_data',
+		'prefeituras_id',
 		*/
 		array(
 			'class'=>'CButtonColumn',

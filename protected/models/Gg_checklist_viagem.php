@@ -1,11 +1,11 @@
 <?php
 
 /**
- * This is the model class for table "Gg_check_list".
+ * This is the model class for table "Gg_checklist_viagem".
  *
- * The followings are the available columns in table 'Gg_check_list':
- * @property integer $check_list_id
- * @property integer $veiculos_id
+ * The followings are the available columns in table 'Gg_checklist_viagem':
+ * @property integer $checklist_viagens_id
+ * @property integer $viagens_id
  * @property integer $buzina
  * @property integer $cinto
  * @property integer $retrovisor_e
@@ -31,14 +31,14 @@
  * @property string $data_alteracao
  * @property integer $prefeituras_id
  */
-class Gg_check_list extends CActiveRecord
+class Gg_checklist_viagem extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'Gg_check_list';
+		return 'Gg_checklist_viagem';
 	}
 
 	/**
@@ -49,12 +49,12 @@ class Gg_check_list extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('veiculos_id, prefeituras_id', 'required'),
-			array('veiculos_id, buzina, cinto, retrovisor_e, retrovisor_d, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteira_e, seta_dianteira_d, seta_traseira_e, seta_traseira_d, vidros', 'numerical', 'integerOnly'=>true),
+			array('viagens_id, prefeituras_id', 'required'),
+			array('viagens_id, buzina, cinto, retrovisor_e, retrovisor_d, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteira_e, seta_dianteira_d, seta_traseira_e, seta_traseira_d, vidros, prefeituras_id', 'numerical', 'integerOnly'=>true),
 			array('observacao', 'length', 'max'=>2000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('check_list_id, veiculos_id, buzina, cinto, retrovisor_e, retrovisor_d, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteira_e, seta_dianteira_d, seta_traseira_e, seta_traseira_d, vidros, observacao, data_alteracao', 'safe', 'on'=>'search'),
+			array('checklist_viagens_id, viagens_id, buzina, cinto, retrovisor_e, retrovisor_d, farois, fluido_freio, freio, freio_mao, lataria, luz_freio, luz_re, luz_painel, nivel_agua, nivel_oleo, pneu, porta, seta_dianteira_e, seta_dianteira_d, seta_traseira_e, seta_traseira_d, vidros, observacao, data_alteracao, prefeituras_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,7 +66,7 @@ class Gg_check_list extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'veiculos'=>array(self::BELONGS_TO, 'Gg_veiculos', 'veiculos_id'),
+                    'viagems'=>array(self::BELONGS_TO, 'Gg_veiculo_viagens', 'viagens_id'),
                     'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
 		);
 	}
@@ -77,9 +77,8 @@ class Gg_check_list extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'check_list_id' => 'CheckList',
-			'veiculos_id' => 'Veículo',
-                        'veiculos.veiculo_placa' => 'Veículo',
+			'checklist_viagens_id' => 'Checklist',
+			'viagens_id' => 'Viagem',
 			'buzina' => 'Buzina',
 			'cinto' => 'Cinto de Segurança',
 			'retrovisor_e' => 'Retrovisor Esq.',
@@ -124,17 +123,17 @@ class Gg_check_list extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('check_list_id',$this->check_list_id);
+		$criteria->compare('checklist_viagens_id',$this->checklist_viagens_id);
 
-		$criteria->compare('veiculos_id',$this->veiculos_id);
+		$criteria->compare('viagens_id',$this->viagens_id);
 
 		$criteria->compare('buzina',$this->buzina);
 
 		$criteria->compare('cinto',$this->cinto);
 
 		$criteria->compare('retrovisor_e',$this->retrovisor_e);
-                
-                $criteria->compare('retrovisor_d',$this->retrovisor_d);
+
+		$criteria->compare('retrovisor_d',$this->retrovisor_d);
 
 		$criteria->compare('farois',$this->farois);
 
@@ -161,8 +160,8 @@ class Gg_check_list extends CActiveRecord
 		$criteria->compare('porta',$this->porta);
 
 		$criteria->compare('seta_dianteira_e',$this->seta_dianteira_e);
-                
-                $criteria->compare('seta_dianteira_d',$this->seta_dianteira_d);
+
+		$criteria->compare('seta_dianteira_d',$this->seta_dianteira_d);
 
 		$criteria->compare('seta_traseira_e',$this->seta_traseira_e);
 
@@ -173,17 +172,17 @@ class Gg_check_list extends CActiveRecord
 		$criteria->compare('observacao',$this->observacao,true);
 
 		$criteria->compare('data_alteracao',$this->data_alteracao,true);
-                
-                $criteria->compare('prefeituras_id',Yii::app()->session['active_prefeituras_id'],true);
 
-		return new CActiveDataProvider('Gg_check_list', array(
+		$criteria->compare('prefeituras_id',Yii::app()->session['active_prefeituras_id'],true);
+
+		return new CActiveDataProvider('Gg_checklist_viagem', array(
 			'criteria'=>$criteria,
 		));
 	}
 
 	/**
 	 * Returns the static model of the specified AR class.
-	 * @return Gg_check_list the static model class
+	 * @return Gg_checklist_viagem the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
