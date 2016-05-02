@@ -50,6 +50,7 @@ $this->setPageTitle('Secretarias');
 		), 
 	),
         'itemsCssClass' => 'table table-responsive',
+        'pagerCssClass' => 'text-center',
         'pager' => array(
             'htmlOptions'=> array('class'=>'pagination'),
             'header'=>'',

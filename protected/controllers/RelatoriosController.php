@@ -87,15 +87,23 @@ class RelatoriosController extends Controller
                          <td><strong>Data Nascimento</strong></td>
                      </tr>';
         
+        $i = 0;
+        
         if ($res = $db->rst($sql)) {
             foreach ($res as $value) {
-                $html .= '<tr>
-                            <td>'.$value['solicitante_nome'].'</td>
+                if (($i % 2) == 0) {
+                $html .= '<tr>';
+                } else {
+                    $html .= '<tr style="background-color: #CCC;">';
+                }
+                $html .= '  <td>'.$value['solicitante_nome'].'</td>
                             <td>'.$value['solicitante_telefone'].'</td>
                             <td>'.$value['solicitante_celular'].'</td>
                             <td>'.$value['solicitante_email'].'</td>
                             <td>'.$value['solicitante_data_nascimento'].'</td>
                         </tr>';
+                
+                $i++;
             }
         }
         
@@ -142,13 +150,20 @@ class RelatoriosController extends Controller
         
         $sql .= ' ORDER BY s.solicitante_nome ASC';
         
+        $i = 0;
+        
         if ($res = $db->rst($sql)) {
             foreach ($res as $value) {
-                $html .= '<tr>
-                            <td>'.$value['solicitante_nome'].'</td>
+                if (($i % 2) == 0) {
+                $html .= '<tr>';
+                } else {
+                    $html .= '<tr style="background-color: #CCC;">';
+                }
+                $html .=   '<td>'.$value['solicitante_nome'].'</td>
                             <td>'.$value['solicitante_endereco'].' nº '.$value['solicitante_numero'].' '.$value['solicitante_bairro'].'</td>
                             <td>'.$value['telefone'].'</td>
                         </tr>';
+                $i++;
             }
         }
         
@@ -188,16 +203,24 @@ class RelatoriosController extends Controller
         $sql .= " ORDER BY a.atendimento_inclusao";
         
         $html = '';
+        
+        $i = 0;
        
         if ($res = $db->rst($sql)) {
             foreach ($res as $value) {
-                $html .= '<tr>'
-                        . '<td>'.$value['atendimento_protocolo'].'</td>
+                if (($i % 2) != 0) {
+                $html .= '<tr>';
+                } else {
+                    $html .= '<tr style="background-color: #CCC;">';
+                }
+                $html .=  '<td>'.$value['atendimento_protocolo'].'</td>
                            <td>'.$value['status_nome'].'</td>
                            <td>'.substr($value['secretaria_nome'], 0, 31).'</td>
                            <td>'.$value['descricao_servico'].'</td>
                            <td>'.$value['conclusao'].'</td>'
                         . '</tr>';
+                
+                $i++;
             }
         }
         

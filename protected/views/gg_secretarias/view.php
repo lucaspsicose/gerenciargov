@@ -19,6 +19,7 @@ $this->setPageTitle('Secretarias');
 	'data'=>$model,
 	'attributes'=>array(
 		'secretarias_id',
+                'prefeituras.prefeitura_nome',
 		'secretaria_nome',
 		'secretaria_secretario',
 		'secretaria_telefone',

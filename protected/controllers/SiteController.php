@@ -125,20 +125,22 @@ class SiteController extends Controller
         
         public function getQuantidadeAtendimentos($secretarias_id = '')
         {
-            $db = new DbExt();
-            
-            $result = '';
-            
-            $sql = 'SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = '.$secretarias_id;
-            
-            if ($res = $db->rst($sql)) {
-                foreach ($res as $count) {
-                    $result = $count;
+            if ($secretarias_id != '') {    
+                $db = new DbExt();
+
+                $result = '';
+
+                $sql = 'SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = '.$secretarias_id;
+
+                if ($res = $db->rst($sql)) {
+                    foreach ($res as $count) {
+                        $result = $count;
+                    }
+                    return $result['quant'];
                 }
-                return $result['quant'];
+            } else {            
+                return 0;
             }
-            
-            return 0;
         }
         
         public function getQuantidadeUsuarios($prefeituras_id = '')

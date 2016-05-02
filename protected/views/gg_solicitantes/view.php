@@ -9,8 +9,7 @@ if (in_array(Yii::app()->session['perfil'], array(1, 2)) ) {
             array('label'=>'Lista de Solicitantes', 'url'=>array('admin')),
             array('label'=>'Novo Cadastro', 'url'=>array('create')),
             array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->solicitantes_id)),
-            array('label'=>'Deletar Cadastro', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->solicitantes_id),'confirm'=>Yii::t('zii','Confirma deletar este cadastro?'))),
-
+            array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->solicitantes_id), 'linkOptions'=>array('submit'=>array('delete','id'=>$model->solicitantes_id),'confirm'=>Yii::t('zii','Confirma deletar este cadastro?')), 'visible'=>in_array(Yii::app()->session['perfil'], array(1, 2))),
     );
 } else {
     $this->menu=array(

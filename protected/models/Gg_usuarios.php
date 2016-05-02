@@ -94,7 +94,7 @@ class Gg_usuarios extends CActiveRecord
 
 		$criteria=new CDbCriteria;
                 
-                $criteria->with=array('perfil', 'secretarias');
+                $criteria->with=array('perfil');
                 $criteria->together=true;
 
 		$criteria->compare('usuarios_id',$this->usuarios_id);
