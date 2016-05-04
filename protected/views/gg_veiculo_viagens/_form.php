@@ -3,18 +3,27 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'gg-veiculo-viagens-form',
 	'enableAjaxValidation'=>false,
-)); ?>
+));
+
+    if (isset($_GET['veiculo'])) {
+        $veiculo = Gg_veiculos::model()->find(array('condition'=>'veiculos_id = '.$_GET['veiculo']));
+    } else {
+        Gg_veiculo_viagensController::redirect($this->createUrl('select_veiculo'));
+    }
+
+?>
 
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
         <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
+        <?php echo $form->hiddenField($model, 'veiculos_id', array('value' => $veiculo->veiculos_id)); ?>
                 
         <div class="form-group">
             <?php if (!$model->isNewRecord) : ?>
                 <div class="col-md-6">
                     <?php echo $form->labelEx($model,'veiculos_id'); ?>
-                    <?php echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_descricao')), 'veiculos_id', 'veiculo_placa','veiculo_descricao'), array('class'=>'form-control', 'Readonly'=>true,'empty'=>'')); ?>
+                    <?php echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_descricao')), 'veiculos_id', 'veiculo_placa','veiculo_descricao'), array('class'=>'form-control', 'Readonly'=>'Readonly','empty'=>'')); ?>
                     <?php echo $form->error($model,'veiculos_id'); ?>
                 </div>
             <?php endif; ?>
@@ -22,8 +31,8 @@
             <?php if ($model->isNewRecord) : ?>
                 <div class="col-md-6">
                     <?php echo $form->labelEx($model,'veiculos_id'); ?>
-                    <?php echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_descricao', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].' and status_veiculos_id = 1')), 'veiculos_id', 'veiculo_placa','veiculo_descricao'), array('class'=>'form-control', 
-                                                                                                                                                                                                                                                                                                     'empty'=>'')); ?>
+                    <?php //echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_descricao', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].' and status_veiculos_id = 1')), 'veiculos_id', 'veiculo_placa','veiculo_descricao'), array('class'=>'form-control','empty'=>'')); ?> 
+                    <?php echo CHtml::textField('veiculo_nome', $veiculo->veiculo_descricao.' ('.$veiculo->veiculo_placa.')', array('class'=>'form-control', 'readOnly'=>'readOnly')); ?>                                                                                                                                                                                                                                                                                 
                     <?php echo $form->error($model,'veiculos_id'); ?>
                 </div>
             <?php endif; ?>

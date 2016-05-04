@@ -59,7 +59,8 @@ $('#cadastros').click(function(){
                 <div class="box-body">
                     <a href="<?php echo $this->createUrl('gg_solicitantes/admin') ?>" class="btn btn-app">
                         <i class="fa fa-bullhorn"></i> Munícipes
-                    </a>
+                    </a> 
+                    <?php // Condição para mostrar os menus de cadastro abaixo somente para usuários com perfil de administrador ?>
                     <?php if (Yii::app()->session['perfil'] == '1') : ?>
                         <a href="<?php echo $this->createUrl('gg_usuarios/admin') ?>" class="btn btn-app">
                             <span class="badge bg-purple"><?php echo SiteController::getQuantidadeUsuarios(Yii::app()->session['active_prefeituras_id']) ?></span>
@@ -74,7 +75,7 @@ $('#cadastros').click(function(){
                         <a href="<?php echo $this->createUrl('gg_motoristas/admin') ?>" class="btn btn-app">
                             <i class="fa fa-male"></i> Motoristas
                         </a>
-                    <?php endif; ?>
+                    <?php endif; //fim dos menus administrativos ?>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>

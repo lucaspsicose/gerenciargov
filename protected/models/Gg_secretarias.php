@@ -29,7 +29,7 @@ class Gg_secretarias extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('secretaria_nome, secretaria_secretario, secretaria_telefone, secretaria_email', 'required'),
+			array('secretaria_nome, secretaria_secretario, secretaria_telefone, secretaria_email, prefeituras_id', 'required'),
 			array('secretaria_nome, secretaria_email', 'length', 'max'=>60),
 			array('secretaria_secretario', 'length', 'max'=>80),
 			array('secretaria_telefone', 'length', 'max'=>15),
@@ -96,8 +96,6 @@ class Gg_secretarias extends CActiveRecord
 		$criteria->compare('secretaria_email',$this->secretaria_email,true);
                 
                 $criteria->compare('prefeituras_id', Yii::app()->session['active_prefeituras_id'], true);
-                
-                $criteria->compare('prefeituras.prefeitura_nome', $this->prefeituras_id, TRUE);
                 
                 //$criteria->condition = 't.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
 

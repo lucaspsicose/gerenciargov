@@ -9,7 +9,7 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
             array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
             array('label'=>'Novo Atendimento', 'url'=>array('create')),
             array('label'=>'Editar Atendimento', 'url'=>array('update', 'id'=>$model->atendimentos_id)),
-            array('label'=>'Deletar Atendimento', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->atendimentos_id),'confirm'=>Yii::t('zii','Confirma deletar este atendimento?'))),
+            array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->atendimentos_id), 'linkOptions'=>array('submit'=>array('delete','id'=>$model->atendimentos_id),'confirm'=>Yii::t('zii','Confirma deletar este atendimento?')), 'visible'=>in_array(Yii::app()->session['perfil'], array(1, 2))),
     );
 } else {
     $this->menu=array(

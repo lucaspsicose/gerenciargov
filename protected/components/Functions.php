@@ -220,7 +220,7 @@ class Functions extends CApplicationComponent
         public function  getSecretarias($user_id = '') 
         {
             $db = new DbExt();
-            $stmt = 'select secretarias_id, secretaria_nome from Gg_secretarias';
+            $stmt = 'select secretarias_id, secretaria_nome from Gg_secretarias where prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
             
             $values = array();
             $chave = array();

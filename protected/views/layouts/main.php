@@ -13,7 +13,8 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/css/theme.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!--<link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/css/flexslider.css"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/assets/bxslider/jquery.bxslider.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/css/animate.css">
@@ -58,7 +59,7 @@
                                       'linkOptions'=> array(
                                             'class' => 'dropdown-toggle'
                                              ),),        
-                                array('label'=>'Secretarias', 'url'=>array('/gg_secretarias/admin'), 'visible'=>in_array($session['perfil'], array(1))),
+                                array('label'=>'Secretarias', 'url'=>array('/site'), 'visible'=>in_array($session['perfil'], array(1))),
 				array('label'=>'Entrar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Sair', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

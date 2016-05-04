@@ -5,13 +5,13 @@
         <group>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/relatorios/main.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_solicitantesController.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/RelatoriosController.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_secretarias.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_atendimentos/admin.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_usuarios.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/components/Functions.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_solicitantes/update.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/site/menu.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/config/database.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_atendimentos/_form.php</file>
         </group>
     </open-files>
 </project-private>

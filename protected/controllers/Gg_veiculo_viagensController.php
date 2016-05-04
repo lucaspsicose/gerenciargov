@@ -44,7 +44,7 @@ class Gg_veiculo_viagensController extends Controller
 				'users'=>array('@'),
 			),
                         array('allow',
-                                'actions'=>array('imprimir'),
+                                'actions'=>array('imprimir', 'select_veiculo'),
                                 'users'=>array('@'),
                          ),
 			array('deny',  // deny all users
@@ -582,4 +582,8 @@ class Gg_veiculo_viagensController extends Controller
             
             return $htm;
         }
+    
+    public function actionSelect_Veiculo() {
+        $this->render('select-veiculos');       
+    }
 }
