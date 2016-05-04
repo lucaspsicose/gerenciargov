@@ -149,10 +149,14 @@ class Gg_checklist_viagemController extends Controller
                                 
                                 $db->updateData('gg_check_list', $params, 'veiculos_id', $stmt['veiculos_id']);
                                 
-				if (isset($_POST['viagens'])) {
+				if (isset($_POST['viagens'])){ 
+                                    //echo CHtml::script("window.parent.$('#test-form').dialog('close');");
+                                    //Yii::app()->end();
+                                    //$this->redirect(Yii::app()->user->returnUrl);
+                                    //Yii::app()->clientScript->registerScript('close-popup', '$("#test-form").dialog( "close" );');                                      
                                     $this->redirect(array($_POST['viagens'])); 
                                 } else {
-                                    $this->redirect(array('admin'));
+                                    //$this->redirect(array('admin'));
                                 };
                         }
 		}

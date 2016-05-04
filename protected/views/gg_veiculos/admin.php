@@ -7,6 +7,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Cadastrar Novo Veículo', 'url'=>array('create')),
         array('label'=>'Lista de Veículos', 'url'=>array('admin')),
+        array('label'=>'Checklist de Veículos', 'url'=>array('gg_check_list/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
