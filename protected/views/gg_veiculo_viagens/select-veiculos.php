@@ -62,10 +62,17 @@
                                 break;
                         }
                         
-                        echo '<a href="'.$this->createUrl('gg_veiculo_viagens/create', array('veiculo'=>$veiculo['veiculos_id'])).'" data-toggle="tooltip" title="'.$status.'" id="'.$veiculo['veiculos_id'].'" class="btn btn-veiculo" style="background-color: '.$cor.'">
-                                 <i class="fa '.$tipo.'" aria-hidden="true"></i>'.wordwrap($veiculo['veiculo_descricao'], 15, "<br />\n").'<br />
-                                 '.$veiculo['veiculo_placa'].'    
-                             </a>';
+                        if ($veiculo['status_veiculos_id'] == 1) {
+                            echo '<a href="'.$this->createUrl('gg_veiculo_viagens/create', array('veiculo'=>$veiculo['veiculos_id'])).'" data-toggle="tooltip" title="'.$status.'" id="'.$veiculo['veiculos_id'].'" class="btn btn-veiculo" style="background-color: '.$cor.'">
+                                     <i class="fa '.$tipo.'" aria-hidden="true"></i>'.wordwrap($veiculo['veiculo_descricao'], 15, "<br />\n").'<br />
+                                     '.$veiculo['veiculo_placa'].'    
+                                 </a>';
+                        } else {
+                            echo '<a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="Veículo Indisponível" data-content="Este veículo está indisponível no momento!" id="'.$veiculo['veiculos_id'].'" class="btn btn-veiculo" style="background-color: '.$cor.'">
+                                     <i class="fa '.$tipo.'" aria-hidden="true"></i>'.wordwrap($veiculo['veiculo_descricao'], 15, "<br />\n").'<br />
+                                     '.$veiculo['veiculo_placa'].'    
+                                 </a>';
+                        }
                     } ?>
                 </div>
             </div>
