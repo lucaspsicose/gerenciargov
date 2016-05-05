@@ -11,6 +11,10 @@ $this->menu=array(
 );
 
 $this->setPageTitle('Cadastro de Viagens');
+
+if (!isset($_GET['veiculo'])) {
+        Gg_veiculo_viagensController::redirect($this->createUrl('select_veiculo'));
+    } 
 ?>
 
 <div class="bs-docs-section mar-b-30">
