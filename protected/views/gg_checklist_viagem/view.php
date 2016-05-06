@@ -20,6 +20,7 @@ $this->setPageTitle('Checklists de Viagens');
 	'attributes'=>array(
 		'checklist_viagens_id',
 		'viagens_id',
+                'viagems.veiculos.veiculo_placa',
 		'buzina',
 		'cinto',
 		'retrovisor_e',
@@ -43,7 +44,6 @@ $this->setPageTitle('Checklists de Viagens');
 		'vidros',
 		'observacao',
 		'data_alteracao',
-		'prefeituras_id',
 	),
         'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>

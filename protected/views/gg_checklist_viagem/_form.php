@@ -3,18 +3,27 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'gg-checklist-viagem-form',
 	'enableAjaxValidation'=>false,
-)); ?>
+)); 
+    if (isset($_GET['veiculo'])) {
+        $veiculo = Gg_veiculos::model()->find(array('condition'=>'veiculos_id = '.$_GET['veiculo']));
+    } else {
+        $veiculos_id = $model->veiculos_id;
+        $veiculo = Gg_veiculos::model()->find(array('condition'=>'veiculos_id = '.$veiculos_id));
+    }
+    
+?>
 
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
         <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
+        <?php echo $form->hiddenField($model,'viagens_id', array('value' => $_GET['id'])); ?>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="form-group field-control">
-		<?php echo $form->labelEx($model,'viagens_id'); ?>
-		<?php echo $form->textField($model,'viagens_id', array('class'=>'form-control', 'Readonly'=>true)); ?>
-		<?php echo $form->error($model,'viagens_id'); ?>
-	</div>
+            <?php echo CHtml::label('Veículo', ''); ?>
+            <?php echo CHtml::textField('veiculo_nome', $veiculo->veiculo_descricao.' ('.$veiculo->veiculo_placa.')', array('class'=>'form-control', 'readOnly'=>'readOnly')); ?>                                                                                                                                                                                                                                                                                 
+            <?php echo $form->error($model,'veiculos_id'); ?>
+        </div>
 
 	<div class="form-group">
             <div class="col-md-4">
