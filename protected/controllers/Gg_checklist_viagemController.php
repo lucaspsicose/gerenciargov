@@ -149,11 +149,7 @@ class Gg_checklist_viagemController extends Controller
                                 
                                 $db->updateData('gg_check_list', $params, 'veiculos_id', $stmt['veiculos_id']);
                                 
-				if (isset($_POST['viagens'])) {
-                                    $this->redirect(array($_POST['viagens'])); 
-                                } else {
-                                    $this->redirect(array('admin'));
-                                };
+				$this->redirect(array('gg_veiculo_viagens/'.$model->viagens_id));
                         }
 		}
 

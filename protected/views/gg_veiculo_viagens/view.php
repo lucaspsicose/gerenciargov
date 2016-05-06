@@ -37,13 +37,32 @@ $this->setPageTitle('Viagens');
 )); ?>
 
 <div class="form-group">
-    <?php $this->widget('zii.widgets.CMenu', array(
-        'htmlOptions' => array('class' => 'btn btn-info'),
-        'encodeLabel' => false,
-        'items' => array(
-        array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->viagens_id), 'linkOptions' => array('target' => '_blank')),
-        ),
-));?>
+    <div class="col-md-6">
+        <?php $this->widget('zii.widgets.CMenu', array(
+            'htmlOptions' => array('class' => 'btn btn-info'),
+            'encodeLabel' => false,
+            'items' => array(
+            array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->viagens_id), 'linkOptions' => array('target' => '_blank')),
+            ),
+        ));?>
+    </div>
+    <?php 
+        $db = new DbExt();
+        $sql = 'SELECT count(*) AS quant FROM Gg_checklist_viagem WHERE viagens_id = '.$model->viagens_id;
+        $res = $db->rst($sql);
+        foreach ($res as $stmt)
+    ?>
+    <?php if ($model->avaria == 1 && $stmt['quant'] == 0) : ?>
+        <div class="col-md-6">
+            <?php $this->widget('zii.widgets.CMenu', array(
+                'htmlOptions' => array('class' => 'btn btn-info'),
+                'encodeLabel' => false,
+                'items' => array(
+                array('label' => 'Registrar Avarias', 'url' => array('gg_checklist_viagem/create', 'id' => $model->viagens_id, 'veiculo'=>$model->veiculos_id)),
+                ),
+            ));?>
+        </div>
+    <?php endif; ?>
 </div>
 
 
