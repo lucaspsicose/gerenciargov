@@ -180,7 +180,8 @@ class Gg_atendimentos extends CActiveRecord
             if (!$this->isNewRecord) {
                 $this->atendimento_alteracao = date ('Y-m-d H:m', time());
                 
-                $this->atendimento_inclusao = date ('Y-m-d H:m', $this->atendimento_inclusao);
+                //$this->atendimento_inclusao = date ('Y-m-d H:m', strtotime($this->atendimento_inclusao));
+                unset($this->atendimento_inclusao);
                 
                 $time = $this->atendimento_inclusao;
             }

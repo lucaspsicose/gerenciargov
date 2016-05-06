@@ -32187,3 +32187,9 @@ REQUEST_URI=/gerenciargov/relatorios/atendimentosporusuario?Filtros%5Busuarios_i
 in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (341)
 in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (551)
 in C:\wamp\www\gerenciargov\protected\controllers\RelatoriosController.php (79)
+2016/05/06 18:37:08 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/06 18:40:09 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
