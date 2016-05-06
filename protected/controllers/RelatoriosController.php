@@ -58,6 +58,42 @@ class RelatoriosController extends Controller
             }
     }
     
+    public function actionAtendimentosPorSecretarias()
+    {
+        if (isset($_GET['Filtros'])) {
+                $filtros = array();
+                $filtros = $_GET['Filtros'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->getAtendimentoPorSecretarias($filtros);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+    }
+    
+    public function actionAtendimentosPorUsuario()
+    {
+        if (isset($_GET['Filtros'])) {
+                $filtros = array();
+                $filtros = $_GET['Filtros'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->getAtendimentoPorUsuarios($filtros);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+    }
+    
+    public function actionAtendimentosPorData()
+    {
+        if (isset($_GET['Filtros'])) {
+                $filtros = array();
+                $filtros = $_GET['Filtros'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->getAtendimentoPorUsuarios($filtros);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+    }
+    
     public function getAniversariantesMes($mes_aniversario = '')
     {
         $db = new DbExt();
@@ -216,7 +252,105 @@ class RelatoriosController extends Controller
                 $html .=  '<td>'.$value['atendimento_protocolo'].'</td>
                            <td>'.$value['status_nome'].'</td>
                            <td>'.substr($value['secretaria_nome'], 0, 31).'</td>
-                           <td>'.$value['descricao_servico'].'</td>
+                           <td>'.substr($value['descricao_servico'], 0, 31).'</td>
+                           <td>'.$value['conclusao'].'</td>'
+                        . '</tr>';
+                
+                $i++;
+            }
+        }
+        
+        return $html;
+    }
+    
+    public function getConteudoRelatoriosAtendimentoSecretaria($secretarias_id = '', $params = '')
+    {
+        $db = new DbExt();
+        
+        $sql =  "SELECT a.atendimento_protocolo, 
+                        st.status_nome, 
+                         s.solicitante_nome, 
+                         a.descricao_servico,
+                         CASE
+                          WHEN a.status_id =4
+                           THEN cast( a.atendimento_alteracao AS date )
+                          ELSE 'Não Terminado' 
+                         END AS conclusao
+                  FROM Gg_atendimentos a
+                  JOIN Gg_solicitantes s ON (s.solicitantes_id = a.solicitantes_id )
+                  JOIN Gg_status st ON ( a.status_id = st.status_id )
+                  JOIN Gg_secretarias sc ON ( a.secretarias_id = sc.secretarias_id )
+                  WHERE 1 = 1
+                    AND sc.secretarias_id = ".$secretarias_id;
+        
+        $sql .= $params;
+        
+        $sql .= " ORDER BY a.atendimento_inclusao";
+        
+        $html = '';
+        
+        $i = 0;
+       
+        if ($res = $db->rst($sql)) {
+            foreach ($res as $value) {
+                if (($i % 2) != 0) {
+                $html .= '<tr>';
+                } else {
+                    $html .= '<tr style="background-color: #CCC;">';
+                }
+                $html .=  '<td>'.$value['atendimento_protocolo'].'</td>
+                           <td>'.$value['status_nome'].'</td>
+                           <td>'.substr($value['solicitante_nome'], 0, 31).'</td>
+                           <td>'.substr($value['descricao_servico'], 0, 31).'</td>
+                           <td>'.$value['conclusao'].'</td>'
+                        . '</tr>';
+                
+                $i++;
+            }
+        }
+        
+        return $html;
+    }
+    
+    public function getConteudoRelatoriosAtendimentoUsuarios($usuarios_id = '', $params = '')
+    {
+        $db = new DbExt();
+        
+        $sql =  "SELECT a.atendimento_protocolo, 
+                        st.status_nome, 
+                         s.solicitante_nome, 
+                         sc.secretaria_nome,
+                         CASE
+                          WHEN a.status_id =4
+                           THEN cast( a.atendimento_alteracao AS date )
+                          ELSE 'Não Terminado' 
+                         END AS conclusao
+                  FROM Gg_atendimentos a
+                  JOIN Gg_solicitantes s ON (s.solicitantes_id = a.solicitantes_id )
+                  JOIN Gg_status st ON ( a.status_id = st.status_id )
+                  JOIN Gg_secretarias sc ON ( a.secretarias_id = sc.secretarias_id )
+                  WHERE 1 = 1
+                    AND a.usuarios_id = ".$usuarios_id;
+        
+        $sql .= $params;
+        
+        $sql .= " ORDER BY a.atendimento_inclusao";
+        
+        $html = '';
+        
+        $i = 0;
+       
+        if ($res = $db->rst($sql)) {
+            foreach ($res as $value) {
+                if (($i % 2) != 0) {
+                $html .= '<tr>';
+                } else {
+                    $html .= '<tr style="background-color: #CCC;">';
+                }
+                $html .=  '<td>'.$value['atendimento_protocolo'].'</td>
+                           <td>'.$value['status_nome'].'</td>
+                           <td>'.substr($value['solicitante_nome'], 0, 31).'</td>
+                           <td>'.substr($value['secretaria_nome'], 0, 31).'</td>
                            <td>'.$value['conclusao'].'</td>'
                         . '</tr>';
                 
@@ -234,6 +368,7 @@ class RelatoriosController extends Controller
         $status_id        = $filtros['status_id'];
         $secretarias_id   = $filtros['secretarias_id'];
         $solicitante_nome = $filtros['solicitante_nome'];
+        $atendimento_inclusao = $filtros['atendimento_inclusao'];
         
         $sql = 'SELECT s.solicitante_nome,'
                 . '    a.solicitantes_id'
@@ -256,6 +391,10 @@ class RelatoriosController extends Controller
             $params .= ' AND s.solicitante_nome LIKE "%'.$solicitante_nome.'%"';
         }
         
+        if ($atendimento_inclusao != '') {
+            $params .= " AND CAST(a.atendimento_inclusao as DATE) = '".date('Y-m-d', strtotime($atendimento_inclusao))."'";
+        }
+        
         $sql .= $params;
         
         $sql .= ' GROUP BY s.solicitante_nome';
@@ -263,7 +402,7 @@ class RelatoriosController extends Controller
         $html = Yii::app()->functions->getCabecalhoRelatorios();
         
         $html .= '<div style="float: left; width:100%">
-                 <hr>';
+                 <hr><h2 align="center">Atendimentos Por Munícipes</h2>';
         
         if ($res = $db->rst($sql)) {
             foreach ($res as $value) {
@@ -296,5 +435,158 @@ class RelatoriosController extends Controller
         return $html;
     }
     
+    public function getAtendimentoPorSecretarias($filtros)
+    {
+        $db = new DbExt();
+        
+        $status_id        = $filtros['status_id'];
+        $secretarias_id   = $filtros['secretarias_id'];
+        $solicitante_nome = $filtros['solicitante_nome'];
+        $atendimento_inclusao = $filtros['atendimento_inclusao'];
+        
+        $sql = 'SELECT sc.secretaria_nome,'
+                . '    a.secretarias_id'
+                . ' FROM Gg_atendimentos a '
+                . ' JOIN Gg_solicitantes s ON (s.solicitantes_id = a.solicitantes_id)'
+                . ' JOIN Gg_secretarias sc ON (sc.secretarias_id = a.secretarias_id)'
+                . ' WHERE sc.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
+        
+        $params = '';
+       
+        if ($status_id != '') {
+            $params .= ' AND a.status_id = '.$status_id;
+        }
+        
+        if ($secretarias_id != '') {
+            $params .= ' AND a.secretarias_id = '.$secretarias_id;
+        }
+        
+        if ($solicitante_nome != '') {
+            $params .= ' AND s.solicitante_nome LIKE "%'.$solicitante_nome.'%"';
+        }
+        
+        if ($atendimento_inclusao != '') {
+            $params .= " AND CAST(a.atendimento_inclusao as DATE) = '".date('Y-m-d', strtotime($atendimento_inclusao))."'";
+        }
+        
+        $sql .= $params;
+        
+        $sql .= ' GROUP BY sc.secretaria_nome';
+        
+        $html = Yii::app()->functions->getCabecalhoRelatorios();
+        
+        $html .= '<div style="float: left; width:100%">
+                 <hr><h2 align="center">Atendimentos Por Secretarias</h2>';
+        
+        if ($res = $db->rst($sql)) {
+            foreach ($res as $value) {
+                $html .= '<table>
+                            <thead>
+                                <tr>
+                                        <td colspan="5"><h3>'.$value['secretaria_nome'].'</h3></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="90px"><strong>Protocolo</strong></td>
+                                    <td width="40px"><strong>Status</strong></td>
+                                    <td width="250px"><strong>Munícipe</strong></td>
+                                    <td width="250px"><strong>Serviço</strong></td>
+                                    <td width="60px"><strong>Conclusão</strong></td>
+                                </tr>';
+                
+                $html .= $this->getConteudoRelatoriosAtendimentoSecretaria($value['secretarias_id'], $params);
+                
+                $html .= '</tbody></table>';
+            }
+        } 
+         
+        $html .= '</div>
+                </div>  
+            </body>
+        </html>';
+        
+        return $html;
+    }
+    
+    public function getAtendimentoPorUsuarios($filtros)
+    {
+        $db = new DbExt();
+        
+        $status_id        = $filtros['status_id'];
+        $secretarias_id   = $filtros['secretarias_id'];
+        $solicitante_nome = $filtros['solicitante_nome'];
+        $usuarios_id      = $filtros['usuarios_id'];
+        $atendimento_inclusao = $filtros['atendimento_inclusao'];
+        
+        $sql = 'SELECT u.usuario_nome,'
+                . '    a.usuarios_id'
+                . ' FROM Gg_atendimentos a '
+                . ' JOIN Gg_solicitantes s ON (s.solicitantes_id = a.solicitantes_id)'
+                . ' JOIN Gg_secretarias sc ON (sc.secretarias_id = a.secretarias_id)'
+                . ' JOIN Gg_usuarios     u ON (u.usuarios_id     = a.usuarios_id   )'
+                . ' WHERE sc.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
+        
+        $params = '';
+       
+        if ($status_id != '') {
+            $params .= ' AND a.status_id = '.$status_id;
+        }
+        
+        if ($secretarias_id != '') {
+            $params .= ' AND a.secretarias_id = '.$secretarias_id;
+        }
+        
+        if ($solicitante_nome != '') {
+            $params .= ' AND s.solicitante_nome LIKE "%'.$solicitante_nome.'%"';
+        }
+        
+        if ($usuarios_id != '') {
+            $params .= ' AND a.usuarios_id = '.$usuarios_id;
+        }
+        
+        if ($atendimento_inclusao != '') {
+            $params .= " AND CAST(a.atendimento_inclusao as DATE) = '".date('Y-m-d', strtotime($atendimento_inclusao))."'";
+        }
+        
+        $sql .= $params;
+        
+        $sql .= ' GROUP BY u.usuario_nome';
+        
+        $html = Yii::app()->functions->getCabecalhoRelatorios();
+        
+        $html .= '<div style="float: left; width:100%">
+                 <hr><h2 align="center">Atendimentos Por Usuários</h2>';
+        
+        if ($res = $db->rst($sql)) {
+            foreach ($res as $value) {
+                $html .= '<table>
+                            <thead>
+                                <tr>
+                                        <td colspan="5"><h3>Usuário: '.$value['usuario_nome'].'</h3></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="90px"><strong>Protocolo</strong></td>
+                                    <td width="40px"><strong>Status</strong></td>
+                                    <td width="250px"><strong>Munícipe</strong></td>
+                                    <td width="250px"><strong>Secretaria</strong></td>
+                                    <td width="60px"><strong>Conclusão</strong></td>
+                                </tr>';
+                
+                $html .= $this->getConteudoRelatoriosAtendimentoUsuarios($value['usuarios_id'], $params);
+                
+                $html .= '</tbody></table>';
+            }
+        } 
+         
+        $html .= '</div>
+                </div>  
+            </body>
+        </html>';
+        
+        return $html;
+    }
 }
 
