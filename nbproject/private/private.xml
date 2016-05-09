@@ -3,23 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/site/menu.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_usuarios.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/site/index.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/components/Functions.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_atendimentos/_form.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_veiculo_viagensController.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_veiculo_viagens/select-veiculos.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_veiculo_viagens/create.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/config/database.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/RelatoriosController.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_solicitantesController.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_veiculo_viagens.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_secretarias/_form.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/layouts/main.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_secretariasController.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_secretarias.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_solicitantesController.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_veiculo_viagens/_form.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_secretarias.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_veiculo_viagens/create.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_atendimentos.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_atendimentosController.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/views/site/menu.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/views/site/index.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_atendimentos/_form.php</file>
         </group>
     </open-files>
 </project-private>
