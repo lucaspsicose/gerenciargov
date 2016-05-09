@@ -154,7 +154,7 @@ class Gg_veiculo_viagens extends CActiveRecord
             if (!$this->isNewRecord) {
                 $this->data_saida = date ('Y-m-d',strtotime($this->data_saida));
                 if($this->data_chegada != '' and $this->quilometragem_chegada != '' and $this->hora_chegada != ''){
-                    $sql = 'update Gg_veiculos set status_veiculos_id = 1, veiculo_quilometragem = '. $this->quilometragem_chegada.' where veiculos_id = '. $this->veiculos_id; 
+                    $sql = 'update Gg_veiculos set status_veiculos_id = 1 where veiculos_id = '. $this->veiculos_id; 
                     Yii::app()->db->createCommand($sql)->query();
                 }
             }
