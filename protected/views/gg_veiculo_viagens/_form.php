@@ -88,16 +88,10 @@ if (isset($_GET['veiculo'])) {
                 </div>      
             </div>
             
-            <div class="form-group">
-                <div class="col-md-12">
-                    <?php echo $form->labelEx($model,'avaria'); ?>                
-                    <?php echo $form->checkBox($model,'avaria'); ?>
-                    <?php echo $form->error($model,'avaria'); ?>
-                </div>
-                <div class="col-md-6">
-                    <?php //echo CHtml::label('Registrar Avarias', '') ?>
-                    <?php //echo CHtml::link('Avarias', '#test-form', array('class'=>'popup-with-form btn btn-info form-control')); ?>
-                </div> 
+            <div class="form-group field-control">
+                <?php echo $form->labelEx($model,'avaria'); ?>                
+                <?php echo $form->checkBox($model,'avaria'); ?>
+                <?php echo $form->error($model,'avaria'); ?>
             </div>
             
         <?php endif; ?>

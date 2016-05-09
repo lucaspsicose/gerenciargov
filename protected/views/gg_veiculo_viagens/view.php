@@ -37,7 +37,7 @@ $this->setPageTitle('Viagens');
 )); ?>
 
 <div class="form-group">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <?php $this->widget('zii.widgets.CMenu', array(
             'htmlOptions' => array('class' => 'btn btn-info'),
             'encodeLabel' => false,
@@ -53,7 +53,7 @@ $this->setPageTitle('Viagens');
         foreach ($res as $stmt)
     ?>
     <?php if ($model->avaria == 1 && $stmt['quant'] == 0) : ?>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <?php $this->widget('zii.widgets.CMenu', array(
                 'htmlOptions' => array('class' => 'btn btn-info'),
                 'encodeLabel' => false,
@@ -62,7 +62,15 @@ $this->setPageTitle('Viagens');
                 ),
             ));?>
         </div>
-    <?php endif; ?>
+    <?php endif; ?><div class="col-md-4">
+            <?php $this->widget('zii.widgets.CMenu', array(
+                'htmlOptions' => array('class' => 'btn btn-info'),
+                'encodeLabel' => false,
+                'items' => array(
+                array('label' => 'Finalizar Viagem', 'url' => array('update', 'id'=>$model->viagens_id)),
+                ),
+            ));?>
+        </div>
 </div>
 
 
