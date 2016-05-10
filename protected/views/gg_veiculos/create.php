@@ -7,7 +7,9 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Cadastrar Novo Veículo', 'url'=>array('create')),
 	array('label'=>'Lista de Veículos', 'url'=>array('admin')),
-        array('label'=>'Checklist de Veículos', 'url'=>array('gg_check_list/admin')),
+        array('label'=>'Checklist de Veículos', 'url'=>array('Gg_check_list/admin')),
+        array('label'=>'Manutenções', 'url'=>array('Gg_manutencoes/admin')),
+        array('label'=>'Abastecimentos', 'url'=>array('Gg_abastecimentos/admin')),
 );
 
 $this->setPageTitle('Cadastro de Veículos');

@@ -9,7 +9,9 @@ $this->menu=array(
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->veiculos_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->veiculos_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->veiculos_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro deste Veículo?'))),
 	array('label'=>'Lista de Veículos', 'url'=>array('admin')),
-        array('label'=>'Checklist de Veículos', 'url'=>array('gg_check_list/admin')),
+        array('label'=>'Checklist de Veículos', 'url'=>array('Gg_check_list/admin')),
+        array('label'=>'Manutenções', 'url'=>array('Gg_manutencoes/admin')),
+        array('label'=>'Abastecimentos', 'url'=>array('Gg_abastecimentos/admin')),
 );
 $this->setPageTitle('Veículos');
 ?>
