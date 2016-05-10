@@ -91,7 +91,7 @@ class Gg_atendimentos extends CActiveRecord
 			'atendimento_inclusao' => 'Data do Atendimento',
 			'atendimento_alteracao' => 'Última Alteração',
 			'solicitantes_id' => 'Solicitante',
-			'atendimento_descricao_status' => 'Descrição do Status',
+			'atendimento_descricao_status' => 'Descrição do Serviço Executado',
 			'atendimento_endereco' => 'Endereço para Atendimento',
 			'atendimento_numero' => 'Número',
 			'atendimento_bairro' => 'Bairro para Atendimento',

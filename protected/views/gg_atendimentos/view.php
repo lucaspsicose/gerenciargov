@@ -17,6 +17,12 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
             array('label'=>'Novo Atendimento', 'url'=>array('create')),
     );
 }
+
+    if ($model->status_id == 1) {
+        $label_botao = 'Despachar Atendimento';        
+    } else {
+        $label_botao = 'Finalizar Atendimento';
+    }
 ?>
 
 <h1>Atendimento #<?php echo $model->atendimento_protocolo; ?></h1>
@@ -41,13 +47,27 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
 )); ?>
 
 <div class="form-group">
-    <?php 
-    $this->widget('zii.widgets.CMenu', array(
-        'htmlOptions' => array('class' => 'btn btn-info'),
-        'encodeLabel' => false,
-        'items' => array(
-        array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->atendimentos_id), 'linkOptions' => array('target' => '_blank')),
-        ),
-));?>
+    <div class="btn-base">
+        <?php 
+        $this->widget('zii.widgets.CMenu', array(
+            'htmlOptions' => array('class' => 'btn btn-info'),
+            'encodeLabel' => false,
+            'items' => array(
+            array('label' => 'Imprimir Protocolo', 'url' => array('imprimir', 'id' => $model->atendimentos_id), 'linkOptions' => array('target' => '_blank')),
+            ),
+    )); ?>
+    </div>
+    <div class="btn-base">
+        <?php
+        $this->widget('zii.widgets.CMenu', array(
+            'htmlOptions' => array('class' => 'btn btn-info'),
+            'encodeLabel' => false,
+            'items' => array(
+            array('label' => $label_botao, 'url' => array('update', 'id' => $model->atendimentos_id)),
+            ),
+    ));
+    
+    ?>
+    </div>
 </div>
 
