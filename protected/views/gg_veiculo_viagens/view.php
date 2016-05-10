@@ -37,7 +37,7 @@ $this->setPageTitle('Viagens');
 )); ?>
 
 <div class="form-group">
-    <div class="col-md-4">
+    <div class="btn-base">
         <?php $this->widget('zii.widgets.CMenu', array(
             'htmlOptions' => array('class' => 'btn btn-info'),
             'encodeLabel' => false,
@@ -52,17 +52,23 @@ $this->setPageTitle('Viagens');
         $res = $db->rst($sql);
         foreach ($res as $stmt)
     ?>
-    <?php if ($model->avaria == 1 && $stmt['quant'] == 0) : ?>
-        <div class="col-md-4">
+    <?php if ($model->avaria == 1 && $stmt['quant'] == 0) {
+        Yii::app()->clientScript->registerScript('controle', "
+        $('.controle').removeAttr('disabled');");
+    } else {
+        Yii::app()->clientScript->registerScript('controle', "
+        $('.controle').attr('disabled', 'disabled');");
+    } ?>
+        <div class="btn-base">
             <?php $this->widget('zii.widgets.CMenu', array(
-                'htmlOptions' => array('class' => 'btn btn-info'),
+                'htmlOptions' => array('class' => 'btn btn-info controle'),
                 'encodeLabel' => false,
                 'items' => array(
                 array('label' => 'Registrar Avarias', 'url' => array('gg_checklist_viagem/create', 'id' => $model->viagens_id, 'veiculo'=>$model->veiculos_id)),
                 ),
             ));?>
         </div>
-    <?php endif; ?><div class="col-md-4">
+        <div class="btn-base">
             <?php $this->widget('zii.widgets.CMenu', array(
                 'htmlOptions' => array('class' => 'btn btn-info'),
                 'encodeLabel' => false,

@@ -21,7 +21,7 @@
 
 	<div class="form-group field-control">
             <?php echo CHtml::label('Veículo', ''); ?>
-            <?php echo CHtml::textField('veiculo_nome', $veiculo->veiculo_descricao.' ('.$veiculo->veiculo_placa.')', array('class'=>'form-control', 'readOnly'=>'readOnly')); ?>                                                                                                                                                                                                                                                                                 
+            <?php echo CHtml::textField('veiculo_nome', $veiculo->veiculo_descricao.' ('.$veiculo->veiculo_placa.')', array('class'=>'form-control ', 'readOnly'=>'readOnly')); ?>                                                                                                                                                                                                                                                                                 
             <?php echo $form->error($model,'veiculos_id'); ?>
         </div>
 
