@@ -7,7 +7,7 @@
     if (isset($_GET['veiculo'])) {
         $veiculo = Gg_veiculos::model()->find(array('condition'=>'veiculos_id = '.$_GET['veiculo']));
     } else {
-        $veiculos_id = $model->veiculos_id;
+        $veiculos_id = $model->viagens->veiculos->veiculos_id;
         $veiculo = Gg_veiculos::model()->find(array('condition'=>'veiculos_id = '.$veiculos_id));
     }
     
@@ -15,7 +15,13 @@
 
 	<p class="note">Os campos marcados com <span class="required">*</span> são obrigatórios.</p>
         <?php echo $form->hiddenField($model,'prefeituras_id', array('value' => Yii::app()->session['active_prefeituras_id'])); ?>
-        <?php echo $form->hiddenField($model,'viagens_id', array('value' => $_GET['id'])); ?>
+        <?php if ($model->isNewRecord) : ?>
+            <?php echo $form->hiddenField($model,'viagens_id', array('value' => $_GET['id'])); ?>
+        <?php endif; ?>
+        <?php if (!$model->isNewRecord) : ?>
+            <?php echo $form->hiddenField($model,'viagens_id', array('value' =>$model->viagens_id)); ?>
+        <?php endif; ?>
+        
 
 	<?php echo $form->errorSummary($model); ?>
 

@@ -38,13 +38,14 @@ $this->setPageTitle('Viagens');
 
 <div class="form-group">
     <div class="btn-base">
-        <?php $this->widget('zii.widgets.CMenu', array(
-            'htmlOptions' => array('class' => 'btn btn-info'),
-            'encodeLabel' => false,
-            'items' => array(
-            array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->viagens_id), 'linkOptions' => array('target' => '_blank')),
-            ),
-        ));?>
+        
+            <?php $this->widget('zii.widgets.CMenu', array(
+                'htmlOptions' => array('class' => 'btn btn-info'),
+                'encodeLabel' => false,
+                'items' => array(
+                array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->viagens_id), 'linkOptions' => array('target' => '_blank')),
+                ),
+            ));?>        
     </div>
     <?php 
         $db = new DbExt();
@@ -59,23 +60,26 @@ $this->setPageTitle('Viagens');
         Yii::app()->clientScript->registerScript('controle', "
         $('.controle').attr('disabled', 'disabled');");
     } ?>
+        
+        
         <div class="btn-base">
-            <?php $this->widget('zii.widgets.CMenu', array(
-                'htmlOptions' => array('class' => 'btn btn-info controle'),
-                'encodeLabel' => false,
-                'items' => array(
-                array('label' => 'Registrar Avarias', 'url' => array('gg_checklist_viagem/create', 'id' => $model->viagens_id, 'veiculo'=>$model->veiculos_id)),
-                ),
-            ));?>
+                <?php $this->widget('zii.widgets.CMenu', array(
+                    'htmlOptions' => array('class' => 'btn btn-info controle'),
+                    'encodeLabel' => false,
+                    'items' => array(
+                    array('label' => 'Registrar Avarias', 'url' => array('gg_checklist_viagem/create', 'id' => $model->viagens_id, 'veiculo'=>$model->veiculos_id)),
+                    ),
+                ));?> 
         </div>
+        
         <div class="btn-base">
             <?php $this->widget('zii.widgets.CMenu', array(
-                'htmlOptions' => array('class' => 'btn btn-info'),
-                'encodeLabel' => false,
-                'items' => array(
-                array('label' => 'Finalizar Viagem', 'url' => array('update', 'id'=>$model->viagens_id)),
-                ),
-            ));?>
+                    'htmlOptions' => array('class' => 'btn btn-info'),
+                    'encodeLabel' => false,
+                    'items' => array(
+                    array('label' => 'Finalizar Viagem', 'url' => array('update', 'id'=>$model->viagens_id)),
+                    ),
+                ));?>           
         </div>
 </div>
 

@@ -147,9 +147,9 @@ class Gg_checklist_viagemController extends Controller
                                    $params['vidros']  = 1;    
                                 }
                                 
-                                $db->updateData('gg_check_list', $params, 'veiculos_id', $stmt['veiculos_id']);
+                                $db->updateData('Gg_check_list', $params, 'veiculos_id', $stmt['veiculos_id']);
                                 
-				$this->redirect(array('gg_veiculo_viagens/'.$model->viagens_id));
+				$this->redirect(array('Gg_veiculo_viagens/'.$model->viagens_id));
                         }
 		}
 
