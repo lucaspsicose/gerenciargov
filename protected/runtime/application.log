@@ -32234,3 +32234,144 @@ REQUEST_URI=/gerenciargov/gg_atendimentos/create
 in C:\wamp\www\gerenciargov\protected\extensions\email\Email.php (140)
 in C:\wamp\www\gerenciargov\protected\extensions\email\Email.php (132)
 in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (94)
+2016/05/11 01:23:31 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:23:31 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:23:31 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:23:53 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:23:53 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:23:53 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:24:37 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:24:37 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:24:37 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:27:40 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:27:40 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:27:40 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:28:10 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:28:10 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:28:10 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:30:07 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:30:07 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:30:07 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:34:57 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:34:57 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:34:57 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:37:15 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:37:15 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:37:15 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:38:00 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:38:00 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:38:00 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:38:28 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:38:28 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:38:28 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:39:40 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:39:40 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:39:40 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:45:48 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:45:48 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 01:45:48 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:02:36 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:02:36 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:02:36 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:04:52 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:04:52 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:04:52 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:16:05 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:16:05 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:16:05 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:16:11 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:16:22 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)

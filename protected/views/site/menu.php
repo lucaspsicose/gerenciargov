@@ -39,10 +39,12 @@ $('#cadastros').click(function(){
                     </a>
                     <a href="#" id="cadastros" class="btn btn-app">
                         <i class="fa fa-edit"></i> Cadastros
-                    </a>                    
-                    <a href="<?php echo $this->createUrl('relatorios/index') ?>" class="btn btn-app">
-                        <i class="fa fa-inbox"></i> Relatórios
-                    </a>
+                    </a>  
+                    <?php if (Yii::app()->session['perfil'] == '1') : //permite acesso apenas a administradores no módulo de relatórios?>
+                        <a href="<?php echo $this->createUrl('relatorios/index') ?>" class="btn btn-app">
+                            <i class="fa fa-inbox"></i> Relatórios
+                        </a>
+                    <?php endif; ?>
                     <a href="<?php echo $this->createUrl('gg_veiculo_viagens/admin') ?>" class="btn btn-app">
                         <i class="fa fa-truck"></i> Viagens
                     </a>

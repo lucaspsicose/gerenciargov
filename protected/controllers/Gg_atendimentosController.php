@@ -115,6 +115,9 @@ class Gg_atendimentosController extends Controller
 		if(isset($_POST['Gg_atendimentos']))
 		{
 			$model->attributes=$_POST['Gg_atendimentos'];
+                        if ($model->status_id == 4) {
+                            $model->setScenario('conclusao'); 
+                        }
 			if($model->update()) {
 				$this->redirect(array('view','id'=>$model->atendimentos_id));
                         }

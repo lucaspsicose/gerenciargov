@@ -42,7 +42,9 @@ class Gg_atendimentos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, data_previsao_servico', 'required'),
+			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, '
+                            . 'atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, '
+                            . 'data_previsao_servico, data_conclusao_servico, responsavel_servico', 'required'),
 			array('usuarios_id, secretarias_id, status_id, solicitantes_id, secretarias_origem_id', 'numerical', 'integerOnly'=>true),
 			array('atendimento_protocolo', 'length', 'max'=>50),
                         array('descricao_servico', 'length', 'max'=>150),
@@ -55,6 +57,7 @@ class Gg_atendimentos extends CActiveRecord
                         array('atendimento_inclusao','default',
                               'value'=>new CDbExpression('NOW()'),
                               'setOnEmpty'=>false,'on'=>'insert'),
+                        //array('data_conclusao_servico, responsavel_servico', 'required', 'on' => 'conclusao'),
 			//array('atendimento_alteracao', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -178,7 +181,7 @@ class Gg_atendimentos extends CActiveRecord
             
             $this->atendimento_alteracao = strtotime ($this->atendimento_alteracao);
             $this->atendimento_alteracao = date ('d/m/Y H:m', $this->atendimento_alteracao);
-
+            
             parent::afterFind ();
         }
         

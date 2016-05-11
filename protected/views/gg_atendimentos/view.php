@@ -24,7 +24,7 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
         $label_botao = 'Finalizar Atendimento';
     }
     
-    if ($model->secretarias_id != $model->secretarias_origem_id) {
+    if ($model->secretarias_id != Yii::app()->session['active_secretarias_id']) {
         Yii::app()->clientScript->registerScript('controle', "
         $('.controle').attr('disabled', 'disabled');");
     }

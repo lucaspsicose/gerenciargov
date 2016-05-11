@@ -116,6 +116,19 @@
             </div>
         
             <?php if (!$model->isNewRecord) : ?>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <?php echo $form->labelEx($model, 'responsavel_servico'); ?>
+                        <?php echo $form->textField($model, 'responsavel_servico', array('class'=>'form-control'), array('size'=>80, 'maxlength'=>80)); ?>
+                        <?php echo $form->error($model, 'responsavel_servico'); ?>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <?php echo $form->labelEx($model, 'data_conclusao_servico'); ?>
+                        <?php echo $form->dateField($model, 'data_conclusao_servico', array('class'=>'form-control')); ?>
+                        <?php echo $form->error($model, 'data_conclusao_servico'); ?>
+                    </div>
+                </div>
                 <div class="form-group field-control">
                         <?php echo $form->labelEx($model,'atendimento_descricao_status'); ?>
                         <?php echo $form->textArea($model,'atendimento_descricao_status', array('class'=>'form-control'), array('size'=>60,'maxlength'=>2000)); ?>
