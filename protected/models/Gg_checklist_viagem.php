@@ -66,7 +66,7 @@ class Gg_checklist_viagem extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'viagems'=>array(self::BELONGS_TO, 'Gg_veiculo_viagens', 'viagens_id'),
+                    'viagens'=>array(self::BELONGS_TO, 'Gg_veiculo_viagens', 'viagens_id'),
                     'prefeituras'=>array(self::BELONGS_TO, 'Gg_prefeituras', 'prefeituras_id'),
 		);
 	}
@@ -79,7 +79,7 @@ class Gg_checklist_viagem extends CActiveRecord
 		return array(
 			'checklist_viagens_id' => 'Checklist',
 			'viagens_id' => 'Viagem',
-                        'viagems.veiculos.veiculo_placa' => 'Veículo',
+                        'viagens.veiculos.veiculo_placa' => 'Veículo',
 			'buzina' => 'Buzina',
 			'cinto' => 'Cinto de Segurança',
 			'retrovisor_e' => 'Retrovisor Esq.',

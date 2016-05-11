@@ -5,7 +5,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Cadastrar Novo Checklist', 'url'=>array('create')),
 	array('label'=>'Lista de Checklists', 'url'=>array('admin')),
 );
 $this->setPageTitle('Cadastro de Checklist de Viagem');

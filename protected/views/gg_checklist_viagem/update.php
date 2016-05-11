@@ -6,7 +6,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Cadastrar Novo Checklist', 'url'=>array('create')),
 	array('label'=>'Lista de Checklist', 'url'=>array('admin')),
 );
 $this->setPageTitle('Editar Cadastro');

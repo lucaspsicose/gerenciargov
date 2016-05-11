@@ -21,6 +21,17 @@ $('#cadastros').click(function(){
     }
 	return false;
 });
+
+$('#viagens').click(function(){
+    if (document.getElementById('div-viagens').style.display === 'none') {
+        $('#div-viagens').show('slow');
+        var deslocamento = $('#div-viagens').offset().top;
+        $('html, body').animate({ scrollTop: deslocamento }, 'slow');
+    } else {
+        $('#div-viagens').hide('slow');
+    }
+	return false;
+});
 ");
 
 ?>
@@ -39,13 +50,11 @@ $('#cadastros').click(function(){
                     </a>
                     <a href="#" id="cadastros" class="btn btn-app">
                         <i class="fa fa-edit"></i> Cadastros
-                    </a>  
-                    <?php if (Yii::app()->session['perfil'] == '1') : //permite acesso apenas a administradores no módulo de relatórios?>
-                        <a href="<?php echo $this->createUrl('relatorios/index') ?>" class="btn btn-app">
-                            <i class="fa fa-inbox"></i> Relatórios
-                        </a>
-                    <?php endif; ?>
-                    <a href="<?php echo $this->createUrl('gg_veiculo_viagens/admin') ?>" class="btn btn-app">
+                    </a>                    
+                    <a href="<?php echo $this->createUrl('relatorios/index') ?>" class="btn btn-app">
+                        <i class="fa fa-inbox"></i> Relatórios
+                    </a>
+                    <a href="#" id="viagens" class="btn btn-app">
                         <i class="fa fa-truck"></i> Viagens
                     </a>
                 </div><!-- /.box-body -->
@@ -78,6 +87,26 @@ $('#cadastros').click(function(){
                             <i class="fa fa-male"></i> Motoristas
                         </a>
                     <?php endif; //fim dos menus administrativos ?>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+        
+        <div class="row" id="div-viagens" style="display: none">         
+            <div class="col-md-12 career-head">
+                <h1 class="wow fadeIn">Viagens</h1>
+            </div>
+            <hr>
+            <div class="box wow fadeIn">
+                <div class="box-body">
+                    <a href="<?php echo $this->createUrl('gg_veiculo_viagens/admin') ?>" class="btn btn-app">
+                        <i class="fa fa-globe"></i> Viagens
+                    </a>
+                    <a href="<?php echo $this->createUrl('gg_abastecimentos/admin') ?>" class="btn btn-app">
+                        <i class="fa fa-tachometer"></i> Abastecimentos
+                    </a>
+                    <a href="<?php echo $this->createUrl('gg_manutencoes/admin') ?>" class="btn btn-app">
+                        <i class="fa fa-wrench"></i> Manutenções
+                    </a>                 
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>

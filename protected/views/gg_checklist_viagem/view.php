@@ -5,7 +5,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Cadastrar Novo Checklist', 'url'=>array('create')),
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->checklist_viagens_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->checklist_viagens_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->checklist_viagens_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro deste Checklist?'))),
 	array('label'=>'Lista de checklist', 'url'=>array('admin')),
