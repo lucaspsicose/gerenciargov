@@ -50,10 +50,12 @@ $('#viagens').click(function(){
                     </a>
                     <a href="#" id="cadastros" class="btn btn-app">
                         <i class="fa fa-edit"></i> Cadastros
-                    </a>                    
-                    <a href="<?php echo $this->createUrl('relatorios/index') ?>" class="btn btn-app">
-                        <i class="fa fa-inbox"></i> Relatórios
-                    </a>
+                    </a> 
+                    <?php if (Yii::app()->session['perfil'] == '1') : ?>
+                        <a href="<?php echo $this->createUrl('relatorios/index') ?>" class="btn btn-app">
+                            <i class="fa fa-inbox"></i> Relatórios
+                        </a>
+                    <?php endif; ?>
                     <a href="#" id="viagens" class="btn btn-app">
                         <i class="fa fa-truck"></i> Viagens
                     </a>
