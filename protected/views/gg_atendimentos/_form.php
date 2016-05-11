@@ -26,19 +26,13 @@
         <?php echo $form->error($model,'secretarias_origem_id'); ?>
 
             <div class="form-group">
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <?php echo $form->labelEx($model,'atendimento_protocolo'); ?>
                     <?php echo $form->textField($model,'atendimento_protocolo', array('class'=>'form-control', 'readOnly'=>'readOnly', 'value'=> $protocolo), array('size'=>50,'maxlength'=>50)); ?>
                     <?php echo $form->error($model,'atendimento_protocolo'); ?>
                 </div>
-
-                <div class="col-md-3">
-                        <?php echo $form->labelEx($model,'status_id'); ?>
-                        <?php echo $form->dropDownList($model,'status_id', Yii::app()->functions->getComboStatus(), array('class'=>'form-control')); ?>
-                        <?php echo $form->error($model,'status_id'); ?>
-                </div>
-
-                <div class="col-md-3">
+                
+                <div class="col-md-6">
                         <?php echo $form->labelEx($model,'atendimento_inclusao'); ?>
                         <?php if (!$model->isNewRecord) : ?>
                         <?php echo $form->textField($model,'atendimento_inclusao', array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
@@ -47,13 +41,30 @@
                         <?php echo CHtml::textField('Date', date('d/m/Y'), array('class'=>'form-control', 'readOnly'=>'readOnly' )); ?>
                         <?php endif; ?>
                 </div>
-
-                <div class="col-md-3">
+                
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-4">
                         <?php echo $form->labelEx($model,'secretarias_id'); ?>
                         <?php echo $form->dropdownlist($model, 'secretarias_id', CHtml::listData(Gg_secretarias::model()->findAll(array('order'=>'secretaria_nome', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'])), 'secretarias_id', 'secretaria_nome'), array('class'=>'form-control controle', 
                                                                                                                                                                                                                                                                                                  'empty'=>'Selecione a Secretaria')); ?>
                         <?php echo $form->error($model,'secretarias_id'); ?>
                 </div>
+                
+                <div class="col-md-4">
+                        <?php echo $form->labelEx($model,'status_id'); ?>
+                        <?php echo $form->dropDownList($model,'status_id', Yii::app()->functions->getComboStatus(), array('class'=>'form-control')); ?>
+                        <?php echo $form->error($model,'status_id'); ?>
+                </div>
+
+                <div class="col-md-4">
+                        <?php echo $form->labelEx($model,'data_previsao_servico'); ?>
+                        <?php echo $form->dateField($model, 'data_previsao_servico',  array('class'=>'form-control controle')); ?>
+                        <?php echo $form->error($model,'data_previsao_servico'); ?>
+                </div>
+
+                
             </div>
 
             <div class="form-group">

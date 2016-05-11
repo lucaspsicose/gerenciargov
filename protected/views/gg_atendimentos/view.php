@@ -23,6 +23,11 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
     } else {
         $label_botao = 'Finalizar Atendimento';
     }
+    
+    if ($model->secretarias_id != $model->secretarias_origem_id) {
+        Yii::app()->clientScript->registerScript('controle', "
+        $('.controle').attr('disabled', 'disabled');");
+    }
 ?>
 
 <h1>Atendimento #<?php echo $model->atendimento_protocolo; ?></h1>
@@ -37,11 +42,14 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
 		'atendimento_descricao_status',
 		'atendimento_inclusao',
 		'atendimento_alteracao',
+                'data_previsao_servico',
+                'data_conclusao_servico',
 		'solicitantes.solicitante_nome',
 		'atendimento_endereco',
 		'atendimento_numero',
 		'atendimento_bairro',
 		'atendimento_descricao',
+                'responsavel_servico',
 	),
         'htmlOptions' => array('class' => 'table table-responsive'),
 )); ?>
@@ -60,7 +68,7 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
     <div class="btn-base">
         <?php
         $this->widget('zii.widgets.CMenu', array(
-            'htmlOptions' => array('class' => 'btn btn-info'),
+            'htmlOptions' => array('class' => 'btn btn-info controle'),
             'encodeLabel' => false,
             'items' => array(
             array('label' => $label_botao, 'url' => array('update', 'id' => $model->atendimentos_id)),
