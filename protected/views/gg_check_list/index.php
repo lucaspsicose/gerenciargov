@@ -4,7 +4,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Gg_check_list', 'url'=>array('create')),
 	array('label'=>'Manage Gg_check_list', 'url'=>array('admin')),
 );
 ?>

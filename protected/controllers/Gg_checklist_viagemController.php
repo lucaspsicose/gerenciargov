@@ -172,8 +172,81 @@ class Gg_checklist_viagemController extends Controller
 		if(isset($_POST['Gg_checklist_viagem']))
 		{
 			$model->attributes=$_POST['Gg_checklist_viagem'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->checklist_viagens_id));
+			if($model->save()){
+                            $db = new DbExt();
+                                $sql = 'select veiculos_id from Gg_veiculo_viagens where viagens_id = '.$model->viagens_id;
+                                $res = $db->rst($sql);
+                                foreach ($res as $stmt)
+                                
+                                if($model->buzina == 1){
+                                    $params['buzina']  = 1;    
+                                } 
+                                if($model->cinto == 1){
+                                   $params['cinto']  = 1;    
+                                }
+                                if($model->retrovisor_e == 1){
+                                   $params['retrovisor_e']  = 1;    
+                                }
+                                if($model->retrovisor_d == 1){
+                                   $params['retrovisor_d']  = 1;    
+                                }
+                                if($model->farois == 1){
+                                   $params['farois']  = 1;    
+                                }
+                                if($model->fluido_freio == 1){
+                                   $params['fluido_freio']  = 1;    
+                                }
+                                if($model->freio == 1){
+                                   $params['freio']  = 1;    
+                                }
+                                if($model->freio_mao == 1){
+                                   $params['freio_mao']  = 1;    
+                                }
+                                if($model->lataria == 1){
+                                   $params['lataria']  = 1;    
+                                }
+                                if($model->luz_freio == 1){
+                                   $params['luz_freio']  = 1;    
+                                }
+                                if($model->luz_re == 1){
+                                  $params['luz_re']  = 1;    
+                                }
+                                if($model->luz_painel == 1){
+                                   $params['luz_painel']  = 1;    
+                                }
+                                if($model->nivel_agua == 1){
+                                   $params['nivel_agua']  = 1;    
+                                }
+                                if($model->nivel_oleo == 1){
+                                   $params['nivel_oleo']  = 1;    
+                                }
+                                if($model->pneu == 1){
+                                   $params['pneu']  = 1;    
+                                }
+                                if($model->porta == 1){
+                                   $params['porta']  = 1;    
+                                }
+                                if($model->seta_dianteira_e == 1){
+                                   $params['seta_dianteira_e']  = 1;    
+                                }
+                                if($model->seta_dianteira_d == 1){
+                                   $params['seta_dianteira_d']  = 1;    
+                                }
+                                if($model->seta_traseira_e == 1){
+                                   $params['seta_traseira_e']  = 1;    
+                                }
+                                if($model->seta_traseira_d == 1){
+                                   $params['seta_traseira_d']  = 1;    
+                                }
+                                if($model->vidros == 1){
+                                   $params['vidros']  = 1;    
+                                }
+                                
+                                $db->updateData('Gg_check_list', $params, 'veiculos_id', $stmt['veiculos_id']);
+                                
+                                $this->redirect(array('view','id'=>$model->checklist_viagens_id));
+                        }
+				
 		}
 
 		$this->render('update',array(
