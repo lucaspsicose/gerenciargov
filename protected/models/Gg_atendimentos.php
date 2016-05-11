@@ -19,6 +19,9 @@
  * @property string $atendimento_bairro
  * @property integer $secretarias_origem_id
  * @property string $descricao_servico 
+ * @property string $responsavel_servico 
+ * @property date $data_conclusao_servico
+ * @property date $data_previsao_servico
  */
 class Gg_atendimentos extends CActiveRecord
 {
@@ -39,7 +42,7 @@ class Gg_atendimentos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id', 'required'),
+			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, data_previsao_servico', 'required'),
 			array('usuarios_id, secretarias_id, status_id, solicitantes_id, secretarias_origem_id', 'numerical', 'integerOnly'=>true),
 			array('atendimento_protocolo', 'length', 'max'=>50),
                         array('descricao_servico', 'length', 'max'=>150),
@@ -101,6 +104,9 @@ class Gg_atendimentos extends CActiveRecord
                         'secretarias_origem_id'=>'Secretaria de Origem',
                         'sec_origem.secretaria_nome'=>'Secretaria de Origem',
                         'secretarias.secretaria_nome'=>'Secretaria',
+                        'data_previsao_servico'=>'Previsão para Atendimento',
+                        'data_conclusao_servico'=>'Data Execução do Serviço',
+                        'responsavel_servico'=>'Responsável pela Execução do Serviço',
 		);
 	}
 
@@ -180,11 +186,20 @@ class Gg_atendimentos extends CActiveRecord
             if (!$this->isNewRecord) {
                 $this->atendimento_alteracao = date ('Y-m-d H:m', time());
                 
-                //$this->atendimento_inclusao = date ('Y-m-d H:m', strtotime($this->atendimento_inclusao));
                 unset($this->atendimento_inclusao);
                 
-                $time = $this->atendimento_inclusao;
+                unset($this->data_previsao_servico);
             }
             return parent::beforeSave();
+        }
+        
+        protected function afterValidate() {
+            
+            if (!$this->isNewRecord) {
+                unset($this->data_previsao_servico);
+            }
+            
+            return parent::afterValidate();
+            
         }
 }

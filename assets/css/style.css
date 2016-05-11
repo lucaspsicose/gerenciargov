@@ -2585,6 +2585,10 @@ p { text-align: left }
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
+
+.btn.btn-info a:hover {
+    color: #fff;
+}
 .btn.btn-danger {
     background-color: #E74c3c;
     border: none;
@@ -3066,4 +3070,11 @@ div.header h3{
     right: -10px;
     font-size: 10px;
     font-weight: 400;
+}
+
+.btn-base {
+    padding-right: 10px;
+    padding-bottom: 20px;
+    display: table;
+    float: left;
 }
