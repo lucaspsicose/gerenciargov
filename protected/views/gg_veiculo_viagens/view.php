@@ -21,6 +21,7 @@ $this->setPageTitle('Viagens');
 	'data'=>$model,
 	'attributes'=>array(
 		'viagens_id',
+                'veiculos.veiculo_descricao',
 		'veiculos.veiculo_placa',
 		'motorista.motorista_nome',
 		'data_saida',
@@ -28,8 +29,9 @@ $this->setPageTitle('Viagens');
 		'hora_saida',
 		'destino',
                 'finalidade',
-		'data_chegada',
+                'data_chegada',
 		'quilometragem_chegada',
+                'quilometragem_rodada',
 		'hora_chegada',
                 'avaria',
 	),

@@ -62,7 +62,8 @@ class Gg_abastecimentos extends CActiveRecord
 		return array(
 			'abastecimentos_id' => 'Abastecimentos',
 			'veiculos_id' => 'Veículo',
-                        'veiculos.veiculo_placa' => 'Veículo',
+                        'veiculos.veiculo_descricao' => 'Veículo',
+                        'veiculos.veiculo_placa' => 'Placa',
 			'abastecimento_quilometragem' => 'Quilometragem',
 			'combustivel_id' => 'Combustivel',
                         'combustivel.combustivel_nome' => 'Combustível',

@@ -39,17 +39,17 @@ $this->setPageTitle('Viagens');
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
 		'viagens_id',
+                'veiculos.veiculo_descricao',
 		'veiculos.veiculo_placa',
 		'motorista.motorista_nome',
 		'data_saida',
 		'quilometragem_saida',
-		'hora_saida',
-		/*
+		//'hora_saida',
 		'destino',
 		'data_chegada',
 		'quilometragem_chegada',
-		'hora_chegada',
-		*/
+                'quilometragem_rodada',
+		//'hora_chegada',
 		array(
 			'class'=>'CButtonColumn',
                         'template'=>'{view}',

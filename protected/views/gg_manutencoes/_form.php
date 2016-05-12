@@ -13,7 +13,7 @@
         <div class="form-group">
             <div class="col-md-6">
                     <?php echo $form->labelEx($model,'veiculos_id'); ?>
-                    <?php echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_placa', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].' and status_veiculos_id = 1')), 'veiculos_id', 'veiculo_placa'), array('class'=>'form-control', 
+                    <?php echo $form->dropdownlist($model, 'veiculos_id', CHtml::listData(Gg_veiculos::model()->findAll(array('order'=>'veiculo_placa', 'condition'=>'prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].' and status_veiculos_id = 1')), 'veiculos_id', 'veiculo_descricao','veiculo_placa'), array('class'=>'form-control', 
                                                                                                                                                                                                                                                                                                          'empty'=>'')); ?>
                     <?php echo $form->error($model,'veiculos_id'); ?>
             </div>

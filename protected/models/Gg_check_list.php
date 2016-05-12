@@ -79,7 +79,8 @@ class Gg_check_list extends CActiveRecord
 		return array(
 			'check_list_id' => 'CheckList',
 			'veiculos_id' => 'Veículo',
-                        'veiculos.veiculo_placa' => 'Veículo',
+                        'veiculos.veiculo_placa' => 'Placa',
+                        'veiculos.veiculo_descricao' => 'Veículo',
 			'buzina' => 'Buzina',
 			'cinto' => 'Cinto de Segurança',
 			'retrovisor_e' => 'Retrovisor Esq.',

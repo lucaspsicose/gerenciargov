@@ -20,7 +20,8 @@ $this->setPageTitle('Manutenções');
 	'data'=>$model,
 	'attributes'=>array(
 		'manutencoes_id',
-		'veiculos.veiculo_placa',
+                'veiculos.veiculo_descricao',
+                'veiculos.veiculo_placa',
 		'manutencao_quilometragem',
 		'manutencao_descricao',
 		'manutencao_preco',

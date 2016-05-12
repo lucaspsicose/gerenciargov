@@ -19,7 +19,9 @@ $this->setPageTitle('Checklists de Viagens');
 	'attributes'=>array(
 		'checklist_viagens_id',
 		'viagens_id',
-                'viagems.veiculos.veiculo_placa',
+                'viagens.veiculos.veiculo_descricao',
+                'viagens.veiculos.veiculo_placa',
+                'viagens.motorista.motorista_nome',
 		'buzina',
 		'cinto',
 		'retrovisor_e',
