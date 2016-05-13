@@ -38,6 +38,7 @@ $this->setPageTitle('Abastecimentos');
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
 		'abastecimentos_id',
+                'veiculos.veiculo_descricao',
 		'veiculos.veiculo_placa',
 		'abastecimento_quilometragem',
 		'combustivel.combustivel_nome',

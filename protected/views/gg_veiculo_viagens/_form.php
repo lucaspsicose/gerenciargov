@@ -77,7 +77,7 @@ if (isset($_GET['veiculo'])) {
 
                 <div class="col-md-4">
                     <?php echo $form->labelEx($model,'quilometragem_chegada'); ?>
-                    <?php echo $form->textField($model,'quilometragem_chegada',array('class'=>'form-control', 'maxlength'=>6)); ?>
+                    <?php echo $form->textField($model,'quilometragem_chegada',array('class'=>'form-control', 'maxlength'=>6,'onBlur'=>'calculoKM()')); ?>
                     <?php echo $form->error($model,'quilometragem_chegada'); ?>
                 </div>
 
@@ -87,7 +87,13 @@ if (isset($_GET['veiculo'])) {
                     <?php echo $form->error($model,'hora_chegada'); ?>
                 </div>      
             </div>
-            
+        
+            <div class="form-group field-control">
+                <?php //echo $form->labelEx($model,'quilometragem_rodada'); ?>                
+                <?php //echo $form->textField($model,'quilometragem_rodada',array('value' => $model->quilometragem_chegada - $model->quilometragem_saida,'class'=>'form-control', 'maxlength'=>6, 'readOnly'=>'readOnly')); ?>
+                <?php //echo $form->error($model,'quilometragem_rodada'); ?>
+            </div>
+        
             <div class="form-group field-control">
                 <?php echo $form->labelEx($model,'avaria'); ?>                
                 <?php echo $form->checkBox($model,'avaria'); ?>
@@ -105,7 +111,17 @@ if (isset($_GET['veiculo'])) {
         ?>
 
 <?php $this->endWidget(); ?>
+<script>
+//funçao para aceitar somente letras
+    function calculaKM()
+    {
+            var saida=$model->quilometragem_saida;
+            var chegada=$model->quilometragem_chegada;
+            
+            $model->quilometragem_rodada = chegada - saida;
+    }
 
+</script>
 </div><!-- form -->
 
 <?php 

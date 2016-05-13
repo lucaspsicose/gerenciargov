@@ -18,8 +18,8 @@ $this->setPageTitle('Checklists');
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'check_list_id',
-		'veiculos.veiculo_placa',
+		'veiculos.veiculo_descricao',
+                'veiculos.veiculo_placa',
 		'buzina',
 		'cinto',
 		'retrovisor_e',

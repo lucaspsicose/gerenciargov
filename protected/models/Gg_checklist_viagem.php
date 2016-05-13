@@ -79,7 +79,10 @@ class Gg_checklist_viagem extends CActiveRecord
 		return array(
 			'checklist_viagens_id' => 'Checklist',
 			'viagens_id' => 'Viagem',
-                        'viagens.veiculos.veiculo_placa' => 'Veículo',
+                        'viagens.data_chegada' => 'Viagem Data',
+                        'viagens.veiculos.veiculo_descricao' => 'Veículo',
+                        'viagens.veiculos.veiculo_placa' => 'Placa',
+                        'viagens.motorista.motorista_nome' => 'Motorista',
 			'buzina' => 'Buzina',
 			'cinto' => 'Cinto de Segurança',
 			'retrovisor_e' => 'Retrovisor Esq.',

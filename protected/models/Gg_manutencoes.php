@@ -59,9 +59,10 @@ class Gg_manutencoes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'manutencoes_id' => 'Manutenção',
+			'manutencoes_id' => 'ID',
 			'veiculos_id' => 'Veículo',
-                        'veiculos.veiculo_placa' => 'Veículo',
+                        'veiculos.veiculo_descricao' => 'Veículo',
+                        'veiculos.veiculo_placa' => 'Placa',
 			'manutencao_quilometragem' => 'Quilometragem',
 			'manutencao_descricao' => 'Descrição',
 			'manutencao_preco' => 'Preço',

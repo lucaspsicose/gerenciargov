@@ -39,6 +39,7 @@ $this->setPageTitle('Manutenções');
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
 		'manutencoes_id',
+                'veiculos.veiculo_descricao',
 		'veiculos.veiculo_placa',
 		'manutencao_quilometragem',
 		'manutencao_descricao',

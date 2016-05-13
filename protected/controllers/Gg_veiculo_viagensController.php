@@ -101,6 +101,33 @@ class Gg_veiculo_viagensController extends Controller
 		{
 			$model->attributes=$_POST['Gg_veiculo_viagens'];
 			if($model->save())
+                                if($model->quilometragem_chegada > $model->quilometragem_saida)
+                                {
+                                    //Atualiza a quilometragem do veículo
+                                    $db = new DbExt();
+                                    
+                                    $sql = 'SELECT 
+                                            v.veiculo_quilometragem
+                                            FROM Gg_veiculos    v 
+                                            WHERE v.veiculos_id = '.$model->veiculos_id;
+                                    if ($res = $db->rst($sql)) {
+                                        foreach ($res as $stmt)
+                                    
+                                        $veiculo_quilometragem = $stmt['veiculo_quilometragem']; 
+
+                                        if($model->quilometragem_chegada > $veiculo_quilometragem){
+                                            $params['veiculo_quilometragem']  = $model->quilometragem_chegada;
+                                            $db->updateData('Gg_veiculos', $params, 'veiculos_id', $model->veiculos_id);
+                                        }
+                                    }                                    
+                                    
+                                    //Calcula a quilometragem rodada
+                                    $params2['quilometragem_rodada'] = $model->quilometragem_chegada - $model->quilometragem_saida; 
+                                    $db->updateData('Gg_veiculo_viagens', $params2, 'viagens_id', $model->viagens_id);                                
+                                        
+                                }                               
+                                
+                                
 				$this->redirect(array('view','id'=>$model->viagens_id));
 		}
 
@@ -208,7 +235,8 @@ class Gg_veiculo_viagensController extends Controller
                     vv.destino, 
                     vv.finalidade, 
                     vv.data_chegada, 
-                    vv.quilometragem_chegada, 
+                    vv.quilometragem_chegada,
+                    vv.quilometragem_rodada,
                     vv.hora_chegada, 
                     vv.avaria, 
                     m.motorista_nome, 
@@ -235,6 +263,7 @@ class Gg_veiculo_viagensController extends Controller
                     $finalidade  = $stmt['finalidade'];
                     $data_chegada       = $stmt['data_chegada'];
                     $quilometragem_chegada       = $stmt['quilometragem_chegada'];
+                    $quilometragem_rodada       = $stmt['quilometragem_rodada'];
                     $hora_chegada  = $stmt['hora_chegada'];
                     if($stmt['avaria'] == 1){
                         $avaria    = 'SIM';
@@ -294,7 +323,7 @@ class Gg_veiculo_viagensController extends Controller
                                   </tr>
                                   <tr>
                                     <td><strong>Data Saída</strong></td>
-                                    <td><strong>Quilometragem Saída</strong></td>
+                                    <td><strong>KM Saída</strong></td>
                                     <td><strong>Hora Saída</strong></td>
                                   </tr>
                                   <tr>
@@ -316,13 +345,19 @@ class Gg_veiculo_viagensController extends Controller
                                   </tr>
                                   <tr>
                                     <td><strong>Data Chegada</strong></td>
-                                    <td><strong>Quilometragem Chegada</strong></td>
+                                    <td><strong>KM Chegada</strong></td>
                                     <td><strong>Hora Chegada</strong></td>
                                   </tr>
                                   <tr>
                                     <td>'.$data_chegada.'</td>
                                     <td>'.$quilometragem_chegada.'</td>
                                     <td>'.$hora_chegada.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>KM Rodada</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$quilometragem_rodada.'</td>
                                   </tr>
                                   <tr>
                                     <td colspan="3"><strong>Avarias? </strong>'.$avaria.'</td>

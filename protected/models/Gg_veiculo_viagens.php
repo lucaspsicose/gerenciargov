@@ -14,6 +14,7 @@
  * @property string $finalidade
  * @property string $data_chegada
  * @property integer $quilometragem_chegada
+ * @property integer $quilometragem_rodada
  * @property string $hora_chegada
  * @property integer $avaira
  * @property integer $prefeituras_id
@@ -37,7 +38,7 @@ class Gg_veiculo_viagens extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('veiculos_id, motoristas_id, data_saida, quilometragem_saida, hora_saida, destino, finalidade, prefeituras_id', 'required'),
-			array('veiculos_id, motoristas_id, quilometragem_saida, quilometragem_chegada, avaria', 'numerical', 'integerOnly'=>true),
+			array('veiculos_id, motoristas_id, quilometragem_saida, quilometragem_chegada, quilometragem_rodada, avaria', 'numerical', 'integerOnly'=>true),
 			array('destino, finalidade', 'length', 'max'=>2000),
                         //array('data_saida', 'type', 'type' => 'date', 'message' => '{attribute}: não é uma data!','dateFormat'=>'DD-MM-YYYY'),
 			array('data_chegada, hora_chegada', 'safe'),
@@ -72,16 +73,18 @@ class Gg_veiculo_viagens extends CActiveRecord
 		return array(
 			'viagens_id' => 'Viagem',
 			'veiculos_id' => 'Veículo',
-                        'veiculos.veiculo_placa' => 'Veículo',
+                        'veiculos.veiculo_descricao' => 'Veículo',
+                        'veiculos.veiculo_placa' => 'Placa',
 			'motoristas_id' => 'Motorista',
                         'motorista.motorista_nome' => 'Motorista',
 			'data_saida' => 'Data Saída',
-			'quilometragem_saida' => 'Quilometragem Saída',
+			'quilometragem_saida' => 'KM Saída',
 			'hora_saida' => 'Hora Saída',
 			'destino' => 'Destino',
                         'finalidade' => 'Finalidade',
 			'data_chegada' => 'Data Chegada',
-			'quilometragem_chegada' => 'Quilometragem Chegada',
+			'quilometragem_chegada' => 'km Chegada',
+                        'quilometragem_rodada' => 'km Percorrida',
 			'hora_chegada' => 'Hora Chegada',
                         'avaria' => 'Avarias?',
 		);
@@ -124,6 +127,8 @@ class Gg_veiculo_viagens extends CActiveRecord
 		$criteria->compare('data_chegada',$this->data_chegada,true);
 
 		$criteria->compare('quilometragem_chegada',$this->quilometragem_chegada);
+                
+                $criteria->compare('quilometragem_rodada',$this->quilometragem_rodada);
 
 		$criteria->compare('hora_chegada',$this->hora_chegada,true);
                 

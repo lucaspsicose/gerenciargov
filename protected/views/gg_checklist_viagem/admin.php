@@ -36,8 +36,11 @@ $this->setPageTitle('Checklist de Viagem');
 	'id'=>'gg-checklist-viagem-grid',
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
-		'checklist_viagens_id',
+		//'checklist_viagens_id',
 		'viagens_id',
+                'viagens.veiculos.veiculo_descricao',
+                'viagens.veiculos.veiculo_placa',
+                'viagens.motorista.motorista_nome',
                 'data_alteracao',
 		/*'buzina',
 		'cinto',

@@ -37,7 +37,7 @@ $this->setPageTitle('Checklist');
 	'id'=>'gg-check-list-grid',
 	'dataProvider'=>$model->search(),
 	'columns'=>array(
-		'check_list_id',
+		'veiculos.veiculo_descricao',
 		'veiculos.veiculo_placa',
                 'data_alteracao',
 		/*'buzina',
