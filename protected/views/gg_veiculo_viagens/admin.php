@@ -64,3 +64,23 @@ $this->setPageTitle('Viagens');
             'header'=>'',
             ),
 )); ?>
+
+<div class="btn-base">
+                <?php $this->widget('zii.widgets.CMenu', array(
+                    'htmlOptions' => array('class' => 'btn btn-info controle'),
+                    'encodeLabel' => false,
+                    'items' => array(
+                    array('label' => 'Cadastrar Nova Viagem', 'url'=>array('create')),
+                    ),
+                ));?> 
+</div>
+
+<div class="btn-base">
+                <?php $this->widget('zii.widgets.CMenu', array(
+                    'htmlOptions' => array('class' => 'btn btn-info controle'),
+                    'encodeLabel' => false,
+                    'items' => array(
+                    array('label' => 'Checklist de Viagem', 'url'=>array('gg_checklist_viagem/admin')),
+                    ),
+                ));?> 
+</div>

@@ -1,4 +1,6 @@
 <?php
+$layout='//layouts/column1';
+
 $this->breadcrumbs=array(
 	'Gg Veiculo Viagens'=>array('index'),
 	$model->viagens_id,

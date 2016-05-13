@@ -58,7 +58,7 @@ class Gg_veiculo_viagensController extends Controller
 	 */
 	public function actionView()
 	{
-		$this->render('view',array(
+                $this->render('view',array(
 			'model'=>$this->loadModel(),
 		));
 	}
@@ -173,6 +173,7 @@ class Gg_veiculo_viagensController extends Controller
 	{
 		$model=new Gg_veiculo_viagens('search');
 		$model->unsetAttributes();  // clear any default values
+                $this->layout = '//layouts/column1';
 		if(isset($_GET['Gg_veiculo_viagens']))
 			$model->attributes=$_GET['Gg_veiculo_viagens'];
 
