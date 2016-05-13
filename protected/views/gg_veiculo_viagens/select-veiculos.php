@@ -53,11 +53,11 @@
                                 $status = 'Disponível';
                                 break;
                             case 2:
-                                $cor = '#F2DEDE';
+                                $cor = '#EF5B5B';
                                 $status = 'Em Uso';
                                 break;
                             case 3:
-                                $cor = '#FCF8E3';
+                                $cor = '#FAFD46';
                                 $status = 'Manutenção';
                                 break;
                         }

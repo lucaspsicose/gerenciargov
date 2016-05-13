@@ -44,10 +44,11 @@ class Gg_atendimentos extends CActiveRecord
 		return array(
 			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, '
                             . 'atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, '
-                            . 'data_previsao_servico, data_conclusao_servico, responsavel_servico', 'required'),
+                            . 'data_previsao_servico, data_conclusao_servico', 'required'),
 			array('usuarios_id, secretarias_id, status_id, solicitantes_id, secretarias_origem_id', 'numerical', 'integerOnly'=>true),
 			array('atendimento_protocolo', 'length', 'max'=>50),
                         array('descricao_servico', 'length', 'max'=>150),
+                        array('responsavel_servico', 'length', 'max'=>80),
 			array('atendimento_descricao, atendimento_descricao_status, atendimento_endereco', 'length', 'max'=>2000),
 			array('atendimento_numero', 'length', 'max'=>10),
 			array('atendimento_bairro', 'length', 'max'=>60),
@@ -57,7 +58,7 @@ class Gg_atendimentos extends CActiveRecord
                         array('atendimento_inclusao','default',
                               'value'=>new CDbExpression('NOW()'),
                               'setOnEmpty'=>false,'on'=>'insert'),
-                        //array('data_conclusao_servico, responsavel_servico', 'required', 'on' => 'conclusao'),
+                        array('data_conclusao_servico, responsavel_servico', 'required', 'on' => 'conclusao'),
 			//array('atendimento_alteracao', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -194,15 +195,5 @@ class Gg_atendimentos extends CActiveRecord
                 unset($this->data_previsao_servico);
             }
             return parent::beforeSave();
-        }
-        
-        protected function afterValidate() {
-            
-            if (!$this->isNewRecord) {
-                unset($this->data_previsao_servico);
-            }
-            
-            return parent::afterValidate();
-            
         }
 }

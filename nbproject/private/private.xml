@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>protected/models/Gg_veiculo_viagens.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>10</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_veiculo_viagens.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_solicitantesController.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_veiculo_viagens/view.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_veiculo_viagens/_form.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_secretarias.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_checklist_viagem/_form.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/models/Gg_atendimentos.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/controllers/Gg_atendimentosController.php</file>
-            <file>file:/C:/wamp/www/gerenciargov/assets/css/style.css</file>
-            <file>file:/C:/wamp/www/gerenciargov/protected/views/site/menu.php</file>
+            <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_veiculo_viagens/select-veiculos.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_atendimentos/_form.php</file>
             <file>file:/C:/wamp/www/gerenciargov/protected/views/gg_atendimentos/view.php</file>
         </group>

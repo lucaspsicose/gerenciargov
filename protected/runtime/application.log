@@ -32375,3 +32375,177 @@ in C:\wamp\www\gerenciargov\index.php (13)
 2016/05/11 02:16:22 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
 in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
 in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:25:52 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:25:52 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:25:52 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:26:11 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:26:11 [warning] [application] Failed to set unsafe attribute "responsavel_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:26:11 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:27:03 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/11 02:27:03 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:46:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/05/12 22:47:07 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:47:07 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:48:02 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:48:02 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:48:15 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:48:15 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:48:49 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:48:49 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:50:49 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:50:49 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:55:57 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 22:55:57 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:00:53 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:00:53 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:08:01 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:08:01 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:08:22 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:08:22 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:08:43 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:08:43 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:10:03 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:10:03 [warning] [application] Failed to set unsafe attribute "data_conclusao_servico" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:11:33 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/12 23:11:42 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/13 00:07:28 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.descricao_status' in 'field list'. A declaração SQL executada foi: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    st.status_nome,    p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefone,    so.secretaria_nome as sec_origem,    a.descricao_status,    a.data_conclusao_servico,    a.responsavel_servico,    p.prefeitura_municipio FROM Gg_atendimentos a JOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id) JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    ) JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id) JOIN Gg_secretarias so ON (a.secretarias_origem_id = so.secretarias_id) JOIN Gg_prefeituras  p ON (s.prefeituras_id  = p.prefeituras_id ) JOIN Gg_estados      e ON (e.estados_id      = p.estados_id     ) JOIN Gg_status      st ON (a.status_id       = st.status_id     ) WHERE a.atendimentos_id = 12.
+in C:\wamp\www\gerenciargov\protected\components\DbExt.php (8)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (258)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (212)
+2016/05/13 00:07:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.descricao_status' in 'field list'. The SQL statement executed was: SELECT a.atendimento_protocolo,    a.atendimento_endereco,    a.atendimento_numero,    a.atendimento_bairro,    a.descricao_servico,    a.atendimento_descricao,    a.atendimento_inclusao,    st.status_nome,    p.prefeitura_nome,    p.prefeitura_endereco,    p.prefeitura_numero,    p.prefeitura_telefone,    p.prefeitura_municipio,    e.estado_nome,    s.solicitante_nome,    u.usuario_nome,    sc.secretaria_nome,    s.solicitante_cpf_cnpj,    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefone,    so.secretaria_nome as sec_origem,    a.descricao_status,    a.data_conclusao_servico,    a.responsavel_servico,    p.prefeitura_municipio FROM Gg_atendimentos a JOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id) JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    ) JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id) JOIN Gg_secretarias so ON (a.secretarias_origem_id = so.secretarias_id) JOIN Gg_prefeituras  p ON (s.prefeituras_id  = p.prefeituras_id ) JOIN Gg_estados      e ON (e.estados_id      = p.estados_id     ) JOIN Gg_status      st ON (a.status_id       = st.status_id     ) WHERE a.atendimentos_id = 12' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\components\DbExt.php(8): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(258): DbExt->rst('SELECT a.atendi...')
+#3 C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php(212): Gg_atendimentosController->geraHMTLAtendimento('12')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_atendimentosController->actionImprimir()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('imprimir')
+#14 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_atendimentos...')
+#15 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir/12
+HTTP_REFERER=http://localhost/gerenciargov/gg_atendimentos/12
+---
+2016/05/13 00:15:01 [error] [php] Undefined variable: data_conclusa (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:330)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir/12
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (330)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (212)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/13 00:21:33 [error] [php] Undefined index: data_conclusao_servico (C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php:281)
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): Gg_atendimentosController->runAction()
+#2 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): Gg_atendimentosController->filterAccessControl()
+#5 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): Gg_atendimentosController->runActionWithFilters()
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): Gg_atendimentosController->run()
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\wamp\www\gerenciargov\index.php(13): CWebApplication->run()
+REQUEST_URI=/gerenciargov/gg_atendimentos/imprimir/12
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (281)
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (212)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/13 00:25:02 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/13 00:28:37 [warning] [application] Failed to set unsafe attribute "atendimento_inclusao" of "Gg_atendimentos".
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_atendimentosController.php (117)
+in C:\wamp\www\gerenciargov\index.php (13)

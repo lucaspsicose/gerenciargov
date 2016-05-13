@@ -239,11 +239,22 @@ class Gg_atendimentosController extends Controller
                     . '    u.usuario_nome,'
                     . '    sc.secretaria_nome,'
                     . '    s.solicitante_cpf_cnpj,'
-                    . '    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefone'
+                    . '    coalesce(s.solicitante_celular, s.solicitante_telefone) as telefone,'
+                    . '    so.secretaria_nome as sec_origem,'
+                    . '    a.atendimento_descricao_status,'
+                    . '    CASE '
+                    . '      WHEN a.data_conclusao_servico <> "0000-00-00" THEN'
+                    . '         a.data_conclusao_servico'
+                    . '      ELSE'
+                    . '        "Não Informada"'
+                    . '    END as data_conclusao_servico,'
+                    . '    a.responsavel_servico,'
+                    . '    p.prefeitura_municipio'
                     . ' FROM Gg_atendimentos a'
                     . ' JOIN Gg_solicitantes s ON (a.solicitantes_id = s.solicitantes_id)'
                     . ' JOIN Gg_usuarios     u ON (a.usuarios_id     = u.usuarios_id    )'
                     . ' JOIN Gg_secretarias sc ON (a.secretarias_id  = sc.secretarias_id)'
+                    . ' JOIN Gg_secretarias so ON (a.secretarias_origem_id = so.secretarias_id)'
                     . ' JOIN Gg_prefeituras  p ON (s.prefeituras_id  = p.prefeituras_id )'
                     . ' JOIN Gg_estados      e ON (e.estados_id      = p.estados_id     )'
                     . ' JOIN Gg_status      st ON (a.status_id       = st.status_id     )'
@@ -270,6 +281,11 @@ class Gg_atendimentosController extends Controller
                     $cidade       =$stmt['prefeitura_municipio'];
                     $estado       =$stmt['estado_nome'];
                     $status       =$stmt['status_nome'];
+                    $sec_origem   =$stmt['sec_origem'];
+                    $serv_executado =$stmt['atendimento_descricao_status'];
+                    $data_conclusao =$stmt['data_conclusao_servico'];
+                    $cidade         =$stmt['prefeitura_municipio'];
+                    $responsavel    =$stmt['responsavel_servico'];
                 }
             
                 $htm = '<html>
@@ -277,15 +293,17 @@ class Gg_atendimentosController extends Controller
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         <title>relatório de Atendimento</title>
                         <style>
-                                table {
-                                        font-size: 16px;
-                                        line-height: 30px;
+                                .alinhamento {
+                                        width: 100%;
+                                        padding-left: 20px;
+                                        padding-top: 20px;
+                                        line-height: 60%;
                                 }
                         </style>
                         </head>
 
                         <body>
-                        <div style="width: 100%;">
+                        <div>
                             <div style="float: left">
                                 <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
                         </div>    
@@ -295,63 +313,36 @@ class Gg_atendimentosController extends Controller
                                 <p>Telefone - '.$pref_tel.'</p>
                                 <p>'.$cidade.' - '.$estado.'</p>
                             </div>
-                        <div style="float: left; width:100%">
-                                <hr />
-                                <h1 align="center">Atendimento</h1>
-                                <h1 align="center">Protocolo #'.$protocolo.'</h1>
-                                <hr />
-                        <table width="100%" style="font-size:16px; line-height:30px;">
-                            <tbody>
-                                <tr>
-                                        <td><strong>Servidor</strong></td> 
-                                    <td><strong>Data do Atendimento</strong></td>
-                                    <td><strong>Secretaria</strong></td>
-                                </tr>
-                                <tr>
-                                        <td>'.$servidor.'</td> 
-                                    <td>'.$data.'</td>
-                                    <td>'.$secretaria.'</td>
-                                </tr>
-                                <tr>
-                                        <td colspan="3"><strong>Munícipe</strong></td>
-                                </tr>
-                                <tr>
-                                        <td colspan="3">'.$municipe.'</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong>CPF/CNPJ</strong></td>
-                                    <td colspan="1"><strong>Telefone</strong></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">'.$cpf.'</td>
-                                    <td colspan="1">'.$tel.'</td>
-                                </tr>
-                                <tr>
-                                        <td colspan="2"><strong>Endereço para Atendimento</strong></td>
-                                    <td colspan="1"><strong>Bairro</strong></td>
-                                </tr>
-                                <tr>
-                                        <td colspan="2">'.$endereco.' nº '.$numero.'</td>
-                                    <td colspan="1">'.$bairo.'</td>
-                                </tr>
-                                <tr>
-                                        <td colspan="2"><strong>Serviço</strong></td>
-                                        <td colspan="1"><strong>Status</strong></td>
-                                </tr>
-                                <tr>
-                                        <td colspan="2">'.$servico.'</td>
-                                        <td colspan="1">'.$status.'</td>    
-                                </tr>
-                                <tr>
-                                        <td colspan="3"><strong>Descrição da Solicitação</strong></td>
-                                </tr>
-                                <tr>
-                                        <td colspan="3">'.$descricao.'</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                            </div>
+                        <div class="alinhamento">
+                            <hr />
+                            <h2>Dados do Atendimento</h2>
+                            <p><strong>Protocolo:</strong>'.$protocolo.'</p>
+                            <p><strong>Servidor:</strong>'.$servidor.'</p>
+                            <p><strong>Data do Atendimento:</strong>'.date('d/m/Y', strtotime($data)).'</p>
+                            <p><strong>Secretaria de Origem:</strong>'.$sec_origem.'</p>
+                            <h2>Dados do Munícipe Solicitante</h2>
+                            <p><strong>Nome:</strong>'.$municipe.'</p>
+                            <P><strong>CPF:</strong>'.$cpf.'</P>
+                            <p><strong>Telefone:</strong>'.$tel.'</p>
+                            <h2>Dados da Demanda</h2>
+                            <p><strong>Descrição do Serviço:</strong>'.$servico.'</p>
+                            <p><strong>Endereço para Atendimento:</strong>'.$endereco.' nº '.$numero.'</p>
+                            <p><strong>Bairro:</strong>'.$bairo.'  <strong>Cidade:</strong>'.$cidade.'</p>
+                            <p><strong>Status:</strong>'.$status.'</p>
+                            <p><strong>Secretaria Responsável pelo Atendimento:</strong>'.$secretaria.'</p>
+                            <p><strong>Responsável pela Execução:</strong>'.$responsavel.'</p>
+                            <p><strong>Descrição do Serviço Executado:</strong>'.$serv_executado.'</p>
+                            <p><strong>Data da Conclusão do Serviço:</strong>'.$data_conclusao.'</p>
+                            <br />
+                            <br />
+                            <br />
+                            <hr width="20px" align="center" />
+                            <p align="center">Responsável pela Solicitação</p>
+                            <br />
+                            <br />
+                            <hr width="20px" align="center" />
+                            <p align="center">Responsável pela Execução</p>
+                        </div>
                         </div>  
                         </body>
                         </html>';

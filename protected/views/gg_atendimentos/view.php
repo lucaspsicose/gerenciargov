@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 	$model->atendimentos_id,
 );
 
-if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
+if (($model->secretarias_id == Yii::app()->session['active_secretarias_id']) && (in_array($model->status_id, array('1', '2', '3')))) {
     $this->menu=array(
             array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
             array('label'=>'Novo Atendimento', 'url'=>array('create')),
@@ -20,6 +20,10 @@ if ($model->secretarias_id == Yii::app()->session['active_secretarias_id']) {
 
     if ($model->status_id == 1) {
         $label_botao = 'Despachar Atendimento';        
+    } else if ($model->status_id == 4){
+        $label_botao = 'Finalizado';
+        Yii::app()->clientScript->registerScript('finalizado', "
+        $('.controle').attr('disabled', 'disabled');");        
     } else {
         $label_botao = 'Finalizar Atendimento';
     }
