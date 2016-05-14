@@ -106,6 +106,14 @@ class SiteController extends Controller
 			$model->data=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->login()) {
+                            $db = new DbExt();
+                            $sql = 'update Gg_manut_agenda set alertando = \'SIM\' '
+                                    . 'where manut_agenda_data <= NOW() '
+                                    . 'and manut_agenda_data <> 0000-00-00 '
+                                    . 'and alertando <> \'VISTO\''
+                                    . 'and alertando <> \'SIM\'' ;
+                            $db->qry($sql);
+                            
 				$this->redirect(Yii::app()->user->returnUrl);
                         } 
 		}
@@ -131,6 +139,26 @@ class SiteController extends Controller
                 $result = '';
 
                 $sql = 'SELECT COUNT(atendimentos_id) as quant FROM Gg_atendimentos WHERE status_id = 1 AND secretarias_id = '.$secretarias_id;
+
+                if ($res = $db->rst($sql)) {
+                    foreach ($res as $count) {
+                        $result = $count;
+                    }
+                    return $result['quant'];
+                }
+            } else {            
+                return 0;
+            }
+        }
+        
+        public function getQuantidadeAgenda($prefeituras_id = '')
+        {
+            if ($prefeituras_id != '') {    
+                $db = new DbExt();
+
+                $result = '';
+
+                $sql = 'SELECT COUNT(manut_agendas_id) as quant FROM Gg_manut_agenda WHERE alertando = \'SIM\' AND prefeituras_id = '.$prefeituras_id;
 
                 if ($res = $db->rst($sql)) {
                     foreach ($res as $count) {

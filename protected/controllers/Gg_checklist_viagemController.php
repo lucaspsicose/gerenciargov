@@ -347,7 +347,8 @@ class Gg_checklist_viagemController extends Controller
             $htm = '';
             
             $sql = 'SELECT 
-                    v.veiculo_placa, 
+                    v.veiculo_placa,
+                    v.veiculo_descricao,
                     c.buzina, 
                     c.cinto, 
                     c.retrovisor_e,
@@ -378,14 +379,16 @@ class Gg_checklist_viagemController extends Controller
                     p.prefeitura_municipio,
                     e.estado_nome
                     FROM Gg_checklist_viagem c 
-                    join Gg_veiculos v on (v.veiculos_id = c.veiculos_id)
+                    join Gg_veiculo_viagens vv on (vv.viagens_id = c.viagens_id)
+                    join Gg_veiculos v on (v.veiculos_id = vv.veiculos_id)                    
                     join Gg_prefeituras p on (p.prefeituras_id = c.prefeituras_id)
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
-                    WHERE c.check_list_id = '.$check_list_id;
+                    WHERE c.checklist_viagens_id = '.$checklist_viagem_id;
             
             if ($res = $db->rst($sql)) {
                 foreach ($res as $stmt) 
                     $veiculo_placa = $stmt['veiculo_placa'];
+                    $veiculo_descricao = $stmt['veiculo_descricao'];
                     
                     if($stmt['buzina'] == 1){
                         $buzina = 'Defeito';
@@ -558,7 +561,7 @@ class Gg_checklist_viagemController extends Controller
                                     <td colspan="3"><strong>Veículo</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$veiculo_placa.'</td>
+                                    <td colspan="3">'.substr($veiculo_descricao, 0, 61).' ('.$veiculo_placa.')</td>
                                   </tr>
                                   <tr>
                                     <td><strong>Buzina</strong></td>
@@ -629,7 +632,7 @@ class Gg_checklist_viagemController extends Controller
                                     <td>'.$seta_traseira_e.'</td>
                                     <td>'.$seta_traseira_d.'</td>
                                     <td>'.$vidros.'</td>
-                                  </tr>}
+                                  </tr>
                                   <tr>
                                     <td colspan="3"><strong>Observação</strong></td>
                                   </tr>
@@ -640,7 +643,7 @@ class Gg_checklist_viagemController extends Controller
                                     <td colspan="3"><strong>Data</strong></td>
                                   </tr>
                                   <tr>
-                                    <td colspan="3">'.$data_alteracao.'</td>
+                                    <td>'.date('d/m/Y H:i', strtotime($data_alteracao)).'</td> 
                                   </tr>                                  
                                 </tbody>  
                             </table>

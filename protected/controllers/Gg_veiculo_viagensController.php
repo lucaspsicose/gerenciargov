@@ -124,7 +124,15 @@ class Gg_veiculo_viagensController extends Controller
                                     //Calcula a quilometragem rodada
                                     $params2['quilometragem_rodada'] = $model->quilometragem_chegada - $model->quilometragem_saida; 
                                     $db->updateData('Gg_veiculo_viagens', $params2, 'viagens_id', $model->viagens_id);                                
-                                        
+                                    
+                                    $sql2 = 'update Gg_manut_agenda set alertando = \'SIM\' '
+                                    . 'where manut_agenda_quilometragem <= '.$model->quilometragem_chegada
+                                    . ' and veiculos_id = '.$model->veiculos_id
+                                    . 'and alertando <> \'VISTO\''        
+                                    . ' and alertando <> \'SIM\'' ;
+                                    
+                                    $db->qry($sql2);
+                                    
                                 }                               
                                 
                                 
@@ -241,7 +249,8 @@ class Gg_veiculo_viagensController extends Controller
                     vv.hora_chegada, 
                     vv.avaria, 
                     m.motorista_nome, 
-                    v.veiculo_placa, 
+                    v.veiculo_placa,
+                    v.veiculo_descricao,
                     p.prefeitura_nome, 
                     p.prefeitura_endereco, 
                     p.prefeitura_numero, 
@@ -274,6 +283,7 @@ class Gg_veiculo_viagensController extends Controller
                     
                     $motorista_nome     = $stmt['motorista_nome'];
                     $veiculo_placa   = $stmt['veiculo_placa'];
+                    $veiculo_descricao   = $stmt['veiculo_descricao'];
                     $prefeitura_nome = $stmt['prefeitura_nome'];
                     $prefeitura_endereco= $stmt['prefeitura_endereco'];
                     $prefeitura_numero=$stmt['prefeitura_numero'];
@@ -318,7 +328,7 @@ class Gg_veiculo_viagensController extends Controller
                                     <td><strong>Motorista</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$veiculo_placa.'</td>
+                                    <td>'.substr($veiculo_descricao, 0, 31).' ('.$veiculo_placa.')</td>
                                     <td></td>
                                     <td>'.$motorista_nome.'</td>
                                   </tr>
@@ -328,7 +338,7 @@ class Gg_veiculo_viagensController extends Controller
                                     <td><strong>Hora Saída</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$data_saida.'</td>
+                                    <td>'.date('d/m/Y', strtotime($data_saida)).'</td>    
                                     <td>'.$quilometragem_saida.'</td>
                                     <td>'.$hora_saida.'</td>
                                   </tr>
@@ -350,7 +360,7 @@ class Gg_veiculo_viagensController extends Controller
                                     <td><strong>Hora Chegada</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$data_chegada.'</td>
+                                    <td>'.date('d/m/Y', strtotime($data_chegada)).'</td>    
                                     <td>'.$quilometragem_chegada.'</td>
                                     <td>'.$hora_chegada.'</td>
                                   </tr>

@@ -1,6 +1,6 @@
 <?php
 
-class Gg_manutencoesController extends Controller
+class Gg_manut_agendaController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -47,6 +47,10 @@ class Gg_manutencoesController extends Controller
                                 'actions'=>array('imprimir'),
                                 'users'=>array('@'),
                          ),
+                         array('allow',
+                                'actions'=>array('visto'),
+                                'users'=>array('@'),
+                         ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -69,16 +73,16 @@ class Gg_manutencoesController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Gg_manutencoes;
+		$model=new Gg_manut_agenda;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_manutencoes']))
+		if(isset($_POST['Gg_manut_agenda']))
 		{
-			$model->attributes=$_POST['Gg_manutencoes'];
+			$model->attributes=$_POST['Gg_manut_agenda'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->manutencoes_id));
+				$this->redirect(array('view','id'=>$model->manut_agendas_id));
 		}
 
 		$this->render('create',array(
@@ -97,11 +101,11 @@ class Gg_manutencoesController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_manutencoes']))
+		if(isset($_POST['Gg_manut_agenda']))
 		{
-			$model->attributes=$_POST['Gg_manutencoes'];
+			$model->attributes=$_POST['Gg_manut_agenda'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->manutencoes_id));
+				$this->redirect(array('view','id'=>$model->manut_agendas_id));
 		}
 
 		$this->render('update',array(
@@ -133,7 +137,7 @@ class Gg_manutencoesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Gg_manutencoes');
+		$dataProvider=new CActiveDataProvider('Gg_manut_agenda');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -144,10 +148,10 @@ class Gg_manutencoesController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Gg_manutencoes('search');
+		$model=new Gg_manut_agenda('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Gg_manutencoes']))
-			$model->attributes=$_GET['Gg_manutencoes'];
+		if(isset($_GET['Gg_manut_agenda']))
+			$model->attributes=$_GET['Gg_manut_agenda'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -163,7 +167,7 @@ class Gg_manutencoesController extends Controller
 		if($this->_model===null)
 		{
 			if(isset($_GET['id']))
-				$this->_model=Gg_manutencoes::model()->findbyPk($_GET['id']);
+				$this->_model=Gg_manut_agenda::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
@@ -176,117 +180,97 @@ class Gg_manutencoesController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-manutencoes-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-manut-agenda-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
         
+        public function actionVisto() {
+            if (isset($_GET['id'])) {
+                $model = Gg_manut_agenda::model()->findByPk($_GET['id']);
+                $txt = $this->renderPartial('view', array('model' => $model), true);
+                $manut_agenda_id = $_GET['id'];
+                
+                $db = new DbExt();
+                $params['alertando'] = 'VISTO'; 
+                $db->updateData('Gg_manut_agenda', $params, 'manut_agendas_id', $manut_agenda_id);
+                $this->redirect(array('view','id'=>$model->manut_agendas_id));
+            }
+        }
+        
         public function actionImprimir() {
             if (isset($_GET['id'])) {
-                $model = Gg_manutencoes::model()->findByPk($_GET['id']);
+                $model = Gg_manut_agenda::model()->findByPk($_GET['id']);
                 $txt = $this->renderPartial('view', array('model' => $model), true);
-                $manutencoes_id = $_GET['id'];
+                $manut_agenda_id = $_GET['id'];
                 $html2pdf = Yii::app()->ePdf->HTML2PDF();
-                $txt      = $this->geraHMTLManutencao($manutencoes_id);
+                $txt      = $this->geraHMTLManut_Agenda($manut_agenda_id);
                 $html2pdf->WriteHTML($txt);                
                 $html2pdf->Output();
             }
         }
         
-        public function  geraHMTLManutencao($manutencoes_id = '') 
+        public function  geraHMTLManut_Agenda($manut_agenda_id = '') 
         {   
             $db = new DbExt();
             
-            $htm = '';
+            $html = Yii::app()->functions->getCabecalhoRelatorios(); 
             
             $sql = 'SELECT v.veiculo_placa,
                     v.veiculo_descricao,
-                    m.manutencao_quilometragem, 
-                    m.manutencao_descricao, 
-                    m.manutencao_preco, 
-                    m.manutencao_data, 
-                    p.prefeitura_nome, 
-                    p.prefeitura_endereco, 
-                    p.prefeitura_numero, 
-                    p.prefeitura_telefone,
-                    p.prefeitura_municipio,
-                    e.estado_nome
-                    FROM Gg_manutencoes m
+                    m.manut_agenda_descricao, 
+                    m.manut_agenda_data, 
+                    m.manut_agenda_quilometragem, 
+                    m.alertando
+                    FROM Gg_manut_agenda m
                     join Gg_veiculos    v on (v.veiculos_id = m.veiculos_id)
-                    join Gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
-                    JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
-                    WHERE m.manutencoes_id = '.$manutencoes_id;
+                    WHERE m.manut_agendas_id = '.$manut_agenda_id;
             
             if ($res = $db->rst($sql)) {
                 foreach ($res as $stmt) {
-                    $veiculo_placa             = $stmt['veiculo_placa'];
-                    $veiculo_descricao         = $stmt['veiculo_descricao'];
-                    $manutencao_quilometragem  = $stmt['manutencao_quilometragem'];
-                    $manutencao_descricao      = $stmt['manutencao_descricao'];
-                    $manutencao_preco          = $stmt['manutencao_preco'];
-                    $manutencao_data           = $stmt['manutencao_data'];
-                    $prefeitura_nome           = $stmt['prefeitura_nome'];
-                    $prefeitura_endereco       = $stmt['prefeitura_endereco'];
-                    $prefeitura_numero         = $stmt['prefeitura_numero'];
-                    $prefeitura_telefone       = $stmt['prefeitura_telefone'];
-                    $prefeitura_municipio      = $stmt['prefeitura_municipio'];
-                    $estado_nome               = $stmt['estado_nome'];
+                    $veiculo_placa              = $stmt['veiculo_placa'];
+                    $veiculo_descricao              = $stmt['veiculo_descricao'];
+                    $manut_agenda_descricao     = $stmt['manut_agenda_descricao'];
+                    $manut_agenda_data          = $stmt['manut_agenda_data'];
+                    $manut_agenda_quilometragem = $stmt['manut_agenda_quilometragem'];
+                    $alertando                  = $stmt['alertando'];;
                 }
             
-                $htm = '<html>
-                        <head>
-                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <title>relatório de Manutenção</title>
-                        <style>
-                                table {
-                                        font-size: 16px;
-                                        line-height: 30px;
-                                }
-                        </style>
-                        </head>
-
-                        <body>
-                        <div style="width: 100%;">
-                            <div style="float: left">
-                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
-                        </div>    
-                            <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
-                                <h2 align="center">'.$prefeitura_nome.'</h2>
-                                <p>'.$prefeitura_endereco.' nº '.$prefeitura_numero.'</p>
-                                <p>Telefone - '.$prefeitura_telefone.'</p>
-                                <p>'.$prefeitura_municipio.' - '.$estado_nome.'</p>
-                            </div>
-                        <div style="float: left; width:100%">
+                $html .= '<div style="float: left; width:100%">
                                 <hr />
-                                    <h1 align="center">Manutenção #'.$manutencoes_id.'</h1>
+                                    <h1 align="center">Agendamento #'.$manut_agenda_id.'</h1>
 				<hr />
                          
                             <table width="100%" style="font-size:16px; line-height:30px;">
                                 <tbody>
                                   <tr>
                                     <td><strong>Veículo</strong></td>
-                                    <td><strong>Quilometragem</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.substr($veiculo_descricao, 0, 31).' ('.$veiculo_placa.')</td>
-                                    <td>'.$manutencao_quilometragem.'</td>
+                                    <td>'.substr($veiculo_descricao, 0, 61).' ('.$veiculo_placa.')</td>                                        
                                   </tr>      
                                   <tr>
-                                    <td colspan="2"><strong>Descrição</strong></td>
+                                    <td><strong>Descrição</strong></td>
                                   </tr>
                                   <tr>
-                                    <td colspan="2">'.$manutencao_descricao.'</td>
+                                    <td>'.substr($manut_agenda_descricao, 0, 71).'</td>    
                                   </tr>
                                   <tr>
-                                    <td><strong>Preço</strong></td>
+                                    <td><strong>Quilometragem</strong></td>
                                     <td><strong>Data</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$manutencao_preco.'</td>
-                                    <td>'.date('d/m/Y', strtotime($manutencao_data)).'</td>    
-                                  </tr>   
+                                    <td>'.$manut_agenda_quilometragem.'</td>
+                                    <td>'.date('d/m/Y', strtotime($manut_agenda_data)).'</td>   
+                                  </tr>  
+                                  <tr>
+                                    <td><strong>Em Alerta?</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$alertando.'</td>
+                                  </tr>
                                 </tbody>  
                             </table>
                         </div>
@@ -295,6 +279,7 @@ class Gg_manutencoesController extends Controller
                         </html>';
             } 
             
-            return $htm;
+            return $html;
         }
+
 }

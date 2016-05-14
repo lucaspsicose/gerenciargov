@@ -108,7 +108,11 @@ $('#viagens').click(function(){
                     </a>
                     <a href="<?php echo $this->createUrl('gg_manutencoes/admin') ?>" class="btn btn-app">
                         <i class="fa fa-wrench"></i> Manutenções
-                    </a>                 
+                    </a>
+                    <a href="<?php echo $this->createUrl('gg_manut_agenda/admin') ?>" class="btn btn-app">
+                        <span class="badge bg-red"><?php echo SiteController::getQuantidadeAgenda(Yii::app()->session['active_prefeituras_id']) ?></span>
+                        <i class="fa fa-calendar"></i> Agenda de Manutenções
+                    </a>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>

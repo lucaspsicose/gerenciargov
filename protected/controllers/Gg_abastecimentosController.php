@@ -201,7 +201,8 @@ class Gg_abastecimentosController extends Controller
             
             $html = Yii::app()->functions->getCabecalhoRelatorios(); 
             
-            $sql = 'SELECT v.veiculo_placa, 
+            $sql = 'SELECT v.veiculo_placa,
+                v.veiculo_descricao,
                 a.abastecimento_quilometragem, 
                 c.combustivel_nome, 
                 a.abastecimento_litro, 
@@ -215,6 +216,7 @@ class Gg_abastecimentosController extends Controller
             if ($res = $db->rst($sql)) {
                 foreach ($res as $stmt) {
                     $veiculo_placa                = $stmt['veiculo_placa'];
+                    $veiculo_descricao            = $stmt['veiculo_descricao'];
                     $abastecimento_quilometragem  = $stmt['abastecimento_quilometragem'];
                     $combustivel_nome             = $stmt['combustivel_nome'];
                     $abastecimento_litro          = $stmt['abastecimento_litro'];
@@ -234,7 +236,7 @@ class Gg_abastecimentosController extends Controller
                                     <td><strong>Quilometragem</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$veiculo_placa.'</td>
+                                    <td>'.substr($veiculo_descricao, 0, 61).' ('.$veiculo_placa.')</td>
                                     <td>'.$abastecimento_quilometragem.'</td>
                                   </tr>      
                                   <tr>
@@ -251,7 +253,7 @@ class Gg_abastecimentosController extends Controller
                                   </tr>
                                   <tr>
                                     <td>'.$abastecimento_preco.'</td>
-                                    <td>'.$abastecimento_data.'</td>
+                                    <td>'.date('d/m/Y', strtotime($abastecimento_data)).'</td>    
                                   </tr>   
                                 </tbody>  
                             </table>
