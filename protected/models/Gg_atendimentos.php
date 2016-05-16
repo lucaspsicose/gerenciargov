@@ -44,7 +44,7 @@ class Gg_atendimentos extends CActiveRecord
 		return array(
 			array('usuarios_id, secretarias_id, atendimento_protocolo, status_id, atendimento_descricao, solicitantes_id, '
                             . 'atendimento_endereco, atendimento_numero, atendimento_bairro, secretarias_origem_id, '
-                            . 'data_previsao_servico, data_conclusao_servico', 'required'),
+                            . 'data_previsao_servico', 'required'),
 			array('usuarios_id, secretarias_id, status_id, solicitantes_id, secretarias_origem_id', 'numerical', 'integerOnly'=>true),
 			array('atendimento_protocolo', 'length', 'max'=>50),
                         array('descricao_servico', 'length', 'max'=>150),
