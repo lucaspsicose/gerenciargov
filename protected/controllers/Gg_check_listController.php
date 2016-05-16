@@ -211,6 +211,7 @@ class Gg_check_listController extends Controller
             
             $sql = 'SELECT 
                     v.veiculo_placa, 
+                    v.veiculo_descricao, 
                     c.buzina, 
                     c.cinto, 
                     c.retrovisor_e,
@@ -249,6 +250,7 @@ class Gg_check_listController extends Controller
             if ($res = $db->rst($sql)) {
                 foreach ($res as $stmt) 
                     $veiculo_placa = $stmt['veiculo_placa'];
+                    $veiculo_descricao = $stmt['veiculo_descricao'];
                     
                     if($stmt['buzina'] == 1){
                         $buzina = 'Defeito';
@@ -418,10 +420,10 @@ class Gg_check_listController extends Controller
                             <table width="100%" style="font-size:16px; line-height:30px;">
                                 <tbody>
                                   <tr>
-                                    <td colspan="3"><strong>Veículo</strong></td>
+                                    <td colspan="3"><strong> Veículo</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$veiculo_placa.'</td>
+                                    <td colspan="3">'.substr($veiculo_descricao, 0, 61).' ('.$veiculo_placa.')</td>
                                   </tr>
                                   <tr>
                                     <td><strong>Buzina</strong></td>
@@ -492,7 +494,7 @@ class Gg_check_listController extends Controller
                                     <td>'.$seta_traseira_e.'</td>
                                     <td>'.$seta_traseira_d.'</td>
                                     <td>'.$vidros.'</td>
-                                  </tr>}
+                                  </tr>
                                   <tr>
                                     <td colspan="3"><strong>Observação</strong></td>
                                   </tr>
@@ -503,7 +505,7 @@ class Gg_check_listController extends Controller
                                     <td colspan="3"><strong>Data</strong></td>
                                   </tr>
                                   <tr>
-                                    <td colspan="3">'.$data_alteracao.'</td>
+                                    <td>'.date('d/m/Y H:i', strtotime($data_alteracao)).'</td>    
                                   </tr>                                  
                                 </tbody>  
                             </table>

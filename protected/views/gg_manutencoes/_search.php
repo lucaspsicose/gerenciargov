@@ -22,7 +22,7 @@
 
 	<div class="form-group">
 		<?php echo $form->label($model,'manutencao_descricao'); ?>
-		<?php echo $form->textField($model,'manutencao_descricao',array('class'=>'form-control','size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'manutencao_descricao',array('class'=>'form-control','size'=>60,'maxlength'=>2000)); ?>
 	</div>
 
 	<div class="form-group">

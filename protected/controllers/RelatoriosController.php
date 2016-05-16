@@ -177,6 +177,18 @@ class RelatoriosController extends Controller
             }
     }
     
+    public function actionAgenda()
+    {
+        if (isset($_GET['Filtros'])) {
+                $filtros = array();
+                $filtros = $_GET['Filtros'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->getAgenda($filtros);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+    }
+    
     public function getAniversariantesMes($mes_aniversario = '')
     {
         $db = new DbExt();
@@ -1411,6 +1423,128 @@ class RelatoriosController extends Controller
             </body>
         </html>';
         
+        
+        return $html;
+    }
+    
+    public function getAgenda($filtros)
+    {
+        $db = new DbExt();
+        
+        $veiculo = '';//$filtros['veiculos_id'];
+        $data      = '';//$filtros['manut_agenda_data'];
+        $quilometragem = '';//$filtros['manut_agenda_quilometragem'];
+        $alertando = '';//$filtros['alertando'];
+        
+        $sql = 'SELECT v.veiculos_id,'
+                . '    v.veiculo_descricao,'
+                . '    v.veiculo_placa'
+                . ' FROM Gg_manut_agenda m '
+                . ' JOIN Gg_veiculos v ON (v.veiculos_id = m.veiculos_id)'
+                . ' WHERE m.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'];
+        
+        $params = '';
+       
+        if ($veiculo != '') {
+            $params .= ' AND v.veiculos_id = '.$veiculo;
+        }
+        
+        if ($data != '') {
+            $params .= " AND CAST(m.manut_agenda_data as DATE) = '".date('Y-m-d', strtotime($data))."'";
+        }
+        
+        if ($quilometragem != '') {
+            $params .= ' AND m.manut_agenda_quilometragem = '.$quilometragem;
+        }
+        
+        if ($alertando != '') {
+            $params .= ' AND m.alertando = '.$alertando;
+        }
+        
+        $sql .= $params;
+        
+        $sql .= ' GROUP BY v.veiculo_placa';
+        
+        $sql .= ' ORDER BY v.veiculo_descricao, v.veiculo_placa';
+        
+        $html = Yii::app()->functions->getCabecalhoRelatorios();
+        
+        $html .= '<div style="float: left; width:100%">
+                 <hr><h2 align="center">Agenda de Manutenções Por Veiculos</h2>';
+        
+        if ($res = $db->rst($sql)) {
+            foreach ($res as $value) {
+                $html .= '<table>
+                            <thead>
+                                <tr>
+                                        <td colspan="4"><h3>'.substr($value['veiculo_descricao'], 0, 31).' ('.$value['veiculo_placa'].')</h3></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="500px"><strong>Descrição</strong></td>
+                                    
+                                    <td width="90px"><strong>Quilometragem</strong></td>
+                                    <td width="40px"><strong>Data</strong></td>
+                                    <td width="60px"><strong>Alerta</strong></td>
+                                </tr>';
+                
+                $html .= $this->getConteudoRelatoriosAgenda($value['veiculos_id'], $params);
+                
+                $html .=  '</tbody></table>';
+            }
+        } 
+         
+        $html .= '</div>
+                </div>  
+            </body>
+        </html>';
+        
+        return $html;
+    }
+    
+    public function getConteudoRelatoriosAgenda($veiculos_id = '', $params = '')
+    {
+        $db = new DbExt();
+        
+        $sql =  "SELECT m.manut_agenda_descricao, 
+                        m.manut_agenda_data, 
+                        m.manut_agenda_quilometragem, 
+                        m.alertando                        
+                  FROM Gg_manut_agenda m
+                  JOIN Gg_veiculos v ON (m.veiculos_id = v.veiculos_id )
+                  WHERE 1 = 1
+                    AND v.veiculos_id = ".$veiculos_id;
+        
+        $sql .= $params;
+        
+        $sql .= " ORDER BY m.manut_agendas_id";
+        
+        $html = '';
+        
+        $i = 0;
+       
+        if ($res = $db->rst($sql)) {
+            foreach ($res as $value) {
+                if($value['manut_agenda_data'] == '0000-00-00'){
+                    $data_agenda = '';
+                }else{
+                    $data_agenda = date('d/m/Y', strtotime($value['manut_agenda_data']));
+                } 
+                if (($i % 2) != 0) {                    
+                $html .= '<tr>';
+                } else {
+                    $html .= '<tr style="background-color: #CCC;">';
+                }
+                $html .=  '<td>'.substr($value['manut_agenda_descricao'], 0, 71).'</td>
+                           <td>'.$value['manut_agenda_quilometragem'].'</td>    
+                           <td>'.$data_agenda.'</td>
+                           <td>'.$value['alertando'].'</td>'
+                        . '</tr>';
+                
+                $i++;
+            }
+        }
         
         return $html;
     }

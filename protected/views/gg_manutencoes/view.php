@@ -9,6 +9,7 @@ $this->menu=array(
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->manutencoes_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->manutencoes_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->manutencoes_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro desta Manutenção?'))),
 	array('label'=>'Lista de Manutenções', 'url'=>array('admin')),
+        array('label'=>'Agenda', 'url'=>array('gg_manut_agenda/admin')),
         array('label'=>'Checklist', 'url'=>array('gg_check_list/admin')),
 );
 $this->setPageTitle('Manutenções');
