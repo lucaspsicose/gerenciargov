@@ -57,7 +57,7 @@ $('#viagens').click(function(){
                         </a>
                     <?php endif; ?>
                     <a href="#" id="viagens" class="btn btn-app">
-                        <i class="fa fa-truck"></i> Viagens
+                        <i class="fa fa-truck"></i> Controle de Frota
                     </a>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

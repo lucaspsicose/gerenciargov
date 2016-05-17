@@ -19,7 +19,21 @@ class RelatoriosController extends Controller
     {
         $this->render('main');
     }
-
+    
+    public function actionMain()
+    {
+        $this->render('main');
+    }
+    
+    public function actionAtendimentos() 
+    {
+        $this->render('relatorios_atendimentos');
+    }
+    
+    public function actionViagens()
+    {
+        $this->render('relatorios_viagens');
+    }
 
     public function actionAniversariantes() 
     {   
