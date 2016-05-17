@@ -57,4 +57,5 @@ $('.search-form form').submit(function(){
             'htmlOptions'=> array('class'=>'pagination'),
             'header'=>'',
             ),
-)); ?>
+));
+?>

@@ -299,13 +299,17 @@ class Gg_atendimentosController extends Controller
                                         padding-top: 20px;
                                         line-height: 60%;
                                 }
+                                hr {
+                                    padding-bottom: 0;
+                                    margin-bottom: 0;
+                                }
                         </style>
                         </head>
 
                         <body>
                         <div>
                             <div style="float: left">
-                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
+                                <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="200" height="82" />
                         </div>    
                             <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
                                 <h2 align="center">'.$prefeitura.'</h2>
@@ -315,17 +319,17 @@ class Gg_atendimentosController extends Controller
                             </div>
                         <div class="alinhamento">
                             <hr />
-                            <h2>Dados do Atendimento</h2>
+                            <h3>Dados do Atendimento</h3>
                             <p><strong>Protocolo:</strong>'.$protocolo.'</p>
                             <p><strong>Servidor:</strong>'.$servidor.'</p>
                             <p><strong>Data do Atendimento:</strong>'.date('d/m/Y', strtotime($data)).'</p>
                             <p><strong>Secretaria de Origem:</strong>'.$sec_origem.'</p>
-                            <h2>Dados do Munícipe Solicitante</h2>
+                            <h3>Dados do Munícipe Solicitante</h3>
                             <p><strong>Nome:</strong>'.$municipe.'</p>
                             <P><strong>CPF:</strong>'.$cpf.'</P>
                             <p><strong>Telefone:</strong>'.$tel.'</p>
-                            <h2>Dados da Demanda</h2>
-                            <p><strong>Descrição do Serviço:</strong>'.$servico.'</p>
+                            <h3>Dados da Demanda</h3>
+                            <p><strong>Descrição do Serviço:</strong>'.$descricao.'</p>
                             <p><strong>Endereço para Atendimento:</strong>'.$endereco.' nº '.$numero.'</p>
                             <p><strong>Bairro:</strong>'.$bairo.'  <strong>Cidade:</strong>'.$cidade.'</p>
                             <p><strong>Status:</strong>'.$status.'</p>
@@ -336,12 +340,16 @@ class Gg_atendimentosController extends Controller
                             <br />
                             <br />
                             <br />
-                            <hr width="20px" align="center" />
-                            <p align="center">Responsável pela Solicitação</p>
+                            <!--<hr width="20px" align="center" />-->
+                            <p align="center">___________________________________________<br /><br />
+                                <strong>'.$municipe.'</strong><br /><br />
+                                Responsável pela Solicitação</p>
                             <br />
                             <br />
-                            <hr width="20px" align="center" />
-                            <p align="center">Responsável pela Execução</p>
+                            <!--<hr width="20px" align="center" />-->
+                            <p align="center">___________________________________________<br /><br />
+                                <strong>'.$servidor.'</strong><br /><br />
+                                Responsável pelo Atendimento</p>
                         </div>
                         </div>  
                         </body>
