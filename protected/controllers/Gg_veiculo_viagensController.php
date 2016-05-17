@@ -319,7 +319,7 @@ class Gg_veiculo_viagensController extends Controller
                                 <p>'.$cidade.' - '.$estado.'</p>
                             </div>
                                 <hr />
-                                <h2>Viagem #'.$viagens_id.'</h2>                            
+                                <h2 align="center">Relatório de Viagem</h2>                            
                                 <p><strong>Veículo:</strong> '.substr($veiculo_descricao, 0, 31).' ('.$veiculo_placa.')
                                    <strong>Motorista:</strong> '.$motorista_nome.
                                 '</p>
