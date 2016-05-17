@@ -3,15 +3,25 @@ $this->breadcrumbs=array(
 	'Gg Veiculo Viagens'=>array('index'),
 	$model->viagens_id,
 );
-
-$this->menu=array(
+if ($model->quilometragem_chegada == '' || $model->data_chegada == '0000-00-00') {
+    $this->menu=array(
 	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create','fechar'=>false)),
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->viagens_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->viagens_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->viagens_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro desta Viagem?'))),
         array('label'=>'Lista de Viagens', 'url'=>array('admin')),
         array('label'=>'Checklist de Viagem', 'url'=>array('gg_checklist_viagem/admin')),
     
-);
+    );
+}else{
+    $this->menu=array(
+	array('label'=>'Cadastrar Nova Viagem', 'url'=>array('create','fechar'=>false)),
+	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->viagens_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->viagens_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro desta Viagem?'))),
+        array('label'=>'Lista de Viagens', 'url'=>array('admin')),
+        array('label'=>'Checklist de Viagem', 'url'=>array('gg_checklist_viagem/admin')),
+    
+    );
+}
+
 $this->setPageTitle('Viagens');
 ?>
 
@@ -45,7 +55,7 @@ $this->setPageTitle('Viagens');
                 'htmlOptions' => array('class' => 'btn btn-info'),
                 'encodeLabel' => false,
                 'items' => array(
-                array('label' => 'Imprimir', 'url' => array('imprimir', 'id' => $model->viagens_id), 'linkOptions' => array('target' => '_blank')),
+                array('label' => 'Imprimir Parte Diária', 'url' => array('imprimir', 'id' => $model->viagens_id), 'linkOptions' => array('target' => '_blank')),
                 ),
             ));?>        
     </div>
@@ -61,8 +71,16 @@ $this->setPageTitle('Viagens');
     } else {
         Yii::app()->clientScript->registerScript('controle', "
         $('.controle').attr('disabled', 'disabled');");
-    } ?>
-        
+    }
+    
+    if ($model->quilometragem_chegada == '' || $model->data_chegada == '0000-00-00') {
+        Yii::app()->clientScript->registerScript('finalizar', "
+        $('.finalizar').removeAttr('disabled');");
+    } else {
+        Yii::app()->clientScript->registerScript('finalizar', "
+        $('.finalizar').attr('disabled', 'disabled');");
+    }
+    ?>       
         
         <div class="btn-base">
                 <?php $this->widget('zii.widgets.CMenu', array(
@@ -76,7 +94,7 @@ $this->setPageTitle('Viagens');
         
         <div class="btn-base">
             <?php $this->widget('zii.widgets.CMenu', array(
-                    'htmlOptions' => array('class' => 'btn btn-info'),
+                    'htmlOptions' => array('class' => 'btn btn-info finalizar'),
                     'encodeLabel' => false,
                     'items' => array(
                     array('label' => 'Finalizar Viagem', 'url' => array('update', 'id'=>$model->viagens_id)),
