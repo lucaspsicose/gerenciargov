@@ -32,7 +32,7 @@
 
 	<div class="form-group">
 		<?php echo $form->label($model,'alertando'); ?>
-                <?php echo $form->dropdownlist($model,'alertando' ,array('NÃO' => 'NÃO', 'SIM' => 'SIM'),array('class'=>'form-control', 'empty' => ''));?>
+                <?php echo $form->dropdownlist($model,'alertando' ,array('NÃO' => 'NÃO', 'SIM' => 'SIM', 'VISTO' => 'VISTO'),array('class'=>'form-control', 'empty' => ''));?>
 	</div>
 
 	<?php echo CHtml::submitButton('Pesquisar', array('class'=>'btn btn-default')); ?>

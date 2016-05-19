@@ -58,6 +58,15 @@
 		<?php echo $form->textField($model,'veiculo_modelo',array('class'=>'form-control', 'size'=>60,'maxlength'=>80)); ?>
 		<?php echo $form->error($model,'veiculo_modelo'); ?>
 	</div>
+        
+        <?php if (!$model->isNewRecord) : ?>
+            <div class="form-group field-control">
+		<?php echo $form->label($model,'status_veiculos_id'); ?>
+                <?php echo $form->dropdownlist($model, 'status_veiculos_id', CHtml::listData(Gg_status_veiculos::model()->findAll(array('order'=>'status_veiculos_id')), 'status_veiculos_id', 'status_nome'), array('class'=>'form-control')); ?>
+		<?php echo $form->error($model,'status_veiculos_id'); ?>
+            </div>
+            
+        <?php endif; ?>
 
 	<div class="form-group row buttons">
             <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>
