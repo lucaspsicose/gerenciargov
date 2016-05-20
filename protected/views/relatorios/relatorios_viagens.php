@@ -35,7 +35,7 @@ $this->menu=array(
           <div class="tab-content tasi-tab">
             <div id="relatorios" class="tab-pane fade in active">
                 <h3>Aqui o Título do Relatório</h3>
-                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporsolicitantes'), 'get'); //Aqui o inicio do form e o Action ?>
+                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporsolicitantes'), 'get', array('target'=>'_blank')); //Aqui o inicio do form e o Action ?>
                 <!-- Aqui começam os filtros  -->
     
                 <div class="form-group col-md-6">

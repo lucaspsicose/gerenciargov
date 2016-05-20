@@ -38,9 +38,7 @@ class RelatoriosController extends Controller
     public function actionAniversariantes() 
     {   
         if (isset($_GET['mes'])) {
-                //require('/../vendors/html2pdf/html2pdf.class.php');
                 $mes_aniversario = $_GET['mes'];
-                //$html2pdf = new HTML2PDF('P', 'A4', 'pt');//Yii::app()->ePdf->HTML2PDF();
                 $html2pdf = Yii::app()->ePdf->HTML2PDF();
                 $txt      = $this->getAniversariantesMes($mes_aniversario);
                 $html2pdf->WriteHTML($txt);                

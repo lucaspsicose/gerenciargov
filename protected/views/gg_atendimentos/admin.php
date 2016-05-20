@@ -4,6 +4,8 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
+$this->layout = '//layouts/column2_with_charts';
+
 $this->menu=array(
 	array('label'=>'Lista de Atendimentos', 'url'=>array('admin')),
 	array('label'=>'Novo Atendimento', 'url'=>array('create')),

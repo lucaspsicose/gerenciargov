@@ -41,7 +41,8 @@ if (($model->secretarias_id == Yii::app()->session['active_secretarias_id']) && 
 	'attributes'=>array(
 		'atendimento_protocolo',
 		'usuarios.usuario_nome',
-		'secretarias.secretaria_nome',
+                'secretarias.secretaria_nome',
+                'sec_origem.secretaria_nome',
 		'status.status_nome',
 		'atendimento_descricao_status',
 		'atendimento_inclusao',

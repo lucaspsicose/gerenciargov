@@ -35,7 +35,7 @@ $this->menu=array(
           <div class="tab-content tasi-tab">
             <div id="relatorios" class="tab-pane fade in active">
                 <h3>Atendimentos Por Munícipes</h3>
-                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporsolicitantes'), 'get'); ?>
+                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporsolicitantes'), 'get', array('target'=>'_blank')); ?>
     
                 <div class="form-group col-md-6">
                     <?php echo CHtml::label('Secretaria', 'Filtros[secretarias_id]'); ?>
@@ -65,7 +65,7 @@ $this->menu=array(
             </div>
             <div id="porSecretarias" class="tab-pane fade">
                 <h3>Atendimentos Por Secretarias</h3>
-                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporsecretarias'), 'get'); ?>
+                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporsecretarias'), 'get', array('target'=>'_blank')); ?>
     
                 <div class="form-group col-md-6">
                     <?php echo CHtml::label('Secretaria', 'Filtros[secretarias_id]'); ?>
@@ -95,7 +95,7 @@ $this->menu=array(
             </div>
             <div id="porUsuarios" class="tab-pane fade">
                 <h3>Atendimentos Por Usuários</h3>
-                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporusuario'), 'get'); ?>
+                <?php echo CHtml::beginForm($this->createUrl('relatorios/atendimentosporusuario'), 'get', array('target'=>'_blank')); ?>
                 
                 <div class="form-group col-md-6">
                     <?php echo CHtml::label('Usuário', 'Filtros[usuarios_id]'); ?>
