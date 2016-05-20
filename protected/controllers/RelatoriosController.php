@@ -758,10 +758,10 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $veiculo   = '';//$filtros['veiculos_id'];
-        $tipo        = '';//$filtros['veiculo_tipo'];
-        $status      = '';//$filtros['status_veiculo_id'];
-        $secretaria  = '';//$filtros['secretarias_id'];
+        $veiculo     = $filtros['veiculos_id'];
+        $tipo        = $filtros['veiculo_tipo'];
+        $status      = $filtros['status_veiculo_id'];
+        $secretaria  = $filtros['secretarias_id'];
         
         $html = Yii::app()->functions->getCabecalhoRelatorios(); 
         
@@ -848,8 +848,8 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $veiculo = '';//$filtros['veiculos_id'];
-        $data      = '';//$filtros['manutencao_data'];
+        $veiculo = $filtros['veiculos_id'];
+        $data    = $filtros['manutencao_data'];
         
         $sql = 'SELECT v.veiculos_id,'
                 . '    v.veiculo_descricao,'
@@ -958,9 +958,9 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $veiculo   = '';//$filtros['veiculos_id'];
-        $data        = '';//$filtros['abastecimento_data'];
-        $combustivel = '';//$filtros['combustivel_id'];
+        $veiculo     = $filtros['veiculos_id'];
+        $data        = $filtros['abastecimento_data'];
+        $combustivel = $filtros['combustivel_id'];
         
         $sql = 'SELECT v.veiculos_id,'
                 . '    v.veiculo_descricao,'
@@ -1060,7 +1060,7 @@ class RelatoriosController extends Controller
                     $html .= '<tr style="background-color: #CCC;">';
                 }
                 $html .=  '<td>'.$value['combustivel_nome'].'</td>
-                           <td>'.$value['abastecimento_litro'].'</td> 
+                           <td>'.number_format($value['abastecimento_litro'], 2, ',', '.').'</td> 
                            <td>'.number_format($value['abastecimento_preco'], 2, ',', '.').'</td>
                            <td>'.$value['abastecimento_quilometragem'].'</td>    
                            <td>'.date('d/m/Y', strtotime($value['abastecimento_data'])).'</td>'
@@ -1077,11 +1077,16 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $veiculo      = '';//$filtros['veiculos_id'];
-        $motorista    = '';//$filtros['motorista_nome'];
-        $data_saida   = '';//$filtros['data_saida'];
-        $data_chegada = '';//$filtros['data_chegada'];
-        $avaria       = '';//$filtros['avaria'];
+        $veiculo      = $filtros['veiculos_id'];
+        $motorista    = $filtros['motorista_nome'];
+        $data_saida   = $filtros['data_saida'];
+        $data_chegada = $filtros['data_chegada'];
+        if(isset($filtros['avaria'])){
+            $avaria       = $filtros['avaria'];
+        }else{
+            $avaria       = '';
+        }
+        
         
         $sql = 'SELECT v.veiculos_id,'
                 . '    v.veiculo_descricao,'
@@ -1138,8 +1143,8 @@ class RelatoriosController extends Controller
                                     <td width="40px"><strong>Data Saída</strong></td>
                                     <td width="90px"><strong>KM Saída</strong></td>
                                     <td width="250px"><strong>Destino</strong></td>
-                                    <td width="40px"><strong>Data Saída</strong></td>
-                                    <td width="90px"><strong>KM Saída</strong></td>
+                                    <td width="40px"><strong>Data Chegada</strong></td>
+                                    <td width="90px"><strong>KM Chegada</strong></td>
                                     <td width="40px"><strong>Avarias?</strong></td>
                                 </tr>';
                 
@@ -1192,13 +1197,13 @@ class RelatoriosController extends Controller
                 } else {
                     $html .= '<tr style="background-color: #CCC;">';
                 }
-                $html .=  '<td width="200px>'.substr($value['motorista_nome'], 0, 25).'</td> 
+                $html .=  '<td width="200px>'.substr($value['motorista_nome'], 0, 18).'</td> 
                            <td width="40px>'.date('d/m/Y', strtotime($value['data_saida'])).'</td>
                            <td width="90px>'.$value['quilometragem_saida'].'</td>    
                            <td width="250px>'.substr($value['destino'], 0, 31).'</td>    
                            <td width="40px>'.date('d/m/Y', strtotime($value['data_chegada'])).'</td>
                            <td width="90px>'.$value['quilometragem_chegada'].'</td>  
-                           <td width="40px>'.$value['avaria'].'</td>'
+                           <td width="30px>'.$value['avaria'].'</td>'
                         . '</tr>';
                 
                 $i++;
@@ -1212,11 +1217,15 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $veiculo      = '';//$filtros['veiculos_id'];
-        $motorista    = '';//$filtros['motorista_nome'];
-        $data_saida   = '';//$filtros['data_saida'];
-        $data_chegada = '';//$filtros['data_chegada'];
-        $avaria      = '';//$filtros['avaria'];
+        $veiculo      = $filtros['veiculos_id'];
+        $motorista    = $filtros['motorista_nome'];
+        $data_saida   = $filtros['data_saida'];
+        $data_chegada = $filtros['data_chegada'];
+        if(isset($filtros['avaria'])){
+            $avaria       = $filtros['avaria'];
+        }else{
+            $avaria       = '';
+        }
         
         $sql = 'SELECT m.motoristas_id,'
                 . '    m.motorista_nome'
@@ -1347,10 +1356,10 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $veiculo   = '';//$filtros['veiculos_id'];
-        $tipo        = '';//$filtros['veiculo_tipo'];
-        $status      = '';//$filtros['status_veiculo_id'];
-        $secretaria  = '';//$filtros['secretarias_id'];
+        $veiculo     = $filtros['veiculos_id'];
+        $tipo        = $filtros['veiculo_tipo'];
+        $status      = $filtros['status_veiculo_id'];
+        $secretaria  = $filtros['secretarias_id'];
         
         $html = Yii::app()->functions->getCabecalhoRelatorios(); 
         
@@ -1443,10 +1452,10 @@ class RelatoriosController extends Controller
     {
         $db = new DbExt();
         
-        $veiculo = '';//$filtros['veiculos_id'];
-        $data      = '';//$filtros['manut_agenda_data'];
-        $quilometragem = '';//$filtros['manut_agenda_quilometragem'];
-        $alertando = '';//$filtros['alertando'];
+        $veiculo       = $filtros['veiculos_id'];
+        $data          = $filtros['manut_agenda_data'];
+        $quilometragem = $filtros['manut_agenda_quilometragem'];
+        $alertando     = $filtros['alertando'];
         
         $sql = 'SELECT v.veiculos_id,'
                 . '    v.veiculo_descricao,'
@@ -1470,7 +1479,7 @@ class RelatoriosController extends Controller
         }
         
         if ($alertando != '') {
-            $params .= ' AND m.alertando = '.$alertando;
+            $params .= " AND m.alertando = '".$alertando."'";
         }
         
         $sql .= $params;

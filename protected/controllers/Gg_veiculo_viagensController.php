@@ -128,7 +128,7 @@ class Gg_veiculo_viagensController extends Controller
                                     $sql2 = 'update Gg_manut_agenda set alertando = \'SIM\' '
                                     . 'where manut_agenda_quilometragem <= '.$model->quilometragem_chegada
                                     . ' and veiculos_id = '.$model->veiculos_id
-                                    . 'and alertando <> \'VISTO\''        
+                                    . ' and alertando <> \'VISTO\''        
                                     . ' and alertando <> \'SIM\'' ;
                                     
                                     $db->qry($sql2);
@@ -284,95 +284,58 @@ class Gg_veiculo_viagensController extends Controller
                     $motorista_nome     = $stmt['motorista_nome'];
                     $veiculo_placa   = $stmt['veiculo_placa'];
                     $veiculo_descricao   = $stmt['veiculo_descricao'];
-                    $prefeitura_nome = $stmt['prefeitura_nome'];
-                    $prefeitura_endereco= $stmt['prefeitura_endereco'];
-                    $prefeitura_numero=$stmt['prefeitura_numero'];
-                    $prefeitura_telefone  =$stmt['prefeitura_telefone'];
-                    $prefeitura_municipio     =$stmt['prefeitura_municipio'];
-                    $estado_nome       =$stmt['estado_nome'];
+                    $prefeitura = $stmt['prefeitura_nome'];
+                    $pref_endereco= $stmt['prefeitura_endereco'];
+                    $pref_numero=$stmt['prefeitura_numero'];
+                    $pref_tel  =$stmt['prefeitura_telefone'];
+                    $cidade     =$stmt['prefeitura_municipio'];
+                    $estado       =$stmt['estado_nome'];
                 
             
                 $htm = '<html>
                         <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <title>relatório de Viagem</title>
+                        <title>Relatório de Viagem</title>
                         <style>
-                                table {
-                                        font-size: 16px;
-                                        line-height: 30px;
+                                .alinhamento {
+                                        width: 95%;
+                                        padding-left: 20px;
+                                        padding-top: 20px;
+                                        line-height: 100%;
                                 }
                         </style>
                         </head>
 
                         <body>
-                        <div style="width: 100%;">
+                        <div class="alinhamento">
+                        <div>
                             <div style="float: left">
                                 <img src="'.Yii::app()->request->getBaseUrl(true).'/assets/img/D-large1.png" alt="" width="258" height="95" />
                         </div>    
                             <div style="float: none; padding-top: 5px; text-align:center; line-height: 1px">
-                                <h2 align="center">'.$prefeitura_nome.'</h2>
-                                <p>'.$prefeitura_endereco.' nº '.$prefeitura_numero.'</p>
-                                <p>Telefone - '.$prefeitura_telefone.'</p>
-                                <p>'.$prefeitura_municipio.' - '.$estado_nome.'</p>
+                                <h2 align="center">'.$prefeitura.'</h2>
+                                <p>'.$pref_endereco.' nº '.$pref_numero.'</p>
+                                <p>Telefone - '.$pref_tel.'</p>
+                                <p>'.$cidade.' - '.$estado.'</p>
                             </div>
-                        <div style="float: left; width:100%">
                                 <hr />
-                                    <h1 align="center">Viagem #'.$viagens_id.'</h1>
-				<hr />
-                         
-                            <table width="100%" style="font-size:16px; line-height:30px;">
-                                <tbody>
-                                  <tr>
-                                    <td><strong>Veículo</strong></td>
-                                    <td></td>
-                                    <td><strong>Motorista</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.substr($veiculo_descricao, 0, 31).' ('.$veiculo_placa.')</td>
-                                    <td></td>
-                                    <td>'.$motorista_nome.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Data Saída</strong></td>
-                                    <td><strong>KM Saída</strong></td>
-                                    <td><strong>Hora Saída</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.date('d/m/Y', strtotime($data_saida)).'</td>    
-                                    <td>'.$quilometragem_saida.'</td>
-                                    <td>'.$hora_saida.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Destino</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$destino.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Finalidade</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$finalidade.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Data Chegada</strong></td>
-                                    <td><strong>KM Chegada</strong></td>
-                                    <td><strong>Hora Chegada</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.date('d/m/Y', strtotime($data_chegada)).'</td>    
-                                    <td>'.$quilometragem_chegada.'</td>
-                                    <td>'.$hora_chegada.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td><strong>KM Rodada</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.$quilometragem_rodada.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Avarias? </strong>'.$avaria.'</td>
-                                  </tr>';
+                                <h2 align="center">Relatório de Viagem</h2>                            
+                                <p><strong>Veículo:</strong> '.substr($veiculo_descricao, 0, 31).' ('.$veiculo_placa.')
+                                   <strong>Motorista:</strong> '.$motorista_nome.
+                                '</p>
+                                <p><strong>Data Saída:</strong> '.date('d/m/Y', strtotime($data_saida)).'
+                                   <strong>KM Saída:</strong> '.$quilometragem_saida.'
+                                   <strong>Hora Saída:</strong> '.$hora_saida.
+                                '</p>
+                                <p><strong>Destino:</strong> '.$destino.'</p>
+                                <p><strong>Finalidade:</strong> '.$finalidade.'</p> 
+                                <p><strong>Data Chegada:</strong> '.date('d/m/Y', strtotime($data_chegada)).'
+                                   <strong>KM Chegada:</strong> '.$quilometragem_chegada.'
+                                   <strong>Hora Chegada:</strong> '.$hora_chegada.
+                                '</p>    
+                                <p><strong>KM Rodada:</strong> '.$quilometragem_rodada.'</p>
+                                <p><strong>Avarias?:</strong> '.$avaria.'</p>
+                            </div>';
                 
                 if($stmt['avaria'] == 1){
                     $sql = 'select c.*, v.veiculo_placa from Gg_checklist_viagem c '
@@ -514,112 +477,49 @@ class Gg_veiculo_viagensController extends Controller
                         $data_alteracao = date('d/m/Y H:i:s', strtotime($data_alteracao));
                         $veiculo_placa   = $stmt['veiculo_placa'];
                         
-                        $htm .= '<tr>
-                                    <td colspan="3"><h2 align="center">Checklist</h2></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Buzina</strong></td>
-                                    <td><strong>Cinto de Segurança</strong></td>
-                                    <td><strong>Retrovisor Esq.</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.$buzina.'</td>
-                                    <td>'.$cinto.'</td>
-                                    <td>'.$retrovisor_e.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Retrovisor Dir.</strong></td>
-                                    <td><strong>Farois</strong></td>
-                                    <td><strong>Fluido de Freio</strong></td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td>'.$retrovisor_d.'</td>
-                                    <td>'.$farois.'</td>
-                                    <td>'.$fluido_freio.'</td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Freio</strong></td>
-                                    <td><strong>Freio Mao</strong></td>
-                                    <td><strong>Lataria</strong></td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td>'.$freio.'</td>
-                                    <td>'.$freio_mao.'</td>
-                                    <td>'.$lataria.'</td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Luz de Freio</strong></td>
-                                    <td><strong>Luz de Ré</strong></td>
-                                    <td><strong>Luzes no Painel</strong></td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td>'.$luz_freio.'</td>
-                                    <td>'.$luz_re.'</td>
-                                    <td>'.$luz_painel.'</td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Nível da Água</strong></td>
-                                    <td><strong>Nível do Óleo</strong></td>
-                                    <td><strong>Pneus</strong></td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td>'.$nivel_agua.'</td>
-                                    <td>'.$nivel_oleo.'</td>
-                                    <td>'.$pneu.'</td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Portas</strong></td>
-                                    <td><strong>Seta Dianteira Esq.</strong></td>
-                                    <td><strong>Seta Dianteira Dir.</strong></td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td>'.$porta.'</td>
-                                    <td>'.$seta_dianteira_e.'</td>
-                                    <td>'.$seta_dianteira_d.'</td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td><strong>Seta Traseira Esq.</strong></td>
-                                    <td><strong>Seta Traseira Dir.</strong></td>
-                                    <td><strong>Vidros</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td>'.$seta_traseira_e.'</td>
-                                    <td>'.$seta_traseira_d.'</td>
-                                    <td>'.$vidros.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Observação</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$observacao.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3"><strong>Data</strong></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">'.$data_alteracao.'</td>
-                                  </tr>
-                                  <tr>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3" align="center"><strong>_________________________________________</strong></td>                                    
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3" align="center">'.$motorista_nome.'</td>    
-                                  </tr>';
+                        $htm .= '<div class="alinhamento">
+                        <h2 align="center">Checklist</h2>                            
+                                    <p><strong>Buzina:</strong> '.$buzina.'
+                                        <strong>Cinto de Segurança:</strong> '.$cinto.'
+                                        <strong>Retrovisor Esq.:</strong> '.$retrovisor_e.'
+                                    </p>
+                                    <p><strong>Retrovisor Dir.:</strong> '.$retrovisor_d.'
+                                        <strong>Farois:</strong> '.$farois.'
+                                        <strong>Fluido de Freio:</strong> '.$fluido_freio.'
+                                    </p>
+                                    <p><strong>Freio:</strong> '.$freio.'
+                                        <strong>Freio Mao:</strong> '.$freio_mao.'
+                                        <strong>Lataria:</strong> '.$lataria.'
+                                    </p>
+                                    <p><strong>Luz de Freio:</strong> '.$luz_freio.'
+                                        <strong>Luz de Ré:</strong> '.$luz_re.'
+                                        <strong>Luzes no Painel:</strong> '.$luz_painel.'
+                                    </p>
+                                    <p><strong>Nível da Água:</strong> '.$nivel_agua.'
+                                        <strong>Nível do Óleo:</strong> '.$nivel_oleo.'
+                                        <strong>Pneus:</strong> '.$pneu.'
+                                    </p>
+                                    <p><strong>Portas:</strong> '.$porta.'
+                                        <strong>Seta Dianteira Esq.:</strong> '.$seta_dianteira_e.'
+                                        <strong>Seta Dianteira Dir.:</strong> '.$seta_dianteira_d.'
+                                    </p> 
+                                    <p><strong>Seta Traseira Esq.:</strong> '.$seta_traseira_d.'
+                                        <strong>Seta Traseira Dir.:</strong> '.$seta_traseira_e.'
+                                        <strong>Seta Vidros:</strong> '.$vidros.'
+                                    </p> 
+                                    <p><strong>Observação:</strong> '.$observacao.'</p>
+                                    <p><strong>Data:</strong> '.$data_alteracao.'</p>
+                                </div>';
                     }        
                     
                 }
                                   
-                $htm .=                '</tbody>  
-                            </table>
+                $htm .='<div class="alinhamento">
+                            <br />
+                            <br />
+                            <br />
+                            <hr width="20px" align="center" />
+                            <p align="center">Motorista Responsável</p>
                         </div>
                         </div>
                         </body>
