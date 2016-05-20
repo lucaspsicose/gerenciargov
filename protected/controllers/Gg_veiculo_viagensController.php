@@ -133,6 +133,16 @@ class Gg_veiculo_viagensController extends Controller
                                     
                                     $db->qry($sql2);
                                     
+                                    //Envia email
+                                    $email_responsavel = 'jvictorsk8er@gmail.com';//Gg_solicitantes::model()->findByPk($model->solicitantes_id);
+                                    $txt = $this->geraHMTLViagem($model->viagens_id);
+                                    $email = Yii::app()->email;
+                                    $email->to = $email_responsavel/*->solicitante_email*/;
+                                    $email->from = 'gerenciargov@gerenciargov.com.br';
+                                    $email->subject = 'Viagem';
+                                    $email->message = $txt;
+                                    $email->send();
+                                    
                                 }                               
                                 
                                 
