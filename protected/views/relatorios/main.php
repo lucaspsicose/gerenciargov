@@ -29,7 +29,7 @@ $this->menu=array(
         <div class="panel-body">
           <div class="tab-content tasi-tab">
             <div id="birthday" class="tab-pane fade in active">
-                <?php echo CHtml::beginForm($this->createUrl('relatorios/aniversariantes'), 'get'); ?>
+                <?php echo CHtml::beginForm($this->createUrl('relatorios/aniversariantes'), 'get', array('target'=>'_blank')); ?>
     
                 <div class="form-group field-control">
                     <?php echo CHtml::label('Mês do Nascimento', 'mes'); ?>
@@ -42,7 +42,7 @@ $this->menu=array(
                 <?php echo CHtml::endForm(); ?>
             </div>
             <div id="municipes" class="tab-pane fade">
-                <?php echo CHtml::beginForm($this->createUrl('relatorios/municipes'), 'get'); ?>
+                <?php echo CHtml::beginForm($this->createUrl('relatorios/municipes'), 'get', array('target'=>'_blank')); ?>
     
                 <div class="form-group field-control">
                     <?php echo CHtml::label('Nome do Munícipe', 'nome'); ?>

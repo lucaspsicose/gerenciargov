@@ -8,7 +8,7 @@
 	<?php echo CHtml::encode($data->usuarios_id); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('secretarias_id')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('secretarias.secretarias_id')); ?>:</b>
 	<?php echo CHtml::encode($data->secretarias_id); ?>
 	<br />
 

@@ -442,5 +442,39 @@ class Functions extends CApplicationComponent
             
             return $html;
         }
+        
+        public function getAtendimentosSecretariasChart() {
+            $db = new DbExt();
+            
+            $time = time();
+            
+            $time = $time - 30;
+            
+            $data = date('Y-m-d',$time);
+            
+            $sql = 'SELECT CASE
+                                WHEN a.status_id =4 THEN 
+                                        sum( 1 )
+                                ELSE
+                                        0
+                                END AS FINALIZADOS,
+                               CASE
+                                WHEN a.status_id <>4 THEN 
+                                        sum( 1 )
+                                ELSE 
+                                        0
+                                END AS REALIZADOS, 
+                               s.secretaria_nome
+                    FROM Gg_secretarias s
+                    LEFT JOIN Gg_atendimentos a ON ( a.secretarias_id = s.secretarias_id )
+                    WHERE s.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].' '
+                  .'GROUP BY s.secretaria_nome
+                    ORDER BY s.secretaria_nome';
+            
+            if ($res = $db->rst($sql)) {
+                return $res;
+            }
+            
+        }
 	
 	}
