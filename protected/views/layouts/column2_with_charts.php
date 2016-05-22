@@ -48,7 +48,7 @@
                                            ),
                                            'series' => array(
                                               array('type' => 'bar', 'name' => 'Atendimentos Realizados', 'data' => $atendimentos),
-                                              array('type' => 'bar', 'name' => 'Atendimentos Executados', 'data' => $realizados)
+                                              array('type' => 'bar', 'name' => 'Atendimentos Finalizados', 'data' => $realizados)
                                            )
                                         )
                                      ));

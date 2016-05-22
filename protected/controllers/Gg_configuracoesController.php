@@ -106,4 +106,6 @@ class Gg_configuracoesController extends Controller
 			'model'=>$model,
 		));
 	}
+        
+        
 }

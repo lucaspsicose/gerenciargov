@@ -60,6 +60,7 @@
                                             'class' => 'dropdown-toggle'
                                              ),),        
                                 array('label'=>'Secretarias', 'url'=>array('/site'), 'visible'=>in_array($session['perfil'], array(1))),
+                                array('label'=>'Configurações', 'url'=>array('/gg_configuracoes'), 'visible'=>in_array($session['perfil'], array(1))),
 				array('label'=>'Entrar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Sair', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

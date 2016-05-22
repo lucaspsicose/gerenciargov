@@ -33608,3 +33608,119 @@ Stack trace:
 REQUEST_URI=/gerenciargov/gg_configuracoes
 in C:\wamp\www\gerenciargov\protected\controllers\Gg_configuracoesController.php (102)
 in C:\wamp\www\gerenciargov\index.php (13)
+2016/05/22 16:44:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/site/login
+---
+2016/05/22 16:44:08 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''email_resp_parte_diaria
+		AND prefeituras_id = 1 
+		LIMIT 0,1' at line 4. A declaração SQL executada foi: SELECT * FROM
+		Gg_configuracoes
+		WHERE
+		option_nameconfiguracao_field='email_resp_parte_diaria
+		AND prefeituras_id = 1 
+		LIMIT 0,1
+		.
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_configuracoesController.php (122)
+in C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\_form.php (7)
+in C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\update.php (4)
+2016/05/22 16:44:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''email_resp_parte_diaria
+		AND prefeituras_id = 1 
+		LIMIT 0,1' at line 4. The SQL statement executed was: SELECT * FROM
+		Gg_configuracoes
+		WHERE
+		option_nameconfiguracao_field='email_resp_parte_diaria
+		AND prefeituras_id = 1 
+		LIMIT 0,1
+		' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\controllers\Gg_configuracoesController.php(122): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\_form.php(7): Gg_configuracoesController->getOption('email_resp_part...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\update.php(4): CController->renderPartial('_form', Array)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#11 C:\wamp\www\gerenciargov\protected\controllers\Gg_configuracoesController.php(107): CController->render('update', Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_configuracoesController->actionIndex()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_configuracoe...')
+#23 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/gerenciargov/gg_configuracoes
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/05/22 16:44:37 [error] [system.db.CDbCommand] Falha ao executar CDbCommand::fetchAll(): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'option_nameconfiguracao_field' in 'where clause'. A declaração SQL executada foi: SELECT * FROM
+		Gg_configuracoes
+		WHERE
+		option_nameconfiguracao_field='email_resp_parte_diaria'
+		AND prefeituras_id = 1 
+		LIMIT 0,1
+		.
+in C:\wamp\www\gerenciargov\protected\controllers\Gg_configuracoesController.php (122)
+in C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\_form.php (7)
+in C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\update.php (4)
+2016/05/22 16:44:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'option_nameconfiguracao_field' in 'where clause'. The SQL statement executed was: SELECT * FROM
+		Gg_configuracoes
+		WHERE
+		option_nameconfiguracao_field='email_resp_parte_diaria'
+		AND prefeituras_id = 1 
+		LIMIT 0,1
+		' in C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\gerenciargov\protected\controllers\Gg_configuracoesController.php(122): CDbCommand->queryAll()
+#2 C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\_form.php(7): Gg_configuracoesController->getOption('email_resp_part...')
+#3 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#4 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#5 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#6 C:\wamp\www\gerenciargov\protected\views\gg_configuracoes\update.php(4): CController->renderPartial('_form', Array)
+#7 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\ger...')
+#8 C:\wamp\www\gerenciargov\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\ger...', Array, true)
+#9 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\ger...', Array, true)
+#10 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#11 C:\wamp\www\gerenciargov\protected\controllers\Gg_configuracoesController.php(107): CController->render('update', Array)
+#12 C:\wamp\www\gerenciargov\yii\framework\web\actions\CInlineAction.php(49): Gg_configuracoesController->actionIndex()
+#13 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\gerenciargov\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 C:\wamp\www\gerenciargov\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\wamp\www\gerenciargov\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#22 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gg_configuracoe...')
+#23 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#24 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/gerenciargov/gg_configuracoes
+HTTP_REFERER=http://localhost/gerenciargov/
+---
+2016/05/22 17:15:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Não foi possível resolver a requisição "assets/img/favicon.png".' in C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\gerenciargov\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/img/favi...')
+#1 C:\wamp\www\gerenciargov\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\wamp\www\gerenciargov\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gerenciargov/assets/img/favicon.png
+HTTP_REFERER=http://localhost/gerenciargov/gg_configuracoes
+---

@@ -468,6 +468,7 @@ class Functions extends CApplicationComponent
                     FROM Gg_secretarias s
                     LEFT JOIN Gg_atendimentos a ON ( a.secretarias_id = s.secretarias_id )
                     WHERE s.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].' '
+                  . ' AND atendimento_inclusao >= ( NOW( ) - INTERVAL 30 DAY )'
                   .'GROUP BY s.secretaria_nome
                     ORDER BY s.secretaria_nome';
             
@@ -476,5 +477,24 @@ class Functions extends CApplicationComponent
             }
             
         }
-	
+        
+    public function getOption($option_name='')
+	{
+		$prefeituras_id = Yii::app()->session['active_prefeituras_id'];
+                
+		$stmt="SELECT * FROM
+		Gg_configuracoes
+		WHERE
+		configuracao_field='".addslashes($option_name)."'
+		AND prefeituras_id = ".$prefeituras_id." 
+		LIMIT 0,1
+		";
+		$connection=Yii::app()->db;
+		$rows=$connection->createCommand($stmt)->queryAll(); 		
+		if (is_array($rows) && count($rows)>=1){
+			return stripslashes($rows[0]['configuracao_valor']);
+		}
+		return '';
 	}
+	
+}
