@@ -133,9 +133,24 @@ class Gg_veiculo_viagensController extends Controller
                                     
                                     $db->qry($sql2);
                                     
-                                }                               
-                                
-                                
+                                    $sql3 = 'select configuracao_valor '
+                                            . 'from Gg_configuracoes '
+                                            . 'where configuracao_field = \'Responsável pela Diária\' '
+                                            . 'and prefeituras_id = '.$model->prefeituras_id;
+                                    
+                                    if ($res2 = $db->rst($sql3)) {
+                                        foreach ($res2 as $stmt2)    
+                                        //Envia email
+                                        $email_responsavel = $stmt2['configuracao_valor'];
+                                        $txt = $this->geraHMTLViagem($model->viagens_id);
+                                        $email = Yii::app()->email;
+                                        $email->to = $email_responsavel;
+                                        $email->from = 'gerenciargov@gerenciargov.com.br';
+                                        $email->subject = 'Viagem';
+                                        $email->message = $txt;
+                                        $email->send();
+                                    }
+                                }        
 				$this->redirect(array('view','id'=>$model->viagens_id));
 		}
 
