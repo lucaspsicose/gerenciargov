@@ -136,7 +136,8 @@ class Gg_veiculo_viagens extends CActiveRecord
                 
                 $criteria->compare('prefeituras_id',Yii::app()->session['active_prefeituras_id'],true);
 
-		return new CActiveDataProvider('Gg_veiculo_viagens', array(
+		return new CActiveDataProvider('Gg_veiculo_viagens', array('sort'=>array(
+                        'defaultOrder'=>'data_saida DESC',),
 			'criteria'=>$criteria,
 		));
 	}

@@ -516,7 +516,7 @@ class Gg_veiculo_viagensController extends Controller
                                     </p> 
                                     <p><strong>Seta Traseira Esq.:</strong> '.$seta_traseira_d.'
                                         <strong>Seta Traseira Dir.:</strong> '.$seta_traseira_e.'
-                                        <strong>Seta Vidros:</strong> '.$vidros.'
+                                        <strong>Vidros:</strong> '.$vidros.'
                                     </p> 
                                     <p><strong>Observação:</strong> '.$observacao.'</p>
                                     <p><strong>Data:</strong> '.$data_alteracao.'</p>
@@ -530,7 +530,7 @@ class Gg_veiculo_viagensController extends Controller
                             <br />
                             <br />
                             <hr width="20px" align="center" />
-                            <p align="center">Motorista Responsável</p>
+                            <p align="center">'.$motorista_nome.'</p>
                         </div>
                         </div>
                         </body>

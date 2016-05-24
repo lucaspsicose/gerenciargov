@@ -928,7 +928,7 @@ class RelatoriosController extends Controller
         
         $sql .= $params;
         
-        $sql .= " ORDER BY m.manutencao_data";
+        $sql .= " ORDER BY m.manutencao_data desc";
         
         $html = '';
         
@@ -1046,7 +1046,7 @@ class RelatoriosController extends Controller
         
         $sql .= $params;
         
-        $sql .= " ORDER BY a.abastecimento_data";
+        $sql .= " ORDER BY a.abastecimento_data desc";
         
         $html = '';
         
@@ -1184,7 +1184,7 @@ class RelatoriosController extends Controller
         
         $sql .= $params;
         
-        $sql .= " ORDER BY vv.data_chegada";
+        $sql .= " ORDER BY vv.data_saida desc";
         
         $html = '';
         
@@ -1281,8 +1281,8 @@ class RelatoriosController extends Controller
                                     <td width="40px"><strong>Data Saída</strong></td>
                                     <td width="90px"><strong>KM Saída</strong></td>
                                     <td width="250px"><strong>Destino</strong></td>
-                                    <td width="40px"><strong>Data Saída</strong></td>
-                                    <td width="90px"><strong>KM Saída</strong></td>
+                                    <td width="40px"><strong>Data Chegada</strong></td>
+                                    <td width="90px"><strong>KM Chegada</strong></td>
                                     <td width="40px"><strong>Avarias?</strong></td>
                                 </tr>';
                 
@@ -1323,7 +1323,7 @@ class RelatoriosController extends Controller
         
         $sql .= $params;
         
-        $sql .= " ORDER BY vv.data_chegada";
+        $sql .= " ORDER BY vv.data_saida desc";
         
         $html = '';
         
@@ -1339,7 +1339,7 @@ class RelatoriosController extends Controller
                 $html .=  '<td width="200px>'.substr($value['veiculo_descricao'], 0, 12).' ('.$value['veiculo_placa'].')</td> 
                            <td width="40px>'.date('d/m/Y', strtotime($value['data_saida'])).'</td>
                            <td width="90px>'.$value['quilometragem_saida'].'</td>    
-                           <td width="250px>'.substr($value['destino'], 0, 31).'</td>    
+                           <td width="250px>'.substr($value['destino'], 0, 23).'</td>    
                            <td width="40px>'.date('d/m/Y', strtotime($value['data_chegada'])).'</td>
                            <td width="90px>'.$value['quilometragem_chegada'].'</td>  
                            <td width="40px>'.$value['avaria'].'</td>'
@@ -1539,7 +1539,7 @@ class RelatoriosController extends Controller
         
         $sql .= $params;
         
-        $sql .= " ORDER BY m.manut_agendas_id";
+        $sql .= " ORDER BY m.manut_agendas_id desc";
         
         $html = '';
         
