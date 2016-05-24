@@ -452,25 +452,19 @@ class Functions extends CApplicationComponent
             
             $data = date('Y-m-d',$time);
             
-            $sql = 'SELECT CASE
-                                WHEN a.status_id =4 THEN 
-                                        sum( 1 )
-                                ELSE
-                                        0
-                                END AS FINALIZADOS,
-                               CASE
-                                WHEN a.status_id <>4 THEN 
-                                        sum( 1 )
-                                ELSE 
-                                        0
-                                END AS REALIZADOS, 
-                               s.secretaria_nome
-                    FROM Gg_secretarias s
-                    LEFT JOIN Gg_atendimentos a ON ( a.secretarias_id = s.secretarias_id )
-                    WHERE s.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].' '
-                  . ' AND atendimento_inclusao >= ( NOW( ) - INTERVAL 30 DAY )'
-                  .'GROUP BY s.secretaria_nome
-                    ORDER BY s.secretaria_nome';
+            $sql = 'SELECT (SELECT COUNT( b.atendimentos_id )
+                              FROM Gg_atendimentos b
+                             WHERE b.status_id =4
+                               AND b.secretarias_id = s.secretarias_id
+                               AND a.atendimento_inclusao >= ( NOW() - INTERVAL 30 DAY )) AS FINALIZADOS, 
+                            COUNT( a.atendimentos_id ) AS REALIZADOS, 
+                            s.secretaria_nome
+                      FROM Gg_secretarias s
+                      LEFT JOIN Gg_atendimentos a ON ( a.secretarias_id = s.secretarias_id )
+                     WHERE s.prefeituras_id = '.Yii::app()->session['active_prefeituras_id'].'
+                       AND a.atendimento_inclusao >= ( NOW() - INTERVAL 30 DAY )
+                     GROUP BY s.secretaria_nome
+                     ORDER BY s.secretaria_nome';
             
             if ($res = $db->rst($sql)) {
                 return $res;
