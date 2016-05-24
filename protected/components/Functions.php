@@ -490,5 +490,23 @@ class Functions extends CApplicationComponent
 		}
 		return '';
 	}
+    
+        public function converteBool($booleano) {
+            
+            if ($booleano == '0') {
+                return 'Não';
+            } elseif ($booleano == '1') {
+                return 'Sim';               
+            }            
+        }
+        
+        public function converteBoolCheckList($booleano) {
+            
+            if ($booleano == '0') {
+                return 'Ok';
+            } elseif ($booleano == '1') {
+                return 'Defeito';               
+            }            
+        }
 	
 }
