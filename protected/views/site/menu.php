@@ -88,6 +88,9 @@ $('#viagens').click(function(){
                         <a href="<?php echo $this->createUrl('gg_motoristas/admin') ?>" class="btn btn-app">
                             <i class="fa fa-male"></i> Motoristas
                         </a>
+                        <a href="<?php echo $this->createUrl('gg_responsaveis/admin') ?>" class="btn btn-app">
+                            <i class="fa fa-briefcase"></i> Responsáveis
+                        </a>
                     <?php endif; //fim dos menus administrativos ?>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

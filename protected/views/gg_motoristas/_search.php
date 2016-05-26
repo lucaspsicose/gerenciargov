@@ -20,8 +20,7 @@
 		<?php echo $form->textField($model,'motorista_categoria',array('class'=>'form-control categoria','style' => 'text-transform: uppercase','size'=>2,'maxlength'=>2)); ?>
 	</div>
 
-	<?php echo CHtml::submitButton('Pesquisar', array('class'=>'btn btn-default')); ?>
-	
+	<?php echo CHtml::submitButton('Pesquisar', array('class'=>'btn btn-default')); ?>	
 
 <?php $this->endWidget(); ?>
 

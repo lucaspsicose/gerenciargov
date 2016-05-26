@@ -1,6 +1,6 @@
 <?php
 
-class Gg_motoristasController extends Controller
+class Gg_responsaveisController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -69,16 +69,16 @@ class Gg_motoristasController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Gg_motoristas;
+		$model=new Gg_responsaveis;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_motoristas']))
+		if(isset($_POST['Gg_responsaveis']))
 		{
-			$model->attributes=$_POST['Gg_motoristas'];
+			$model->attributes=$_POST['Gg_responsaveis'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->motoristas_id));
+				$this->redirect(array('view','id'=>$model->responsaveis_id));
 		}
 
 		$this->render('create',array(
@@ -97,11 +97,11 @@ class Gg_motoristasController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Gg_motoristas']))
+		if(isset($_POST['Gg_responsaveis']))
 		{
-			$model->attributes=$_POST['Gg_motoristas'];
+			$model->attributes=$_POST['Gg_responsaveis'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->motoristas_id));
+				$this->redirect(array('view','id'=>$model->responsaveis_id));
 		}
 
 		$this->render('update',array(
@@ -133,7 +133,7 @@ class Gg_motoristasController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Gg_motoristas');
+		$dataProvider=new CActiveDataProvider('Gg_responsaveis');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -144,10 +144,10 @@ class Gg_motoristasController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Gg_motoristas('search');
+		$model=new Gg_responsaveis('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Gg_motoristas']))
-			$model->attributes=$_GET['Gg_motoristas'];
+		if(isset($_GET['Gg_responsaveis']))
+			$model->attributes=$_GET['Gg_responsaveis'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -163,7 +163,7 @@ class Gg_motoristasController extends Controller
 		if($this->_model===null)
 		{
 			if(isset($_GET['id']))
-				$this->_model=Gg_motoristas::model()->findbyPk($_GET['id']);
+				$this->_model=Gg_responsaveis::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
 				throw new CHttpException(404,'A página que você está procurando não existe.');
 		}
@@ -176,7 +176,7 @@ class Gg_motoristasController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-motoristas-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='gg-responsaveis-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
@@ -185,43 +185,43 @@ class Gg_motoristasController extends Controller
         
         public function actionImprimir() {
             if (isset($_GET['id'])) {
-                $model = Gg_motoristas::model()->findByPk($_GET['id']);
+                $model = Gg_responsaveis::model()->findByPk($_GET['id']);
                 $txt = $this->renderPartial('view', array('model' => $model), true);
-                $motoristas_id = $_GET['id'];
+                $responsaveis_id = $_GET['id'];
                 $html2pdf = Yii::app()->ePdf->HTML2PDF();
-                $txt      = $this->geraHMTLMotorista($motoristas_id);
+                $txt      = $this->geraHMTLResponsavel($responsaveis_id);
                 $html2pdf->WriteHTML($txt);                
                 $html2pdf->Output();
             }
         }
         
-        public function  geraHMTLMotorista($motoristas_id = '') 
+        public function  geraHMTLResponsavel($responsaveis_id = '') 
         {   
             $db = new DbExt();
             
             $htm = '';
             
-            $sql = 'SELECT m.motorista_nome, 
-                    m.motorista_cpf, 
-                    m.motorista_categoria, 
-                    m.motorista_telefone, 
+            $sql = 'SELECT r.responsavel_nome, 
+                    r.responsavel_cpf, 
+                    r.responsavel_telefone,
+                    r.funcao,
                     p.prefeitura_nome, 
                     p.prefeitura_endereco, 
                     p.prefeitura_numero, 
                     p.prefeitura_telefone,
                     p.prefeitura_municipio,
                     e.estado_nome
-                    FROM Gg_motoristas m
-                    join Gg_prefeituras p on (p.prefeituras_id = m.prefeituras_id )
+                    FROM Gg_responsaveis r
+                    join Gg_prefeituras p on (p.prefeituras_id = r.prefeituras_id )
                     JOIN Gg_estados     e on (e.estados_id     = p.estados_id     )
-                    WHERE m.motoristas_id = '.$motoristas_id;
+                    WHERE r.responsaveis_id = '.$responsaveis_id;
             
             if ($res = $db->rst($sql)) {
                 foreach ($res as $stmt) {
-                    $motorista_nome = $stmt['motorista_nome'];
-                    $motorista_cpf  = $stmt['motorista_cpf'];
-                    $motorista_categoria = $stmt['motorista_categoria'];
-                    $motorista_telefone= $stmt['motorista_telefone'];
+                    $responsavel_nome = $stmt['responsavel_nome'];
+                    $responsavel_cpf  = $stmt['responsavel_cpf'];
+                    $responsavel_telefone = $stmt['responsavel_telefone'];
+                    $responsavel_funcao = $stmt['funcao'];
                     $prefeitura_nome = $stmt['prefeitura_nome'];
                     $prefeitura_endereco= $stmt['prefeitura_endereco'];
                     $prefeitura_numero=$stmt['prefeitura_numero'];
@@ -233,7 +233,7 @@ class Gg_motoristasController extends Controller
                 $htm = '<html>
                         <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <title>relatório de Motorista</title>
+                        <title>relatório de Responsável</title>
                         <style>
                                 table {
                                         font-size: 16px;
@@ -255,7 +255,7 @@ class Gg_motoristasController extends Controller
                             </div>
                         <div style="float: left; width:100%">
                                 <hr />
-                                    <h1 align="center">Motorista '.$motorista_nome.'</h1>
+                                    <h1 align="center">Responsável '.$responsavel_nome.'</h1>
 				<hr />
                          
                             <table width="100%" style="font-size:16px; line-height:30px;">
@@ -264,32 +264,32 @@ class Gg_motoristasController extends Controller
                                     <td><strong>Código</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$motoristas_id.'</td>
+                                    <td>'.$responsaveis_id.'</td>
                                   </tr>      
                                   <tr>
                                     <td><strong>Nome</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$motorista_nome.'</td>
+                                    <td>'.$responsavel_nome.'</td>
                                   </tr>
                                   <tr>
                                     <td><strong>CPF</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$motorista_cpf.'</td>
+                                    <td>'.$responsavel_cpf.'</td>
                                   </tr>
                                   <tr>
                                     <td><strong>Categoria da CNH </strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$motorista_categoria.'</td>
-                                  </tr>
-                                  <tr>
                                     <td><strong>Telefone</strong></td>
                                   </tr>
                                   <tr>
-                                    <td>'.$motorista_telefone.'</td>
+                                    <td>'.$responsavel_telefone.'</td>
                                   </tr>
+                                  <tr>
+                                    <td>'.$responsavel_funcao.'</td>
+                                  </tr>                                  
                                 </tbody>  
                             </table>
                         </div>
