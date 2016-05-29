@@ -32,6 +32,17 @@ $('#viagens').click(function(){
     }
 	return false;
 });
+
+$('#obras').click(function(){
+    if (document.getElementById('div-obras').style.display === 'none') {
+        $('#div-obras').show('slow');
+        var deslocamento = $('#div-obras').offset().top;
+        $('html, body').animate({ scrollTop: deslocamento }, 'slow');
+    } else {
+        $('#div-obras').hide('slow');
+    }
+	return false;
+});
 ");
 
 ?>
@@ -58,6 +69,9 @@ $('#viagens').click(function(){
                     <?php endif; ?>
                     <a href="#" id="viagens" class="btn btn-app">
                         <i class="fa fa-truck"></i> Controle de Frota
+                    </a>
+                    <a href="#" id="obras" class="btn btn-app">
+                        <i class="fa fa-building"></i> Controle de Obra
                     </a>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
@@ -87,10 +101,7 @@ $('#viagens').click(function(){
                         </a>
                         <a href="<?php echo $this->createUrl('gg_motoristas/admin') ?>" class="btn btn-app">
                             <i class="fa fa-male"></i> Motoristas
-                        </a>
-                        <a href="<?php echo $this->createUrl('gg_responsaveis/admin') ?>" class="btn btn-app">
-                            <i class="fa fa-briefcase"></i> Responsáveis
-                        </a>
+                        </a>                        
                     <?php endif; //fim dos menus administrativos ?>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
@@ -98,7 +109,7 @@ $('#viagens').click(function(){
         
         <div class="row" id="div-viagens" style="display: none">         
             <div class="col-md-12 career-head">
-                <h1 class="wow fadeIn">Viagens</h1>
+                <h1 class="wow fadeIn">Controle de Frota</h1>
             </div>
             <hr>
             <div class="box wow fadeIn">
@@ -115,6 +126,23 @@ $('#viagens').click(function(){
                     <a href="<?php echo $this->createUrl('gg_manut_agenda/admin') ?>" class="btn btn-app">
                         <span class="badge bg-red"><?php echo SiteController::getQuantidadeAgenda(Yii::app()->session['active_prefeituras_id']) ?></span>
                         <i class="fa fa-calendar"></i> Agenda de Manutenções
+                    </a>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+        
+        <div class="row" id="div-obras" style="display: none">         
+            <div class="col-md-12 career-head">
+                <h1 class="wow fadeIn">Controle de Obra</h1>
+            </div>
+            <hr>
+            <div class="box wow fadeIn">
+                <div class="box-body">
+                    <a href="<?php echo $this->createUrl('gg_responsaveis/admin') ?>" class="btn btn-app">
+                            <i class="fa fa-briefcase"></i> Responsáveis
+                    </a>
+                    <a href="<?php echo $this->createUrl('gg_obras/admin') ?>" class="btn btn-app">
+                        <i class="fa fa-building-o"></i> Obras
                     </a>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

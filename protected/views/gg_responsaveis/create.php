@@ -13,7 +13,7 @@ $this->setPageTitle('Cadastro de Responsável');
 ?>
 
 <div class="bs-docs-section mar-b-30">
-    <h1>Responsáveis</h1>
+    <h1>Responsável</h1>
 
     <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 
