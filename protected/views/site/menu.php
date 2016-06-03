@@ -144,6 +144,9 @@ $('#obras').click(function(){
                     <a href="<?php echo $this->createUrl('gg_obras/admin') ?>" class="btn btn-app">
                         <i class="fa fa-building-o"></i> Obras
                     </a>
+                    <a href="<?php echo $this->createUrl('gg_etapas/admin') ?>" class="btn btn-app">
+                        <i class="fa fa-check-square-o"></i> Etapas
+                    </a>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>

@@ -165,7 +165,7 @@ class Gg_obrasController extends Controller
 			if(isset($_GET['id']))
 				$this->_model=Gg_obras::model()->findbyPk($_GET['id']);
 			if($this->_model===null)
-				throw new CHttpException(404,'The requested page does not exist.');
+				throw new CHttpException(404,'A página que você está procurando não existe.');
 		}
 		return $this->_model;
 	}

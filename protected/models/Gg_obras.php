@@ -73,6 +73,7 @@ class Gg_obras extends CActiveRecord
 		return array(
 			'obras_id' => 'Obra',
 			'responsaveis_id' => 'Responsável',
+                        'responsavel.responsavel_nome' => 'Responsável',
 			'obra_nome' => 'Obra',
 			'obra_descricao' => 'Descricao',
 			'obra_local' => 'Local',
