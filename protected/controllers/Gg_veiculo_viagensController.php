@@ -101,6 +101,7 @@ class Gg_veiculo_viagensController extends Controller
 		{
 			$model->attributes=$_POST['Gg_veiculo_viagens'];
 			if($model->save())
+                        {    
                                 if($model->quilometragem_chegada > $model->quilometragem_saida)
                                 {
                                     //Atualiza a quilometragem do veículo
@@ -148,6 +149,7 @@ class Gg_veiculo_viagensController extends Controller
                                     }
                                 }        
 				$this->redirect(array('view','id'=>$model->viagens_id));
+                        }        
 		}
 
 		$this->render('update',array(

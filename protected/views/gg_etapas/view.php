@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
         array('label'=>'Cadastrar Nova Etapa', 'url'=>array('create')),
-	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->obras_id)),
+	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->etapas_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->etapas_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->etapas_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro desta etapa?'))),
 	array('label'=>'Lista de Etapas', 'url'=>array('admin')),
 );
@@ -21,7 +21,7 @@ $this->setPageTitle('Etapa');
 		'etapas_id',
 		'obra.obra_nome',
 		'responsavel.responsavel_nome',
-		'etapa_descicao',
+		'etapa_descricao',
 		'etapa_data_inicial',
 		'etapa_data_final',
 		'etapa_saldo',

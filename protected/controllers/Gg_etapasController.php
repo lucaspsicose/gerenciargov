@@ -78,7 +78,89 @@ class Gg_etapasController extends Controller
 		{
 			$model->attributes=$_POST['Gg_etapas'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->etapas_id));
+                        {
+                            $db = new DbExt();
+                            $sql = 'SELECT 
+                                    o.obra_qte_etapa
+                                    FROM Gg_obras o 
+                                    WHERE o.obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                    
+                                $obra_qte_etapa = $stmt['obra_qte_etapa'];
+                                $obra_qte_etapa = $obra_qte_etapa + 1;
+                                $obra_porc_etapa = 100/$obra_qte_etapa;
+                                
+                                $sql2 = 'update Gg_obras set obra_qte_etapa = '.$obra_qte_etapa.','
+                                    . ' obra_porc_etapa = '.$obra_porc_etapa
+                                    . ' where obras_id = '.$model->obras_id;
+                                    
+                                $db->qry($sql2); 
+                            }
+                            
+                            if($model->etapa_status == 'Em Andamento')
+                            {
+                                $db = new DbExt();
+                                $params['etapa_concluido']  = '50';
+                                $db->updateData('Gg_etapas', $params, 'etapas_id', $model->etapas_id);
+                            }
+                            else if($model->etapa_status == 'Concluída')
+                            {
+                                $db = new DbExt();
+                                $params['etapa_concluido']  = '100';
+                                $db->updateData('Gg_etapas', $params, 'etapas_id', $model->etapas_id);
+                                
+                            }
+                            
+                            $sql = 'select count(etapas_id) as andamento '
+                                    . 'from Gg_etapas '
+                                    . 'where etapa_concluido = 50 '
+                                    . 'and obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                
+                                $etapa_andamento = $stmt['andamento'];
+                               
+                                $obra_concluido = $etapa_andamento * ($obra_porc_etapa / 2);
+                               
+                            }
+                            
+                            $sql = 'select count(etapas_id) as concluido '
+                                    . 'from Gg_etapas '
+                                    . 'where etapa_concluido = 100 '
+                                    . 'and obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                
+                                $etapa_concluido = $stmt['concluido'];
+                               
+                                $obra_concluido = $obra_concluido + ($etapa_concluido * $obra_porc_etapa);
+                                
+                                if($obra_concluido < 100)
+                                {
+                                    $params2['obra_concluido'] = $obra_concluido;
+                               
+                                    $db->updateData('Gg_obras', $params2, 'obras_id', $model->obras_id);
+                                }
+                                else{
+                                    $obra_concluido = '100';
+                                    
+                                    $sql = 'update Gg_obras set obra_concluido = '.$obra_concluido.','
+                                    . 'status_obra = \'Concluída\' '
+                                    . 'where obras_id = '.$model->obras_id;
+                                    
+                                    $db->qry($sql); 
+                                }
+                                
+                               
+                            }
+                            
+                            $this->redirect(array('view','id'=>$model->etapas_id));
+                        }    
+				
 		}
 
 		$this->render('create',array(
@@ -101,7 +183,82 @@ class Gg_etapasController extends Controller
 		{
 			$model->attributes=$_POST['Gg_etapas'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->etapas_id));
+                        {
+                            $db = new DbExt();
+                            $sql = 'SELECT 
+                                    o.obra_qte_etapa
+                                    FROM Gg_obras o 
+                                    WHERE o.obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                    
+                                $obra_qte_etapa = $stmt['obra_qte_etapa'];
+                                $obra_porc_etapa = 100/$obra_qte_etapa;
+                                
+                            }                                    
+                            
+                            if($model->etapa_status == 'Em Andamento')
+                            {
+                                $db = new DbExt();
+                                $params['etapa_concluido']  = '50';
+                                $db->updateData('Gg_etapas', $params, 'etapas_id', $model->etapas_id);
+                            }
+                            else if($model->etapa_status == 'Concluída')
+                            {
+                                $db = new DbExt();
+                                $params['etapa_concluido']  = '100';
+                                $db->updateData('Gg_etapas', $params, 'etapas_id', $model->etapas_id);
+                                
+                            }
+                            
+                            $sql = 'select count(etapas_id) as andamento '
+                                    . 'from Gg_etapas '
+                                    . 'where etapa_concluido = 50 '
+                                    . 'and obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                
+                                $etapa_andamento = $stmt['andamento'];
+                               
+                                $obra_concluido = $etapa_andamento * ($obra_porc_etapa / 2);
+                            }
+                            
+                            $sql = 'select count(etapas_id) as concluido '
+                                    . 'from Gg_etapas '
+                                    . 'where etapa_concluido = 100 '
+                                    . 'and obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                
+                                $etapa_concluido = $stmt['concluido'];
+                               
+                                $obra_concluido = $obra_concluido + ($etapa_concluido * $obra_porc_etapa);
+                                
+                                if($obra_concluido < 100)
+                                {
+                                    $params2['obra_concluido'] = $obra_concluido;
+                               
+                                    $db->updateData('Gg_obras', $params2, 'obras_id', $model->obras_id);
+                                }
+                                else{
+                                    $obra_concluido = '100';
+                                    
+                                    $sql = 'update Gg_obras set obra_concluido = '.$obra_concluido.','
+                                    . 'status_obra = \'Concluída\''
+                                    . 'where obras_id = '.$model->obras_id;
+                                    
+                                    $db->qry($sql);
+                                }
+                                
+                               
+                            }
+                            
+                            $this->redirect(array('view','id'=>$model->etapas_id));
+                        }    
+				
 		}
 
 		$this->render('update',array(
@@ -115,14 +272,81 @@ class Gg_etapasController extends Controller
 	 */
 	public function actionDelete()
 	{
+                $model=$this->loadModel();
 		if(!Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
 			$this->loadModel()->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(array('admin'));
+                        if(!isset($_GET['ajax'])){
+                            $db = new DbExt();
+                            $sql = 'SELECT 
+                                    o.obra_qte_etapa
+                                    FROM Gg_obras o 
+                                    WHERE o.obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                    
+                                $obra_qte_etapa = $stmt['obra_qte_etapa'];
+                                $obra_qte_etapa = $obra_qte_etapa - 1;
+                                $obra_porc_etapa = 100/$obra_qte_etapa;
+                                
+                                $sql2 = 'update Gg_obras set obra_qte_etapa = '.$obra_qte_etapa.','
+                                    . ' obra_porc_etapa = '.$obra_porc_etapa
+                                    . ' where obras_id = '.$model->obras_id;
+                                    
+                                $db->qry($sql2); 
+                            }
+                                                                                    
+                            $sql = 'select count(etapas_id) as andamento '
+                                    . 'from Gg_etapas '
+                                    . 'where etapa_concluido = 50 '
+                                    . 'and obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                
+                                $etapa_andamento = $stmt['andamento'];
+                               
+                                $obra_concluido = $etapa_andamento * ($obra_porc_etapa / 2);
+                               
+                            }
+                            
+                            $sql = 'select count(etapas_id) as concluido '
+                                    . 'from Gg_etapas '
+                                    . 'where etapa_concluido = 100 '
+                                    . 'and obras_id = '.$model->obras_id;
+                            
+                            if ($res = $db->rst($sql)) {
+                                foreach ($res as $stmt)
+                                
+                                $etapa_concluido = $stmt['concluido'];
+                               
+                                $obra_concluido = $obra_concluido + ($etapa_concluido * $obra_porc_etapa);
+                                
+                                if($obra_concluido < 100)
+                                {
+                                    $params['obra_concluido'] = $obra_concluido;
+                               
+                                    $db->updateData('Gg_obras', $params, 'obras_id', $model->obras_id);
+                                }
+                                else{
+                                    $obra_concluido = '100';
+                                    
+                                    $sql = 'update Gg_obras set obra_concluido = '.$obra_concluido.','
+                                    . 'status_obra = \'Concluída\' '
+                                    . 'where obras_id = '.$model->obras_id;
+                                    
+                                    $db->qry($sql); 
+                                }
+                                
+                               
+                            }
+                            $this->redirect(array('admin'));
+                        }
+				
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
@@ -182,4 +406,97 @@ class Gg_etapasController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionImprimir() {
+            if (isset($_GET['id'])) {
+                $model = Gg_etapas::model()->findByPk($_GET['id']);
+                $txt = $this->renderPartial('view', array('model' => $model), true);
+                $etapas_id = $_GET['id'];
+                $html2pdf = Yii::app()->ePdf->HTML2PDF();
+                $txt      = $this->geraHMTLEtapa($etapas_id);
+                $html2pdf->WriteHTML($txt);                
+                $html2pdf->Output();
+            }
+        }
+        
+        public function  geraHMTLEtapa($etapas_id = '') 
+        {   
+            $db = new DbExt();
+            
+            $html = Yii::app()->functions->getCabecalhoRelatorios(); 
+            
+            $sql = 'SELECT r.responsavel_nome,
+                o.obra_nome,
+                e.etapa_descricao, 
+                e.etapa_data_inicial,
+                e.etapa_data_final,
+                e.etapa_saldo,
+                e.etapa_status,
+                e.etapa_concluido
+                FROM Gg_etapas e 
+                join Gg_responsaveis r on (r.responsaveis_id = e.responsaveis_id)
+                join Gg_obras o on (o.obras_id = e.obras_id)
+                WHERE e.etapas_id = '.$etapas_id;
+            
+            if ($res = $db->rst($sql)) {
+                foreach ($res as $stmt) {
+                    $responsavel_nome     = $stmt['responsavel_nome'];
+                    $obra_nome            = $stmt['obra_nome'];
+                    $etapa_descricao      = $stmt['etapa_descricao'];
+                    $etapa_data_inicial   = $stmt['etapa_data_inicial'];
+                    $etapa_data_final     = $stmt['etapa_data_final'];
+                    $etapa_saldo          = $stmt['etapa_saldo'];
+                    $etapa_status         = $stmt['etapa_status'];
+                    $etapa_concluido      = $stmt['etapa_concluido'];
+                }
+            
+                $html .= '<div style="float: left; width:100%">
+                                <hr />
+                                    <h1 align="center">Etapa #'.$etapas_id.'</h1>
+				<hr />
+                         
+                            <table width="100%" style="font-size:16px; line-height:30px;">
+                                <tbody>
+                                  <tr>
+                                    <td><strong>Obra</strong></td>
+                                    <td><strong>Responsável</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.substr($obra_nome, 0, 61).'</td>
+                                    <td>'.substr($responsavel_nome, 0, 61).'</td>    
+                                  </tr>      
+                                  <tr>
+                                    <td colspan="2"><strong>Descrição</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="2">'.$etapa_descricao.'</td>
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Data de Início</strong></td>
+                                    <td><strong>Data de Término</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.date('d/m/Y', strtotime($etapa_data_inicial)).'</td>
+                                    <td>'.date('d/m/Y', strtotime($etapa_data_final)).'</td>    
+                                  </tr>
+                                  <tr>
+                                    <td><strong>Saldo (R$)</strong></td>
+                                    <td><strong>Status</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>'.$etapa_saldo.'</td>
+                                    <td>'.$etapa_status.'</td>    
+                                  </tr>
+                                </tbody>  
+                            </table>
+                        </div>
+                        </div>
+                        </body>
+                        </html>';
+            } 
+            
+            return $html;
+        }
 }
+
+

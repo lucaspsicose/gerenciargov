@@ -12,8 +12,8 @@
 	<?php echo CHtml::encode($data->responsaveis_id); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('etapa_descicao')); ?>:</b>
-	<?php echo CHtml::encode($data->etapa_descicao); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('etapa_descricao')); ?>:</b>
+	<?php echo CHtml::encode($data->etapa_descricao); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('etapa_data_inicial')); ?>:</b>

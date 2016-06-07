@@ -7,6 +7,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Cadastrar Novo Responsável', 'url'=>array('create')),
 	array('label'=>'Lista de Responsáveis', 'url'=>array('admin')),
+        array('label'=>'Obras', 'url'=>array('gg_obras/admin')),
 );
 
 $this->setPageTitle('Cadastro de Responsável');

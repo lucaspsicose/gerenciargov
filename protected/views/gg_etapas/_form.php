@@ -24,9 +24,9 @@
             </div>
         </div>
         <div class="form-group field-control">
-		<?php echo $form->labelEx($model,'etapa_descicao'); ?>
-		<?php echo $form->textArea($model,'etapa_descicao',array('size'=>60,'maxlength'=>2000,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'etapa_descicao'); ?>
+		<?php echo $form->labelEx($model,'etapa_descricao'); ?>
+		<?php echo $form->textArea($model,'etapa_descricao',array('size'=>60,'maxlength'=>2000,'class'=>'form-control')); ?>
+		<?php echo $form->error($model,'etapa_descricao'); ?>
 	</div>
         
         <div class="form-group">

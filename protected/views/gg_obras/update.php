@@ -8,6 +8,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
         array('label'=>'Cadastrar Nova Obra', 'url'=>array('create')),
 	array('label'=>'Lista de Obras', 'url'=>array('admin')),
+        array('label'=>'Etapas', 'url'=>array('gg_etapas/admin')),
 );
 $this->setPageTitle('Editar Cadastro');
 ?>

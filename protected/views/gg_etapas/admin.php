@@ -41,7 +41,7 @@ $this->setPageTitle('Etapas');
 		'etapas_id',
 		'obra.obra_nome',
 		'responsavel.responsavel_nome',
-		'etapa_descicao',
+		'etapa_descricao',
 		'etapa_data_inicial',
 		'etapa_data_final',
 		'etapa_saldo',

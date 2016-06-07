@@ -56,6 +56,26 @@
 		<?php echo $form->error($model,'obra_prev_final'); ?>
             </div>
         </div>
+        
+        <div class="form-group">
+            <div class="col-md-6">
+		<?php echo $form->labelEx($model,'obra_data_inicial'); ?>
+		<?php echo $form->dateField($model,'obra_data_inicial',array('class'=>'form-control')); ?>
+		<?php echo $form->error($model,'obra_data_inicial'); ?>
+            </div>
+
+            <div class="col-md-6">
+		<?php echo $form->labelEx($model,'obra_data_final'); ?>
+		<?php echo $form->dateField($model,'obra_data_final',array('class'=>'form-control')); ?>
+		<?php echo $form->error($model,'obra_data_final'); ?>
+            </div>
+        </div>
+        
+        <div class="form-group field-control">
+		<?php echo $form->labelEx($model,'obra_saldo'); ?>
+		<?php echo $form->textField($model,'obra_saldo',array('size'=>12,'maxlength'=>12,'class'=>'form-control')); ?>
+		<?php echo $form->error($model,'obra_saldo'); ?>
+	</div>
 
 	<div class="form-group row buttons">
             <?php echo CHtml::submitButton($model->isNewRecord ? 'Inserir' : 'Salvar', array('class'=>'btn btn-info')); ?>

@@ -9,6 +9,7 @@ $this->menu=array(
 	array('label'=>'Editar Cadastro', 'url'=>array('update', 'id'=>$model->obras_id)),
 	array('label'=>'Deletar Cadastro', 'url'=>array('delete', 'id'=>$model->obras_id), 'linkOptions'=>array('submit'=>array('item/delete','id'=>$model->obras_id),'confirm'=>Yii::t('zii','Confirma deletar o cadastro desta Obra?'))),
 	array('label'=>'Lista de Obras', 'url'=>array('admin')),
+        array('label'=>'Etapas', 'url'=>array('gg_etapas/admin')),
 );
 $this->setPageTitle('Obra');
 ?>

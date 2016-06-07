@@ -7,7 +7,7 @@
  * @property integer $etapas_id
  * @property integer $obras_id
  * @property integer $responsaveis_id
- * @property string $etapa_descicao
+ * @property string $etapa_descricao
  * @property string $etapa_data_inicial
  * @property string $etapa_data_final
  * @property string $etapa_saldo
@@ -33,15 +33,15 @@ class Gg_etapas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('obras_id, responsaveis_id, etapa_descicao, etapa_data_inicial, etapa_status, prefeituras_id', 'required'),
+			array('obras_id, responsaveis_id, etapa_descricao, etapa_data_inicial, etapa_status, prefeituras_id', 'required'),
 			array('obras_id, responsaveis_id, prefeituras_id', 'numerical', 'integerOnly'=>true),
-			array('etapa_descicao', 'length', 'max'=>2000),
+			array('etapa_descricao', 'length', 'max'=>2000),
 			array('etapa_saldo, etapa_status', 'length', 'max'=>12),
 			array('etapa_concluido', 'length', 'max'=>6),
 			array('etapa_data_final', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('etapas_id, obras_id, responsaveis_id, etapa_descicao, etapa_data_inicial, etapa_data_final, etapa_saldo, etapa_status, etapa_concluido, prefeituras_id', 'safe', 'on'=>'search'),
+			array('etapas_id, obras_id, responsaveis_id, etapa_descricao, etapa_data_inicial, etapa_data_final, etapa_saldo, etapa_status, etapa_concluido, prefeituras_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,7 +70,7 @@ class Gg_etapas extends CActiveRecord
                         'obra.obra_nome' => 'Obra',
 			'responsaveis_id' => 'Responsável',
                         'responsavel.responsavel_nome' => 'Responsável',
-			'etapa_descicao' => 'Descrição',
+			'etapa_descricao' => 'Descrição',
 			'etapa_data_inicial' => 'Data de Início',
 			'etapa_data_final' => 'Data de Término',
 			'etapa_saldo' => 'Saldo (R$)',
@@ -104,7 +104,7 @@ class Gg_etapas extends CActiveRecord
 
 		$criteria->compare('responsaveis_id',$this->responsaveis_id);
 
-		$criteria->compare('etapa_descicao',$this->etapa_descicao,true);
+		$criteria->compare('etapa_descricao',$this->etapa_descricao,true);
 
 		$criteria->compare('etapa_data_inicial',$this->etapa_data_inicial,true);
 
